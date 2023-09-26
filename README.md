@@ -25,7 +25,7 @@ Para mais detalhes da nossa solução e do nosso processo para chegar até ela, 
 
 # 🤝 Equipe Eden
 
-Somos estudantes de ciência da computação e design do 3º período da instituição CeESAR School. Escolhemos o nome "Eden" para homenagear o primeiro cinema do mundo, "The Eden Theatre", localizado em uma comuna francesa, La Ciotat, sendo o cinema mais antigo em funcionamento.
+Somos estudantes de ciência da computação e design do 3º período da instituição CESAR School. Escolhemos o nome "Eden" para homenagear o primeiro cinema do mundo, "The Eden Theatre", localizado em uma comuna francesa, La Ciotat, sendo o cinema mais antigo em funcionamento.
 <br></br>
 
 ## 💻 Desenvolvedores:
