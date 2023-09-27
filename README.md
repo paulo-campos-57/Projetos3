@@ -51,7 +51,7 @@ Somos estudantes de ciência da computação e design do 3º período da institu
       <a href="https://github.com/MatheusGom">
         <img src="https://avatars.githubusercontent.com/u/117746778?v=4" width="100px;" alt="Foto Matheus Gomes"/><br>
         <sub>
-          <b>Matheus Gomes</b>
+          <b>Maatheus Gomes</b>
         </sub>
       </a>
     </td>
