@@ -19,8 +19,9 @@ Para mais detalhes da nossa solução e do nosso processo para chegar até ela, 
 
 # 💾 Tecnologias Utilizadas
 
-- <b>Linguagem de Programação:</b> JAVA.
-- <b>IDE:</b> Eclipse
+- <b>Linguagem de Programação:</b> Python, HTML, CSS e JavaScript
+- <b>Framework:</b> Django
+- <b>IDE:</b> VS Code
 - <b>Toolkits:</b> ...
 
 # 🤝 Equipe Eden
