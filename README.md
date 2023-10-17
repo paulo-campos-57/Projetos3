@@ -19,7 +19,7 @@ Para mais detalhes da nossa solução e do nosso processo para chegar até ela, 
 
 # 💾 Tecnologias Utilizadas
 
-- <b>Linguagem de Programação:</b> Python, HTML, CSS e JavaScript
+- <b>Ferramentas:</b> Python, HTML, CSS e JavaScript
 - <b>Framework:</b> Django
 - <b>IDE:</b> VS Code
 - <b>Toolkits:</b> ...
