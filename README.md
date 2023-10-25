@@ -24,7 +24,7 @@ Para mais detalhes da nossa solução e do nosso processo para chegar até ela, 
 - <b>IDE:</b> VS Code
 - <b>Toolkits:</b> ...
 
-# 🤝 Equipe Eden
+# 🤝 Equipe EDEN
 
 Somos estudantes de ciência da computação e design do 3º período da instituição CESAR School. Escolhemos o nome "Eden" para homenagear o primeiro cinema do mundo, "The Eden Theatre", localizado em uma comuna francesa, La Ciotat, sendo o cinema mais antigo em funcionamento.
 <br></br>
