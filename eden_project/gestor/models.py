@@ -11,7 +11,7 @@ class Midia(models.Model):
     )
 
     titulo = models.CharField(max_length=100)
-    user = models.ForeignKey(User, related_name='user_list', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name='user_list_midia', on_delete=models.CASCADE)
     descricao = models.TextField(default="Escreva sua descrição", max_length= 150, blank= True)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='analise')
     dataPostagem = models.DateTimeField(auto_now_add=True)
@@ -36,9 +36,14 @@ class PerfilColaborador(models.Model):
     )
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    cargo = models.CharField(max_length=10, choices=STATUS_CHOICES, default='analise')
+    cargo = models.CharField(max_length=10, choices=CARGO_CHOICES, default='analise')
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='analise')
-    atividade = models.BooleanField(default="True")
+    atividade = models.BooleanField(default="False")
 
     def __str__(self):
         return self.user
+    
+class UserHistorico(models.Model):
+    user = models.ForeignKey(User, related_name='user_list_historico', on_delete=models.CASCADE)
+    midia = models.ForeignKey(Midia, related_name='midia_list_historico', on_delete=models.CASCADE)
+    concluido = models.BooleanField(default="False")
