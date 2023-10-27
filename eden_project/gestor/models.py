@@ -47,3 +47,4 @@ class UserHistorico(models.Model):
     user = models.ForeignKey(User, related_name='user_list_historico', on_delete=models.CASCADE)
     midia = models.ForeignKey(Midia, related_name='midia_list_historico', on_delete=models.CASCADE)
     concluido = models.BooleanField(default="False")
+
