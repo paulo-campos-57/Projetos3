@@ -12,11 +12,11 @@ class Midia(models.Model):
 
     titulo = models.CharField(max_length=100)
     user = models.ForeignKey(User, related_name='user_list_midia', on_delete=models.CASCADE)
-    descricao = models.TextField(default="Escreva sua descrição", max_length= 150, blank= True)
+    descricao = models.TextField(default="Escreva sua descrição", max_length= 150, blank= False)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='analise')
     dataPostagem = models.DateTimeField(auto_now_add=True)
-    ## argMidia
-    ## arqCartaz
+    argMidia = models.ImageField(upload_to="arqmidia/%Y/%m/%d/", blank=True, null=True)
+    arqCartaz = models.ImageField(upload_to="arqcartaz/%Y/%m/%d/", blank=True , null=True)
 
     def __str__(self):
         return self.titulo
@@ -41,7 +41,7 @@ class PerfilColaborador(models.Model):
     atividade = models.BooleanField(default="False")
 
     def __str__(self):
-        return self.user
+        return self.user.username
     
 class UserHistorico(models.Model):
     user = models.ForeignKey(User, related_name='user_list_historico', on_delete=models.CASCADE)

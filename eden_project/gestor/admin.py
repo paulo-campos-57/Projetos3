@@ -10,7 +10,7 @@ class ListandoMidia(admin.ModelAdmin):
 admin.site.register(Midia, ListandoMidia)
 
 class ListandoPerfilColaborador(admin.ModelAdmin):
-    list_display = ("id", "user", "cargos", "status","atividade")
+    list_display = ("id", "user", "cargo", "status","atividade")
     list_display_links =("id", "user")
     search_fields = ("user",)
 
