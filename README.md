@@ -24,6 +24,43 @@ Para mais detalhes da nossa solução e do nosso processo para chegar até ela, 
 - <b>IDE:</b> VS Code
 - <b>Toolkits:</b> ...
 
+# ☕ Usando NOME DA SOLUCAO
+
+Para usar NOME DA SOLUCAO, siga estas etapas:
+
+- Instalar a Aplicação no seu Computador:
+```
+1. O usuário deverá criar uma pasta em seu computador com um nome informativo da aplicação, como "Aplicação NOME DA SOLUCAO".
+2. O usuário então deverá apertar com o botão direito do mouse dentro da pasta e abrir o terminal da pasta.
+3. Após isso, ele deverá inserir no terminal o comando "git clone https://github.com/paulo-campos-57/Projetos3".
+4. O usuário então abrirá o seu Visual Studio Code na versão certa e com as extensões baixadas, e apertará no botão "File".
+5. Após isso, ele deverá navegar até "Open Folder", escolhendo a pasta que ele nomeou e aplicou o git clone.
+6. O usuário deverá clicar com o botão direito do mouse em "eden_project" e escolher a opção "Open in Integrated Terminal".
+
+```
+
+- Comandos para Instalação Libs Necessárias no Requirements.txt:
+```
+1. pip install -r requirements.txt
+```
+
+- Comandos para Utilização da Aplicação Local:
+```
+1. python manage.py makemigrations
+1. python manage.py migrate
+3. python manage.py runserver
+```
+
+
+- Comandos para Contribuição:
+```
+1. git pull
+2. git add .
+3. git status
+4. git commit -m "Inserir Mensagem"
+5. git push
+```
+
 # 🤝 Equipe EDEN
 
 Somos estudantes de ciência da computação e design do 3º período da instituição CESAR School. Escolhemos o nome "Eden" para homenagear o primeiro cinema do mundo, "The Eden Theatre", localizado em uma comuna francesa, La Ciotat, sendo o cinema mais antigo em funcionamento.
