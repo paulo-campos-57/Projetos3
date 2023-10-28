@@ -78,6 +78,7 @@ Para usar LUMI, siga estas etapas:<br>
     python manage.py migrate
 
 </dt>
+<br>
 
 ### LUMI na WEB e interface Admin!
 10. Usando o seguinte comando, podemos finalmente desfrutar do LUMI!
@@ -88,8 +89,12 @@ Para usar LUMI, siga estas etapas:<br>
 </dt>
 <sub>***OBS2.: É importante lembrar que o LUMI atualmente funciona em hosts locais!***</sub>
 <br>
-- Caso deseje conferir o funcionamento do SQLite na interface oferecida pelo Django, siga próximo passo a passo a seguir
 <br>
+
+- Caso deseje conferir o funcionamento do SQLite na interface oferecida pelo Django, siga próximo passo a passo a seguir
+
+<br>
+
 11. Clique com o botão esquerdo dentro do terminal onde o LUMI está sendo executado e pressione "ctrl+c" para parar a execução do site.
 12. Utilize o comando a seguir para criar um usuário admin Django (este perfil é apenas local, utilizado comumente no Django para testes):
 <dt> 
