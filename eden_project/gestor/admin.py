@@ -36,3 +36,8 @@ class ListandoReportes(admin.ModelAdmin):
     search_fields = ("idFormulario",)
 
 admin.site.register(FormularioReporte, ListandoReportes)
+
+class ListandoSuportes(admin.ModelAdmin):
+    list_display = ("id", "user", "texto")
+    list_display_links = ("texto",)
+    search_fields = ("user",)

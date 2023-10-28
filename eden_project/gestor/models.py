@@ -75,3 +75,11 @@ class FormularioReporte(models.Model):
 
     def __str__(self):
         return self.texto
+
+class FormularioSuporte(models.Model):
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_suporte', blank=False)
+    texto = models.CharField(default="Informe a sua mensagem", max_length=500, blank=False)
+
+    def __str__(self):
+        return self.texto
