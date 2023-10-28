@@ -14,7 +14,12 @@ Para mais detalhes da nossa solução e do nosso processo de desenvolvimento, ve
 
 # ⚙️ Funcionalidades
 
-...
+- <b>Gestão de Cargos dos Colaboradores:</b> É possível conceder diferente cargos a colaboradores que desejam auxiliar em partes do site.
+- <b>Cargos dos Colaboradores:</b> Os cargos disponíveis são os de MasterUser, ReportUser e MidiaUser.
+- <b>Status do Envio de Mídia:</b> Os formulários apresentam três estados (Em_Análise, Aprovado e Reprovado) para ajudar os usuários e colaboradores a terem um melhor controle do processo de aceitação
+- <b>Histórico:</b> Os usuários serão capazes de verem no seu histórico oque assistiram recentemente e se terminaram de assistir.
+- <b>Formulário de Reporte e Suporte:</b> Os usuários serão capazes de verem no seu histórico oque assistiram recentemente e se terminaram de assistir.
+  
 <br></br>
 
 # 💾 Tecnologias Utilizadas
