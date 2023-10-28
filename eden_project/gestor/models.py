@@ -83,3 +83,17 @@ class FormularioSuporte(models.Model):
 
     def __str__(self):
         return self.texto
+    
+class UserFeedback(models.Model):
+    REACAO_CHOICES = (
+    ('Like','like'),
+    ('Dislike','dislike'),
+    ('No_react','no_react'),
+    )
+    reacao=models.CharField(max_length=10, choices=REACAO_CHOICES, default='No_react', blank= False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_feedback', blank=False)
+    midia = models.ForeignKey(Midia, related_name='midia_list_Feedback', on_delete=models.CASCADE)
+    comentario = models.CharField(default="Traga o seu comentario", max_length=1000, blank=False)
+    
+    def __str__(self):
+        return self.texto
