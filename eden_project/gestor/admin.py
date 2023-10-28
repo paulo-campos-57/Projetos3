@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import PerfilColaborador, Midia, UserHistorico, Mensagens
+from .models import PerfilColaborador, Midia, UserHistorico, Mensagens, FormularioReporte
 
 # Register your models here.
 class ListandoMidia(admin.ModelAdmin):
@@ -29,3 +29,10 @@ class ListandoMensagens(admin.ModelAdmin):
     search_fields = ("user__username", "contexto")
 
 admin.site.register(Mensagens, ListandoMensagens)
+
+class ListandoReportes(admin.ModelAdmin):
+    list_display = ("user", "idFormulario", "texto", "arqMidia")
+    list_display_links = ("texto",)
+    search_fields = ("idFormulario",)
+
+admin.site.register(FormularioReporte, ListandoReportes)

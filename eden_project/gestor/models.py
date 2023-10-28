@@ -15,7 +15,7 @@ class Midia(models.Model):
     descricao = models.TextField(default="Escreva sua descrição", max_length= 150, blank= False)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='analise')
     dataPostagem = models.DateTimeField(auto_now_add=True)
-    argMidia = models.ImageField(upload_to="arqmidia/%Y/%m/%d/", blank=True, null=True)
+    arqMidia = models.ImageField(upload_to="arqmidia/%Y/%m/%d/", blank=True, null=True) #tava argMidia, coloquei arqMidia
     arqCartaz = models.ImageField(upload_to="arqcartaz/%Y/%m/%d/", blank=True , null=True)
 
     def __str__(self):
@@ -25,7 +25,7 @@ class Midia(models.Model):
 class PerfilColaborador(models.Model):
     CARGO_CHOICES = (
         ('masteruser', 'MasterUser'),
-        ('reportuser', 'ReportUser'),
+        ('reportuser', 'ReportUser'), #nao seria mais adequado a nomenclatura dele ser "SuportUser"?
         ('midiauser', 'MidiaUser'),
     )
 
@@ -50,6 +50,7 @@ class UserHistorico(models.Model):
 
 class Mensagens(models.Model):
     CONTEXTO_CHOICES = (
+    ('notificacao', 'Notificacao'),
     ('pedido_de_cargo', 'Pedido_De_Cargo'),
     ('suporte', 'Suporte'),
     ('reportar', 'Reportar'),
@@ -64,3 +65,13 @@ class Mensagens(models.Model):
 
     def __str__(self):
         return self.mensagem
+
+class FormularioReporte(models.Model):
+    
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='midia', blank= False)
+    texto = models.CharField(default= "Descreva o problema encontrado", max_length=500, blank=False)
+    idFormulario = models.AutoField(primary_key=True, editable=False)
+    arqMidia = models.ImageField(upload_to="arqmidia/%Y/%m/%d/", blank=True, null=True)
+
+    def __str__(self):
+        return self.texto
