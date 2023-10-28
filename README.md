@@ -30,9 +30,8 @@ Para mais detalhes da nossa solução e do nosso processo de desenvolvimento, ve
 <br>
 
 # ☕ Usando LUMI
-
-Para usar LUMI, siga estas etapas:
-
+Para usar LUMI, siga estas etapas:<br>
+<sub>***OBS.: A depender do seu sistema operacional, alguns dos comandos apresentados nessa descrição podem ser diferentes.***</sub>
 ### Instalando a Aplicação no seu Computador:
 
 1. Crie uma pasta no seu computador, é ideal nomeá-la com o nome da aplicação, pois ela receberá o que está aqui no Github!
@@ -49,31 +48,56 @@ Para usar LUMI, siga estas etapas:
 
 <br>
 
- ### Criando um Ambiente Virtual:
+ ### Criando um Ambiente Virtual
+6. Agora, precisamos criar um ambiente virtual para executarmos o LUMI. Utilize o comando indicado abaixo no terminal que abrimos no ponto 5. Quando o processo tiver terminado, uma nova pasta nomeada "venv" será criada no diretório atual.
+<dt> 
+  
+    python -m venv venv
 
-6. 
+</dt>
+7. Ative o ambiente virtual utilizando o comando abaixo. Será possível visualizar do lado direito de seu diretório atual o nome de seu ambiente virtual entre parênteses e verde.
+<dt> 
+  
+    venv/scripts/activate
 
-- Comandos para Instalação Libs Necessárias no Requirements.txt:
-```
-1. pip install -r requirements.txt
-```
+</dt>
+8. Depois de ativar o ambiente, precisaremos instalar as dependências e bibliotecas necessárias para o funcionamento do LUMI. Utilize o comando abaixo:
+<dt> 
+  
+    pip install -r requirements.txt
 
-- Comandos para Utilização da Aplicação Local:
-```
-1. python manage.py makemigrations
-1. python manage.py migrate
-3. python manage.py runserver
-```
+</dt>
+9. Para criação e inicialização correta das tabelas do SQLite, utilizaremos os seguintes comandos separadamente:
+<dt> 
+  
+    python manage.py makemigrations
 
+</dt>
+<dt> 
+  
+    python manage.py migrate
 
-- Comandos para Contribuição:
-```
-1. git pull
-2. git add .
-3. git status
-4. git commit -m "Inserir Mensagem"
-5. git push
-```
+</dt>
+
+### LUMI na WEB e interface Admin!
+10. Usando o seguinte comando, podemos finalmente desfrutar do LUMI!
+<dt> 
+  
+    python manage.py runserver
+
+</dt>
+<sub>***OBS2.: É importante lembrar que o LUMI atualmente funciona em hosts locais!***</sub>
+<br>
+- Caso deseje conferir o funcionamento do SQLite na interface oferecida pelo Django, siga próximo passo a passo a seguir
+<br>
+11. Clique com o botão esquerdo dentro do terminal onde o LUMI está sendo executado e pressione "ctrl+c" para parar a execução do site.
+12. Utilize o comando a seguir para criar um usuário admin Django (este perfil é apenas local, utilizado comumente no Django para testes):
+<dt> 
+  
+    python manage.py createsuperuser
+
+</dt>
+13. Será pedido que você insira um username, um email e a sua senha duas vezes. Quando todos esses passos tiverem sido atendidos, basta rodar o servidor novamente e no fim da url da página, colocar "/admin/" e pressionar enter. Você terá algo como "http://127.0.0.1:8000/admin/". Lá, utilize os dados cadastrados por você para criação do seu super usuário.
 
 # 🤝 Equipe EDEN
 
