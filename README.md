@@ -18,7 +18,7 @@ Para mais detalhes da nossa solução e do nosso processo de desenvolvimento, ve
 - <b>Cargos dos Colaboradores:</b> Os cargos disponíveis são os de MasterUser, ReportUser e MidiaUser.
 - <b>Status do Envio de Mídia:</b> Os formulários apresentam três estados (Em_Análise, Aprovado e Reprovado) para ajudar os usuários e colaboradores a terem um melhor controle do processo de aceitação
 - <b>Histórico:</b> Os usuários serão capazes de verem no seu histórico oque assistiram recentemente e se terminaram de assistir.
-- <b>Formulário de Reporte e Suporte:</b> Os usuários serão capazes de verem no seu histórico oque assistiram recentemente e se terminaram de assistir.
+- <b>Formulário de Reporte e Suporte:</b> Os usuários serão capazes de reportar problemas encontrados nos conteúdos da Libreflix. Também poderão entrar em contato com o time de suporte.
 <br></br>
 
 # 💾 Tecnologias Utilizadas
