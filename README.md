@@ -19,7 +19,6 @@ Para mais detalhes da nossa solução e do nosso processo de desenvolvimento, ve
 - <b>Status do Envio de Mídia:</b> Os formulários apresentam três estados (Em_Análise, Aprovado e Reprovado) para ajudar os usuários e colaboradores a terem um melhor controle do processo de aceitação
 - <b>Histórico:</b> Os usuários serão capazes de verem no seu histórico oque assistiram recentemente e se terminaram de assistir.
 - <b>Formulário de Reporte e Suporte:</b> Os usuários serão capazes de verem no seu histórico oque assistiram recentemente e se terminaram de assistir.
-  
 <br></br>
 
 # 💾 Tecnologias Utilizadas
@@ -34,7 +33,7 @@ Para usar LUMI, siga estas etapas:
 
 - Instalar a Aplicação no seu Computador:
 ```
-1. O usuário deverá criar uma pasta em seu computador com um nome informativo da aplicação, como "Aplicação NOME DA SOLUCAO".
+1. O usuário deverá criar uma pasta em seu computador com um nome informativo da aplicação, como "Aplicação LUMI".
 2. O usuário então deverá apertar com o botão direito do mouse dentro da pasta e abrir o terminal da pasta.
 3. Após isso, ele deverá inserir no terminal o comando "git clone https://github.com/paulo-campos-57/Projetos3".
 4. O usuário então abrirá o seu Visual Studio Code na versão certa e com as extensões baixadas, e apertará no botão "File".
