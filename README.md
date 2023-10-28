@@ -27,20 +27,31 @@ Para mais detalhes da nossa solução e do nosso processo de desenvolvimento, ve
 - <b>Framework:</b> Django
 - <b>IDE:</b> VS Code
 
+<br>
+
 # ☕ Usando LUMI
 
 Para usar LUMI, siga estas etapas:
 
-- Instalar a Aplicação no seu Computador:
-```
-1. O usuário deverá criar uma pasta em seu computador com um nome informativo da aplicação, como "Aplicação LUMI".
-2. O usuário então deverá apertar com o botão direito do mouse dentro da pasta e abrir o terminal da pasta.
-3. Após isso, ele deverá inserir no terminal o comando "git clone https://github.com/paulo-campos-57/Projetos3".
-4. O usuário então abrirá o seu Visual Studio Code na versão certa e com as extensões baixadas, e apertará no botão "File".
-5. Após isso, ele deverá navegar até "Open Folder", escolhendo a pasta que ele nomeou e aplicou o git clone.
-6. O usuário deverá clicar com o botão direito do mouse em "eden_project" e escolher a opção "Open in Integrated Terminal".
+### Instalando a Aplicação no seu Computador:
 
-```
+1. Crie uma pasta no seu computador, é ideal nomeá-la com o nome da aplicação, pois ela receberá o que está aqui no Github!
+2. Com o botão direito do mouse, clique na pasta e selecione a opção "Abrir Terminal"
+3. No terminal, copie e cole o seguinte comando e pressione enter
+<dt> 
+  
+    git clone https://github.com/paulo-campos-57/Projetos3
+
+</dt>
+
+4. Após isso, abra uma IDE Python de sua preferência a pasta que recebeu os arquivos do LUMI nela
+5. Agora, precisamos abrir o terminal da IDE dentro da pasta "eden_projects" mais externa. Clicando com o botão direito nela, selecione a opção "Abrir Terminal Integrado"
+
+<br>
+
+ ### Criando um Ambiente Virtual:
+
+6. 
 
 - Comandos para Instalação Libs Necessárias no Requirements.txt:
 ```
