@@ -7,9 +7,9 @@
 
 # 🎥 Solução
 
-...
+Nossa solução, o LUMI, é inspirada no sobrenome dos Irmãos Lumière, os criadores do cinematógrafo e do cinema audiovisual. O LUMI foi desenvolvido com o objetivo de fornecer uma ferramenta de gestão que auxilie os colaboradores do Libreflix. Assim, independentemente da experiência na área da computação, os colaboradores poderão lidar com diversos problemas relacionados à divisão de papéis e à gestão de conteúdos. Além disso, o LUMI proporciona uma maior interação entre os usuários e colaboradores, oferecendo diversas funcionalidades que estão descritas abaixo.
 
-Para mais detalhes da nossa solução e do nosso processo para chegar até ela, no nosso <b>[Google Sites](https://sites.google.com/cesar.school/eden/equipe).</b>
+Para mais detalhes da nossa solução e do nosso processo de desenvolvimento, veja no nosso <b>[Google Sites](https://sites.google.com/cesar.school/eden/equipe).</b>
 <br></br>
 
 # ⚙️ Funcionalidades
@@ -22,11 +22,10 @@ Para mais detalhes da nossa solução e do nosso processo para chegar até ela, 
 - <b>Ferramentas:</b> Python, HTML, CSS e JavaScript
 - <b>Framework:</b> Django
 - <b>IDE:</b> VS Code
-- <b>Toolkits:</b> ...
 
-# ☕ Usando NOME DA SOLUCAO
+# ☕ Usando LUMI
 
-Para usar NOME DA SOLUCAO, siga estas etapas:
+Para usar LUMI, siga estas etapas:
 
 - Instalar a Aplicação no seu Computador:
 ```
