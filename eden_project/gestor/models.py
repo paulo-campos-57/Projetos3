@@ -71,7 +71,7 @@ class FormularioReporte(models.Model):
     # )
     
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='list_user_reporte', blank= False)
-    midia = models.ForeignKey(Midia, related_name='midia_list_reporte', on_delete=models.CASCADE)
+    midia = models.ForeignKey(Midia, related_name='midia_list_reporte', on_delete=models.CASCADE, blank=True, null=True)
     texto = models.CharField(default= "Descreva o problema encontrado", max_length=500, blank=False)
 
     def __str__(self):
