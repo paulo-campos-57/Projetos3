@@ -66,10 +66,12 @@ class Mensagens(models.Model):
         return self.mensagem
 
 class FormularioReporte(models.Model):
+    # REPORTE_CHOICES = (
+    #     ('')
+    # )
     
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='midia', blank= False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='list_user_suporte', blank= False)
     texto = models.CharField(default= "Descreva o problema encontrado", max_length=500, blank=False)
-    idFormulario = models.AutoField(primary_key=True, editable=False)
     arqMidia = models.ImageField(upload_to="arqmidia/%Y/%m/%d/", blank=True, null=True)
 
     def __str__(self):
