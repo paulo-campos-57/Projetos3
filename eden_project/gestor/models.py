@@ -70,9 +70,9 @@ class FormularioReporte(models.Model):
     #     ('')
     # )
     
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='list_user_suporte', blank= False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='list_user_reporte', blank= False)
+    midia = models.ForeignKey(Midia, related_name='midia_list_reporte', on_delete=models.CASCADE)
     texto = models.CharField(default= "Descreva o problema encontrado", max_length=500, blank=False)
-    arqMidia = models.ImageField(upload_to="arqmidia/%Y/%m/%d/", blank=True, null=True)
 
     def __str__(self):
         return self.texto
