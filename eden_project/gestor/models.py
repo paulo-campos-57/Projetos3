@@ -56,10 +56,9 @@ class Mensagens(models.Model):
     ('reportar', 'Reportar'),
     )
         
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_remetente', blank= False)
-    userDestino = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_destinatario', blank= False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_list_remetente', blank= False)
+    userDestino = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_list_destinatario', blank= False)
     mensagem = models.CharField(default="Escreva sua mensagem", max_length= 200, blank= False)
-    idMensagem = models.AutoField(primary_key=True, editable=False)
     contexto = models.CharField(max_length=15, choices=CONTEXTO_CHOICES, default='suporte', blank= False)
     dataMensagem = models.DateTimeField(auto_now_add=True)
 

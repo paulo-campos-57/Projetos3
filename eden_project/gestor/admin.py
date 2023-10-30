@@ -24,8 +24,8 @@ class ListandoUserHistorico(admin.ModelAdmin):
 admin.site.register(UserHistorico, ListandoUserHistorico)
 
 class ListandoMensagens(admin.ModelAdmin):
-    list_display = ("user", "userDestino", "mensagem", "idMensagem", "contexto", "dataMensagem")
-    list_display_links = ("user", "userDestino")
+    list_display = ("id", "user", "userDestino", "mensagem", "contexto", "dataMensagem")
+    list_display_links = ("id", "user", "userDestino")
     search_fields = ("user__username", "contexto")
 
 admin.site.register(Mensagens, ListandoMensagens)
