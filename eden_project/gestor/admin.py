@@ -31,9 +31,9 @@ class ListandoMensagens(admin.ModelAdmin):
 admin.site.register(Mensagens, ListandoMensagens)
 
 class ListandoReportes(admin.ModelAdmin):
-    list_display = ("user", "idFormulario", "texto", "arqMidia")
+    list_display = ("user", "id", "texto", "arqMidia")
     list_display_links = ("texto",)
-    search_fields = ("idFormulario",)
+    search_fields = ("id",)
 
 admin.site.register(FormularioReporte, ListandoReportes)
 
