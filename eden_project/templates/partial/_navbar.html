@@ -1,0 +1,14 @@
+{% load static %}
+
+<div style="position: absolute; width: 1440px; height: 147px; left: 0px; top: 0px; background: #3A7A9F;">
+    <div style="position: absolute; width: 266px; height: 53px; left: 22px; top: 43px; font-family: 'Inter'; font-style: italic; font-weight: 700; font-size: 40px; line-height: 48px; text-decoration: underline; color: #FFFFFF;">
+      Libreflix
+   </div>
+   
+    {% if user.is_authenticated %}
+      <a style="position: absolute; width: 166px; height: 53px; left: 1252px; top: 43px; font-family: 'Inter'; font-style: italic; font-weight: 700; font-size: 40px; line-height: 48px; text-decoration: underline; color: #FFFFFF;" href="#"> Usuario</ahref></a>
+    {% else %}
+      <a style="position: absolute; width: 166px; height: 53px; left: 1122px; top: 43px; font-family: 'Inter'; font-style: italic; font-weight: 700; font-size: 40px; line-height: 48px; text-decoration: underline; color: #FFFFFF;" href="#"> Login/Cadastro</ahref></a>
+    {% endif %}
+   
+</div>

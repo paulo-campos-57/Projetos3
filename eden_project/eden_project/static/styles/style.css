@@ -1,0 +1,16 @@
+/* Navbar Styles */
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    left: 0;
+    top: 0;
+
+    background: #3A7A9F;
+    
+    color: white;
+    text-align: center;
+    line-height: 60px;
+  }
+  
