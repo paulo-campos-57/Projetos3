@@ -57,9 +57,11 @@ Para usar LUMI, siga estas etapas:<br>
 </dt>
 7. Ative o ambiente virtual utilizando o comando abaixo. Será possível visualizar do lado direito de seu diretório atual o nome de seu ambiente virtual entre parênteses e verde.
 <dt> 
-  
-    venv/scripts/activate
 
+    //Windows  
+    venv/scripts/activate
+    //Linux
+    source myenv/bin/activate
 </dt>
 8. Depois de ativar o ambiente, precisaremos instalar as dependências e bibliotecas necessárias para o funcionamento do LUMI. Utilize o comando abaixo:
 <dt> 
