@@ -9,3 +9,7 @@ def home(request):
 def login(request):
     request.use=None
     return render(request, 'login.html')
+
+def cadastro(request):
+    request.use=None
+    return render(request, 'cadastro.html')
