@@ -5,3 +5,7 @@ from django.shortcuts import render
 def home(request):
     request.use=None
     return render(request, 'home.html')
+
+def login(request):
+    request.use=None
+    return render(request, 'login.html')

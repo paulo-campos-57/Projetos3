@@ -1,0 +1,43 @@
+<style>
+    .password-field label {
+        margin-left: 2px;
+    }
+    .password-field input {
+        margin-left: 2px;
+    }
+</style>
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body style="background-color: #ffffff">
+    {% include 'partial/_navbar.html' %}
+    <div style="text-align: center;">
+    <h1>FAÇA O SEU LOGIN</h1>
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+
+        <label for="username" style="font-weight: bold; font-size: 20px;">Username:</label>
+        <input type="text" id="username" name="username" style="width: 300px; height: 40px; font-size: 20px;" required><br>
+        
+        <br>
+
+        <div class="input-container password-field">
+            <label for="password" style="font-weight: bold; font-size: 20px;">Password:</label>
+            <input type="password" id="password" name="password" style="width: 300px; height: 40px; font-size: 20px;" required>
+        </div>
+
+        <br>
+        <br>
+        
+        <div class="btn-container">
+        <input type="image" src="https://cdn.discordapp.com/attachments/938158080733110393/1170004138512359585/Botao_de_Login.png?ex=65577644&is=65450144&hm=1e814743d602fd30ca40998f488a626d48c382524d3aa961f454c0feb2de82f4" alt="Botão de Login">
+        &nbsp;
+        <a href="{% url 'home' %}"><img src="https://cdn.discordapp.com/attachments/938158080733110393/1170004138181021787/Botao_de_Voltar.png?ex=65577644&is=65450144&hm=7306a3f02cce5a60aeffb14b06cf9dbc43510964b80c154f97e4a029ba7b5b3d" alt="Botão de Voltar"></a>
+        </div>
+
+    </form>
+    </div>
+</body>
+</html>
+{% endblock %}
