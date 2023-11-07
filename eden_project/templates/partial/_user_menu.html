@@ -1,9 +1,13 @@
 {% load static %}
 
+{% if perfil_colaborador %}
 
-<a href="{% url 'home' %}">
-    <button class="botao">Formulario preceptor</button>
-</a>
+{% else %}
+    <a href="{% url 'home' %}">
+        <button class="botao">Formulario preceptor</button>
+    </a>
+{% endif %}
+
 <a href="{% url 'home' %}">
     <button class="botao">logout</button>
 </a>

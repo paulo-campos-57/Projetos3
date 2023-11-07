@@ -9,11 +9,11 @@ def home(request):
             perfil_colaborador = PerfilColaborador.objects.get(user=request.user)
         except PerfilColaborador.DoesNotExist:
             perfil_colaborador = None
-        
-        return render(request, 'home.html', {'perfil_colaborador' : perfil_colaborador})
 
     else:
-        return render(request, 'home.html')
+        perfil_colaborador = None
+    
+    return render(request, 'home.html', {'perfil_colaborador' : perfil_colaborador})
 
 def login(request):
     request.use=None
