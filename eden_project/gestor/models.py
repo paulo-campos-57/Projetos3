@@ -66,11 +66,15 @@ class Mensagens(models.Model):
         return self.mensagem
 
 class FormularioReporte(models.Model):
-    # REPORTE_CHOICES = (
-    #     ('')
-    # )
+    REPORTE_CHOICES = (
+        ('Conteudo_Inadequado', 'conteudo_inadequado'),
+        ('Problema_de_Legenda ', 'problema_de_legenda'),
+        ('Problema_de_Reproducao', 'problema_de_reproducao'),
+        ('Outro', 'outro'),
+    )
     
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='list_user_reporte', blank= False)
+    categoriaReporte = models.CharField(max_length=23, choices=REPORTE_CHOICES, default='reporte', blank=False)
     midia = models.ForeignKey(Midia, related_name='midia_list_reporte', on_delete=models.CASCADE, blank=True, null=True)
     texto = models.CharField(default= "Descreva o problema encontrado", max_length=500, blank=False)
 
@@ -91,7 +95,8 @@ class UserFeedback(models.Model):
     ('Dislike','dislike'),
     ('No_react','no_react'),
     )
-    reacao=models.CharField(max_length=10, choices=REACAO_CHOICES, default='No_react', blank= False)
+    
+    reacao = models.CharField(max_length=10, choices=REACAO_CHOICES, default='No_react', blank= False)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_feedback', blank=False)
     midia = models.ForeignKey(Midia, related_name='midia_list_Feedback', on_delete=models.CASCADE)
     comentario = models.CharField(default="Traga o seu comentario", max_length=1000, blank=False)
