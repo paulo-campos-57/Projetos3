@@ -14,3 +14,21 @@
     line-height: 60px;
   }
   
+
+.botao {
+    width: 300px;
+    height: 70px;
+    background: rgba(168, 221, 181, 0.7);
+    border-radius: 5px;
+    border: none;
+    outline: none;
+
+    font-family: "Helvetica Neue", Lato, Arial, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 23px; 
+    text-align: center;
+    text-transform: uppercase;
+    color: #000000;
+}

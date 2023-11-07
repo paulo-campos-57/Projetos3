@@ -13,3 +13,6 @@ def login(request):
 def cadastro(request):
     request.use=None
     return render(request, 'cadastro.html')
+
+def user_menu(request):
+    return render(request, 'user.html')

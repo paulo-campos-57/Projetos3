@@ -42,7 +42,7 @@
 <div class="navbar">
   <a class="logo", href="{% url 'home' %}">Libreflix</a>
   {% if user.is_authenticated %}
-    <a class="user-link" style="right: 22px;" href="#">Usuario</a>
+    <a class="user-link" style="right: 22px;" href="{% url 'user_menu' %}">Usuario</a>
   {% else %}
     <a class="user-link" style="right: 40px;" href="{% url 'login' %}">Login/Cadastro</a>
   {% endif %}
