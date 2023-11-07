@@ -1,7 +1,12 @@
 {% load static %}
 
 {% if perfil_colaborador %}
-
+    {% if perfil_colaborador.atividade %}
+        <a href="{% url 'home' %}">
+            <button class="botao">Modo Colaborador</button>
+        </a>
+    {% else %}
+    {% endif %}
 {% else %}
     <a href="{% url 'home' %}">
         <button class="botao">Formulario preceptor</button>
