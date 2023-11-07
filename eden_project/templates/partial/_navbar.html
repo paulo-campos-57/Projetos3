@@ -42,8 +42,44 @@
 <div class="navbar">
   <a class="logo", href="{% url 'home' %}">Libreflix</a>
   {% if user.is_authenticated %}
-    <a class="user-link" style="right: 22px;" href="{% url 'user_menu' %}">Usuario</a>
+  <button id="toggleButton" class="off">User</button>
+
+  <div id="popup" class="popup" style="display: none;">
+    <div class="popup-content">
+      <span id="closePopup" style="float: right; cursor: pointer;">&times;</span>
+      <p>.</p>
+      {% include 'partial/_user_menu.html' %}
+    </div>
+  </div>
+    
   {% else %}
     <a class="user-link" style="right: 40px;" href="{% url 'login' %}">Login/Cadastro</a>
   {% endif %}
 </div>
+
+<script>
+  const toggleButton = document.getElementById("toggleButton");
+  const popup = document.getElementById("popup");
+  const closePopup = document.getElementById("closePopup");
+  
+  toggleButton.addEventListener("click", function() {
+    toggleButton.classList.toggle("on");
+    if (toggleButton.classList.contains("on")) {
+      toggleButton.textContent = "User";
+      popup.style.display = "block";
+    } else {
+      toggleButton.textContent = "User";
+      popup.style.display = "none";
+    }
+  });
+  
+  closePopup.addEventListener("click", function() {
+    popup.style.display = "none";
+  });
+  
+  window.addEventListener("click", function(event) {
+    if (event.target == popup) {
+      popup.style.display = "none";
+    }
+  });
+  </script>
