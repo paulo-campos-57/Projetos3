@@ -1,4 +1,18 @@
 <style>
+    .container {
+        align-items: center;
+        width: 60%;
+        background-color: rgb(0, 255, 179);
+        text-align: center;
+        font-size: large;
+        margin-left: 20%; 
+        margin-bottom: 2%; 
+        min-height: 450px;
+        border-radius: 2%;
+    }
+    .input-container {
+        text-align: start;
+    }
     .password-field label {
         margin-left: 2px;
     }
@@ -12,49 +26,49 @@
 {% block content %}
 <body style="background-color: #ffffff">
     {% include 'partial/_navbar.html' %}
-    <div style="text-align: center;">
-    <h1>FAÇA O SEU CADASTRO</h1>
-    <form method="post" action="{% url 'login' %}">
-        {% csrf_token %}
+    <div class="container">
+        <h1>FAÇA O SEU CADASTRO</h1>
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
 
-        <div class="input-container"></div>
-            <label for="username" style="font-weight: bold; font-size: 20px;">Username:</label>
-            <input type="text" id="username" name="username" style="width: 300px; height: 40px; font-size: 20px;" required><br>
+            <div class="input-container"></div>
+                <label for="username" style="font-weight: bold; font-size: 20px;">Username:</label>
+                <input type="text" id="username" name="username" style="width: 300px; height: 40px; font-size: 20px;" required><br>
 
-            <br>
-
-            <label for="email" style="font-weight: bold; font-size: 20px; margin-left: 35px;">Email:</label>
-            <input type="text" id="email" name="email" style="width: 300px; height: 40px; font-size: 20px;" required><br>
-
-            <br>
-
-            <label for="email" style="font-weight: bold; font-size: 20px; margin-left: -65px;">Confirme o Email:</label>
-            <input type="text" id="email" name="email" style="width: 300px; height: 40px; font-size: 20px;" required><br>
-
-            <br>
-
-            <div class="input-container password-field">
-                <label for="password" style="font-weight: bold; font-size: 20px;">Password:</label>
-                <input type="password" id="password" name="password" style="width: 300px; height: 40px; font-size: 20px;" required><br>
-    
                 <br>
-    
-                <label for="password" style="font-weight: bold; font-size: 20px; margin-left: -100px;">Confirme o Password:</label>
-                <input type="password" id="password" name="password" style="width: 300px; height: 40px; font-size: 20px;" required><br>
+
+                <label for="email" style="font-weight: bold; font-size: 20px; margin-left: 35px;">Email:</label>
+                <input type="text" id="email" name="email" style="width: 300px; height: 40px; font-size: 20px;" required><br>
+
+                <br>
+
+                <label for="email" style="font-weight: bold; font-size: 20px; margin-left: -65px;">Confirme o Email:</label>
+                <input type="text" id="email" name="email" style="width: 300px; height: 40px; font-size: 20px;" required><br>
+
+                <br>
+
+                <div class="input-container">
+                    <label for="password" style="font-weight: bold; font-size: 20px;">Senha:</label>
+                    <input type="password" id="password" name="password" style="width: 300px; height: 40px; font-size: 20px;" required><br>
+        
+                    <br>
+        
+                    <label for="password" style="font-weight: bold; font-size: 20px; margin-left: -100px;">Confirme sua senha:</label>
+                    <input type="password" id="password" name="password" style="width: 300px; height: 40px; font-size: 20px;" required><br>
+                </div>
+
+                <br>
+                <br>
+                
+                <div class="btn-container">
+                    <input type="image" src="https://cdn.discordapp.com/attachments/938158080733110393/1170018893469859981/Botao_de_Cadastro.png?ex=65578402&is=65450f02&hm=243998ba0c03061d53524f3a1306d2f1c2443e63ebae163aa50b1d76ab868029&" alt="Botão de Cadastro">
+                    &nbsp;
+                    <a href="{% url 'login' %}"><img src="https://cdn.discordapp.com/attachments/938158080733110393/1170014598955548682/Botao_de_Voltar.png?ex=65578002&is=65450b02&hm=0e3ccd5a4ffa38bfb11ade35a8999388d0b09981e76750f59932477bb23551f1&" alt="Botão de Voltar"></a>
+                </div>
+
             </div>
 
-            <br>
-            <br>
-            
-            <div class="btn-container">
-                <input type="image" src="https://cdn.discordapp.com/attachments/938158080733110393/1170018893469859981/Botao_de_Cadastro.png?ex=65578402&is=65450f02&hm=243998ba0c03061d53524f3a1306d2f1c2443e63ebae163aa50b1d76ab868029&" alt="Botão de Cadastro">
-                &nbsp;
-                <a href="{% url 'login' %}"><img src="https://cdn.discordapp.com/attachments/938158080733110393/1170014598955548682/Botao_de_Voltar.png?ex=65578002&is=65450b02&hm=0e3ccd5a4ffa38bfb11ade35a8999388d0b09981e76750f59932477bb23551f1&" alt="Botão de Voltar"></a>
-            </div>
-
-        </div>
-
-    </form>
+        </form>
     </div>
 </body>
 </html>
