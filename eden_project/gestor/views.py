@@ -16,3 +16,6 @@ def cadastro(request):
 
 def user_menu(request):
     return render(request, 'user.html')
+
+def gestao_equipe(request):
+    return render(request, 'gestao_equipe.html')
