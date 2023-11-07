@@ -28,3 +28,6 @@ def user_menu(request):
 
 def gestao_equipe(request):
     return render(request, 'gestao_equipe.html')
+
+def colaboradores(request):
+    return render(request, 'colaboradores.html')
