@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.contrib.auth.models import User
+from django.http import HttpResponse
 from gestor.models import PerfilColaborador
 
 # Create your views here.
@@ -22,6 +24,17 @@ def login(request):
 def cadastro(request):
     request.use=None
     return render(request, 'cadastro.html')
+
+def usuario_cadastrado(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        # Verificar se o usuário já existe no banco de dados
+        if User.objects.filter(username = username).exists():
+            return HttpResponse('Este usuário já está cadastrado em nosso Banco de dados')
+        user = User.objects.create_user(username, email, password)
+        return render(request, 'usuario_cadastrado.html')
 
 def user_menu(request):
     return render(request, 'user.html')
