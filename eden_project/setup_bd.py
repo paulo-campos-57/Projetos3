@@ -5,21 +5,72 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'eden_project.settings')
 django.setup()
 
 from django.contrib.auth.models import User
-from gestor.models import Midia
+from gestor.models import Midia, PerfilColaborador
 
-def criar_superuser(username_, email_, senha_):
-    if not User.objects.filter(username = username_).exists():
-        User.objects.create_superuser(username_, email_, senha_)
+def criar_superuser(username, email, senha):
+    if not User.objects.filter(username = username).exists():
+        User.objects.create_superuser(username, email, senha)
+        return
+    
+    print(f"Usuário com username '{username}' já existe encontrado.")
 
-def criar_user(username_, email_, senha_):
-    if not User.objects.filter(username = username_).exists():
-        User.objects.create_user(username_, email_, senha_)
+def criar_user(username, email, senha):
+    if not User.objects.filter(username = username).exists():
+        User.objects.create_user(username, email, senha)
+        return
+    
+    print(f"Usuário com username '{username}' já existe encontrado.")
+
+def criar_midia(titulo, username, descricao, status, arqMidiaPath, arqCartazPath):
+    try:
+        user = User.objects.get(username=username)
+    except User.DoesNotExist:
+        print(f"Usuário com username '{username}' não encontrado.")
+        return
+    
+    if Midia.objects.filter(titulo=titulo).exists():
+        print(f"Uma instância da Midia com título '{titulo}' já existe. Não foi criada uma nova instância.")
+        return
+
+    midia = Midia(
+        titulo=titulo,
+        user=user,
+        descricao=descricao,
+        status=status,
+        arqMidia=arqMidiaPath,
+        arqCartaz=arqCartazPath
+    )
+    midia.save()
+
+def criar_perfil_colaborador(username, cargo, status, atividade):
+    try:
+        user = User.objects.get(username=username)
+    except User.DoesNotExist:
+        print(f"Usuário com username '{username}' não encontrado.")
+        return
+    
+    if PerfilColaborador.objects.filter(user=user).exists():
+        print(f"O usuário '{username}' já possui um perfil de colaborador. Não foi criada uma nova instância.")
+        return
+    
+    perfil = PerfilColaborador(
+        user=user,
+        cargo=cargo,
+        status=status,
+        atividade=atividade
+    )
+
+    perfil.save()
 
 def configurar_bd():
 
     criar_superuser('admin', 'admin@example.com', '12345678')
     
-    criar_user('usuario_teste', 'usuario_teste@example.com', 'senha_teste')
+    criar_user('MarcosSerra', 'marquinhosserragens@gmail.com', 'senha_teste')
+
+    criar_midia('Sera Serada', 'MarcosSerra', 'Seredor vivendo a vida', 'aprovado', 'https://discord.com/channels/1081640132777623612/1097961194427514930/1101128003007815780', 'https://discord.com/channels/1081640132777623612/1097961194427514930/1101128003007815780')
+
+    criar_perfil_colaborador('MarcosSerra', 'reportuser', 'analise', 'False')
 
 def main():
     print("Configurando o banco de dados de teste...")

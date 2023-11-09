@@ -36,7 +36,7 @@ class PerfilColaborador(models.Model):
     )
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    cargo = models.CharField(max_length=10, choices=CARGO_CHOICES, default='analise')
+    cargo = models.CharField(max_length=10, choices=CARGO_CHOICES, default='midiauser')
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='analise')
     atividade = models.BooleanField(default="False")
 
