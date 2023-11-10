@@ -46,6 +46,7 @@ class PerfilColaborador(models.Model):
 class UserHistorico(models.Model):
     user = models.ForeignKey(User, related_name='user_list_historico', on_delete=models.CASCADE)
     midia = models.ForeignKey(Midia, related_name='midia_list_historico', on_delete=models.CASCADE)
+    dataHustorico = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     concluido = models.BooleanField(default="False")
 
 class Mensagens(models.Model):
