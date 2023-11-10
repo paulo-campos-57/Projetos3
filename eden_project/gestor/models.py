@@ -12,6 +12,7 @@ class Midia(models.Model):
 
     titulo = models.CharField(max_length=100)
     user = models.ForeignKey(User, related_name='user_list_midia', on_delete=models.CASCADE)
+    autor = models.CharField(max_length=100, default="")
     descricao = models.TextField(default="Escreva sua descrição", max_length= 150, blank= False)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='analise')
     dataPostagem = models.DateTimeField(auto_now_add=True)
@@ -46,7 +47,7 @@ class PerfilColaborador(models.Model):
 class UserHistorico(models.Model):
     user = models.ForeignKey(User, related_name='user_list_historico', on_delete=models.CASCADE)
     midia = models.ForeignKey(Midia, related_name='midia_list_historico', on_delete=models.CASCADE)
-    dataHustorico = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    dataHistorico = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     concluido = models.BooleanField(default="False")
 
 class Mensagens(models.Model):
@@ -86,6 +87,7 @@ class FormularioSuporte(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_suporte', blank=False)
     texto = models.CharField(default="Informe a sua mensagem", max_length=500, blank=False)
+    status = models.BooleanField(default="False")
 
     def __str__(self):
         return self.texto
