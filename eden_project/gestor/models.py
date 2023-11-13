@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 # Create your models here.
 
@@ -47,7 +48,7 @@ class PerfilColaborador(models.Model):
 class UserHistorico(models.Model):
     user = models.ForeignKey(User, related_name='user_list_historico', on_delete=models.CASCADE)
     midia = models.ForeignKey(Midia, related_name='midia_list_historico', on_delete=models.CASCADE)
-    dataHistorico = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    dataHistorico = models.DateTimeField(default=timezone.now, blank=True)
     concluido = models.BooleanField(default="False")
 
 class Mensagens(models.Model):
