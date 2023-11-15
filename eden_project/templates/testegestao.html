@@ -29,7 +29,7 @@
 
             <li>
                 <a class="gestaoEquipe" href="#" style="display: block;">
-                    <img src="https://cdn.discordapp.com/attachments/938158080733110393/1174354655325716500/Group_85.png?ex=65674a00&is=6554d500&hm=3a76793f00c188ba804a49473f566287bd4e5ada265ef43f6e3c960cdf74da73&" alt="gestaoEquipe" style="display: inline-block; vertical-align: middle;">
+                    <img src="https://cdn.discordapp.com/attachments/938158080733110393/1174483038776868904/Group_259_1.png?ex=6567c191&is=65554c91&hm=e01743adc5dcf053b3ec4f0e4f5f739fe2e9f9ce2c68331dfe643867bd14ec5e&" alt="gestaoEquipe" style="display: inline-block; vertical-align: middle;">
                 </a>
             </li>
 
@@ -44,11 +44,32 @@
             &nbsp;
 
             <li>
+                <a class="suporte" href="#" style="display: block;">
+                    <img src="https://cdn.discordapp.com/attachments/938158080733110393/1174354807839002694/Group_83.png?ex=65674a24&is=6554d524&hm=ddbb5e3d0b4d2f233ed7b9ff3b95ce6600395ef7fbc674784690ac6619f6d8d1&" alt="suporte" style="display: inline-block; vertical-align: middle;">
+                </a>
+            </li>
+
+            &nbsp;
+
+            <li>
                 <a class="logout" href="#" style="display: block;">
                     <img src="https://cdn.discordapp.com/attachments/938158080733110393/1174355683043463238/Group_259.png?ex=65674af5&is=6554d5f5&hm=374e3d61fa90e2944364f727fcaf0fd2199919e2ed7df352a9a39c586424c36d&" alt="logout" style="display: inline-block; vertical-align: middle;">
                 </a>
             </li>
         </ul>
+    </div>
+
+    <div class="top-right-image" style="position: absolute; top: 20px; right: 20px;">
+        {% if user.is_authenticated %}
+            <div class="profile-container" style="position: relative; display: inline-block;">
+                <img src="https://cdn.discordapp.com/attachments/1114362089125974037/1174494536446263406/Group_261_2.png?ex=6567cc46&is=65555746&hm=4bc06c877bd8237a3c82aa67a322c0f96178c376b47e90aa9c7ab9a366c0d95c&" alt="Imagem de Perfil" style="width: 200px; height: auto;">
+                <p class="username-overlay" style="position: absolute; top: 20%; left: 40%; transform: translate(-50%, -50%); color: #F8F8F8; text-align: center; font-weight: bold; font-family: 'Josefin Sans', sans-serif;">{{ user.username }}</p>
+            </div>
+        {% else %}
+        <a class="botão_login" href="{% url 'login' %}">
+            <img src="https://cdn.discordapp.com/attachments/938158080733110393/1174493031760658553/Group_262.png?ex=6567cadf&is=655555df&hm=d7f1f07af0de7c68e855b0b1dc14f55801fb9c7025c3e5871a2de5f1b2d3c8b8&" alt="botão_login" style="width: 200px; height: auto;">
+        </a>
+        {% endif %}
     </div>
 
     <!-- Conteúdo principal -->
