@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body style="background-color: #ffff; margin: 0;">
+
+    <!-- Navbar à esquerda -->
+    <div class="sidebar" style="background-color: #101214; height: 100vh; width: 250px; position: fixed; top: 0; left: 0; display: flex; flex-direction: column; align-items: center; border-radius: 0 15px 15px 0;">
+        
+        <ul style="list-style-type: none; padding: 0; margin-top: 20px; display: flex; flex-direction: column; gap: 20px;">
+            
+            <li style="margin-bottom: 10px; width: 100%; text-align: center;">
+                <a class="logo" href="{% url 'home' %}" style="display: block;">
+                    <img src="https://cdn.discordapp.com/attachments/938158080733110393/1174343025208594474/Logo_Libreflix.png?ex=65673f2b&is=6554ca2b&hm=b519c199e1108554a602b8d4a06512ff3cccd84b7c759aff92c66b4b89d557c1&" alt="Logo" style="display: inline-block; vertical-align: middle; margin-bottom: 10px;">
+                </a>
+                <a class="logo" href="https://sites.google.com/cesar.school/eden/equipe" target="_blank" style="display: block; text-align: right">
+                    <img src="https://cdn.discordapp.com/attachments/938158080733110393/1174358212003246181/Vector.png?ex=65674d50&is=6554d850&hm=10b8f173ab05cee2a32068f1bd4a59e435f35a0866ef281ff5ca0ad7d4c40bea&" alt="Logo Lumi" style="display: inline-block; vertical-align: top;">
+                </a>
+            </li>
+
+            &nbsp;
+
+            <li>
+                <a class="gestaoTitulos" href="#" style="display: block;">
+                    <img src="https://cdn.discordapp.com/attachments/938158080733110393/1174354160079093820/Group_84.png?ex=6567498a&is=6554d48a&hm=a0e16e63d4258b4ac59555df4873d84962109b589b05bb99676ff4a46e87b3b9&" alt="gestaoTitulos" style="display: inline-block; vertical-align: middle;">
+                </a>
+            </li>
+
+            &nbsp;
+
+            <li>
+                <a class="gestaoEquipe" href="#" style="display: block;">
+                    <img src="https://cdn.discordapp.com/attachments/938158080733110393/1174354655325716500/Group_85.png?ex=65674a00&is=6554d500&hm=3a76793f00c188ba804a49473f566287bd4e5ada265ef43f6e3c960cdf74da73&" alt="gestaoEquipe" style="display: inline-block; vertical-align: middle;">
+                </a>
+            </li>
+
+            &nbsp;
+
+            <li>
+                <a class="configuracao" href="#" style="display: block;">
+                    <img src="https://cdn.discordapp.com/attachments/938158080733110393/1174354793628717066/Group_82.png?ex=65674a21&is=6554d521&hm=7b268a4e239e87422b092d565668e46d19575940796511bc3cae48f10cb0855e&" alt="configuracao" style="display: inline-block; vertical-align: middle;">
+                </a>
+            </li>
+
+            &nbsp;
+
+            <li>
+                <a class="logout" href="#" style="display: block;">
+                    <img src="https://cdn.discordapp.com/attachments/938158080733110393/1174355683043463238/Group_259.png?ex=65674af5&is=6554d5f5&hm=374e3d61fa90e2944364f727fcaf0fd2199919e2ed7df352a9a39c586424c36d&" alt="logout" style="display: inline-block; vertical-align: middle;">
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <div class="main-content" style="margin-left: 250px; padding: 20px;">
+        <!-- Seu conteúdo principal aqui -->
+    </div>
+
+</body>
+</html>
+{% endblock %}

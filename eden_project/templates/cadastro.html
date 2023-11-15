@@ -1,30 +1,35 @@
 <style>
     .container {
-        align-items: center;
-        width: 60%;
-        background-color: rgb(0, 255, 179);
+        width: 50%;
+        background-color: #14B7C0;
         text-align: center;
         font-size: large;
-        margin-left: 20%; 
-        margin-bottom: 2%; 
+        margin: 60px auto 0;
         min-height: 450px;
         border-radius: 2%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
     .input-container {
-        text-align: start;
+        text-align: center;
     }
     .password-field label {
-        margin-left: 2px;
+        display: block;
+        margin-bottom: 10px;
     }
     .password-field input {
-        margin-left: 2px;
+        width: 300px;
+        height: 40px;
+        font-size: 20px;
+        margin-bottom: 15px;
     }
 </style>
 
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<body style="background-color: #ffffff">
+<body style="background-color: #ffff">
     {% include 'partial/_navbar.html' %}
     <div class="container">
         <h1>FAÇA O SEU CADASTRO</h1>
@@ -48,12 +53,12 @@
                 <br>
 
                 <div class="input-container">
-                    <label for="password" style="font-weight: bold; font-size: 20px;">Senha:</label>
+                    <label for="password" style="font-weight: bold; font-size: 20px; margin-left: 35px;">Senha:</label>
                     <input type="password" id="password" name="password" style="width: 300px; height: 40px; font-size: 20px;" required><br>
         
                     <br>
         
-                    <label for="password" style="font-weight: bold; font-size: 20px; margin-left: -100px;">Confirme sua senha:</label>
+                    <label for="password" style="font-weight: bold; font-size: 20px; margin-left: -80px;">Confirme sua senha:</label>
                     <input type="password" id="password" name="password" style="width: 300px; height: 40px; font-size: 20px;" required><br>
                 </div>
 

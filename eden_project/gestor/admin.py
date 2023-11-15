@@ -31,16 +31,16 @@ class ListandoMensagens(admin.ModelAdmin):
 admin.site.register(Mensagens, ListandoMensagens)
 
 class ListandoReportes(admin.ModelAdmin):
-    list_display = ("user", "id", "texto", "midia")
+    list_display = ("user", "id", "texto", "midia", "status")
     list_display_links = ("texto",)
-    search_fields = ("id",)
+    search_fields = ("id", "status")
 
 admin.site.register(FormularioReporte, ListandoReportes)
 
 class ListandoSuportes(admin.ModelAdmin):
-    list_display = ("id", "user", "texto")
+    list_display = ("id", "user", "texto", "status")
     list_display_links = ("texto",)
-    search_fields = ("user",)
+    search_fields = ("user", "status")
 
 admin.site.register(FormularioSuporte, ListandoSuportes)
 

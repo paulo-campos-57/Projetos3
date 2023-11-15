@@ -80,6 +80,7 @@ class FormularioReporte(models.Model):
     categoriaReporte = models.CharField(max_length=23, choices=REPORTE_CHOICES, default='reporte', blank=False)
     midia = models.ForeignKey(Midia, related_name='midia_list_reporte', on_delete=models.CASCADE, blank=True, null=True)
     texto = models.CharField(default= "Descreva o problema encontrado", max_length=500, blank=False)
+    status = models.BooleanField(default="False")
 
     def __str__(self):
         return self.texto
