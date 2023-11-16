@@ -106,6 +106,16 @@ Para usar LUMI, siga estas etapas:<br>
 </dt>
 13. Será pedido que você insira um username, um email e a sua senha duas vezes. Quando todos esses passos tiverem sido atendidos, basta rodar o servidor novamente e no fim da url da página, colocar "/admin/" e pressionar enter. Você terá algo como "http://127.0.0.1:8000/admin/". Lá, utilize os dados cadastrados por você para criação do seu super usuário.
 
+
+14. Para uso das funcionalidades, criamos o arquivo "setup_bd.py" que simula o acervo do Libreflix. Para que o SQLite seja alimentado com os dados, basta utilizar o comando:
+
+<dt> 
+  
+    python setup_bd.py
+
+</dt>
+
+
 # 🤝 Equipe EDEN
 
 Somos estudantes de ciência da computação e design do 3º período da instituição CESAR School. Escolhemos o nome "Eden" para homenagear o primeiro cinema do mundo, "The Eden Theatre", localizado em uma comuna francesa, La Ciotat, sendo o cinema mais antigo em funcionamento.
