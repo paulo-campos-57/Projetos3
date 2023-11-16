@@ -71,7 +71,7 @@ class Mensagens(models.Model):
 class FormularioReporte(models.Model):
     REPORTE_CHOICES = (
         ('Conteudo_Inadequado', 'conteudo_inadequado'),
-        ('Problema_de_Legenda ', 'problema_de_legenda'),
+        ('Problema_de_Legenda', 'problema_de_legenda'),
         ('Problema_de_Reproducao', 'problema_de_reproducao'),
         ('Outro', 'outro'),
     )

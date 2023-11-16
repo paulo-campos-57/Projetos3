@@ -1,5 +1,5 @@
 from django.urls import path
-from gestor.views import home, login, cadastro, user_menu, gestao_equipe, colaboradores, usuario_cadastrado, testegestao
+from gestor.views import home, login, cadastro, user_menu, gestao_equipe, colaboradores, usuario_cadastrado, testegestao, enviar_mensagem
 
 
 urlpatterns = [
@@ -11,4 +11,5 @@ urlpatterns = [
     path('gestao_equipe/', gestao_equipe, name='gestao_equipe'),
     path('teste_gestao/', testegestao, name='testegestao'),
     path('colaboradores/', colaboradores, name='colaboradores'),
+    path('enviar_mensagem/', enviar_mensagem, name='enviar_mensagem'),
 ]

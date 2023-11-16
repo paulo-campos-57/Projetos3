@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.http import HttpResponse
-from gestor.models import PerfilColaborador
+from gestor.models import PerfilColaborador, FormularioReporte, Mensagens
+from .forms import FormularioReporteForm, MensagensForm
 
 # Create your views here.
 
@@ -47,3 +48,15 @@ def testegestao(request):
 
 def colaboradores(request):
     return render(request, 'colaboradores.html')
+
+def enviar_mensagem(request):
+    if request.method == 'POST':
+        mensagens_form = MensagensForm(request.POST)
+
+        if mensagens_form.is_valid():
+            mensagens_form.save()
+            return redirect("/enviar_mensagem")
+    else:
+        mensagens_form = MensagensForm()
+
+    return render(request, 'enviar_mensagem.html', {"mensagens_form": mensagens_form,})
