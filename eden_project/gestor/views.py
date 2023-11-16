@@ -54,9 +54,15 @@ def enviar_mensagem(request):
         mensagens_form = MensagensForm(request.POST)
 
         if mensagens_form.is_valid():
-            mensagens_form.save()
-            return redirect("/enviar_mensagem")
+            mensagem = mensagens_form.save(commit=False)
+            if request.user.is_authenticated:
+                mensagem.user = request.user
+            else:
+                return redirect("/login")
+        mensagem.save()
     else:
         mensagens_form = MensagensForm()
+        return redirect("/enviar_mensagem")
 
-    return render(request, 'enviar_mensagem.html', {"mensagens_form": mensagens_form,})
+    return render(request, 'enviar_mensagem.html', 
+                  {"mensagens_form": mensagens_form,})

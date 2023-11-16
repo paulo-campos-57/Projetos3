@@ -1,6 +1,6 @@
 from django import forms
-from django.forms import ModelForm
 from .models import Mensagens, FormularioReporte
+from django.forms import ModelForm
 
 class MensagensForm(ModelForm):
     class Meta:
