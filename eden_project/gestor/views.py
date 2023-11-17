@@ -89,4 +89,12 @@ def formulario_colaborador(request):
     
     return render(request, 'formulario_colaborador.html', {'form': form})
 
+def colaborador(request):
+    perfil_colaborador = getPerfilColaborador(request)
+
+    if perfil_colaborador == None:
+        return redirect("home")
+    
+    return render(request, 'colaborador.html', {'perfil_colaborador': perfil_colaborador})
+
 
