@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<body style="background-color: aliceblue;">
+    <!-- seu_template_cargo.html -->
+
+    {% include 'partial/_navbar.html'%}
+    
+    <form method="post" action="{% url 'formulario_colaborador' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Salvar</button>
+    </form>
+
+</body>
+
+{% endblock %}

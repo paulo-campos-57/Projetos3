@@ -2,7 +2,8 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from gestor.models import PerfilColaborador, FormularioReporte, Mensagens
-from .forms import FormularioReporteForm, MensagensForm
+from gestor.DAOs.PerfilColaboradorDAO import intancePerfilColaborador
+from .forms import PerfilColacoradorForm, FormularioReporteForm, MensagensForm
 
 # Create your views here.
 
@@ -66,3 +67,23 @@ def enviar_mensagem(request):
 
     return render(request, 'enviar_mensagem.html', 
                   {"mensagens_form": mensagens_form,})
+
+def formulario_colaborador(request):
+    if request.method == 'POST':
+        form = PerfilColacoradorForm(request.POST)
+
+        if form.is_valid():
+            user = request.user
+            cargo = form.cleaned_data['cargo']
+
+            intancePerfilColaborador(user, cargo, 'analise', False)
+
+            return redirect("home")
+        
+    else:
+        form = PerfilColacoradorForm()
+
+    
+    return render(request, 'formulario_colaborador.html', {'form': form})
+
+

@@ -1,6 +1,18 @@
 from django import forms
-from .models import Mensagens, FormularioReporte
+from .models import PerfilColaborador, Mensagens, FormularioReporte
 from django.forms import ModelForm
+
+class PerfilColacoradorForm(ModelForm):
+    class Meta:
+        model = PerfilColaborador
+        fields = ['cargo']
+
+        CARGO_CHOICES = [
+            ('reportuser', 'ReportUser'), 
+            ('midiauser', 'MidiaUser'),
+        ]
+
+        cargo = forms.ChoiceField(choices=CARGO_CHOICES)
 
 class MensagensForm(ModelForm):
     class Meta:
