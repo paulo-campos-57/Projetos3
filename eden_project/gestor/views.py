@@ -75,8 +75,9 @@ def formulario_colaborador(request):
         if form.is_valid():
             user = request.user
             cargo = form.cleaned_data['cargo']
+            motivacao = form.cleaned_data['motivacao']
 
-            intancePerfilColaborador(user, cargo, 'analise', False)
+            intancePerfilColaborador(user, cargo, motivacao, 'analise', False)
 
             return redirect("home")
         
