@@ -383,6 +383,9 @@ def criar_atividade_user(username):
 
 def configurar_bd():
     criar_superuser('Gilmor', 'admin@example.com', '12345678')    
+
+    criar_perfil_colaborador('Gilmor', 'masteruser', 'aprovado', True)
+    
     criar_user('MarcosSerra', 'marquinhosserragens@gmail.com', 'senha_teste')
 
     criar_bd_filmes()
