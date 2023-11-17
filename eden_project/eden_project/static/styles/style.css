@@ -4,9 +4,20 @@
   position: relative;
   background: #101214;
   width: 100%;
-  height: 100px;
+  height: 84px;
+  min-width: 1600px;
 }
   
+.logo1 {
+  width: 216px;
+  height: 58px;
+  background-image: url('/static/assets/logos/logo1.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  top: 18px;
+  left: 6%;
+}
 
 .botao {
     width: 300px;
