@@ -6,9 +6,12 @@
             <button class="botao">Modo Colaborador</button>
         </a>
     {% else %}
+        <a href="{% url 'formulario_colaborador' %}">
+            <button class="botao">Formulario preceptor</button>
+        </a>
     {% endif %}
 {% else %}
-    <a href="{% url 'home' %}">
+    <a href="{% url 'formulario_colaborador' %}">
         <button class="botao">Formulario preceptor</button>
     </a>
 {% endif %}
