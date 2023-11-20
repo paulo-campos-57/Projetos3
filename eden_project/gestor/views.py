@@ -98,3 +98,6 @@ def colaborador(request):
     return render(request, 'colaborador.html', {'perfil_colaborador': perfil_colaborador})
 
 
+def novos_membros(request):
+
+    return render(request, "add_gestores.html")

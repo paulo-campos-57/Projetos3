@@ -36,3 +36,17 @@
     text-transform: uppercase;
     color: #000000;
 }
+
+.colaborador_texto_navbar_vertical {
+  /* Novos Membros */
+
+  position: absolute;
+  width: 395px;
+  height: 51px;
+  left: 520px;
+  top: 29px;
+
+  
+
+
+}
