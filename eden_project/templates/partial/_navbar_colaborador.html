@@ -2,7 +2,7 @@
 
 <!-- Navbar à esquerda -->
 <div class="sidebar" style="background-color: #101214; height: 100vh; width: 280px; position: fixed; top: 0; left: 0; display: flex; flex-direction: column; align-items: center;">
-
+    
     <ul style="list-style-type: none; padding: 0; margin-top: 20px; display: flex; flex-direction: column; gap: 20px;">
 
         <li style="margin-bottom: 10px; width: 100%; text-align: center;">
@@ -36,7 +36,7 @@
         </li>
 
         <li>
-            <a class="gestaoEquipe" href="#" style="display: block;">
+            <a class="gestaoEquipe" href="{% url 'gestao_equipe' %}" style="display: block;">
                 <img src="{% static 'assets/imagens/BotaoGestaoEquipe.png' %}" alt="gestaoEquipe" style="display: inline-block; vertical-align: middle; margin-bottom: 10px;">
             </a>
         </li>

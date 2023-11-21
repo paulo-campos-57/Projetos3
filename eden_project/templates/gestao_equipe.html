@@ -1,22 +1,43 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<body style="background-color: #173438; margin: 0;">
+    
+    {% include 'partial/_navbar_colaborador.html'%}
 
-<body style="background-color: #ffff">
-    {% include 'partial/_navbar.html' %}
-
-    <div class="container" style="margin-top: 125px;">
-        <a href class="text-center" style="display: inline-block; margin: 0 50px;">
-            <img src="https://cdn.discordapp.com/attachments/938158080733110393/1171495316353187970/Lista_de_Colaboradores.png?ex=655ce308&is=654a6e08&hm=aa6452870f229eee28f2c2d9b5fc03dc569b8a7ec4645a6935629403907d22de&" alt="Botão Lista de Colaboradores">
+    <div class="top-right-image" style="position: absolute; top: 20px; right: 20px;">
+        {% if user.is_authenticated %}
+            <div class="profile-container" style="position: relative; display: inline-block;">
+                <img src="{% static 'assets/icones/BarraUsuarioLogado.png' %}" alt="Imagem de Perfil" style="width: 200px; height: auto;">
+                <p class="username-overlay" style="position: absolute; top: 20%; left: 40%; transform: translate(-50%, -50%); color: #F8F8F8; text-align: center; font-weight: bold; font-family: 'Josefin Sans', sans-serif;">{{ user.username }}</p>
+            </div>
+            
+        {% else %}
+        <a class="botão_login" href="{% url 'login' %}">
+            <img src="https://cdn.discordapp.com/attachments/938158080733110393/1174493031760658553/Group_262.png?ex=6567cadf&is=655555df&hm=d7f1f07af0de7c68e855b0b1dc14f55801fb9c7025c3e5871a2de5f1b2d3c8b8&" alt="botão_login" style="width: 200px; height: auto;">
         </a>
-        <a href class="text-center" style="display: inline-block; margin: 0 50px;">
-            <img src="https://cdn.discordapp.com/attachments/938158080733110393/1171495807292289114/Novos_Membros.png?ex=655ce37d&is=654a6e7d&hm=099c1ae1ba20ad413e9ea677c594728f152c01c515ae2a5c7f6ed42ad8124339&" alt="Botão Novos Membros">
-        </a>
-        <a href class="text-center" style="display: inline-block; margin: 0 50px;">
-            <img src="https://cdn.discordapp.com/attachments/938158080733110393/1171495823876563085/Novos_Membros_1.png?ex=655ce381&is=654a6e81&hm=21c3ae385ff5ed48e35240eccdb70b1d631b3ef04a4dfd667b120d0827681ad2&" alt="Botão Buscar Usuários">
-        </a>
+        {% endif %}
     </div>
+
+<!-- Conteúdo principal -->
+<div class="main-content" style="margin-left: 300px; margin-top: 150px;">
+    <div class="usuarioLista" style="display: inline-block; margin-right: 20px; position: relative;">
+        <img src="{% static 'assets/imagens/IconeUsuarioLista.png' %}" alt="usuarioLista" style="width: auto; height: auto; padding: 20px; position: relative;">
+        <p class="username-overlay" style="position: absolute; top: 40%; left: 55%; transform: translate(-50%, -50%); color: #F8F8F8; text-align: center; font-weight: bold; font-family: 'Josefin Sans', sans-serif; line-height: 1; z-index: 2;">{{ user.username }}</p>
+    </div>
+
+    <div class="usuarioLista" style="display: inline-block; position: relative;">
+        <img src="{% static 'assets/imagens/IconeUsuarioLista.png' %}" alt="usuarioLista" style="width: auto; height: auto; padding: 20px; position: relative;">
+        <p class="username-overlay" style="position: absolute; top: 40%; left: 55%; transform: translate(-50%, -50%); color: #F8F8F8; text-align: center; font-weight: bold; font-family: 'Josefin Sans', sans-serif; line-height: 1; z-index: 2;">{{ user.username }}</p>
+    </div>
+
+    <div class="usuarioLista" style="display: inline-block; position: relative;">
+        <img src="{% static 'assets/imagens/IconeUsuarioLista.png' %}" alt="usuarioLista" style="width: auto; height: auto; padding: 20px; position: relative;">
+        <p class="username-overlay" style="position: absolute; top: 40%; left: 55%; transform: translate(-50%, -50%); color: #F8F8F8; text-align: center; font-weight: bold; font-family: 'Josefin Sans', sans-serif; line-height: 1; z-index: 2;">{{ user.username }}</p>
+    </div>
+</div>
+
+
 </body>
 </html>
-
 {% endblock %}
