@@ -92,7 +92,7 @@ def formulario_colaborador(request):
 def colaborador(request):
     perfil_colaborador = getPerfilColaborador(request)
 
-    if perfil_colaborador == None:
+    if perfil_colaborador == None or perfil_colaborador.atividade == False:
         return redirect("home")
     
     return render(request, 'colaborador.html', {'perfil_colaborador': perfil_colaborador})
