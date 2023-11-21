@@ -24,8 +24,8 @@
         </li>
 
         <li>
-            <a class="novosMembros" href="{% url 'novos_membros' %}" style="display: block;">
-                <img src="{% static 'assets/imagens/BotaoNovosMembros.png' %}" alt="novosMembros" style="display: inline-block; vertical-align: middle; margin-bottom: 10px;">
+            <a id="NovosMembros" class="novosMembros" href="{% url 'novos_membros' %}" style="display: block;">
+                <img id="IconeNovosMembros" src="{% static 'assets/imagens/BotaoNovosMembros.png' %}" alt="novosMembros" style="display: inline-block; vertical-align: middle; margin-bottom: 10px;">
             </a>
         </li>
 
@@ -73,3 +73,18 @@
 
     </ul>
 </nav>
+
+<script>
+    function alterarImagem() {
+        var urlAtual = window.location.href;
+
+        if (urlAtual.includes('novos_membros')) {
+            var iconeNovosMembros = document.getElementById('IconeNovosMembros');
+            iconeNovosMembros.src = "{% static 'assets/imagens/BotaoNovosMembros2.png' %}";
+            iconeNovosMembros.style.maxWidth = '100%';
+            iconeNovosMembros.style.height = 'auto';
+        }
+    }
+
+    window.onload = alterarImagem;
+</script>

@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<body style="background-color: #173438; margin: 0;">
+<body style="background-color: #23353F; margin: 0;">
 
     {% include 'partial/_navbar_colaborador.html'%}
 
-    <img class="colaborador_texto_navbar_vertical" src="{% static 'assets/imagens/NovosMembrosText.png' %}"> 
+    <img class="colaborador_texto_navbar_vertical" src="{% static 'assets/imagens/NovosMembrosText.png' %}" alt="novosMembros"> 
 
+    <img src="{% static 'assets/icones/IconeAcicionarFormulario.png' %}" alt="AdicionarFormulario" style="position: absolute; width: 348px; height: 349px; left: 602px; top: 382px;"> 
 
+    <img src="{% static 'assets/icones/IconeAdicionarBuscarUsuario.png' %}" alt="BuscarUsuarios" style="position: absolute; width: 348px; height: 349px; left: 1296px; top: 382px;"> 
 </body>
 </html>
 {% endblock %}
