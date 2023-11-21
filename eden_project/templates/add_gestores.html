@@ -4,12 +4,16 @@
 <body style="background-color: #23353F; margin: 0;">
 
     {% include 'partial/_navbar_colaborador.html'%}
-
     <img class="colaborador_texto_navbar_vertical" src="{% static 'assets/imagens/NovosMembrosText.png' %}" alt="novosMembros"> 
 
-    <img src="{% static 'assets/icones/IconeAcicionarFormulario.png' %}" alt="AdicionarFormulario" style="position: absolute; width: 348px; height: 349px; left: 602px; top: 382px;"> 
+    <a href="{% url 'novos_membros_formulario' %}">
+        <img src="{% static 'assets/icones/IconeAcicionarFormulario.png' %}" alt="AdicionarFormulario" style="position: absolute; width: 348px; height: 349px; left: 602px; top: 382px;"> 
+    </a>
 
-    <img src="{% static 'assets/icones/IconeAdicionarBuscarUsuario.png' %}" alt="BuscarUsuarios" style="position: absolute; width: 348px; height: 349px; left: 1296px; top: 382px;"> 
+    <a href="{% url 'novos_membros_buscar' %}">
+       <img src="{% static 'assets/icones/IconeAdicionarBuscarUsuario.png' %}" alt="BuscarUsuarios" style="position: absolute; width: 348px; height: 349px; left: 1296px; top: 382px;">  
+    </a>
+    
 </body>
 </html>
 {% endblock %}

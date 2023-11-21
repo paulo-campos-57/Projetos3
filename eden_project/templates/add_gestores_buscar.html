@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body style="background-color: #23353F; margin: 0;">
+
+    {% include 'partial/_navbar_colaborador.html'%}
+
+
+  <div>
+    <img src="{% static 'assets/icones/SetaVolta.png' %}" alt="setaVoltar">
+    <img class="colaborador_texto_navbar_vertical" src="{% static 'assets/imagens/NovosMembrosText.png' %}" alt="novosMembros"> 
+  </div>  
+
+
+    
+
+</body>
+</html>
+{% endblock %} 

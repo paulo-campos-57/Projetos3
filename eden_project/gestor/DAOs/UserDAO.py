@@ -8,3 +8,14 @@ def getUser(request):
         return user
     else:
         return None
+
+def instanceUser(username, password, email):
+        user = User.objects.create_user(username=username, password=password, email=email)
+        return user
+
+def getUserByUsername(username):
+        try:
+            user = User.objects.get(username=username)
+            return user
+        except User.DoesNotExist:
+            return None

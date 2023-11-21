@@ -2,8 +2,10 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from gestor.models import PerfilColaborador, FormularioReporte, Mensagens
-from gestor.DAOs.PerfilColaboradorDAO import intancePerfilColaborador, getPerfilColaborador
+from gestor.DAOs.PerfilColaboradorDAO import intancePerfilColaborador, getPerfilColaborador, getFomulariosColaborador, getTodosPerfisColaborador
 from .forms import PerfilColacoradorForm, FormularioReporteForm, MensagensForm
+from django.contrib.auth import authenticate, login as django_login
+from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 
@@ -20,16 +22,42 @@ def home(request):
     return render(request, 'home.html', {'perfil_colaborador' : perfil_colaborador})
 
 def login(request):
-    request.use=None
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        # Autentica o usuário
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            # Usuário autenticado com sucesso
+            django_login(request, user)
+            return redirect('home')
+        else:
+            # Falha na autenticação
+            return render(request, 'login.html', {'error_message': 'Usuário não cadastrado!'})
     return render(request, 'login.html')
 
 def cadastro(request):
-    request.use=None
-    return render(request, 'cadastro.html')
+        if request.method == 'POST':
+            form = UserCreationForm(request.POST)
+            if form.is_valid(): 
+                user = form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            
+            return('home.html')
+        else:
+            form = UserCreationForm()
+        return render(request, 'cadastro.html', {'form': form})
+    #request.use=None
+    #return render(request, 'cadastro.html')
 
 def usuario_cadastrado(request):
     if request.method == 'POST':
         username = request.POST.get('username')
+        
         email = request.POST.get('email')
         password = request.POST.get('password')
         # Verificar se o usuário já existe no banco de dados
@@ -99,5 +127,35 @@ def colaborador(request):
 
 
 def novos_membros(request):
+    perfil_colaborador = getPerfilColaborador(request)
 
+    if perfil_colaborador == None or perfil_colaborador.atividade == False:
+        return redirect("home")
+        
     return render(request, "add_gestores.html")
+
+def novos_membros_formulario(request):
+    perfil_colaborador = getPerfilColaborador(request)
+
+    if perfil_colaborador == None or perfil_colaborador.atividade == False:
+        return redirect("home")
+    
+    formularios = getFomulariosColaborador()
+    
+    return render(request, "add_gestores_formulario.html", {'perfil_colaborador' : perfil_colaborador, 'formularios' : formularios})
+
+def novos_membros_buscar(request):
+    perfil_colaborador = getPerfilColaborador(request)
+
+    if perfil_colaborador == None or perfil_colaborador.atividade == False:
+        return redirect("home")
+    
+    formularios = getFomulariosColaborador()
+    
+    return render(request, "add_gestores_buscar.html", {'perfil_colaborador' : perfil_colaborador, 'formularios' : formularios})
+    
+    
+
+# def CriarFormularioMensagem(request):
+    
+    

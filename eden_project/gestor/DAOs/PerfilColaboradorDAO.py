@@ -24,5 +24,18 @@ def getPerfilColaborador(request):
 
     return perfil
 
+def getFomulariosColaborador():   
+    try:
+        perfils = PerfilColaborador.objects.filter(status= 'analise')
+    except PerfilColaborador.DoesNotExist:
+        perfils = None
+        
+    return perfils
 
- 
+
+def getTodosPerfisColaborador():
+    try:
+        perfils = PerfilColaborador.objects.filter(atividade=True)
+    except PerfilColaborador.DoesNotExist:
+        perfils = None
+

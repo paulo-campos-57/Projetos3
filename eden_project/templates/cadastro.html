@@ -36,18 +36,18 @@
         <form method="post" action="{% url 'usuario_cadastrado' %}">
             {% csrf_token %}
 
-            <div class="input-container"></div>
+            <div class="input-container">
                 <label for="username" style="font-weight: bold; font-size: 20px;">Username:</label>
                 <input type="text" id="username" name="username" style="width: 300px; height: 40px; font-size: 20px;" required><br>
 
                 <br>
 
-                <label for="nome" style="font-weight: bold; font-size: 20px;">Nome:</label>
+                <label for="nome" style="font-weight: bold; font-size: 20px;margin-left: 35px;">Nome:</label>
                 <input type="text" id="username" name="first-name" style="width: 300px; height: 40px; font-size: 20px;" required><br>
 
                 <br>
 
-                <label for="nome" style="font-weight: bold; font-size: 20px;">Sobrenome:</label>
+                <label for="nome" style="font-weight: bold; font-size: 20px;margin-right:-6px">Sobrenome:</label>
                 <input type="text" id="username" name="last-name" style="width: 300px; height: 40px; font-size: 20px;" required><br>
 
                 <br>

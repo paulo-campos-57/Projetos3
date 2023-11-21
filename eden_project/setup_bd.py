@@ -7,7 +7,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'eden_project.settings')
 django.setup()
 
 from django.contrib.auth.models import User
-from gestor.models import Midia, PerfilColaborador, UserHistorico, FormularioSuporte, UserFeedback
+from gestor.models import Midia, PerfilColaborador, UserHistorico, FormularioSuporte, FormularioReporte, UserFeedback, Mensagens
 from django.utils import timezone
 
 CARTAZ = "https://media.discordapp.net/attachments/1097961194427514930/1101128002768736286/not_found.png?ex=655f4a5d&is=654cd55d&hm=bdd0c3fec65aadbae16eacae003b2c35581650479b6ec5203f81ef5b01f867e8&=&width=1090&height=708"
@@ -95,6 +95,26 @@ def formulario_suporte(username,texto,status):
     
     formulario.save()
 
+def formulario_reporte(username, categoriaReporte, midia, texto, status):
+    try:
+        user = User.objects.get(username=username)
+    except User.DoesNotExist:
+        print(f"Usuário com username '{username}' não encontrado.")
+        return
+    
+    if FormularioReporte.objects.filter(username=username).exists():
+        print(f"Uma instância de formulário reporte do usuário '{username}' já existe. Não foi criada uma nova instância.")
+        return
+
+    formulario = FormularioReporte(
+        user = user,
+        categoriaReporte = categoriaReporte,
+        midia = midia,
+        texto = texto,
+        status = status
+    )
+    formulario.save()
+
 def user_feedback(username,titulo,reacao,comentario):
     try:
         user = User.objects.get(username=username)
@@ -120,7 +140,6 @@ def user_feedback(username,titulo,reacao,comentario):
         )
     
     feedback.save()
-    
 
 def criar_perfil_colaborador(username, cargo, status, atividade):
     try:
@@ -141,6 +160,37 @@ def criar_perfil_colaborador(username, cargo, status, atividade):
     )
 
     perfil.save()
+
+def criar_mensagem(username, user_destino_username, mensagem, contexto, dataMensagem):
+    try:
+        user = User.objects.get(username=username)
+        
+    except User.DoesNotExist:
+        print(f"Usuário com username '{username}' não encontrado.")
+        return
+    
+    try:
+        user_destino = User.objects.get(username=user_destino_username)
+        
+    except User.DoesNotExist:
+        print(f"Usuário com username '{user_destino_username}' não encontrado.")
+        return
+
+    mensagem = Mensagens(
+        user=user,
+        user_destino= user_destino,
+        mensagem=mensagem,
+        contexto=contexto,
+        dataMensagem = dataMensagem
+    )
+    mensagem.save()
+
+def criar_bd_mensagens():
+    dataMensagem = datetime(2014, 1, 1, 12, 30, 20)
+    criar_mensagem('MarcosSerra', 'Gilmor', 'Olá desejo um cargo de adiministrador de Suporte e Reporte', 'Pedido_de_cargo', dataMensagem)
+
+def criar_bd_formulario_reporte():
+    formulario_reporte('MarcosSerra', 'Problema_de_Legenda', 'We Are Legion', 'Este título não está com a legenda sincronizada, além da tradução estar errada.', 'False')
 
 def criar_bd_filmes():
     dataFilme = datetime(2012, 1, 1, 12, 0, 0)
@@ -380,7 +430,6 @@ def criar_atividade_user(username):
         else:
             break
 
-
 def configurar_bd():
     criar_superuser('Gilmor', 'admin@example.com', '12345678')    
 
@@ -393,6 +442,8 @@ def configurar_bd():
     criar_atividade_user('MarcosSerra')
 
     criar_perfil_colaborador('MarcosSerra', 'reportuser', 'analise', 'False')
+
+    criar_mensagem()
 
 def main():
     print("Configurando o banco de dados de teste...")
