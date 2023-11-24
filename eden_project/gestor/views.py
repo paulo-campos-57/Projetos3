@@ -19,7 +19,7 @@ def home(request):
     else:
         perfil_colaborador = None
     
-    return render(request, 'home.html', {'perfil_colaborador' : perfil_colaborador})
+    return render(request, 'index.html', {'perfil_colaborador' : perfil_colaborador})
 
 def login(request):
     if request.method == 'POST':

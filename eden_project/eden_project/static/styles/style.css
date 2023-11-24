@@ -8,6 +8,22 @@
   min-width: 1920px;
 }
 
+.icone_navbar {
+  display: inline-block; 
+  margin-bottom: 2px; 
+  width: 406px; 
+  height: 73px;
+  align-self: flex-end;
+}
+
+.icone_logout {
+  position: absolute;
+  width: 93px;
+  height: 39px;
+  left: 50px;
+  top: 900px;
+}
+
 .sidebar_colaborador {
   background-color: #101214; 
   height: 100%; 
