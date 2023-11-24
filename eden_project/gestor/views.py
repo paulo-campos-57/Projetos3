@@ -123,16 +123,18 @@ def colaborador(request):
     if perfil_colaborador == None or perfil_colaborador.atividade == False:
         return redirect("home")
     
-    return render(request, 'colaborador.html', {'perfil_colaborador': perfil_colaborador})
+    return render(request, 'colaborador.html', {'perfil_colaborador' : perfil_colaborador})
 
 
 def novos_membros(request):
-    perfil_colaborador = getPerfilColaborador(request)
+    if request.user.is_authenticated:
+        try:
+            perfil_colaborador = getPerfilColaborador(request)
+        except PerfilColaborador.DoesNotExist:
+            return redirect("home")
 
-    if perfil_colaborador == None or perfil_colaborador.atividade == False:
-        return redirect("home")
         
-    return render(request, "add_gestores.html")
+    return render(request, "add_gestores.html", {'perfil_colaborador' : perfil_colaborador})
 
 def novos_membros_formulario(request):
     perfil_colaborador = getPerfilColaborador(request)
