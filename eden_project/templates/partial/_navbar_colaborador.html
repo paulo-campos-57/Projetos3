@@ -7,49 +7,49 @@
 
         <li style="margin-bottom: 10px; width: 100%; text-align: center;">
             <a class="logo" href="{% url 'home' %}" style="display: block;">
-                <img src="{% static 'assets/icones/Logo.png' %}" alt="Logo" style="display: inline-block; vertical-align: middle; margin-bottom: 10px;">
+                <img src="{% static 'assets/icones/Logo.png' %}" alt="Logo" style="display: inline-block; margin-bottom: 10px;">
             </a>
         </li>
 
         <li>
             <a class="home" href="{% url 'home' %}" style="display: block;">
-                <img src="{% static 'assets/imagens/Botao_Home.png' %}" alt="home" style="display: inline-block; vertical-align: middle; margin-bottom: 10px;">
+                <img src="{% static 'assets/imagens/Botao_Home.png' %}" alt="home" style="display: inline-block; margin-bottom: 10px;">
             </a>
         </li>
 
         <li>
             <a class="gestaoTitulos" href="#" style="display: block;">
-                <img src="{% static 'assets/imagens/BotaoGestaoTitulos.png' %}" alt="gestaoTitulos" style="display: inline-block; vertical-align: middle; margin-bottom: 10px;">
+                <img src="{% static 'assets/imagens/BotaoGestaoTitulos.png' %}" alt="gestaoTitulos" style="display: inline-block; margin-bottom: 10px;">
             </a>
         </li>
 
         <li>
             <a id="NovosMembros" class="novosMembros" href="{% url 'novos_membros' %}" style="display: block;">
-                <img id="IconeNovosMembros" src="{% static 'assets/imagens/BotaoNovosMembros.png' %}" alt="novosMembros" style="display: inline-block; vertical-align: middle; margin-bottom: 10px;">
+                <img id="IconeNovosMembros" src="{% static 'assets/imagens/BotaoNovosMembros.png' %}" alt="novosMembros" style="display: inline-block;  margin-bottom: 10px;">
             </a>
         </li>
 
         <li>
             <a class="listaUsuarios" href="#" style="display: block;">
-                <img src="{% static 'assets/imagens/BotaoListaUsuarios.png' %}" alt="listaUsuarios" style="display: inline-block; vertical-align: middle; margin-bottom: 10px;">
+                <img src="{% static 'assets/imagens/BotaoListaUsuarios.png' %}" alt="listaUsuarios" style="display: inline-block;  margin-bottom: 10px;">
             </a>
         </li>
 
         <li>
             <a class="gestaoEquipe" href="{% url 'gestao_equipe' %}" style="display: block;">
-                <img src="{% static 'assets/imagens/BotaoGestaoEquipe.png' %}" alt="gestaoEquipe" style="display: inline-block; vertical-align: middle; margin-bottom: 10px;">
+                <img src="{% static 'assets/imagens/BotaoGestaoEquipe.png' %}" alt="gestaoEquipe" style="display: inline-block;  margin-bottom: 10px;">
             </a>
         </li>
 
         <li>
             <a class="configuracao" href="#" style="display: block;">
-                <img src="{% static 'assets/imagens/BotaoConfiguracao.png' %}" alt="configuracao" style="display: inline-block; vertical-align: middle; margin-bottom: 10px;">
+                <img src="{% static 'assets/imagens/BotaoConfiguracao.png' %}" alt="configuracao" style="display: inline-block;  margin-bottom: 10px;">
             </a>
         </li>
 
         <li>
             <a class="suporte" href="#" style="display: block;">
-                <img src="{% static 'assets/imagens/BotaoSuporte.png' %}" alt="suporte" style="display: inline-block; vertical-align: middle; margin-bottom: 10px;">
+                <img src="{% static 'assets/imagens/BotaoSuporte.png' %}" alt="suporte" style="display: inline-block;  margin-bottom: 10px;">
             </a>
         </li>
 
@@ -57,14 +57,14 @@
 
         <li>
             <a class="botaoSair" href="#" style="display: block;">
-                <img src="{% static 'assets/imagens/BotaoSair.png' %}" alt="botaoSair" style="display: inline-block; vertical-align: middle; margin-bottom: 10px;">
+                <img src="{% static 'assets/imagens/BotaoSair.png' %}" alt="botaoSair" style="display: inline-block;  margin-bottom: 10px;">
             </a>
         </li>
     </ul>
 </div>
 
 <!-- Navbar horizontal abaixo da Sidebar -->
-<nav class="navbar-horizontal" style="background-color: #004853; width: 1920px; height: 100px; position: fixed; top: 0; left: 280px;">
+<nav class="navbar-horizontal" style="background-color: #004853; width: 1920px; height: 100px; position: fixed; top: 0; left: 280px; z-index: 99;">
 
     <!-- Links da Navbar -->
     <ul style="list-style-type: none; padding: 0; display: flex; gap: 20px;">
@@ -81,8 +81,9 @@
         if (urlAtual.includes('novos_membros')) {
             var iconeNovosMembros = document.getElementById('IconeNovosMembros');
             iconeNovosMembros.src = "{% static 'assets/imagens/BotaoNovosMembros2.png' %}";
-            iconeNovosMembros.style.maxWidth = '100%';
+            iconeNovosMembros.style.width = '355px';
             iconeNovosMembros.style.height = 'auto';
+            iconeNovosMembros.style.left = '23px';
         }
     }
 
