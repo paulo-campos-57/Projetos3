@@ -76,6 +76,30 @@
 }
 
 /* Adicionar Colaborador */
+.search-bar-add-colaborador {
+  position: absolute; 
+  width: 563px;
+  height: 32px;
+  left: 450px; 
+  top: 176px;  /* ou a posição desejada */
+  background: transparent;
+  border-radius: 20px;
+  border: none; 
+  outline: none;
+  color: #ffffff;
+  text-align: left; /* Alinha o texto à direita dentro do contêiner */
+  line-height: 32px; 
+  padding-left: 40px;
+}
+
+.search-bar-add-colaborador-backgroud {
+  position: absolute; 
+  width: 563px;
+  height: 58px;
+  left: 450px; 
+  top: 150px;  /* ou a posição desejada */
+}
+
 .card-add-colaborador-grid {
   position: absolute; 
   width: 1426px; 

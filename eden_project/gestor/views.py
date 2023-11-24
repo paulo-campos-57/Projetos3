@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from gestor.models import PerfilColaborador, FormularioReporte, Mensagens
 from gestor.DAOs.PerfilColaboradorDAO import intancePerfilColaborador, getPerfilColaborador, getFomulariosColaborador, getTodosPerfisColaborador
 from gestor.DAOs.UserDAO import getUserNoColaboretors
@@ -170,6 +170,16 @@ def novos_membros_buscar(request):
         return redirect("login")
     
     users_no_colaborator = getUserNoColaboretors()
+
+    if 'search_query' in request.GET:
+        search_query = request.GET['search_query']
+        users = [
+            user for user in users_no_colaborator
+            if search_query.lower() in user.username.lower() or search_query.lower() in user.email.lower()
+        ]
+        
+        user_list = [{'username': user.username, 'last_login': user.last_login, 'email': user.email} for user in users]
+        return JsonResponse({'users': user_list})
     
     return render(request, "add_gestores_buscar.html", {'perfil_colaborador' : perfil_colaborador, 'users_no_colaborator' : users_no_colaborator})
     
