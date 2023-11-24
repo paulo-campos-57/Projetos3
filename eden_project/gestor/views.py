@@ -5,7 +5,7 @@ from gestor.models import PerfilColaborador, FormularioReporte, Mensagens
 from gestor.DAOs.PerfilColaboradorDAO import intancePerfilColaborador, getPerfilColaborador, getFomulariosColaborador, getTodosPerfisColaborador
 from gestor.DAOs.UserDAO import getUserNoColaboretors
 from .forms import PerfilColacoradorForm, FormularioReporteForm, MensagensForm
-from django.contrib.auth import authenticate, login as django_login
+from django.contrib.auth import authenticate, logout, login as django_login
 from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
@@ -37,6 +37,11 @@ def login(request):
             # Falha na autenticação
             return render(request, 'login.html', {'error_message': 'Usuário não cadastrado!'})
     return render(request, 'login.html')
+
+def logout_logic(request):
+    logout(request)
+
+    return redirect("login")
 
 def cadastro(request):
         if request.method == 'POST':
