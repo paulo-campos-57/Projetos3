@@ -18,44 +18,44 @@
         </li>
 
         {% if perfil_colaborador %}
-        {% if perfil_colaborador.atividade %}
-        <li>
-            <a class="gestaoTitulos" href="#" style="display: block;">
-                <img class="icone_navbar" src="{% static 'assets/imagens/BotaoGestaoTitulos-2.png' %}" alt="gestaoTitulos">
-            </a>
-        </li>
+          {% if perfil_colaborador.atividade %}
+            <li>
+                <a class="gestaoTitulos" href="#" style="display: block;">
+                    <img class="icone_navbar" src="{% static 'assets/imagens/BotaoGestaoTitulos-2.png' %}" alt="gestaoTitulos">
+                </a>
+            </li>
 
-        <li>
-            <a id="NovosMembros" class="novosMembros" href="{% url 'novos_membros' %}" style="display: block;">
-                <img class="icone_navbar" id="IconeNovosMembros" src="{% static 'assets/imagens/BotaoNovosMembros-2.png' %}" alt="novosMembros">
-            </a>
-        </li>
+            <li>
+                <a id="NovosMembros" class="novosMembros" href="{% url 'novos_membros' %}" style="display: block;">
+                    <img class="icone_navbar" id="IconeNovosMembros" src="{% static 'assets/imagens/BotaoNovosMembros-2.png' %}" alt="novosMembros">
+                </a>
+            </li>
 
-        <li>
-            <a class="listaUsuarios" href="#" style="display: block;">
-                <img class="icone_navbar" src="{% static 'assets/imagens/BotaoListaUsuarios-2.png' %}" alt="listaUsuarios">
-            </a>
-        </li>
+            <li>
+                <a class="listaUsuarios" href="#" style="display: block;">
+                    <img class="icone_navbar" src="{% static 'assets/imagens/BotaoListaUsuarios-2.png' %}" alt="listaUsuarios">
+                </a>
+            </li>
 
-        <li>
-            <a class="gestaoEquipe" href="{% url 'gestao_equipe' %}" style="display: block;">
-                <img class="icone_navbar" src="{% static 'assets/imagens/BotaoGestaoEquipe-2.png' %}" alt="gestaoEquipe">
-            </a>
-        </li>
+            <li>
+                <a class="gestaoEquipe" href="{% url 'gestao_equipe' %}" style="display: block;">
+                    <img class="icone_navbar" src="{% static 'assets/imagens/BotaoGestaoEquipe-2.png' %}" alt="gestaoEquipe">
+                </a>
+            </li>
 
-        <li>
-            <a class="configuracao" href="#" style="display: block;">
-                <img class="icone_navbar" src="{% static 'assets/imagens/BotaoConfiguracao-2.png' %}" alt="configuracao">
-            </a>
-        </li>
+            <li>
+                <a class="configuracao" href="#" style="display: block;">
+                    <img class="icone_navbar" src="{% static 'assets/imagens/BotaoConfiguracao-2.png' %}" alt="configuracao">
+                </a>
+            </li>
 
-        <li>
-            <a class="suporte" href="#" style="display: block;">
-                <img class="icone_navbar" src="{% static 'assets/imagens/BotaoSuporte-2.png' %}" alt="suporte">
-            </a>
-        </li>
-        {% else %}
-        {% endif %}
+            <li>
+                <a class="suporte" href="#" style="display: block;">
+                    <img class="icone_navbar" src="{% static 'assets/imagens/BotaoSuporte-2.png' %}" alt="suporte">
+                </a>
+            </li>
+          {% else %}
+          {% endif %}
         {% else %}
         {% endif %}
 

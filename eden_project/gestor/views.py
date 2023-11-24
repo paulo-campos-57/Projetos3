@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse
 from gestor.models import PerfilColaborador, FormularioReporte, Mensagens
 from gestor.DAOs.PerfilColaboradorDAO import intancePerfilColaborador, getPerfilColaborador, getFomulariosColaborador, getTodosPerfisColaborador
+from gestor.DAOs.UserDAO import getUserNoColaboretors
 from .forms import PerfilColacoradorForm, FormularioReporteForm, MensagensForm
 from django.contrib.auth import authenticate, login as django_login
 from django.contrib.auth.forms import UserCreationForm
@@ -17,7 +18,7 @@ def home(request):
             perfil_colaborador = None
 
     else:
-        perfil_colaborador = None
+        return redirect("login")
     
     return render(request, 'index.html', {'perfil_colaborador' : perfil_colaborador})
 
@@ -132,29 +133,40 @@ def novos_membros(request):
             perfil_colaborador = getPerfilColaborador(request)
         except PerfilColaborador.DoesNotExist:
             return redirect("home")
+        
+    else:
+        return redirect("login")
 
         
     return render(request, "add_gestores.html", {'perfil_colaborador' : perfil_colaborador})
 
 def novos_membros_formulario(request):
-    perfil_colaborador = getPerfilColaborador(request)
-
-    if perfil_colaborador == None or perfil_colaborador.atividade == False:
-        return redirect("home")
+    if request.user.is_authenticated:
+        try:
+            perfil_colaborador = getPerfilColaborador(request)
+        except PerfilColaborador.DoesNotExist:
+            return redirect("home")
+        
+    else:
+        return redirect("login")
     
     formularios = getFomulariosColaborador()
     
     return render(request, "add_gestores_formulario.html", {'perfil_colaborador' : perfil_colaborador, 'formularios' : formularios})
 
 def novos_membros_buscar(request):
-    perfil_colaborador = getPerfilColaborador(request)
-
-    if perfil_colaborador == None or perfil_colaborador.atividade == False:
-        return redirect("home")
+    if request.user.is_authenticated:
+        try:
+            perfil_colaborador = getPerfilColaborador(request)
+        except PerfilColaborador.DoesNotExist:
+            return redirect("home")
+        
+    else:
+        return redirect("login")
     
-    formularios = getFomulariosColaborador()
+    users_no_colaborator = getUserNoColaboretors()
     
-    return render(request, "add_gestores_buscar.html", {'perfil_colaborador' : perfil_colaborador, 'formularios' : formularios})
+    return render(request, "add_gestores_buscar.html", {'perfil_colaborador' : perfil_colaborador, 'users_no_colaborator' : users_no_colaborator})
     
     
 

@@ -1,5 +1,7 @@
 from django.contrib.auth.models import User
+from gestor.models import PerfilColaborador
 from django.contrib.auth import get_user
+from django.db.models import Q
 
 def getUser(request):
     user = get_user(request)
@@ -16,6 +18,13 @@ def instanceUser(username, password, email):
 def getUserByUsername(username):
         try:
             user = User.objects.get(username=username)
+            return user
+        except User.DoesNotExist:
+            return None
+        
+def getUserNoColaboretors():
+        try:
+            user = User.objects.filter(Q(perfilcolaborador__isnull=True) | Q(perfilcolaborador__atividade=False))
             return user
         except User.DoesNotExist:
             return None
