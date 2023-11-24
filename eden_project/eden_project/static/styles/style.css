@@ -32,6 +32,7 @@
   left: 6%;
 }
 
+
 .botao {
     width: 300px;
     height: 70px;
@@ -56,4 +57,29 @@
   height: 51px;
   left: 520px;
   top: 29px;
+}
+
+.card-add-colaborador {
+  display: flex;
+  justify-content: flex-end;
+  width: 436px;
+  height: 160px;
+}
+
+.card-add-colaborador-blue-box {
+  width: 160px;
+  height: 160px;
+  background: #01BFD0;
+  display: flex;
+  flex-direction: column; /* Alinha o texto na vertical */
+  justify-content: flex-start; /* Alinha o texto à esquerda */
+  align-items: flex-end;
+}
+.card-add-colaborador-text {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 13px;
+  color: #F8F8F8;
 }
