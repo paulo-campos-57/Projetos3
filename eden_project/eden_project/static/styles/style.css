@@ -39,14 +39,15 @@
 }
   
 .logo1 {
-  width: 216px;
-  height: 58px;
+  height: 71px;
+  width: 265px;
   background-image: url('/static/assets/logos/logo1.png');
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
-  top: 18px;
-  left: 6%;
+  position: absolute;
+  top: 83px;
+  left: 37px;
+  margin-bottom: 20px;
 }
 
 
@@ -74,6 +75,17 @@
   height: 51px;
   left: 520px;
   top: 29px;
+  z-index: 99;
+
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 43px;
+  line-height: 43px;
+  display: flex;
+  align-items: center;
+
+  color: #F8F8F8;
 }
 
 /* Adicionar Colaborador */
@@ -104,7 +116,7 @@
 
 .card-add-colaborador-grid {
   position: absolute; 
-  width: 1426px; 
+  width: 70%; 
   left: 450px; 
   top: 150px;
   display: flex;
@@ -124,8 +136,9 @@
   width: 160px;
   height: 160px;
   background: #ffffff;
+  border-right: 8px solid #01BFD0;
   margin-right: 5px;
-  border-radius: 100px;
+  border-radius: 50%;
   overflow: hidden;
 }
 
