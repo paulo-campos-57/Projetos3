@@ -11,8 +11,8 @@
 .icone_navbar {
   display: inline-block; 
   margin-bottom: 2px; 
-  width: 406px; 
-  height: 73px;
+  width: 304.5px; 
+  height: 54.75px;
   align-self: flex-end;
 }
 
@@ -20,14 +20,15 @@
   position: absolute;
   width: 93px;
   height: 39px;
-  left: 50px;
-  top: 900px;
+  left: 93px;
+  top: 90%;
 }
 
 .sidebar_colaborador {
   background-color: #101214; 
+  min-height: 900px;
   height: 100%; 
-  width: 388px; 
+  width: 350px; 
   position: fixed; 
   top: 0; 
   left: 0; 
@@ -78,16 +79,17 @@
 /* Adicionar Colaborador */
 .search-bar-add-colaborador {
   position: absolute; 
-  width: 563px;
+  width: 523px;
   height: 32px;
   left: 450px; 
-  top: 176px;  /* ou a posição desejada */
+  top: 176px;  
   background: transparent;
+  opacity: 50%;
   border-radius: 20px;
   border: none; 
   outline: none;
   color: #ffffff;
-  text-align: left; /* Alinha o texto à direita dentro do contêiner */
+  text-align: left; 
   line-height: 32px; 
   padding-left: 40px;
 }
