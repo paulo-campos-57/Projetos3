@@ -1,5 +1,10 @@
 /* Navbar Styles */
-
+body {
+  background-color: #23353F; 
+  margin: 0;
+  min-width: 1500px;
+  min-height: 750px;
+}
 .navbar {
   position: relative;
   background: #004853;
@@ -21,12 +26,11 @@
   width: 93px;
   height: 39px;
   left: 93px;
-  top: 90%;
+  top: max(90%, 700px);
 }
 
 .sidebar_colaborador {
   background-color: #101214; 
-  min-height: 900px;
   height: 100%; 
   width: 350px; 
   position: fixed; 
