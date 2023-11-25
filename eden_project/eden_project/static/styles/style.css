@@ -77,7 +77,7 @@
   top: 29px;
   z-index: 99;
 
-  font-family: 'Josefin Sans';
+  font-family: 'Josefin Sans', 'Trebuchet MS';
   font-style: normal;
   font-weight: 600;
   font-size: 43px;
@@ -158,7 +158,7 @@
 }
 
 .card-add-colaborador-text {
-  font-family: 'Josefin Sans';
+  font-family: 'Josefin Sans', 'Helvetica';
   font-style: normal;
   font-weight: 400;
   font-size: 13px;
