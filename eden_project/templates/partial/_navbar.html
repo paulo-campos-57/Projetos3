@@ -13,7 +13,7 @@
 
         <li>
             <a class="home" href="{% url 'home' %}" style="display: block;">
-                <img class="icone_navbar" img src="{% static 'assets/imagens/Botao_Home-2.png' %}" alt="home">
+                <img class="icone_navbar" id="IconeHome" src="{% static 'assets/imagens/Botao_Home.png' %}" alt="home">
             </a>
         </li>
 
@@ -21,7 +21,7 @@
           {% if perfil_colaborador.atividade %}
             <li>
                 <a class="gestaoTitulos" href="#" style="display: block;">
-                    <img class="icone_navbar" src="{% static 'assets/imagens/BotaoGestaoTitulos-2.png' %}" alt="gestaoTitulos">
+                    <img class="icone_navbar" src="{% static 'assets/imagens/BotaoGestaoTitulos.png' %}" alt="gestaoTitulos">
                 </a>
             </li>
 
@@ -88,6 +88,11 @@
         if (urlAtual.includes('novos_membros')) {
             var iconeNovosMembros = document.getElementById('IconeNovosMembros');
             iconeNovosMembros.src = "{% static 'assets/imagens/BotaoNovosMembros2-2.png' %}";
+        }
+
+        if (urlAtual.endsWith('/')) {
+            var iconeHome = document.getElementById('IconeHome');
+            iconeHome.src = "{% static 'assets/imagens/BotaoNovosMembros2-2.png' %}";
         }
     }
 
