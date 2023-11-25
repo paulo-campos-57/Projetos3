@@ -76,7 +76,16 @@ def user_menu(request):
     return render(request, 'user.html')
 
 def gestao_equipe(request):
-    return render(request, 'gestao_equipe.html')
+    if request.user.is_authenticated:
+        try:
+            perfil_colaborador = getPerfilColaborador(request)
+        except PerfilColaborador.DoesNotExist:
+            return redirect("home")
+        
+    else:
+        return redirect("login")
+    
+    return render(request, 'gestao_equipe.html', {'perfil_colaborador' : perfil_colaborador})
 
 def homeMasterUser(request):
     return render(request, 'homeMasterUser.html')
@@ -122,15 +131,6 @@ def formulario_colaborador(request):
 
     
     return render(request, 'formulario_colaborador.html', {'form': form})
-
-def colaborador(request):
-    perfil_colaborador = getPerfilColaborador(request)
-
-    if perfil_colaborador == None or perfil_colaborador.atividade == False:
-        return redirect("home")
-    
-    return render(request, 'colaborador.html', {'perfil_colaborador' : perfil_colaborador})
-
 
 def novos_membros(request):
     if request.user.is_authenticated:

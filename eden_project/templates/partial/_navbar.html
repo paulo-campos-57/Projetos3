@@ -26,32 +26,32 @@
             </li>
 
             <li>
-                <a id="NovosMembros" class="novosMembros" href="{% url 'novos_membros' %}" style="display: block;">
-                    <img class="icone_navbar" id="IconeNovosMembros" src="{% static 'assets/imagens/BotaoNovosMembros-2.png' %}" alt="novosMembros">
+                <a class="novosMembros" href="{% url 'novos_membros' %}" style="display: block;">
+                    <img class="icone_navbar" id="IconeNovosMembros" src="{% static 'assets/imagens/BotaoNovosMembros.png' %}" alt="novosMembros">
                 </a>
             </li>
 
             <li>
                 <a class="listaUsuarios" href="#" style="display: block;">
-                    <img class="icone_navbar" src="{% static 'assets/imagens/BotaoListaUsuarios-2.png' %}" alt="listaUsuarios">
+                    <img class="icone_navbar" src="{% static 'assets/imagens/BotaoListaUsuarios.png' %}" alt="listaUsuarios">
                 </a>
             </li>
 
             <li>
                 <a class="gestaoEquipe" href="{% url 'gestao_equipe' %}" style="display: block;">
-                    <img class="icone_navbar" src="{% static 'assets/imagens/BotaoGestaoEquipe-2.png' %}" alt="gestaoEquipe">
+                    <img class="icone_navbar" id="IconeGestaoEquipe" src="{% static 'assets/imagens/BotaoGestaoEquipe.png' %}" alt="gestaoEquipe">
                 </a>
             </li>
 
             <li>
                 <a class="configuracao" href="#" style="display: block;">
-                    <img class="icone_navbar" src="{% static 'assets/imagens/BotaoConfiguracao-2.png' %}" alt="configuracao">
+                    <img class="icone_navbar" src="{% static 'assets/imagens/BotaoConfiguracao.png' %}" alt="configuracao">
                 </a>
             </li>
 
             <li>
                 <a class="suporte" href="#" style="display: block;">
-                    <img class="icone_navbar" src="{% static 'assets/imagens/BotaoSuporte-2.png' %}" alt="suporte">
+                    <img class="icone_navbar" src="{% static 'assets/imagens/BotaoSuporte.png' %}" alt="suporte">
                 </a>
             </li>
           {% else %}
@@ -87,12 +87,17 @@
 
         if (urlAtual.includes('novos_membros')) {
             var iconeNovosMembros = document.getElementById('IconeNovosMembros');
-            iconeNovosMembros.src = "{% static 'assets/imagens/BotaoNovosMembros2-2.png' %}";
+            iconeNovosMembros.src = "{% static 'assets/imagens/BotaoNovosMembros2.png' %}";
+        }
+
+        if (urlAtual.includes('gestao_equipe')) {
+            var iconeGestaoEquipe = document.getElementById('IconeGestaoEquipe');
+            iconeGestaoEquipe.src = "{% static 'assets/imagens/BotaoGestaoEquipe2.png' %}";
         }
 
         if (urlAtual.endsWith('/')) {
             var iconeHome = document.getElementById('IconeHome');
-            iconeHome.src = "{% static 'assets/imagens/BotaoNovosMembros2-2.png' %}";
+            iconeHome.src = "{% static 'assets/imagens/Botao_Home2.png' %}";
         }
     }
 
