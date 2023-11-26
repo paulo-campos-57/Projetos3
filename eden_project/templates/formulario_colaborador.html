@@ -26,6 +26,46 @@
         <button type="submit">Salvar</button>
     </form>
 
+    <select id="id_opcao" name="opcao">
+        <option value="" selected disabled>Selecione uma opção</option>
+        {% for opcao in opcoes %}
+            <option value="{{ opcao.valor }}">{{ opcao.nome }}</option>
+        {% endfor %}
+    </select>
+
+    <script>
+        $(document).ready(function() {
+            // Armazene a opção inicial para comparar com a opção selecionada antes de sair
+            var opcaoInicial = $('#id_opcao').val();
+    
+            $('#id_opcao').change(function() {
+                // Atualize a opção inicial sempre que houver uma mudança
+                opcaoInicial = $(this).val();
+            });
+    
+            $(window).on('beforeunload', function() {
+                // Verifique se a opção foi alterada antes de sair da página
+                if ($('#id_opcao').val() !== opcaoInicial) {
+                    // Envie uma solicitação AJAX para a view Django
+                    $.ajax({
+                        url: '/atualizar_opcao/',  // Substitua pela URL correta
+                        method: 'POST',
+                        data: {'opcao_selecionada': $('#id_opcao').val()},
+                        dataType: 'json',
+                        async: false,  // Síncrono para garantir que a solicitação seja concluída antes de descarregar a página
+                        success: function(data) {
+                            // Lidar com a resposta, se necessário
+                            console.log(data);
+                        },
+                        error: function(error) {
+                            console.error(error);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
 </body>
 
 {% endblock %}
