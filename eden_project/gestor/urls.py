@@ -1,5 +1,5 @@
 from django.urls import path
-from gestor.views import home, login, logout_logic, cadastro, user_menu, gestao_equipe, colaboradores, usuario_cadastrado, homeMasterUser, enviar_mensagem, formulario_colaborador, novos_membros, novos_membros_formulario, novos_membros_buscar
+from gestor.views import home, login, logout_logic, cadastro, user_menu, gestao_equipe, colaboradores, usuario_cadastrado, homeMasterUser, enviar_mensagem, formulario_colaborador, novos_membros, novos_membros_formulario, novos_membros_buscar, novos_membros_buscar_user
 
 
 urlpatterns = [
@@ -16,5 +16,6 @@ urlpatterns = [
     path('home', homeMasterUser, name='homeMasterUser'),
     path('novos_membros', novos_membros, name='novos_membros'),
     path('novos_membros/formulario', novos_membros_formulario, name='novos_membros_formulario'),
-    path('novos_membros/buscar', novos_membros_buscar, name='novos_membros_buscar')
+    path('novos_membros/buscar', novos_membros_buscar, name='novos_membros_buscar'),
+    path('novos_membros/buscar/usuario/<int:user_id>', novos_membros_buscar_user, name='novos_membros_buscar_user'),
 ]

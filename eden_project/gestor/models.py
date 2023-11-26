@@ -1,8 +1,24 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 from django.utils import timezone
 
 # Create your models here.
+
+class User(AbstractUser):
+    FOTO_CHOICES = (
+        ('assets/fotos/foto1.png', 'Foto1'),
+    )
+
+    foto = models.ImageField(upload_to='assets/fotos/', choices=FOTO_CHOICES, default='assets/fotos/foto1.png')
+
+    def historicos_count(self):
+        return UserHistorico.objects.filter(user=self).count()
+
+User._meta.get_field('groups').remote_field.related_name = 'user_groups'
+User._meta.get_field('user_permissions').remote_field.related_name = 'user_user_permissions'
+
+# Restante do seu código, incluindo outros modelos que referenciam User
+
 
 class Midia(models.Model):
     STATUS_CHOICES = (

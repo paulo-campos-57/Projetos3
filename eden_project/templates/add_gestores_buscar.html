@@ -20,9 +20,9 @@
 
   <div class="card-add-colaborador-grid" style="top: 250px;">
     {% for user in users_no_colaborator %}
-      <div class="card-add-colaborador">
+      <div class="card-add-colaborador" data-user-id="{{ user.id }}">
         <div class="card-add-colaborador-imagem-contener">
-          <img class="card-add-colaborador-imagem" src="{% static 'assets/icones/Logo.png' %}" alt="Logo">
+          <img class="card-add-colaborador-imagem" src="{% static user.foto %}" alt="{{ user.username }} Foto">
         </div>
         <div class="card-add-colaborador-blue-box">
           <div class="card-add-colaborador-text">
@@ -35,7 +35,7 @@
             Email: {{user.email}}
           </div>
           <div class="card-add-colaborador-text">
-            Interações:
+            Interações: {{user.historicos_count}}
           </div>
         </div>
       </div>
@@ -73,7 +73,7 @@
                                           Email: ${user.email}
                                       </div>
                                       <div class="card-add-colaborador-text">
-                                          Interações:
+                                          Interações: ${user.historicos_count}
                                       </div>
                                   </div>
                               </div>
@@ -81,6 +81,13 @@
                       });
                   }
               });
+          });
+
+          $('.card-add-colaborador').click(function() {
+            var userId = $(this).data('user-id');
+            var userDetailUrl = "{% url 'novos_membros_buscar_user' user_id=0 %}".replace('0', userId);
+            
+            window.location.href = userDetailUrl;
           });
       });
   </script>

@@ -1,9 +1,8 @@
 from django.shortcuts import redirect, render
-from django.contrib.auth.models import User
 from django.http import HttpResponse, JsonResponse
-from gestor.models import PerfilColaborador, FormularioReporte, Mensagens
+from gestor.models import User, PerfilColaborador, FormularioReporte, Mensagens
 from gestor.DAOs.PerfilColaboradorDAO import intancePerfilColaborador, getPerfilColaborador, getFomulariosColaborador, getTodosPerfisColaborador
-from gestor.DAOs.UserDAO import getUserNoColaboretors
+from gestor.DAOs.UserDAO import getUserNoColaboretors, getUserById
 from .forms import PerfilColacoradorForm, FormularioReporteForm, MensagensForm
 from django.contrib.auth import authenticate, logout, login as django_login
 from django.contrib.auth.forms import UserCreationForm
@@ -183,6 +182,10 @@ def novos_membros_buscar(request):
     
     return render(request, "add_gestores_buscar.html", {'perfil_colaborador' : perfil_colaborador, 'users_no_colaborator' : users_no_colaborator})
     
+def novos_membros_buscar_user(request, user_id):
+    user = getUserById(user_id)
+
+    return render(request, 'add_gestores_buscar_user.html', {'user': user})
     
 
 # def CriarFormularioMensagem(request):

@@ -1,5 +1,4 @@
-from gestor.models import PerfilColaborador
-from django.contrib.auth.models import User
+from gestor.models import User, PerfilColaborador
 from gestor.DAOs.UserDAO import getUser
 
 def intancePerfilColaborador(user, cargo, motivacao, status, atividade):
