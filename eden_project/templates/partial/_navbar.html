@@ -55,8 +55,24 @@
                 </a>
             </li>
           {% else %}
+            {% if perfil_colaborador.status != 'analise' %}
+                <li>
+                    <a class="formularioColaborador" href="{% url 'formulario_colaborador' %}" style="display: block;">
+                        <img class="icone_navbar" id="IconeFormularioColaborador" src="{% static 'assets/imagens/FormularioColaborador.png' %}" alt="formularioColaborador">
+                    </a>
+                </li>
+            {% else %}
+            {% endif %}
           {% endif %}
         {% else %}
+            {% if perfil_colaborador.status != 'analise' %}
+                <li>
+                    <a class="formularioColaborador" href="{% url 'formulario_colaborador' %}" style="display: block;">
+                        <img class="icone_navbar" id="IconeFormularioColaborador" src="{% static 'assets/imagens/FormularioColaborador.png' %}" alt="formularioColaborador">
+                    </a>
+                </li>
+            {% else %}
+            {% endif %}
         {% endif %}
 
         &nbsp;
@@ -98,6 +114,11 @@
         if (urlAtual.endsWith('/')) {
             var iconeHome = document.getElementById('IconeHome');
             iconeHome.src = "{% static 'assets/imagens/Botao_Home2.png' %}";
+        }
+
+        if (urlAtual.includes('formulario_colaborador')) {
+            var iconeFormularioColaborador = document.getElementById('IconeFormularioColaborador');
+            iconeFormularioColaborador.src = "{% static 'assets/imagens/FormularioColaborador2.png' %}";
         }
     }
 

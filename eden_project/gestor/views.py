@@ -2,7 +2,7 @@ from django.shortcuts import redirect, render
 from django.http import HttpResponse, JsonResponse
 from gestor.models import User, PerfilColaborador, FormularioReporte, Mensagens
 from gestor.DAOs.PerfilColaboradorDAO import intancePerfilColaborador, getPerfilColaborador, getFomulariosColaborador, getTodosPerfisColaborador
-from gestor.DAOs.UserDAO import getUserNoColaboretors, getUserById
+from gestor.DAOs.UserDAO import getUser, getUserNoColaboretors, getUserById
 from .forms import PerfilColacoradorForm, FormularioReporteForm, MensagensForm
 from django.contrib.auth import authenticate, logout, login as django_login
 from django.contrib.auth.forms import UserCreationForm
@@ -112,6 +112,10 @@ def enviar_mensagem(request):
 
 def formulario_colaborador(request):
     perfil_colaborador = getPerfilColaborador(request)
+
+    if perfil_colaborador == None:
+        user = getUser(request)
+        perfil_colaborador = intancePerfilColaborador(user, 'null', " ", 'preenchendo', False)
 
     if request.method == 'POST':
         form = PerfilColacoradorForm(request.POST, instance=perfil_colaborador)

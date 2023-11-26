@@ -2,10 +2,23 @@
 {% load static %}
 {% block content %}
 
-<body style="background-color: aliceblue;">
+<body>
     <!-- seu_template_cargo.html -->
 
     {% include 'partial/_navbar.html'%}
+
+    <div class="formulario-user-imagem-contener">
+        <img class="formulario-user-imagem" src="{% static user.foto %}" alt="{{ user.username }} Foto">
+    </div>
+
+    <div class="formulario-user-texto-nome">
+        {{user.first_name}} {{user.last_name}}
+    </div>
+
+    <div class="formulario-texto-intrucao">
+        Escreva sua motivação
+        para tornar-se um colaborador
+    </div>
     
     <form method="post" action="{% url 'formulario_colaborador' %}">
         {% csrf_token %}

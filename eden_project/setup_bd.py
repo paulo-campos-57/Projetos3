@@ -446,7 +446,7 @@ def configurar_bd():
 
     criar_atividade_user('MarcosSerra')
 
-    criar_perfil_colaborador('MarcosSerra', 'reportuser', 'analise', 'False')
+    #criar_perfil_colaborador('MarcosSerra', 'reportuser', 'analise', 'False')
 
     #criar_mensagem()
 

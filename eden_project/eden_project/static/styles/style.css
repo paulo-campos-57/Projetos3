@@ -175,3 +175,53 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+/* Formulario Colaborador */
+
+/* Avatar / Image-80 */
+.formulario-user-imagem-contener {
+  position: absolute;
+  width: 225px;
+  height: 225px;
+  left: 520px;
+  top: 214px;
+  border-radius: 200px;
+  overflow: hidden;
+}
+
+.formulario-user-imagem {
+  width: 225px;
+  height: 225px;
+}
+
+.formulario-user-texto-nome {
+  position: absolute;
+  width: 567px;
+  height: 48px;
+  left: 786px;
+  top: 270px;
+
+  font-family: 'Josefin Sans', 'Trebuchet MS';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 48px;
+
+  color: #FFFFFF;
+}
+
+.formulario-texto-intrucao {
+  position: absolute;
+  width: 446px;
+  height: 64px;
+  left: 1342px;
+  top: 325px;
+
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 32px;
+
+  color: #FFFFFF;
+}
