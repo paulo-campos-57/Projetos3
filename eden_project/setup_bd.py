@@ -6,7 +6,8 @@ import random
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'eden_project.settings')
 django.setup()
 
-from gestor.models import User, Midia, PerfilColaborador, UserHistorico, FormularioSuporte, FormularioReporte, UserFeedback, Mensagens
+from django.contrib.auth.models import User
+from gestor.models import  Midia, PerfilColaborador, UserHistorico, FormularioSuporte, FormularioReporte, UserFeedback, Mensagens
 from django.utils import timezone
 
 CARTAZ = "https://media.discordapp.net/attachments/1097961194427514930/1101128002768736286/not_found.png?ex=655f4a5d&is=654cd55d&hm=bdd0c3fec65aadbae16eacae003b2c35581650479b6ec5203f81ef5b01f867e8&=&width=1090&height=708"
