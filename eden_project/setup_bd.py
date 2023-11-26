@@ -12,16 +12,22 @@ from django.utils import timezone
 CARTAZ = "https://media.discordapp.net/attachments/1097961194427514930/1101128002768736286/not_found.png?ex=655f4a5d&is=654cd55d&hm=bdd0c3fec65aadbae16eacae003b2c35581650479b6ec5203f81ef5b01f867e8&=&width=1090&height=708"
 MIDIA = "https://media.discordapp.net/attachments/1097961194427514930/1101128002768736286/not_found.png?ex=655f4a5d&is=654cd55d&hm=bdd0c3fec65aadbae16eacae003b2c35581650479b6ec5203f81ef5b01f867e8&=&width=1090&height=708"
 
-def criar_superuser(username, email, senha):
+def criar_superuser(username, email, senha, first_name, last_name):
     if not User.objects.filter(username = username).exists():
-        User.objects.create_superuser(username, email, senha)
+        user = User.objects.create_superuser(username, email, senha)
+        user.first_name = first_name
+        user.last_name = last_name
+        user.save()
         return
     
     print(f"Usuário com username '{username}' já existe encontrado.")
 
-def criar_user(username, email, senha):
+def criar_user(username, email, senha, first_name, last_name):
     if not User.objects.filter(username = username).exists():
-        User.objects.create_user(username, email, senha)
+        user = User.objects.create_user(username, email, senha)
+        user.first_name = first_name
+        user.last_name = last_name
+        user.save()
         return
     
     print(f"Usuário com username '{username}' já existe encontrado.")
@@ -430,11 +436,11 @@ def criar_atividade_user(username):
             break
 
 def configurar_bd():
-    criar_superuser('Gilmor', 'admin@example.com', '12345678')    
+    criar_superuser('Gilmor', 'admin@example.com', '12345678', 'Gilmor', 'Gilmor')    
 
     criar_perfil_colaborador('Gilmor', 'masteruser', 'aprovado', True)
     
-    criar_user('MarcosSerra', 'marquinhosserragens@gmail.com', 'senha_teste')
+    criar_user('MarcosSerra', 'marquinhosserragens@gmail.com', 'senha_teste', 'Marcos', 'Serra')
 
     criar_bd_filmes()
 
