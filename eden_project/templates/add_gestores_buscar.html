@@ -19,23 +19,23 @@
   </div>
 
   <div class="card-add-colaborador-grid" style="top: 250px;">
-    {% for user in users_no_colaborator %}
-      <div class="card-add-colaborador" data-user-id="{{ user.id }}">
+    {% for pefil in perfils_users_no_colaborator %}
+      <div class="card-add-colaborador" data-user-id="{{ pefil.user.id }}">
         <div class="card-add-colaborador-imagem-contener">
-          <img class="card-add-colaborador-imagem" src="{% static 'assets/imagens/BarraPesquisa.png' %}" alt="{{ user.username }} Foto">
+          <img class="card-add-colaborador-imagem" src="{% static perfil.foto %}" alt="{{ pefil.user.username }} Foto">
         </div>
         <div class="card-add-colaborador-blue-box">
           <div class="card-add-colaborador-text">
-            Username: {{user.username}}
+            Username: {{pefil.user.username}}
           </div>
           <div class="card-add-colaborador-text">
-            Ultimo Login: {{user.last_login|date:"d/m/Y"}}
+            Ultimo Login: {{pefil.user.last_login|date:"d/m/Y"}}
           </div>
           <div class="card-add-colaborador-text">
-            Email: {{user.email}}
+            Email: {{pefil.user.email}}
           </div>
           <div class="card-add-colaborador-text">
-            Interações: 
+            Interações: {{ perfil.historicos_count }}
           </div>
         </div>
       </div>

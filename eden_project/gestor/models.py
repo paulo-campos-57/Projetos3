@@ -111,3 +111,17 @@ class UserFeedback(models.Model):
     
     def __str__(self):
         return self.texto
+    
+class PerfilUser(models.Model):
+    FOTO_CHOICES = (
+        ('assets/fotos/foto1.jpeg', 'Foto1'),
+        ('assets/fotos/foto2.jpeg', 'Foto2'),
+        ('assets/fotos/foto3.jpeg', 'Foto3'),
+        ('assets/fotos/foto4.jpeg', 'Foto4'),
+    )
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_list_perfil', blank=False)
+    foto = models.ImageField(upload_to='assets/fotos/', choices=FOTO_CHOICES, default='assets/fotos/foto1.png')
+
+    def historicos_count(self):
+        return UserHistorico.objects.filter(user=self).count()
