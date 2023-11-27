@@ -7,14 +7,21 @@
         background-size: cover;
         background-position: center;
         font-family: 'Josefin Sans', sans-serif;
+        backdrop-filter: blur(10px);
     }
-
+    #imagem-ao-lado {
+        max-width: 20%; /* Ajuste a largura da imagem conforme necessário */
+        margin-left: 630px; /* Espaçamento à esquerda da imagem */
+        margin-bottom: 203px;
+        margin-top: -350px;
+    }
     .containerLogin {
-        width: 50%;
+        width: 35%;
         text-align: left;
         font-size: large;
         margin: 60px auto 0;
-        min-height: 450px;
+        margin-left: 50px;
+        min-height: 350px;
         border-radius: 5%;
         border-color: #37ABC8;
         background-color: #23353F;
@@ -95,6 +102,7 @@
 
         </form>
     </div>
+    <img id="imagem-ao-lado" src="{% static 'assets\logos\logo1.png' %}" alt="Logo">
 </body>
 </html>
 {% endblock %}
