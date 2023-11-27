@@ -78,16 +78,15 @@ def user_menu(request):
 def gestao_equipe(request):
     if request.user.is_authenticated:
         try:
-            # Obtenha todos os perfis de colaboradores ativos
-            perfis_colaboradores = PerfilColaborador.objects.filter(atividade=True)
-
-            # Passe os perfis de colaboradores ativos para o contexto do template
-            return render(request, 'gestao_equipe.html', {'perfis_colaboradores': perfis_colaboradores})
+            perfil_colaborador = getPerfilColaborador(request)
         except PerfilColaborador.DoesNotExist:
-            # Lógica para caso não existam perfis de colaboradores ativos
-            return render(request, 'gestao_equipe.html', {'perfis_colaboradores': None})
+            return redirect("home")
+        
     else:
-        return redirect('login')
+        return redirect("login")
+    
+    perfis_colaboradores = getTodosPerfisColaborador()
+    return render(request, "gestao_equipe.html", {'perfil_colaborador': perfil_colaborador, 'perfis_colaboradores': perfis_colaboradores})
 
 def homeMasterUser(request):
     return render(request, 'homeMasterUser.html')

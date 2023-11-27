@@ -55,12 +55,6 @@
                 </a>
             </li>
 
-            <li>
-                <a class="botaoSair" href="{% url 'logout' %}" style="display: block;">
-                    <img class="icone_logout" src="{% static 'assets/imagens/BotaoSair.png' %}" alt="botaoSair">
-                </a>
-            </li>
-
           {% else %}
             {% if perfil_colaborador.status != 'analise' %}
                 <li>
@@ -83,9 +77,14 @@
         {% endif %}
 
         &nbsp;
-        
+
+        <li>
+            <a class="botaoSair" href="{% url 'logout' %}" style="display: block;">
+                <img class="icone_logout" src="{% static 'assets/imagens/BotaoSair.png' %}" alt="botaoSair">
+            </a>
+        </li>
     </ul>
-    
+
 </div>
 
 <!-- Navbar horizontal abaixo da Sidebar -->
