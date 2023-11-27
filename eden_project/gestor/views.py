@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 from gestor.models import PerfilColaborador, FormularioReporte, Mensagens
 from gestor.DAOs.PerfilColaboradorDAO import intancePerfilColaborador, getPerfilColaborador, getFomulariosColaborador, getTodosPerfisColaborador
 from gestor.DAOs.UserDAO import getUser, getUserNoColaboretors, getUserById
-from gestor.DAOs.PerfilUserDAO import intancePerfilUser, getPerfilUserColaboretors
 from .forms import PerfilColacoradorForm, FormularioReporteForm, MensagensForm
 from django.contrib.auth import authenticate, logout, login as django_login
 from django.contrib.auth.forms import UserCreationForm
@@ -71,7 +70,6 @@ def usuario_cadastrado(request):
         if User.objects.filter(username = username).exists():
             return HttpResponse('Este usuário já está cadastrado em nosso Banco de dados')
         user = User.objects.create_user(username, email, password)
-        intancePerfilUser(user)
         return render(request, 'usuario_cadastrado.html')
 
 def user_menu(request):
@@ -180,6 +178,7 @@ def novos_membros_formulario(request):
     formularios = getFomulariosColaborador()
     
     return render(request, "add_gestores_formulario.html", {'perfil_colaborador' : perfil_colaborador, 'formularios' : formularios})
+
 def novos_membros_buscar(request):
     if request.user.is_authenticated:
         try:
@@ -190,19 +189,19 @@ def novos_membros_buscar(request):
     else:
         return redirect("login")
     
-    perfils_users_no_colaborator = getPerfilUserColaboretors()
+    users_no_colaborator = getUserNoColaboretors()
 
     if 'search_query' in request.GET:
         search_query = request.GET['search_query']
         users = [
-            user for user in perfils_users_no_colaborator
+            user for user in users_no_colaborator
             if search_query.lower() in user.username.lower() or search_query.lower() in user.email.lower()
         ]
-        
+
         user_list = [{'username': user.username, 'last_login': user.last_login, 'email': user.email} for user in users]
         return JsonResponse({'users': user_list})
-    
-    return render(request, "add_gestores_buscar.html", {'perfil_colaborador' : perfil_colaborador, 'perfils_users_no_colaborator' : perfils_users_no_colaborator})
+
+    return render(request, "add_gestores_buscar.html", {'perfil_colaborador' : perfil_colaborador, 'users_no_colaborator' : users_no_colaborator})
     
 def novos_membros_buscar_user(request, user_id):
     user = getUserById(user_id)

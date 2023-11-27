@@ -4,11 +4,11 @@
 
 <body>
     <!-- seu_template_cargo.html -->
-
     {% include 'partial/_navbar.html'%}
+    
 
     <div class="formulario-user-imagem-contener">
-        <img class="formulario-user-imagem" src="{% static 'assets/imagens/BarraPesquisa.png' %}" alt="{{ user.username }} Foto">
+        <img class="formulario-user-imagem" src="{% static 'assets/fotos/foto1.jpeg' %}" alt="{{ user.username }} Foto">
     </div>
 
     <div class="formulario-user-texto-nome">
@@ -20,18 +20,20 @@
         para tornar-se um colaborador
     </div>
     
-    <form method="post" action="{% url 'formulario_colaborador' %}">
+    <form method="post" action="{% url 'formulario_colaborador' %}" style="width: 367px; height: 67px;">
         {% csrf_token %}
-        {{ form.as_p }}
+        
+        <div class="custom-select">
+            <select id="id_opcao" name="opcao">
+                <option value="" selected disabled>ESCOLHA UM CARGO</option>
+                <option value="reportuser">SUPORTE E REPORTE</option>
+                <option value="midiauser">GERENTE DE ACERVO</option>
+            </select>
+        </div>
+       
         <button type="submit">Salvar</button>
     </form>
 
-    <select id="id_opcao" name="opcao">
-        <option value="" selected disabled>Selecione uma opção</option>
-        {% for opcao in opcoes %}
-            <option value="{{ opcao.valor }}">{{ opcao.nome }}</option>
-        {% endfor %}
-    </select>
 
     <script>
         $(document).ready(function() {

@@ -269,3 +269,43 @@ body {
 .cargo-Cor {
   color: #000000;
 }
+
+.custom-select {
+  position: absolute;
+  left: 786px;
+  top: 325px;
+  width: 367px;
+  height: 67px;
+  background: #37ABC8;
+  border-radius: 29px;
+  overflow: hidden;
+}
+
+/* Estilizando o seletor dentro do contêiner */
+.custom-select select {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #000000;
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 24px;
+  padding: 0 10px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Ícone personalizado (opcional) */
+.custom-select::after {
+  content: '\25BC'; /* Ícone da seta para baixo */
+  font-size: 23px;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
