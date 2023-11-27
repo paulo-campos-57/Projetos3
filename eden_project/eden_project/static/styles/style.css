@@ -22,10 +22,10 @@ body {
 }
 
 .icone_logout {
-  position: absolute;
+  position: relative;
   width: 93px;
   height: 39px;
-  left: 93px;
+  left: 43px;
   top: max(90%, 700px);
 }
 
@@ -224,4 +224,47 @@ body {
   line-height: 32px;
 
   color: #FFFFFF;
+}
+
+/* Estilos CSS para os perfis de colaboradores */
+.perfis-Colaboradores {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Espaço entre os perfis */
+}
+
+.perfil {
+  position: relative;
+  flex-basis: calc(50% - 10px); /* Divide em duas colunas */
+  display: flex;
+  align-items: flex-start; /* Alinha os itens ao topo do perfil */
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.perfil-Imagem {
+  width: auto;
+  height: auto;
+  padding: 20px;
+  margin-right: 20px;
+  position: relative;
+}
+
+.perfil-Info {
+  position: absolute;
+  top: 35%;
+  left: 45%;
+  padding: 10px;
+  color: #F8F8F8;
+  font-weight: bold;
+  font-family: 'Josefin Sans', sans-serif;
+  line-height: 1;
+}
+
+.username-overlay {
+  margin: 0;
+}
+
+.cargo-Cor {
+  color: #000000;
 }
