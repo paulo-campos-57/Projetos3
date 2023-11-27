@@ -2,32 +2,97 @@
 {% load static %}
 {% block content %}
 <body>
-    
+
     {% include 'partial/_navbar.html'%}
 
-    <div class="main-content" style="margin-top: 50px; margin-left: 400px;">
-        <h1>Perfis de Colaboradores Ativos</h1>
 
-        <div class="perfis-Colaboradores">
-            {% if perfis_colaboradores %}
-                <div class="perfis-Grid">
-                    {% for perfil in perfis_colaboradores %}
-                        <div class="perfil">
-                            <img src="{% static 'assets/imagens/IconeUsuarioLista.png' %}" alt="perfil-Lista" class="perfil-Imagem">
-                            <div class="perfil-Info">
-                                <p class="username-overlay">{{ perfil.user.username }}</p>
-                                <p class="cargo-Cor"><b>Cargo: </b>{{ perfil.get_cargo_display }}</p>
+  <div>
+    <img src="{% static 'assets/icones/SetaVolta.png' %}" alt="setaVoltar">
+    <div class="colaborador_texto_navbar_vertical">Gestão de Equipe</div>
+  </div>  
+
+  <div class="search-bar">
+    <form id="search-form">
+        <img class="search-bar-add-colaborador-backgroud" src="{% static 'assets/imagens/BarraPesquisa.png' %}" alt="baraDePesquisa">
+        <input class="search-bar-add-colaborador" type="text" id="search-input">
+    </form>
+  </div>
+
+  <div class="card-add-colaborador-grid" style="top: 250px;">
+    {% for perfil in perfis_colaboradores %}
+      <div class="card-add-colaborador" data-user-id="{{ user.id }}">
+        <div class="card-add-colaborador-imagem-contener">
+          <img class="card-add-colaborador-imagem" src="{% static 'assets/imagens/BarraPesquisa.png' %}" alt="{{ user.username }} Foto">
+        </div>
+        <div class="card-add-colaborador-blue-box">
+          <div class="card-add-colaborador-text">
+            Username: {{perfil.user.username}}
+          </div>
+          <div class="card-add-colaborador-text">
+            Cargo: {{perfil.cargo}}
+          </div>
+          <div class="card-add-colaborador-text">
+            Email: {{perfil.user.email}}
+          </div>
+          <div class="card-add-colaborador-text">
+            Ultimo Login: {{perfil.user.last_login|date:"d/m/Y"}}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script>
+      $(document).ready(function() {
+          $('#search-input').on('input', function() {
+              var query = $(this).val();
+
+              $.ajax({
+                  url: '/gestao_equipe',  // Substitua pela URL correta da sua view de pesquisa dinâmica
+                  data: {'search_query': query},
+                  dataType: 'json',
+                  success: function(data) {
+                      var resultsList = $('.card-add-colaborador-grid');
+                      resultsList.empty();
+
+                      $.each(data.users, function(index, user) {
+                          resultsList.append(`
+                          <div class="card-add-colaborador" data-user-id="{{ user.id }}">
+                            <div class="card-add-colaborador-imagem-contener">
+                            <img class="card-add-colaborador-imagem" src="{% static 'assets/imagens/BarraPesquisa.png' %}" alt="{{ user.username }} Foto">
+                            </div>
+                            <div class="card-add-colaborador-blue-box">
+                            <div class="card-add-colaborador-text">
+                                Username: ${perfil.user.username}
+                            </div>
+                            <div class="card-add-colaborador-text">
+                                Cargo: ${perfil.cargo}
+                            </div>
+                            <div class="card-add-colaborador-text">
+                                Email: ${perfil.user.email}
+                            </div>
+                            <div class="card-add-colaborador-text">
+                                Ultimo Login: {{perfil.user.last_login|date:"d/m/Y"}}
+                            </div>
                             </div>
                         </div>
-                    {% endfor %}
-                </div>
-            {% else %}
-                <p><b>Não há perfis de colaboradores ativos.</b></p>
-            {% endif %}
-        </div>
+                          `);
+                      });
+                  }
+              });
+          });
 
-    </div>
+          $('.card-add-colaborador').click(function() {
+            var userId = $(this).data('user-id');
+            var userDetailUrl = "{% url 'novos_membros_buscar_user' user_id=0 %}".replace('0', userId);
+            
+            window.location.href = userDetailUrl;
+          });
+      });
+  </script>
+    
 
 </body>
 </html>
-{% endblock %}
+{% endblock %} 

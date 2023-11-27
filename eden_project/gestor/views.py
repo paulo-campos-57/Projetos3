@@ -86,6 +86,21 @@ def gestao_equipe(request):
         return redirect("login")
     
     perfis_colaboradores = getTodosPerfisColaborador()
+    users = []
+
+    if 'search_query' in request.GET:
+        search_query = request.GET['search_query'].lower()
+        for perfil in perfis_colaboradores:
+            if search_query in perfil.user.username.lower() or search_query in perfil.user.email.lower():
+                users.append({
+                    'username': perfil.user.username,
+                    'cargo': perfil.cargo,
+                    'email': perfil.user.email,
+                    'last_login': perfil.user.last_login
+                })
+
+        return JsonResponse({'users': users})
+    
     return render(request, "gestao_equipe.html", {'perfil_colaborador': perfil_colaborador, 'perfis_colaboradores': perfis_colaboradores})
 
 def homeMasterUser(request):
