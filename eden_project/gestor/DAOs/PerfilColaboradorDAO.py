@@ -38,3 +38,5 @@ def getTodosPerfisColaborador():
     except PerfilColaborador.DoesNotExist:
         perfils = None
 
+    return perfils
+
