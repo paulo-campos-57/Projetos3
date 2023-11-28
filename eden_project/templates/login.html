@@ -15,11 +15,15 @@
         margin-top: -320px;
         margin-right: -765px;
     }
+    #botaologin{
+        max-width: 40%;
 
+
+
+    }
     .texto-link {
         color: RGB(5, 99, 193);
     }
-
     .texto-link:hover {
         color: white;
     }
@@ -59,9 +63,10 @@
             <a href="{% url 'cadastro' %}" alt="Link Cadastro" class="texto-link">Não possui Login? Cadastre-se</a>
 
             <div class="btn-container">
-                <button type="button">
-             <img src="{% static 'assets\imagens\botaologin.png' %}" alt="Botão de Login">
-            </button>
+                <button type="button" style="border: none; outline: none; background: none;">
+                    <img style="border: none;" src="{% static 'assets\imagens\botaologin.png' %}" alt="Botão de Login">
+                </button>
+                
         </div>
 
 
