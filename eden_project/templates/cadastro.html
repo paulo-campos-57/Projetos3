@@ -1,73 +1,72 @@
-<style>
-    .container {
-        width: 50%;
-        text-align: center;
-        font-size: large;
-        margin: 60px auto 0;
-        min-height: 450px;
-        border-radius: 2%;
-        border: 5px solid black;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    .input-container {
-        text-align: center;
-    }
-    .password-field label {
-        display: block;
-        margin-bottom: 10px;
-    }
-    .password-field input {
-        width: 300px;
-        height: 40px;
-        font-size: 20px;
-        margin-bottom: 15px;
-    }
-</style>
-
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+
+<style>
+    body {
+        background-image: url("{% static 'assets/imagens/FundoLC.png' %}"); 
+        background-size: cover;
+        background-position: center;
+        font-family: 'Josefin Sans', sans-serif;
+        backdrop-filter: blur(10px);
+    }
+    #imagem-ao-lado {
+        max-width: 20%;
+        margin-left: 630px;
+        margin-bottom: 203px;
+        margin-top: -350px;
+    }
+</style>
+
 <body style="background-color: #ffff">
-    <div class="container">
-        <h1>FAÇA O SEU CADASTRO</h1>
+    <div class="containerLogin">
+        <div style="text-align: left; color: #ffffff;">
+            <h1>FAÇA O SEU CADASTRO</h1>
+        </div>
+
         <form method="post" action="{% url 'usuario_cadastrado' %}">
             {% csrf_token %}
 
-            <div class="input-container">
-                <label for="username" style="font-weight: bold; font-size: 20px;">Username:</label>
+            <div class="input-container" style="margin-left: 10px;">
+                <label for="username" style="font-weight: bold; font-size: 20px; text-align: left; color: #ffffff">Username:</label>
+                <br>
                 <input type="text" id="username" name="username" style="width: 300px; height: 40px; font-size: 20px;" required><br>
 
                 <br>
 
-                <label for="nome" style="font-weight: bold; font-size: 20px;margin-left: 35px;">Nome:</label>
+                <label for="nome" style="font-weight: bold; font-size: 20px; text-align: left; color: #ffffff">Nome:</label>
+                <br>
                 <input type="text" id="username" name="first-name" style="width: 300px; height: 40px; font-size: 20px;" required><br>
 
                 <br>
 
-                <label for="nome" style="font-weight: bold; font-size: 20px;margin-right:-6px">Sobrenome:</label>
+                <label for="nome" style="font-weight: bold; font-size: 20px; text-align: left; color: #ffffff">Sobrenome:</label>
+                <br>
                 <input type="text" id="username" name="last-name" style="width: 300px; height: 40px; font-size: 20px;" required><br>
 
                 <br>
 
-                <label for="email" style="font-weight: bold; font-size: 20px; margin-left: 35px;">Email:</label>
+                <label for="email" style="font-weight: bold; font-size: 20px; text-align: left; color: #ffffff">Email:</label>
+                <br>
                 <input type="text" id="email" name="email" style="width: 300px; height: 40px; font-size: 20px;" required><br>
 
                 <br>
 
-                <label for="email" style="font-weight: bold; font-size: 20px; margin-left: -65px;">Confirme o Email:</label>
+                <label for="email" style="font-weight: bold; font-size: 20px; text-align: left; color: #ffffff">Confirme o Email:</label>
+                <br>
                 <input type="text" id="email" name="email" style="width: 300px; height: 40px; font-size: 20px;" required><br>
 
                 <br>
 
                 <div class="input-container">
-                    <label for="password" style="font-weight: bold; font-size: 20px; margin-left: 35px;">Senha:</label>
+                    <label for="password" style="font-weight: bold; font-size: 20px; text-align: left; color: #ffffff">Senha:</label>
+                    <br>
                     <input type="password" id="password" name="password" style="width: 300px; height: 40px; font-size: 20px;" required><br>
         
                     <br>
         
-                    <label for="password" style="font-weight: bold; font-size: 20px; margin-left: -80px;">Confirme sua senha:</label>
+                    <label for="password" style="font-weight: bold; font-size: 20px; text-align: left; color: #ffffff">Confirme sua senha:</label>
+                    <br>
                     <input type="password" id="password" name="password" style="width: 300px; height: 40px; font-size: 20px;" required><br>
                 </div>
 
@@ -76,7 +75,7 @@
                 
                 <div class="btn-container">
                     <input type="image" src="https://cdn.discordapp.com/attachments/1114362089125974037/1174501289128898590/Group_263.png?ex=6567d290&is=65555d90&hm=3e0a35b8b11af5bbdde9bf675fc137b23d23d39be9b079e128fbab0bb05f5579&" alt="Botão de Cadastro">
-                    &nbsp;
+                    <br>
                     <a href="{% url 'login' %}"><img src="https://cdn.discordapp.com/attachments/938158080733110393/1174502697148354662/Group_264.png?ex=6567d3e0&is=65555ee0&hm=75eb201a9275f3ed0c5fa3761bc4b26244d5cef076a2daab1fd140bba535229d&" alt="Botão de Voltar"></a>
                 </div>
 

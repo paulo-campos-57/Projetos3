@@ -335,3 +335,48 @@ body {
   background: transparent; /* Torna o fundo transparente */
   color: #000000;
 }
+
+.containerLogin {
+  width: 35%;
+  text-align: left;
+  font-size: large;
+  margin: 60px auto 0;
+  margin-left: 50px;
+  min-height: 350px;
+  border-radius: 5%;
+  border-color: #37ABC8;
+  background-color: #23353F;
+  padding: 20px;
+}
+
+
+.password-field label {
+  margin-left: 2px;
+}
+
+.container {
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.input-container {
+  margin-bottom: 10px;
+}
+
+.input-container label {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.input-container input[type="text"],
+.input-container input[type="password"] {
+  width: 300px;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 10px;
+  background-color: #3A525F;
+}
+
+.btn-container {
+  text-align: right;
+}
