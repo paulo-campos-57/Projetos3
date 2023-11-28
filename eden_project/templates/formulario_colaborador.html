@@ -24,7 +24,7 @@
         {% csrf_token %}
         
         <div class="custom-select">
-            <select id="id_opcao" name="opcao">
+            <select id="id_opcao" name="cargo">
                 <option value="" selected disabled>ESCOLHA UM CARGO</option>
                 <option value="reportuser">SUPORTE E REPORTE</option>
                 <option value="midiauser">GERENTE DE ACERVO</option>
@@ -32,12 +32,29 @@
         </div>
 
         <div class="input-box">
-            <textarea id="user-input" name="user_input" placeholder="Digite seu texto aqui..."></textarea>
+            <textarea id="user-input" name="motivacao" placeholder="Digite seu texto aqui..."></textarea>
             <div class="card-add-colaborador-text" id="char-count" style="position: absolute; right: 0%; top: 100%; font-size: 18px; line-height: 18px;">Limite de caracteres: 1500</div>
         </div>
-       
-        <button type="submit">Salvar</button>
+
+        <div style="position: absolute; width: 132.31px; height: 33.65px; left: 1522px; top: 998px;">
+            <button type="submit" style="width: 120.83px; height: 33.65px; background: #37ABC8; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 10px; border: none; outline: none;">
+                <span style="font-family: 'Josefin Sans'; font-style: normal; font-weight: 600; font-size: 24px; line-height: 24px; display: flex; align-items: center; text-align: center; color: #F8F8F8; position: absolute; left: 23px; top: 6px;">
+                    Enviar
+                </span>
+            </button>
+        </div>
+
     </form>
+
+    <div style="position: absolute; width: 152.31px; height: 33.65px; left: 1682px; top: 998px;">
+        <button type="submit" style="width: 130.83px; height: 33.65px; background: #A00128; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 10px; border: none; outline: none;">
+            <span style="font-family: 'Josefin Sans'; font-style: normal; font-weight: 600; font-size: 24px; line-height: 24px; display: flex; align-items: center; text-align: center; color: #F8F8F8; position: absolute; left: 13px; top: 6px;">
+                Descartar
+            </span>
+        </button>
+    </div>
+
+    
 
 
     <script>

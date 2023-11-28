@@ -129,19 +129,19 @@ def enviar_mensagem(request):
 
 def formulario_colaborador(request):
     perfil_colaborador = getPerfilColaborador(request)
+    user = getUser(request)
 
     if perfil_colaborador == None:
-        user = getUser(request)
         perfil_colaborador = intancePerfilColaborador(user, 'null', " ", 'preenchendo', False)
 
     if request.method == 'POST':
         form = PerfilColacoradorForm(request.POST, instance=perfil_colaborador)
 
         if form.is_valid():
-            user = request.user
-            cargo = form.cleaned_data['cargo']
-            motivacao = form.cleaned_data['motivacao']
+            form.save()
 
+            cargo = request.POST.get('cargo')
+            motivacao = request.POST.get('motivacao')
             intancePerfilColaborador(user, cargo, motivacao, 'analise', False)
 
             return redirect("home")
