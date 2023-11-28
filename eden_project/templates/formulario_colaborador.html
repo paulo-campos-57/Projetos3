@@ -30,43 +30,43 @@
                 <option value="midiauser">GERENTE DE ACERVO</option>
             </select>
         </div>
+
+        <div class="input-box">
+            <textarea id="user-input" name="user_input" placeholder="Digite seu texto aqui..."></textarea>
+            <div class="card-add-colaborador-text" id="char-count" style="position: absolute; right: 0%; top: 100%; font-size: 18px; line-height: 18px;">Limite de caracteres: 1500</div>
+        </div>
        
         <button type="submit">Salvar</button>
     </form>
 
 
     <script>
-        $(document).ready(function() {
-            // Armazene a opção inicial para comparar com a opção selecionada antes de sair
-            var opcaoInicial = $('#id_opcao').val();
+        // Obtém uma referência ao campo de texto e à div de contagem de caracteres
+        var textarea = document.getElementById('user-input');
+        var charCount = document.getElementById('char-count');
     
-            $('#id_opcao').change(function() {
-                // Atualize a opção inicial sempre que houver uma mudança
-                opcaoInicial = $(this).val();
-            });
+        // Define o comprimento máximo permitido
+        var maxLength = 1500;
     
-            $(window).on('beforeunload', function() {
-                // Verifique se a opção foi alterada antes de sair da página
-                if ($('#id_opcao').val() !== opcaoInicial) {
-                    // Envie uma solicitação AJAX para a view Django
-                    $.ajax({
-                        url: '/atualizar_opcao/',  // Substitua pela URL correta
-                        method: 'POST',
-                        data: {'opcao_selecionada': $('#id_opcao').val()},
-                        dataType: 'json',
-                        async: false,  // Síncrono para garantir que a solicitação seja concluída antes de descarregar a página
-                        success: function(data) {
-                            // Lidar com a resposta, se necessário
-                            console.log(data);
-                        },
-                        error: function(error) {
-                            console.error(error);
-                        }
-                    });
-                }
-            });
-        });
+        // Função para contar caracteres e atualizar a contagem
+        function countCharacters() {
+            var currentLength = textarea.value.length;
+    
+            if (currentLength > maxLength) {
+                textarea.value = textarea.value.substring(0, maxLength);
+                currentLength = maxLength;
+            }
+    
+            charCount.textContent = 'Caracteres restantes: ' + (maxLength - currentLength);
+        }
+    
+        // Adiciona um ouvinte de evento ao campo de texto
+        textarea.addEventListener('input', countCharacters);
+    
+        // Chama a função inicialmente para garantir que a contagem seja exibida corretamente
+        countCharacters();
     </script>
+    
 
 </body>
 

@@ -41,7 +41,7 @@ class PerfilColaborador(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     cargo = models.CharField(max_length=10, choices=CARGO_CHOICES, default='null', blank=True, null=True)
-    motivacao = models.CharField(default="Maximo de 250 caracteres", max_length= 250, blank= False)
+    motivacao = models.CharField(default="Maximo de 250 caracteres", max_length= 1500, blank= False)
     status = models.CharField(max_length=15, choices=STATUS_CHOICES, default='preenchendo')
     atividade = models.BooleanField(default="False")
 
