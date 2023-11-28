@@ -5,9 +5,31 @@
 
     {% include 'partial/_navbar.html'%}
 
+    <img src="{% static 'assets/icones/SetaVolta.png' %}" alt="setaVoltar">
     <div class="colaborador_texto_navbar_vertical">Novos Membros</div>
-
-    
+    <div class="card-add-colaborador-grid">
+        {% for perfil in formularios %}
+          <div class="card-add-colaborador" data-user-id="{{ user.id }}">
+            <div class="card-add-colaborador-imagem-contener">
+              <img class="card-add-colaborador-imagem" src="{% static 'assets/imagens/BarraPesquisa.png' %}" alt="{{ user.username }} Foto">
+            </div>
+            <div class="card-add-colaborador-blue-box">
+              <div class="card-add-colaborador-text">
+                Username: {{perfil.user.username}}
+              </div>
+              <div class="card-add-colaborador-text">
+                Ultimo Login: {{user.last_login|date:"d/m/Y"}}
+              </div>
+              <div class="card-add-colaborador-text">
+                Email: {{user.email}}
+              </div>
+              <div class="card-add-colaborador-text">
+                Interações: 
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
 
 </body>
 </html>
