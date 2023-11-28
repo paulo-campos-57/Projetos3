@@ -207,7 +207,37 @@ def novos_membros_buscar_user(request, user_id):
     user = getUserById(user_id)
 
     return render(request, 'add_gestores_buscar_user.html', {'user': user})
-    
+
+def gestao_equipe_buscar(request):
+    if request.user.is_authenticated:
+        try:
+            perfil_colaborador = getPerfilColaborador(request)
+        except PerfilColaborador.DoesNotExist:
+            return redirect("home")
+    else:
+        return redirect("login")
+
+    # Aqui vamos buscar os usuários reais
+    users = User.objects.all()  # Supondo que todos os usuários devem ser listados
+    perfis_colaboradores = getTodosPerfisColaborador()
+
+    if 'search_query' in request.GET:
+        search_query = request.GET['search_query']
+        users = users.filter(
+            username__icontains=search_query.lower()
+        )
+
+        user_list = [
+            {'username': user.username, 'last_login': user.last_login, 'email': user.email} for user in users
+        ]
+        return JsonResponse({'users': user_list})
+
+    return render(request, "gestao_equipe.html", {'perfil_colaborador': perfil_colaborador, 'perfis_colaboradores': perfis_colaboradores})
+
+def gestao_equipe_buscar_user(request, user_id):
+    user = getUserById(user_id)
+
+    return render(request, 'gestao_equipe_buscar_user.html', {'user': user})
 
 # def CriarFormularioMensagem(request):
     

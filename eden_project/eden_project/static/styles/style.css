@@ -90,6 +90,8 @@ body {
   align-items: center;
 
   color: #F8F8F8;
+  white-space: nowrap;
+  position: fixed;
 }
 
 /* Adicionar Colaborador */
@@ -138,6 +140,16 @@ body {
 }
 
 .card-add-colaborador-imagem-contener {
+  width: 160px;
+  height: 160px;
+  background: #ffffff;
+  border-right: 8px solid #01BFD0;
+  margin-right: 5px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.card-gestao-equipe-imagem-contener {
   width: 160px;
   height: 160px;
   background: #ffffff;
