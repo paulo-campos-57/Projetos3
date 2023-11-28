@@ -7,14 +7,14 @@
         background-image: url("{% static 'assets/imagens/FundoLC.png' %}"); 
         background-size: cover;
         background-position: center;
-        font-family: 'Josefin Sans', sans-serif;
-        backdrop-filter: blur(10px);
+        font-family: 'Josefin Sans', sans-serif;        
     }
     #imagem-ao-lado {
-        max-width: 20%;
-        margin-left: 630px;
-        margin-bottom: 203px;
-        margin-top: -350px;
+        max-width: 60%; /* Ajuste a largura da imagem conforme necessário */
+        margin-left: 730px; /* Espaçamento à esquerda da imagem */
+        margin-bottom: 500px;
+        margin-top: -820px;
+        margin-right: -765px;
     }
 </style>
 
@@ -83,7 +83,10 @@
             </div>
 
         </form>
+        <img id="imagem-ao-lado" src="{% static 'assets\imagens\icone+logo.png' %}" alt="Icone e Logo"></body>
+
     </div>
+
 </body>
 </html>
 {% endblock %}
