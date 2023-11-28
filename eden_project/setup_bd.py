@@ -29,7 +29,6 @@ def criar_user(username, email, senha, first_name, last_name):
         user.first_name = first_name
         user.last_name = last_name
         user.save()
-        PerfilUserDAO.intancePerfilUser(user)
         return
     
     print(f"Usuário com username '{username}' já existe encontrado.")
