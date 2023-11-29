@@ -37,18 +37,6 @@
                 </a>
             </li>
 
-            <li>
-                <a class="configuracao" href="#" style="display: block;">
-                    <img class="icone_navbar" src="{% static 'assets/imagens/BotaoConfiguracao.png' %}" alt="configuracao">
-                </a>
-            </li>
-
-            <li>
-                <a class="suporte" href="#" style="display: block;">
-                    <img class="icone_navbar" src="{% static 'assets/imagens/BotaoSuporte.png' %}" alt="suporte">
-                </a>
-            </li>
-
           {% else %}
             {% if perfil_colaborador.status != 'analise' %}
                 <li>
@@ -69,6 +57,18 @@
             {% else %}
             {% endif %}
         {% endif %}
+
+        <li>
+            <a class="configuracao" href="#" style="display: block;">
+                <img class="icone_navbar" src="{% static 'assets/imagens/BotaoConfiguracao.png' %}" alt="configuracao">
+            </a>
+        </li>
+
+        <li>
+            <a class="suporte" href="#" style="display: block;">
+                <img class="icone_navbar" src="{% static 'assets/imagens/BotaoSuporte.png' %}" alt="suporte">
+            </a>
+        </li>
 
         &nbsp;
 
