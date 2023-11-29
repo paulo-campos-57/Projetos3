@@ -304,20 +304,26 @@ def remocao(request, user_id):
     return render(request, 'gestao_equipe_buscar_user.html', {'usuario': usuario, 'perfil_colaborador': perfil_colaborador})
 
 def suporte_e_reporte(request):
-    user = getUser(request)
-
-    if user == None:
+    if request.user.is_authenticated:
+        try:
+            perfil_colaborador = getPerfilColaborador(request)
+        except PerfilColaborador.DoesNotExist:
+            return render(request, 'suporte_e_reporte.html')
+    else:
         return redirect("login")
     
-    return render(request, 'suporte_e_reporte.html')
+    return render(request, 'suporte_e_reporte.html', {'perfil_colaborador': perfil_colaborador})
 
 def configuracoes(request):
-    user = getUser(request)
-
-    if user == None:
+    if request.user.is_authenticated:
+        try:
+            perfil_colaborador = getPerfilColaborador(request)
+        except PerfilColaborador.DoesNotExist:
+            return render(request, 'configuracoes.html')
+    else:
         return redirect("login")
     
-    return render(request, 'configuracoes.html')
+    return render(request, 'configuracoes.html', {'perfil_colaborador': perfil_colaborador})
 
 def gestao_titulos(request):
     if request.user.is_authenticated:
