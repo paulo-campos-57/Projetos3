@@ -58,7 +58,6 @@ body {
 .botao {
     width: 300px;
     height: 70px;
-    background: rgba(168, 221, 181, 0.7);
     border-radius: 5px;
     border: none;
     outline: none;
@@ -143,7 +142,7 @@ body {
   width: 160px;
   height: 160px;
   background: #ffffff;
-  border-right: 8px solid #01BFD0;
+  border-radius: 8px solid #01BFD0;
   margin-right: 5px;
   border-radius: 50%;
   overflow: hidden;
@@ -152,10 +151,11 @@ body {
 .card-gestao-equipe {
   display: block;
   justify-content: flex-end;
-  width: 436px;
+  width: 500px;
   height: 160px;
   margin-left: 10px;
   margin-bottom: 5px;
+  margin-left: 300px;
 }
 
 .card-gestao-equipe-imagem-contener {
@@ -165,12 +165,50 @@ body {
   overflow: hidden;
 }
 
-.card-gestao-equipe-motivacao-contener {
-  width: 680px;
-  height: 160px;
+.card-gestao-equipe-informacao-contener {
+  width: 700px;
+  height: 60px;
   background-color: #14B7C0; 
   border-radius: 15px;
   overflow: hidden;
+}
+
+.card-gestao-equipe-motivacao-box {
+  width: 340px;
+  height: 160px;
+  background-color: #12969d; 
+  border-radius: 15px;
+  margin-right: 20px; /* Adicione margem entre as caixas */
+}
+
+.card-gestao-equipe-motivo-remocao-box {
+  width: 340px;
+  height: 160px;
+  border-right: 2px solid #109D9C;
+  border-left: 2px solid #109D9C;
+  border-top: 2px solid #109D9C;
+  border-bottom: 2px solid #109D9C;
+  border-radius: 20px;
+  margin-right: 20px; /* Adicione margem entre as caixas */
+}
+
+.card-gestao-equipe-motivacao-contener {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-gestao-equipe-motivacao-text {
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  color: #F8F8F8;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  width: 320px; 
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card-gestao-equipe-text {
@@ -184,6 +222,14 @@ body {
   width: 560px; 
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.botaoRemover {
+  width: 200px;
+  height: 50px;
+  border: none;
+  outline: none;
+
 }
 
 .card-add-colaborador-imagem {
