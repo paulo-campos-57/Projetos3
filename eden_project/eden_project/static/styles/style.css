@@ -267,6 +267,38 @@ body {
   color: #FFFFFF;
 }
 
+
+/* styles.css */
+
+.button-container {
+  position: absolute;
+  width: 132.31px;
+  height: 33.65px;
+  left: 1572px;
+  top: 998px;
+}
+
+.custom-button {
+  width: 120.83px;
+  height: 33.65px;
+  background: #37ABC8;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none; 
+  outline: none;
+}
+
+.button-text {
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  color: #F8F8F8;
+}
+
 /* Estilos CSS para os perfis de colaboradores */
 .perfis-Colaboradores {
   display: flex;
