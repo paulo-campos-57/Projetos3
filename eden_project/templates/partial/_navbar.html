@@ -20,8 +20,8 @@
         {% if perfil_colaborador %}
           {% if perfil_colaborador.atividade %}
             <li>
-                <a class="gestaoTitulos" href="#" style="display: block;">
-                    <img class="icone_navbar" src="{% static 'assets/imagens/BotaoGestaoTitulos.png' %}" alt="gestaoTitulos">
+                <a class="gestaoTitulos" href="{% url 'gestao_titulos' %}" style="display: block;">
+                    <img class="icone_navbar" id="IconeGestaoTitulos" src="{% static 'assets/imagens/BotaoGestaoTitulos.png' %}" alt="gestaoTitulos">
                 </a>
             </li>
 
@@ -59,14 +59,14 @@
         {% endif %}
 
         <li>
-            <a class="configuracao" href="#" style="display: block;">
-                <img class="icone_navbar" src="{% static 'assets/imagens/BotaoConfiguracao.png' %}" alt="configuracao">
+            <a class="configuracao" href="{% url 'configuracoes' %}" style="display: block;">
+                <img class="icone_navbar" id="IconeConfiguracao" src="{% static 'assets/imagens/BotaoConfiguracao.png' %}" alt="configuracao">
             </a>
         </li>
 
         <li>
-            <a class="suporte" href="#" style="display: block;">
-                <img class="icone_navbar" src="{% static 'assets/imagens/BotaoSuporte.png' %}" alt="suporte">
+            <a class="suporte" href="{% url 'suporte_e_reporte' %}" style="display: block;">
+                <img class="icone_navbar" id="IconeSuporteReporte" src="{% static 'assets/imagens/BotaoSuporte.png' %}" alt="suporte">
             </a>
         </li>
 
@@ -139,6 +139,21 @@
         if (urlAtual.includes('formulario_colaborador')) {
             var iconeFormularioColaborador = document.getElementById('IconeFormularioColaborador');
             iconeFormularioColaborador.src = "{% static 'assets/imagens/FormularioColaborador2.png' %}";
+        }
+
+        if (urlAtual.includes('gestao_titulos')) {
+            var iconeGestaoTitulos = document.getElementById('IconeGestaoTitulos');
+            iconeGestaoTitulos.src = "{% static 'assets/imagens/BotaoGestaoTitulos2.png' %}";
+        }
+
+        if (urlAtual.includes('configuracoes')) {
+            var iconeConfiguracao = document.getElementById('IconeConfiguracao');
+            iconeConfiguracao.src = "{% static 'assets/imagens/BotaoConfiguracao2.png' %}";
+        }
+
+        if (urlAtual.includes('gestao_titulos')) {
+            var iconeSuporteReporte = document.getElementById('IconeSuporteReporte');
+            iconeSuporteReporte.src = "{% static 'assets/imagens/BotaoSuporte2.png' %}";
         }
     }
 
