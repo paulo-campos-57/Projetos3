@@ -251,13 +251,38 @@ def gestao_equipe_buscar(request):
     return render(request, "gestao_equipe.html", {'perfil_colaborador': perfil_colaborador, 'perfis_colaboradores': perfis_colaboradores})
 
 def gestao_equipe_buscar_user(request, user_id):
+    if request.user.is_authenticated:
+        try:
+            perfil_colaborador = getPerfilColaborador(request)
+        except PerfilColaborador.DoesNotExist:
+            return redirect("home")
+        
+    else:
+        return redirect("login")
     # Obtém o objeto User com base no user_id
     user = get_object_or_404(User, pk=user_id)
 
     # Obtém o perfil do colaborador associado ao usuário
-    perfil_colaborador = get_object_or_404(PerfilColaborador, user=user)
+    perfil = get_object_or_404(PerfilColaborador, user=user)
 
-    return render(request, 'gestao_equipe_buscar_user.html', {'perfil_colaborador': perfil_colaborador})
+    return render(request, 'gestao_equipe_buscar_user.html', {'perfil_colaborador': perfil_colaborador, 'perfil' : perfil})
+
+def novos_membros_formulario_user(request, user_id):
+    if request.user.is_authenticated:
+        try:
+            perfil_colaborador = getPerfilColaborador(request)
+        except PerfilColaborador.DoesNotExist:
+            return redirect("home")
+        
+    else:
+        return redirect("login")
+    # Obtém o objeto User com base no user_id
+    user = get_object_or_404(User, pk=user_id)
+
+    # Obtém o perfil do colaborador associado ao usuário
+    perfil = get_object_or_404(PerfilColaborador, user=user)
+
+    return render(request, 'add_gestores_formulario_user.html', {'perfil_colaborador': perfil_colaborador, 'perfil' : perfil})
 
 # def CriarFormularioMensagem(request):
     

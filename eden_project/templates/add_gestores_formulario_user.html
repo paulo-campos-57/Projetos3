@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<body>
+    {% include 'partial/_navbar.html'%}
+    <div class="colaborador_texto_navbar_vertical">{{ perfil.user.username }}</div>
+
+    <div class="formulario-user-imagem-contener">
+        <img class="formulario-user-imagem" src="{% static 'assets/fotos/foto1.jpeg' %}" alt="{{ perfil.user.username }} Foto">
+    </div>
+
+    <div>
+        <img src="{% static user.foto %}" alt="{{ user.username }} Foto">
+        <div>
+            <div>
+                <strong>Username:</strong> {{ user.username }}
+            </div>
+            <div>
+                <strong>Último Login:</strong> {{ user.last_login|date:"d/m/Y" }}
+            </div>
+            <div>
+                <strong>Email:</strong> {{ user.email }}
+            </div>
+            <div>
+                <strong>Interações:</strong> {{ user.historicos_count }}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %} 

@@ -9,7 +9,7 @@
     <div class="colaborador_texto_navbar_vertical">Novos Membros</div>
     <div class="card-add-colaborador-grid">
         {% for perfil in formularios %}
-          <a href="{% url 'novos_membros_buscar_user' user_id=perfil.user.id %}" style="text-decoration: none;">
+          <a href="{% url 'novos_membros_formulario_user' user_id=perfil.user.id %}" style="text-decoration: none;">
             <div class="card-add-colaborador" data-user-id="{{ perfil.user.id }}">
               <div class="card-add-colaborador-imagem-contener">
                 <img class="card-add-colaborador-imagem" src="{% static 'assets/fotos/foto1.jpeg' %}" alt="{{ perfil.user.username }} Foto">
