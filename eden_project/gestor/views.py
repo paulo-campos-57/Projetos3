@@ -303,7 +303,7 @@ def remocao(request, user_id):
 
     return render(request, 'gestao_equipe_buscar_user.html', {'usuario': usuario, 'perfil_colaborador': perfil_colaborador})
 
-def suporte_e_reposte(request):
+def suporte_e_reporte(request):
     if request.user.is_authenticated:
         try:
             perfil_colaborador = getPerfilColaborador(request)
@@ -322,11 +322,6 @@ def configuracoes(request):
             return redirect("home")
     else:
         return redirect("login")
-    
-    return render(request, 'configuracoes.html', {'perfil_colaborador': perfil_colaborador})
-
-def configuracoes(request):
-    
     
     return render(request, 'configuracoes.html', {'perfil_colaborador': perfil_colaborador})
 
