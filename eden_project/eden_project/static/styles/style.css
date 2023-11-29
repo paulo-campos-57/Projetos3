@@ -149,20 +149,48 @@ body {
   overflow: hidden;
 }
 
-.card-gestao-equipe-imagem-contener {
-  width: 160px;
+.card-gestao-equipe {
+  display: block;
+  justify-content: flex-end;
+  width: 436px;
   height: 160px;
-  background: #ffffff;
-  border-right: 8px solid #01BFD0;
-  margin-right: 5px;
-  border-radius: 50%;
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+.card-gestao-equipe-imagem-contener {
+  width: 320px;
+  height: 160px;
+  border-radius: 10px; /* Ajuste o valor conforme necessário */
   overflow: hidden;
+}
+
+.card-gestao-equipe-motivacao-contener {
+  width: 680px;
+  height: 160px;
+  background-color: #14B7C0; 
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.card-gestao-equipe-text {
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  color: #F8F8F8;
+  margin-left: 15px;
+  margin-top: 10px;
+  width: 560px; 
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card-add-colaborador-imagem {
   width: 160px;
   height: 160px;
 }
+
 .card-add-colaborador-blue-box {
   width: 258px;
   height: 98px;

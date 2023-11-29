@@ -7,6 +7,7 @@ from gestor.DAOs.UserDAO import getUser, getUserNoColaboretors, getUserById
 from .forms import PerfilColacoradorForm, FormularioReporteForm, MensagensForm
 from django.contrib.auth import authenticate, logout, login as django_login
 from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 
@@ -235,9 +236,13 @@ def gestao_equipe_buscar(request):
     return render(request, "gestao_equipe.html", {'perfil_colaborador': perfil_colaborador, 'perfis_colaboradores': perfis_colaboradores})
 
 def gestao_equipe_buscar_user(request, user_id):
-    user = getUserById(user_id)
+    # Obtém o objeto User com base no user_id
+    user = get_object_or_404(User, pk=user_id)
 
-    return render(request, 'gestao_equipe_buscar_user.html', {'user': user})
+    # Obtém o perfil do colaborador associado ao usuário
+    perfil_colaborador = get_object_or_404(PerfilColaborador, user=user)
+
+    return render(request, 'gestao_equipe_buscar_user.html', {'perfil_colaborador': perfil_colaborador})
 
 # def CriarFormularioMensagem(request):
     

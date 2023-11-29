@@ -1,36 +1,57 @@
-<!-- user_detail.html -->
-
 {% extends 'base.html' %}
 {% load static %}
-
 {% block content %}
 <body>
 
     {% include 'partial/_navbar.html'%}
-    <!-- Conteúdo detalhado do usuário aqui -->
-    
+
+    {% if perfil_colaborador %}
     <div class="colaborador_texto_navbar_vertical">Detalhes do Usuário</div>
 
-    <div style="margin-left: 300px; padding: 200px; position: fixed">
-        <div class="card-add-colaborador-imagem-contener">
-            <img src="{% static 'assets/fotos/foto1.jpeg' %}" alt="{{ user.username }} Foto">
+    <div class="card-add-colaborador" style="margin-left: 300px; padding: 200px; position: fixed">
+        <div class="card-gestao-equipe-imagem-contener">
+            <img class="card-add-colaborador-imagem" src="{% static 'assets/fotos/foto1.jpeg' %}" alt="{{ user.username }} Foto">
         </div>
 
-        <div class="card-add-colaborador-text">
+        <br>
+
+        <div class="card-gestao-equipe-text" style="font-size:medium;">
             <div>
-                <strong>Username:</strong> {{ user.username }}
+                <strong style="font-size:x-large;">Username: {{ user.username }}</strong>
             </div>
-            <div>
-                <strong>Último Login:</strong> {{ user.last_login|date:"d/m/Y" }}
-            </div>
+
+            <br>
+
             <div>
                 <strong>Email:</strong> {{ user.email }}
             </div>
+
+            <br>
+
             <div>
-                <strong>Interações:</strong> {{ user.historicos_count }}
+                <strong>Cargo:</strong> {{ perfil_colaborador.cargo }}
+            </div>
+
+            <br>
+
+        </div>
+
+        <br>
+        
+        <div class="card-gestao-equipe" style="margin-left: 300px; padding: 200px; position: fixed; left: 0px;">
+            <div class="card-gestao-equipe-motivacao-contener">
+                <div class="card-gestao-equipe-text" style="font-size:medium;">
+                    <strong>Motivação:</strong> {{ perfil_colaborador.motivacao }}
+                </div>
             </div>
         </div>
     </div>
+
+    </div>
+
 </body>
 </html>
+{% else %}
+    <p>Não foi possível encontrar o perfil do colaborador.</p>
+{% endif %}
 {% endblock %} 

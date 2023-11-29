@@ -20,7 +20,7 @@
 
   <div class="card-add-colaborador-grid" style="top: 250px;">
     {% for perfil in perfis_colaboradores %}
-      <div class="card-add-colaborador" data-user-id="{{ user.id }}">
+      <div class="card-add-colaborador" data-user-id="{{ perfil.user.id }}">
         <div class="card-add-colaborador-imagem-contener">
           <img class="card-add-colaborador-imagem" src="{% static 'assets/fotos/foto1.jpeg' %}" alt="{{ user.username }} Foto">
         </div>
@@ -82,7 +82,7 @@
   
       $(document).on('click', '.card-add-colaborador', function() {
         var userId = $(this).data('user-id');
-        var userDetailUrl = "{% url 'gestao_equipe_buscar_user' user_id=0 %}".replace('0', userId);
+        var userDetailUrl = '/gestao_equipe/buscar/usuario/' + userId;
         window.location.href = userDetailUrl;
       });
     });
