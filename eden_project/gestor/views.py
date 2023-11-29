@@ -8,7 +8,6 @@ from .forms import PerfilColacoradorForm, FormularioReporteForm, MensagensForm
 from django.contrib.auth import authenticate, logout, login as django_login
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import get_object_or_404
-
 # Create your views here.
 
 def home(request):
@@ -286,4 +285,20 @@ def novos_membros_formulario_user(request, user_id):
 
 # def CriarFormularioMensagem(request):
     
-    
+#def remocao
+def remocao(request, user_id):
+    usuario = get_object_or_404(User, id=user_id)
+    perfil_colaborador = get_object_or_404(PerfilColaborador, user=usuario)
+
+    if request.method == 'POST':
+        motivo_remocao = request.POST.get('motivo_remocao')
+
+        perfil_colaborador.motivo_remocao = motivo_remocao
+        perfil_colaborador.save()
+
+        usuario.delete()
+        perfil_colaborador.delete()
+
+        return redirect('gestao_equipe')
+
+    return render(request, 'gestao_equipe_buscar_user.html', {'usuario': usuario, 'perfil_colaborador': perfil_colaborador})

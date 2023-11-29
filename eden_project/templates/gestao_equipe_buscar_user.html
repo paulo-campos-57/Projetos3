@@ -1,28 +1,25 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block content %}
 <body>
-
     {% include 'partial/_navbar.html'%}
 
     {% if perfil_colaborador %}
-    <div class="colaborador_texto_navbar_vertical">Detalhes do Usuário</div>
+        <div class="colaborador_texto_navbar_vertical">Detalhes do Usuário</div>
 
         <div class="card-add-colaborador" style="margin-left: 300px; padding: 200px; position: fixed">
-
             <div class="card-gestao-equipe-imagem-contener">
                 <img class="card-add-colaborador-imagem" src="{% static 'assets/fotos/foto1.jpeg' %}" alt="{{ user.username }} Foto">
-                
             </div>
 
-            <div class="card-gestao-equipe-text" style="font-size:medium; display: flex; align-items:center;">
-                    <strong style="font-size:x-large;">{{perfil_colaborador.first_name}} {{perfil_colaborador.last_name}}</strong>
+            <div class="card-gestao-equipe-text" style="font-size: medium; display: flex; align-items: center;">
+                <strong style="font-size: x-large;">{{perfil_colaborador.first_name}} {{perfil_colaborador.last_name}}</strong>
             </div>
 
             <div class="card-gestao-equipe" style="padding: 200px; position: fixed; left: 0px;">
-
                 <div class="card-gestao-equipe-informacao-contener">
-                    <div class="card-gestao-equipe-text" style="font-size:medium; color:black">
+                    <div class="card-gestao-equipe-text" style="font-size: medium; color: black">
                         <div style="margin-top: 15px;">
                             <strong>Username:</strong> {{ user.username }}
                             &nbsp;
@@ -30,14 +27,10 @@
                             &nbsp;
                             <strong>Cargo:</strong> {{ perfil_colaborador.cargo }}
                         </div>
-            
                         <br>
                     </div>
-
                     <br>
                 </div>
-
-                <br>
 
                 <div class="card-gestao-equipe-motivacao-contener">
                     <div class="card-gestao-equipe-motivacao-box">
@@ -52,22 +45,22 @@
                         <div class="card-gestao-equipe-motivacao-text" style="font-size: medium;">
                             <strong style="font-size: x-large;">Motivo de Remoção</strong>
                             <br>
-                            <textarea name="motivo_remocao" id="motivo_remocao" rows="7" cols="40" style="resize: none; border-radius: 5px;">{{ perfil_colaborador.motivo_remocao }}</textarea>
+                            <form method="post" action="{% url 'remover_usuario' usuario.id %}">{% csrf_token %}
+                                <textarea name="motivo_remocao" id="motivo_remocao" rows="7" cols="40" style="resize: none; border-radius: 5px;">{{ perfil_colaborador.motivo_remocao }}</textarea>
+                                <button type="submit" style="border: none; margin-left: -30px; margin-top: 50px; outline: none; background: none;">
+                                    <img style="border: none;" src="{% static 'assets/imagens/BotaoRemover.png' %}" alt="Botão de Login">
+                                </button>
+                            </form>
                         </div>
-                    </div>
-
-                    <img class="botaoRemover" src="{% static 'assets/imagens/BotaoRemover.png' %}" style="margin-top: 50px;" alt="Botao de Remover">
+                    </div>                        
                 </div>
 
             </div>
-
         </div>
-        
     </div>
-
 </body>
 </html>
 {% else %}
     <p>Não foi possível encontrar o perfil do colaborador.</p>
 {% endif %}
-{% endblock %} 
+{% endblock %}
