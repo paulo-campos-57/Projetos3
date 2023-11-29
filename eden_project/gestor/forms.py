@@ -2,7 +2,9 @@ from django import forms
 from .models import PerfilColaborador, Mensagens, FormularioReporte
 from django.forms import ModelForm
 
-class PerfilColacoradorForm(ModelForm):
+from django import forms
+
+class PerfilColacoradorForm(forms.ModelForm):
     class Meta:
         model = PerfilColaborador
         fields = ['cargo', 'motivacao']

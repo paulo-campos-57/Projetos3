@@ -134,17 +134,26 @@ def formulario_colaborador(request):
 
     if perfil_colaborador == None:
         perfil_colaborador = intancePerfilColaborador(user, 'null', " ", 'preenchendo', False)
+    elif perfil_colaborador == 'aprovado' or perfil_colaborador == 'analise':
+        return redirect("home")
 
     if request.method == 'POST':
-        form = PerfilColacoradorForm(request.POST, instance=perfil_colaborador)
+        submit_type = request.POST.get('submit_type')
 
-        if form.is_valid():
-            form.save()
+        if submit_type == 'enviar':
+            form = PerfilColacoradorForm(request.POST, instance=perfil_colaborador)
 
-            cargo = request.POST.get('cargo')
-            motivacao = request.POST.get('motivacao')
-            intancePerfilColaborador(user, cargo, motivacao, 'analise', False)
+            if form.is_valid():
+                form.save()
 
+                cargo = request.POST.get('cargo')
+                motivacao = request.POST.get('motivacao')
+                intancePerfilColaborador(user, cargo, motivacao, 'analise', False)
+
+                return redirect("home")
+        
+        elif submit_type == 'descartar':
+            perfil_colaborador.delete()
             return redirect("home")
         
     else:

@@ -20,7 +20,7 @@
         para tornar-se um colaborador
     </div>
     
-    <form method="post" action="{% url 'formulario_colaborador' %}" style="width: 367px; height: 67px;">
+    <form method="post" action="{% url 'formulario_colaborador' %}" style="width: 367px; height: 67px;" onsubmit="return validarFormulario();">
         {% csrf_token %}
         
         <div class="custom-select">
@@ -37,23 +37,62 @@
         </div>
 
         <div class="button-container">
-            <button type="submit" class="custom-button" name="enviar">
+            <button type="submit" class="custom-button" name="submit_type" value="enviar">
                 <span class="button-text">Enviar</span>
             </button>
         </div>
 
         <div class="button-container" style="left: 1700px; top: 998px;">
-            <button type="submit" class="custom-button" style="background: #A00128;" name="descartar">
+            <button type="submit" class="custom-button" style="background: #A00128;" name="submit_type" value="descartar">
                 <span class="button-text">Descartar</span>
             </button>
         </div>
 
     </form>
 
-    
+    <script>
+        function validarFormulario() {
+            var cargo = document.getElementById('id_opcao').value;
+            var motivacao = document.getElementById('user-input').value;
+            var botaoClicado = event.submitter.value;
 
-    
-    
+            if (botaoClicado === 'descartar') {
+                return true;
+            }
+
+            if (cargo === "" || motivacao === "") {
+                alert("Por favor, preencha todos os campos antes de enviar.");
+                return false;
+            }
+
+            return true;
+        }
+
+        var textarea = document.getElementById('user-input');
+        var charCount = document.getElementById('char-count');
+
+         // Define o comprimento máximo permitido
+        var maxLength = 1500;
+
+         // Função para contar caracteres e atualizar a contagem
+        function countCharacters() {
+            var currentLength = textarea.value.length;
+
+            if (currentLength > maxLength) {
+                textarea.value = textarea.value.substring(0, maxLength);
+                currentLength = maxLength;
+            }
+
+            charCount.textContent = 'Caracteres restantes: ' + (maxLength - currentLength);
+        }
+
+         // Adiciona um ouvinte de evento ao campo de texto
+        textarea.addEventListener('input', countCharacters);
+
+         // Chama a função inicialmente para garantir que a contagem seja exibida corretamente
+        countCharacters();
+    </script>
+
 
 </body>
 
