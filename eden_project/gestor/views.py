@@ -205,10 +205,16 @@ def novos_membros_buscar(request):
         search_query = request.GET['search_query']
         users = [
             user for user in users_no_colaborator
-            if search_query.lower() in user.username.lower() or search_query.lower() in user.email.lower()
+            if (
+                search_query.lower() in user.username.lower()
+                or search_query.lower() in user.email.lower()
+                or search_query.lower() in user.first_name.lower()
+                or search_query.lower() in user.last_name.lower()
+            )
         ]
 
-        user_list = [{'username': user.username, 'last_login': user.last_login, 'email': user.email} for user in users]
+
+        user_list = [{'first_name': user.first_name, 'last_name': user.last_name, 'username': user.username, 'last_login': user.last_login, 'email': user.email} for user in users]
         return JsonResponse({'users': user_list})
 
     return render(request, "add_gestores_buscar.html", {'perfil_colaborador' : perfil_colaborador, 'users_no_colaborator' : users_no_colaborator})

@@ -25,7 +25,11 @@
                   Email: {{perfil.user.email}}
                 </div>
                 <div class="card-add-colaborador-text">
-                  Ultimo Login: {{perfil.user.last_login|date:"d/m/Y"}}
+                  {% if perfil.user.last_login %}
+                    Ultimo Login: {{perfil.user.last_login|date:"d/m/Y"}}
+                  {% else %}
+                    Ultimo Login: NUNCA LOGOU
+                  {% endif %}
                 </div>
               </div>
             </div>

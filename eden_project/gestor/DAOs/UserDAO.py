@@ -30,7 +30,7 @@ def getUserById(id):
         
 def getUserNoColaboretors():
         try:
-            user = User.objects.filter(Q(perfilcolaborador__isnull=True) | Q(perfilcolaborador__atividade=False))
+            user = User.objects.filter(perfilcolaborador__isnull=True)
             return user
         except User.DoesNotExist:
             return None
