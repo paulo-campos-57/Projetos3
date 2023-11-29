@@ -6,6 +6,10 @@
     <!-- seu_template_cargo.html -->
     {% include 'partial/_navbar.html'%}
     
+    <div>
+        <div class="colaborador_texto_navbar_vertical">Fomulario</div>
+        <img class="formulario_logo_navbar_vertical" src="{% static 'assets/logos/Logo2.png' %}" alt="Lumi">
+    </div>  
 
     <div class="formulario-user-imagem-contener">
         <img class="formulario-user-imagem" src="{% static 'assets/fotos/foto1.jpeg' %}" alt="{{ user.username }} Foto">
@@ -91,6 +95,19 @@
 
          // Chama a função inicialmente para garantir que a contagem seja exibida corretamente
         countCharacters();
+
+        // Obtém o token CSRF do cookie
+        var csrftoken = getCookie('csrftoken');
+
+        // Configura o cabeçalho da solicitação AJAX
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+
     </script>
 
 
