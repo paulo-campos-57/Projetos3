@@ -128,6 +128,70 @@ body {
   top: 150px;  /* ou a posição desejada */
 }
 
+.navbar-seta-voltar {
+  position: absolute;
+  width: 24px;
+  height: 23.04px;
+  left: 173px;
+  top: 41px;
+  z-index: 99;
+}
+
+.card-navbar-lateral {
+  margin-left: 250px; /* Ajuste para a largura da barra lateral */
+  position: absolute;
+  width: 195px;
+  height: 54px;
+  left: 63%;
+  top: 20px;
+  background: #109D9C;
+  border-radius: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  z-index: 99;
+}
+
+/* Estilo do Círculo Interno */
+.circle-navbar-lateral {
+  width: 43.2px;
+  height: 43.2px;
+  background: #ffffff;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* Estilo da Imagem do Círculo Interno */
+.circle-navbar-lateral img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+/* Estilo do Texto */
+.text-navbar-lateral {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilo do Nome */
+.name-navbar-lateral {
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-weight: 700;
+  font-size: 15px;
+  color: #F8F8F8;
+}
+
+/* Estilo do E-mail */
+.email-navbar-lateral {
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-style: italic;
+  font-weight: 300;
+  font-size: 9px;
+  color: #F8F8F8;
+  opacity: 0.7;
+}
+
 .card-add-colaborador-grid {
   position: absolute; 
   width: 70%; 
@@ -313,7 +377,7 @@ body {
   left: 1342px;
   top: 325px;
 
-  font-family: 'Josefin Sans';
+  font-family: 'Josefin Sans', 'Helvetica';
   font-style: normal;
   font-weight: 400;
   font-size: 32px;
@@ -385,7 +449,7 @@ body {
   padding: 10px;
   color: #F8F8F8;
   font-weight: bold;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Josefin Sans', 'Helvetica';
   line-height: 1;
 }
 
@@ -545,3 +609,4 @@ body {
 .btn-container {
   text-align: right;
 }
+
