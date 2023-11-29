@@ -7,6 +7,7 @@
         background-size: cover;
         background-position: center;
         font-family: 'Josefin Sans', sans-serif;
+        overflow: hidden;
     }
     #imagem-ao-lado {
         max-width: 20%; /* Ajuste a largura da imagem conforme necessário */
@@ -63,7 +64,7 @@
             <a href="{% url 'cadastro' %}" alt="Link Cadastro" class="texto-link">Não possui Login? Cadastre-se</a>
 
             <div class="btn-container">
-                <button type="button" style="border: none; outline: none; background: none;">
+                <button type="submit" style="border: none; outline: none; background: none;">
                     <img style="border: none;" src="{% static 'assets\imagens\botaologin.png' %}" alt="Botão de Login">
                 </button>
                 
