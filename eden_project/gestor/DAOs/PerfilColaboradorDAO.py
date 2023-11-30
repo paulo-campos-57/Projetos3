@@ -23,6 +23,14 @@ def getPerfilColaborador(request):
 
     return perfil
 
+def getPerfilColaboradorByUser(user):
+    try:
+        perfil = PerfilColaborador.objects.get(user=user)
+    except PerfilColaborador.DoesNotExist:
+        perfil = None
+
+    return perfil
+
 def getFomulariosColaborador():   
     try:
         perfils = PerfilColaborador.objects.filter(status= 'analise')

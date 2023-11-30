@@ -296,6 +296,8 @@ def gestao_equipe_buscar_user(request, user_id):
     return render(request, 'gestao_equipe_buscar_user.html', {'perfil_colaborador': perfil_colaborador, 'perfil' : perfil})
 
 def novos_membros_formulario_user(request, user_id):
+    user_ = getUserById(user_id)
+
     if request.user.is_authenticated:
         try:
             perfil_colaborador = getPerfilColaborador(request)
@@ -304,14 +306,29 @@ def novos_membros_formulario_user(request, user_id):
         
     else:
         return redirect("login")
-    # Obtém o objeto User com base no user_id
-    user = get_object_or_404(User, pk=user_id)
 
     # Obtém o perfil do colaborador associado ao usuário
-    perfil = get_object_or_404(PerfilColaborador, user=user)
+    perfil = get_object_or_404(PerfilColaborador, user=user_)
+
+    feedback_user = getFeedbacksUser(user_)
+    reporte_user = getFormularioReporteUser(user_)
+    suporte_user = getFormularioSuporteUser(user_)
+
+    dados_interacoes = {
+        'numero1' : int(feedback_user.count()),
+        'numero2' : int (reporte_user.count() + suporte_user.count()),
+    }
+    
+    historico_concluido = getHistoricoComcluido(user_)
+    historico_incompleto = getHistoricoIncompletos(user_)
+
+    dados_histrico = {
+        'numero1' : int(historico_concluido.count()),
+        'numero2' : int(historico_incompleto.count()),
+    }
 
 
-    return render(request, 'add_gestores_formulario_user.html', {'perfil_colaborador': perfil_colaborador, 'perfil' : perfil})
+    return render(request, 'add_gestores_formulario_user.html', {'perfil_colaborador': perfil_colaborador, 'perfil' : perfil, 'dados_interacoes' : dados_interacoes,'dados_histrico' : dados_histrico})
 
 # def CriarFormularioMensagem(request):
     
