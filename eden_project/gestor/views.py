@@ -295,7 +295,7 @@ def remocao(request, user_id):
 
         perfil_colaborador.motivo_remocao = motivo_remocao
         perfil_colaborador.save()
-
+    
         usuario.delete()
         perfil_colaborador.delete()
 
