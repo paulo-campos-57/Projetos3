@@ -749,16 +749,13 @@ color: #FFFFFF;
   text-align: right;
 }
 
-/* Card Container */
 .card-container-nome-add-gestor {
   position: absolute;
-  
   height: 51px;
   left: 860px;
   top: 300px;
 }
 
-/* Card Background */
 .card-background-nome-add-gestor  {
   position: absolute;
   width: 100%;
@@ -768,20 +765,32 @@ color: #FFFFFF;
   border-radius: 15px;
 }
 
-/* Card Text */
 .card-text-nome-add-gestor  {
   position: absolute;
-  height: 26px;
-  left: 25px;
-  top: 25%;
+  width: 100%;
+  height: 51px;
   font-family: 'Josefin Sans', 'Trebuchet MS';
   font-style: normal;
   font-weight: 700;
   font-size: 28px;
-  line-height: 28px;
+  line-height: 51px;
   display: flex;
   align-items: center;
-  text-align: center;
+  justify-content: center;
+  color: #FFFFFF;
+  white-space: nowrap;
+}
+
+.email-box-add-gestor {
+  position: absolute;
+  height: 18px;
+  left: 870px;
+  top: 369px;
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
   color: #FFFFFF;
 }
 

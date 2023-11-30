@@ -13,33 +13,34 @@
         <img class="formulario-user-imagem" src="{% static 'assets/fotos/foto1.jpeg' %}" alt="{{ user.username }} Foto">
     </div>
     <div class="card-container-nome-add-gestor">
-
-        <!-- Card Background -->
         <div class="card-background-nome-add-gestor"></div>
     
-        <!-- Card Text -->
         <div class="card-text-nome-add-gestor" id="NomeUser">
-            Vemillion Tennon
+            {{user_.first_name}} {{user_.last_name}}
         </div>
     
     </div>
+
+    <div class="email-box-add-gestor" id="EmailUser">fepeoli@outlook.com</div>
     
     <div class="retangle-button-addmit">
         Admitir
     </div>
     
     <script>
-        // Obtenha o elemento de texto
-       
-        // Obter o elemento de texto dinâmico
         var nomeUser = document.getElementById('NomeUser');
 
-        // Obter o número de caracteres no texto
         var numeroCaracteres = nomeUser.innerText.length;
-        var tamanhoContaniner = (numeroCaracteres * 15) + 40;
+        var tamanhoContaniner = (numeroCaracteres * 15) + 50;
 
-        // Ajustar a largura do contêiner com base no número de caracteres
-        document.querySelector('.card-container-nome-add-gestor').style.width = tamanhoContaniner + 'px'; // Ajuste conforme necessário
+        document.querySelector('.card-container-nome-add-gestor').style.width = tamanhoContaniner + 'px'; 
+
+        var emailUser = document.getElementById('EmailUser');
+
+        var numeroCaracteresEmail = nomeUser.innerText.length;
+        var tamanhoContaninerEmail = (numeroCaracteres * 15) + 20;
+
+        document.querySelector('.email-box-add-gestor').style.width = tamanhoContaninerEmail + 'px'; 
     </script>
 </body>
 </html>
