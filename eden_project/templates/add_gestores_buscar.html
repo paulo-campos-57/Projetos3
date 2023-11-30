@@ -17,33 +17,41 @@
     </form>
   </div>
 
-  <div class="card-add-colaborador-grid" style="top: 250px;">
-    {% for user in users_no_colaborator %}
-      <div class="card-add-colaborador" data-user-id="{{ user.id }}">
-        <div class="card-add-colaborador-imagem-contener">
-          <img class="card-add-colaborador-imagem" src="{% static 'assets/fotos/foto1.jpeg' %}" alt="{{ user.username }} Foto">
+  {% if users_no_colaborator %}
+    <div class="card-add-colaborador-grid" style="top: 250px;">
+      {% for user in users_no_colaborator %}
+        <div class="card-add-colaborador" data-user-id="{{ user.id }}">
+          <div class="card-add-colaborador-imagem-contener">
+            <img class="card-add-colaborador-imagem" src="{% static 'assets/fotos/foto1.jpeg' %}" alt="{{ user.username }} Foto">
+          </div>
+          <div class="card-add-colaborador-blue-box">
+            <div class="card-add-colaborador-text">
+              Nome: {{user.first_name}} {{user.last_name}}
+            </div>
+            <div class="card-add-colaborador-text">
+              Username: {{user.username}}
+            </div>
+            <div class="card-add-colaborador-text">
+              {% if user.last_login %}
+                Ultimo Login: {{user.last_login|date:"d/m/Y"}}
+              {% else %}
+                Ultimo Login: NUNCA LOGOU
+              {% endif %}
+            </div>
+            <div class="card-add-colaborador-text">
+              Email: {{user.email}}
+            </div>
+          </div>
         </div>
-        <div class="card-add-colaborador-blue-box">
-          <div class="card-add-colaborador-text">
-            Nome: {{user.first_name}} {{user.last_name}}
-          </div>
-          <div class="card-add-colaborador-text">
-            Username: {{user.username}}
-          </div>
-          <div class="card-add-colaborador-text">
-            {% if user.last_login %}
-              Ultimo Login: {{user.last_login|date:"d/m/Y"}}
-            {% else %}
-              Ultimo Login: NUNCA LOGOU
-            {% endif %}
-          </div>
-          <div class="card-add-colaborador-text">
-            Email: {{user.email}}
-          </div>
-        </div>
-      </div>
-   {% endfor %}
-  </div>
+    {% endfor %}
+    </div>
+  {% else %}
+    <div class="sem-funcao">
+      NÃO HÁ NOVOS USUÁRIOS NÃO
+      COLABORADORES, SEM PEDIDOS DE
+      SE TORNAR COLABORADOR
+    </div>
+  {% endif %}
   
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script>

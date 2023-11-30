@@ -23,7 +23,9 @@
 
     <div class="email-box-add-gestor" id="EmailUser">{{user_.email}}</div>
     
-    <canvas id="graficoPizzaInteracoes" style="position: absolute; left: 793px; top: 460px; width: 300px; height: 300px;"></canvas>
+    <canvas id="graficoPizzaInteracoes" style="position: absolute; left: 793px; top: 460px; width: 300px; height: 300px; "></canvas>
+
+    <div class="numero-meio-grafico">{{ dados_interacoes.numero1|add:dados_interacoes.numero2 }}</div>
 
     <div class="caixa-texto-legenda-grafico" >
         Interações
@@ -34,6 +36,9 @@
     </div>
 
     <canvas id="graficoPizzaHistorico" style="position: absolute; left: 1212.76px; top: 460px; width: 300px; height: 300px;"></canvas>
+
+    <div class="numero-meio-grafico" style="left: 1334px;">{{ dados_histrico.numero1|add:dados_histrico.numero2 }}</div>
+
     
     <div class="caixa-texto-legenda-grafico" style="left: 1266px;">
         Mídias assistidas
@@ -67,15 +72,17 @@
             var dadoInteracoes = {{ dados_interacoes|safe }};
 
             var chart = new Chart(ctx1, {
-                type: 'pie',
+                type: 'doughnut',
                 data: {
                     datasets: [{
                         data: [dadoInteracoes.numero1, dadoInteracoes.numero2],
                         backgroundColor: ['#058DA0', '#F8F8F8'],
+                        borderWidth: 0,
                     }],
                 },
                 options: {
-                    responsive: false
+                    responsive: false,
+                    cutoutPercentage: 90,
                 }
             });
 
@@ -83,15 +90,17 @@
             var dadosHistrico = {{ dados_histrico|safe }};
 
             var chart = new Chart(ctx2, {
-                type: 'pie',
+                type: 'doughnut',
                 data: {
                     datasets: [{
                         data: [dadosHistrico.numero1, dadosHistrico.numero2],
                         backgroundColor: ['#0ABAB5', '#1E4F56'],
+                        borderWidth: 0,
                     }],
                 },
                 options: {
-                    responsive: false
+                    responsive: false,
+                    cutoutPercentage: 90,
                 }
             });
         }
