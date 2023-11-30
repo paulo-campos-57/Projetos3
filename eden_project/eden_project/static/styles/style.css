@@ -434,6 +434,12 @@ color: #FFFFFF;
   overflow: hidden;
 }
 
+.card-gestao-equipe-imagem {
+  width: 160px;
+  height: 160px;
+  border-radius: 10px;
+}
+
 .card-gestao-equipe-informacao-contener {
   width: 700px;
   height: 60px;
