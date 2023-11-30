@@ -253,6 +253,114 @@ body {
 
 }
 
+.buttons-forms-container-group {
+  left: 3rem;
+
+}
+
+.retangle-button-negar {
+/* Group 569 */
+
+position: absolute;
+width: 132.31px;
+height: 33.65px;
+left: 1420.27px;
+top: 862.35px;
+
+
+
+/* Group 406 */
+
+position: absolute;
+width: 132.31px;
+height: 33.65px;
+left: 1420.27px;
+top: 862.35px;
+
+
+
+/* Rectangle 99 */
+
+position: absolute;
+width: 120.83px;
+height: 33.65px;
+left: 1426.38px;
+top: 862.35px;
+
+background: #A00128;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 20px;
+
+
+/* Negar */
+
+position: absolute;
+width: 132.31px;
+height: 45.71px;
+left: 1270.27px;
+top: 867.7px;
+
+font-family: 'Josefin Sans', 'Helvetica';
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 45px;
+/* identical to box height */
+display: center;
+align-items: center;
+text-align: center;
+
+color: #F8F8F8;
+
+
+}
+
+.retangle-button-mais-estatisticas {
+  /* Group 556 */
+
+position: absolute;
+width: 132.31px;
+height: 33.65px;
+left: 1287.96px;
+top: 862.35px;
+
+
+/* Rectangle 99 */
+
+position: absolute;
+width: 120.83px;
+height: 33.65px;
+left: 1294.08px;
+top: 862.35px;
+
+background: #0ABAB5;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 20px;
+
+
+/* Mais estatísticas */
+
+position: absolute;
+text-align: center;
+width: 170.31px;
+height: 45.71px;
+left: 1440.96px;
+top: 867.7px;
+
+font-family: 'Josefin Sans', 'Helvetica';
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 45px;
+/* identical to box height */
+display: center;
+align-items: center;
+text-align: center;
+
+color: #F8F8F8;
+ 
+}
+
 .retangle-button-addmit {
   /* Group 556 */
 
@@ -282,16 +390,16 @@ position: absolute;
 text-align: center;
 width: 132.31px;
 height: 45.71px;
-left: 1287.96px;
+left: 1100.96px;
 top: 867.7px;
 
-font-family: 'Josefin Sans';
+font-family: 'Josefin Sans', 'Helvetica';
 font-style: normal;
 font-weight: 600;
 font-size: 24px;
-line-height: 24px;
+line-height: 45px;
 /* identical to box height */
-display: flex;
+display: center;
 align-items: center;
 text-align: center;
 
