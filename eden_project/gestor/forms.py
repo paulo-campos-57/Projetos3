@@ -20,6 +20,12 @@ class PerfilColacoradorForm(forms.ModelForm):
 
         super().__init__(*args, **kwargs)
 
+class PerfilColacoradorFormChamar(forms.ModelForm):
+    class Meta:
+        model = PerfilColaborador
+        fields = ['cargo']
+
+
 class MensagensForm(ModelForm):
     class Meta:
         model = Mensagens

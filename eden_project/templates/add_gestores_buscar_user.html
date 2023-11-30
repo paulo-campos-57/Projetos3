@@ -37,7 +37,7 @@
 
     <canvas id="graficoPizzaHistorico" style="position: absolute; left: 1212.76px; top: 460px; width: 300px; height: 300px;"></canvas>
 
-    <div class="numero-meio-grafico" style="left: 1334px;">{{ dados_histrico.numero1|add:dados_histrico.numero2 }}</div>
+    <div class="numero-meio-grafico" style="left: 1324px;">{{ dados_histrico.numero1|add:dados_histrico.numero2 }}</div>
 
     
     <div class="caixa-texto-legenda-grafico" style="left: 1266px;">
@@ -47,9 +47,28 @@
         <div class="quadrado-legenda-grafico" style="background: #1E4F56;"></div>
         <div class="legenda-texto-legenda-grafico">Incompletas - {{dados_histrico.numero2}}</div>
     </div>
-    
-    <div class="retangle-button-addmit">
-        Admitir
+
+    <form method="post" action="{% url 'novos_membros_buscar_user' user_id=user_.id %}" onsubmit="return validarFormulario();">
+        {% csrf_token %}
+        
+        <div class="custom-select" style="left: 1200px; top: 295px;">
+            <select id="id_opcao" name="cargo">
+                <option value="" selected disabled>ESCOLHA UM CARGO</option>
+                <option value="reportuser">SUPORTE E REPORTE</option>
+                <option value="midiauser">GERENTE DE ACERVO</option>
+            </select>
+        </div>
+       
+        <button type="submit" class="retangle-button-addmit" style="left: 1457px; top: 954.35px">
+           Chamar
+        </button>
+
+    </form>
+
+    <div class = "buttons-forms-container-group">
+        <div class="retangle-button-mais-estatisticas" style="left: 1618.46px; top: 954.35px">
+            Mais estatísticas
+        </div>
     </div>
     
     <script>
@@ -104,8 +123,30 @@
                 }
             });
         }
-        
-        
+
+        function validarFormulario() {
+            var cargo = document.getElementById('id_opcao').value;
+
+            if (cargo === "") {
+                alert("Por favor, preencha todos os campos antes de enviar.");
+                return false;
+            }
+
+            alert("O usuário foi chamado para se tornar colaborador!!!");
+            return true;
+        }
+
+        var csrftoken = getCookie('csrftoken');
+
+        // Configura o cabeçalho da solicitação AJAX
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+
     </script>
 </body>
 </html>

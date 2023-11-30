@@ -2,22 +2,23 @@ from django.shortcuts import redirect, render
 from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.models import User
 from gestor.models import PerfilColaborador, FormularioSuporte, FormularioReporte, Mensagens
-from gestor.DAOs.PerfilColaboradorDAO import intancePerfilColaborador, getPerfilColaborador, getFomulariosColaborador, getTodosPerfisColaborador
+from gestor.DAOs.PerfilColaboradorDAO import intancePerfilColaborador, getPerfilColaborador, getFomulariosColaborador, getTodosPerfisColaborador, getPerfilColaboradorByUser
 from gestor.DAOs.UserDAO import getUser, getUserNoColaboretors, getUserById
 from gestor.DAOs.UserHistoricoDAO import getHistoricoComcluido, getHistoricoIncompletos
 from gestor.DAOs.UserFeedbackDAO import getFeedbacksUser
 from gestor.DAOs.FormularioReporteDAO import getFormularioReporteUser
 from gestor.DAOs.FormularioSuporteDAO import getFormularioSuporteUser
-from .forms import PerfilColacoradorForm, FormularioReporteForm, MensagensForm
+from .forms import PerfilColacoradorForm, FormularioReporteForm, MensagensForm, PerfilColacoradorFormChamar
 from django.contrib.auth import authenticate, logout, login as django_login
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import get_object_or_404
+import logging
 # Create your views here.
 
 def home(request):
     if request.user.is_authenticated:
         try:
-            perfil_colaborador = PerfilColaborador.objects.get(user=request.user)
+            perfil_colaborador = getPerfilColaborador(request)
         except PerfilColaborador.DoesNotExist:
             perfil_colaborador = None
 
@@ -250,7 +251,26 @@ def novos_membros_buscar_user(request, user_id):
         'numero2' : int(historico_incompleto.count()),
     }
 
-    return render(request, 'add_gestores_buscar_user.html', {'perfil_colaborador': perfil_colaborador, 'user_': user_, 'dados_interacoes' : dados_interacoes,'dados_histrico' : dados_histrico})
+    perfil_colaborador_user = getPerfilColaboradorByUser(user_)
+
+    if perfil_colaborador_user == None:
+        perfil_colaborador_user = intancePerfilColaborador(user_, 'null', " ", 'preenchendo', False)
+
+    if request.method == 'POST':
+        form = PerfilColacoradorFormChamar(request.POST)
+
+        if form.is_valid():
+            perfil_colaborador = form.save(commit=False)
+            
+            cargo = request.POST.get('cargo')
+                
+            intancePerfilColaborador(user_, cargo, 'Chamado por colaborador', 'aprovado', False)
+
+            return redirect("home")
+    else:
+        form = PerfilColacoradorFormChamar()
+
+    return render(request, 'add_gestores_buscar_user.html', {'perfil_colaborador': perfil_colaborador, 'user_': user_, 'dados_interacoes' : dados_interacoes,'dados_histrico' : dados_histrico, 'form': form})
 
 def gestao_equipe_buscar(request):
     if request.user.is_authenticated:
