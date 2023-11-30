@@ -358,6 +358,12 @@ color: #FFFFFF;
   overflow: hidden;
 }
 
+.card-suporte-reporte {
+  max-width: 1406px;
+  height: 136px;
+  overflow: hidden;
+}
+
 .card-gestao-equipe {
   display: block;
   justify-content: flex-end;
