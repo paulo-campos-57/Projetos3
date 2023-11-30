@@ -917,4 +917,41 @@ color: #FFFFFF;
   color: #FFFFFF;
 }
 
+.numero-meio-grafico {
+  position: absolute;
+  width: 220.78px;
+  height: 128.13px;
+  left: 907px;
+  top: 560px;
+
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 70px;
+  line-height: 70px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #FFFFFF;
+}
+
+/* ESSA FUNÇÃO NÃO IMPACTA EM NOSSA FUNCIONALIDADE, POR ISSO NÃO TEMOS SUA TELA */
+.sem-funcao{
+  position: absolute;
+  width: 1170px;
+  height: 263px;
+  left: 568px;
+  top: 410px;
+
+  font-family: 'Josefin Sans', 'Trebuchet MS';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 70px;
+  line-height: 70px;
+  display: flex;
+  align-items: center;
+
+  color: #F8F8F8;
+}
 
