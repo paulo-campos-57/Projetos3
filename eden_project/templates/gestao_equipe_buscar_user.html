@@ -21,11 +21,11 @@
                 <div class="card-gestao-equipe-informacao-contener">
                     <div class="card-gestao-equipe-text" style="font-size: medium; color: black">
                         <div style="margin-top: 15px;">
-                            <strong>Username:</strong> {{ user.username }}
+                            <strong>Username:</strong> {{ perfil.user.username }}
                             &nbsp;
-                            <strong>Email:</strong> {{ user.email }}
+                            <strong>Email:</strong> {{ perfil.user.email }}
                             &nbsp;
-                            <strong>Cargo:</strong> {{ perfil_colaborador.cargo }}
+                            <strong>Cargo:</strong> {{ perfil.cargo }}
                         </div>
                         <br>
                     </div>
@@ -37,7 +37,7 @@
                         <div class="card-gestao-equipe-motivacao-text" style="font-size: medium; text-align: center;">
                             <strong style="font-size: x-large; color: black">Motivação</strong>
                             <br>
-                            {{ perfil_colaborador.motivacao }}
+                            {{ perfil.motivacao }}
                         </div>
                     </div>
 

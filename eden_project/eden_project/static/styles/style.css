@@ -389,6 +389,7 @@ color: #FFFFFF;
   background-color: #12969d; 
   border-radius: 15px;
   margin-right: 20px; /* Adicione margem entre as caixas */
+  margin-top: 10px;
 }
 
 .card-gestao-equipe-motivo-remocao-box {
@@ -400,6 +401,7 @@ color: #FFFFFF;
   border-bottom: 2px solid #109D9C;
   border-radius: 20px;
   margin-right: 20px; /* Adicione margem entre as caixas */
+  margin-top: 10px;
 }
 
 .card-gestao-equipe-motivacao-contener {
