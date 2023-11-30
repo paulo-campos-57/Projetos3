@@ -279,8 +279,9 @@ border-radius: 20px;
 /* Admitir */
 
 position: absolute;
+text-align: center;
 width: 132.31px;
-height: 23.71px;
+height: 45.71px;
 left: 1287.96px;
 top: 867.7px;
 
@@ -356,6 +357,54 @@ color: #FFFFFF;
   margin-right: 5px;
   border-radius: 50%;
   overflow: hidden;
+}
+
+.card-text-formulario {
+  /* Group 555 */
+
+position: absolute;
+width: 841.25px;
+height: 412.21px;
+left: 869.63px;
+top: 427.96px;
+
+
+
+/* Rectangle 286 */
+
+position: absolute;
+width: 841.25px;
+height: 412.21px;
+left: calc(50% - 841.25px/2 + 330.25px);
+top: 427.96px;
+
+background: #14B7C0;
+mix-blend-mode: color-dodge;
+box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 15px;
+
+
+/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat in lacus nec sagittis. Sed in ex at dolor interdum pharetra. Vestibulum eget ligula magna. Aenean accumsan aliquet consectetur. Ut lobortis bibendum lorem vel dictum. Pellentesque vitae pharetra diam. Duis sed nisi ante. Praesent at aliquam velit. Fusce pharetra ultrices tortor, id porttisectetur blandit. Cras vel arcu eget purus hendrerit fermentum. Donec iaculis, quam eu euismod aliquet, enim orci sagittis dui, a rhoncus eros ex sed felis. Nullam porttitor aliquam diam, vel sagittis orci rutrum nec. Sed dignissim accumsan neque, at blandit diam varius ut. Nullam egestas dictum risus, a consectetur justo tristique posuere. Fusce dapibus auctor ex. Phasellus condimentum volutpat libero, sed iaculis felis vestibulum eu. Nunc et nisl risus. In sed tristique ligula, quis fermentum dui. Morbi porta egestas erat, id blandit lacus. Quisque ornare accumsan sapien, at imperdiet ipsum congue non. Nullam vestibulum id diam at ullamcorper. */
+
+position: absolute;
+width: 753.31px;
+height: 345.68px;
+left: 855.98px;
+top: 461.61px;
+
+font-family: 'Josefin Sans', 'Helvetica';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 23px;
+/* or 115% */
+display: flex;
+align-items: center;
+letter-spacing: 0.02em;
+
+color: #FFFFFF;
+
+
 }
 
 .card-suporte-reporte {
