@@ -40,14 +40,14 @@
                             {{ perfil_colaborador.motivacao }}
                         </div>
                     </div>
-                    
+
                     <div class="card-gestao-equipe-motivo-remocao-box">
                         <div class="card-gestao-equipe-motivacao-text" style="font-size: medium;">
                             <strong style="font-size: x-large;">Motivo de Remoção</strong>
                             <br>
                             <form method="post" action="{% url 'remover_usuario' user.id %}">{% csrf_token %}
                                 <textarea name="motivo_remocao" id="motivo_remocao" rows="7" cols="40" style="resize: none; border-radius: 5px;">{{ perfil_colaborador.motivo_remocao }}</textarea>
-                                <button type="submit" style="border: none; margin-left: -30px; margin-top: 50px; outline: none; background: none;">
+                                <button type="submit" style="border: none; margin-left: 10px; margin-top: 20px; outline: none; background: none;">
                                     <img style="border: none;" src="{% static 'assets/imagens/BotaoRemover.png' %}" alt="Botão de Login">
                                 </button>
                             </form>
