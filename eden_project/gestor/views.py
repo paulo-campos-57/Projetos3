@@ -219,9 +219,17 @@ def novos_membros_buscar(request):
     return render(request, "add_gestores_buscar.html", {'perfil_colaborador' : perfil_colaborador, 'users_no_colaborator' : users_no_colaborator})
     
 def novos_membros_buscar_user(request, user_id):
-    user = getUserById(user_id)
+    user_ = getUserById(user_id)
 
-    return render(request, 'add_gestores_buscar_user.html', {'user': user})
+    if request.user.is_authenticated:
+        try:
+            perfil_colaborador = getPerfilColaborador(request)
+        except PerfilColaborador.DoesNotExist:
+            return redirect("home")
+    else:
+        return redirect("login")
+
+    return render(request, 'add_gestores_buscar_user.html', {'perfil_colaborador': perfil_colaborador, 'user_': user_})
 
 def gestao_equipe_buscar(request):
     if request.user.is_authenticated:

@@ -7,13 +7,40 @@
 <body>
     <!-- Conteúdo detalhado do usuário aqui -->
     {% include 'partial/_navbar.html'%}
-    <div class="colaborador_texto_navbar_vertical">{{ user.username }}</div>
+    <div class="colaborador_texto_navbar_vertical">{{ user_.username }}</div>
 
     <div class="formulario-user-imagem-contener">
         <img class="formulario-user-imagem" src="{% static 'assets/fotos/foto1.jpeg' %}" alt="{{ user.username }} Foto">
     </div>
-    <h2>Detalhes do Usuário</h2>
+    <div class="card-container-nome-add-gestor">
+
+        <!-- Card Background -->
+        <div class="card-background-nome-add-gestor"></div>
     
+        <!-- Card Text -->
+        <div class="card-text-nome-add-gestor" id="NomeUser">
+            Vemillion Tennon
+        </div>
+    
+    </div>
+    
+    <div class="retangle-button-addmit">
+        Admitir
+    </div>
+    
+    <script>
+        // Obtenha o elemento de texto
+       
+        // Obter o elemento de texto dinâmico
+        var nomeUser = document.getElementById('NomeUser');
+
+        // Obter o número de caracteres no texto
+        var numeroCaracteres = nomeUser.innerText.length;
+        var tamanhoContaniner = (numeroCaracteres * 15) + 40;
+
+        // Ajustar a largura do contêiner com base no número de caracteres
+        document.querySelector('.card-container-nome-add-gestor').style.width = tamanhoContaniner + 'px'; // Ajuste conforme necessário
+    </script>
 </body>
 </html>
 {% endblock %} 
