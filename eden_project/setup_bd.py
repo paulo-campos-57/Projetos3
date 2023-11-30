@@ -415,7 +415,7 @@ def criar_atividade_user(user):
             count += 1
         elif (count < numFilmes + numFilmesMes):
             dataAtual = timezone.now()
-            dataHistorico = dataAtual - timedelta(days=random.randint(0, 30))
+            dataHistorico = dataAtual - timedelta(days=random.randint(0, 15))
 
             concluido = bool(random.randint(0, 1))
 

@@ -23,6 +23,10 @@
 
     <div class="email-box-add-gestor" id="EmailUser">{{user_.email}}</div>
     
+    <canvas id="graficoPizzaInteracoes" style="position: absolute; left: 793px; top: 490px; width: 300px; height: 300px;" data-dados="{{ dados_histrico|safe }}"></canvas>
+
+    <canvas id="graficoPizzaHistorico" style="position: absolute; left: 1212.76px; top: 490px; width: 300px; height: 300px;" data-dados="{{ dados_histrico|safe }}"></canvas>
+    
     <div class="retangle-button-addmit">
         Admitir
     </div>
@@ -41,6 +45,44 @@
         var tamanhoContaninerEmail = (numeroCaracteres * 15) + 20;
 
         document.querySelector('.email-box-add-gestor').style.width = tamanhoContaninerEmail + 'px'; 
+
+        window.onload = function() {
+            var ctx1 = document.getElementById('graficoPizzaInteracoes').getContext('2d');
+            var dadoInteracoes = {{ dados_interacoes|safe }};
+
+            var chart = new Chart(ctx1, {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                        data: [dadoInteracoes.numero1, dadoInteracoes.numero2],
+                        backgroundColor: ['#058DA0', '#F8F8F8'],
+                    }],
+                    labels: ['Completas', 'Incompletas']
+                },
+                options: {
+                    responsive: false
+                }
+            });
+
+            var ctx2 = document.getElementById('graficoPizzaHistorico').getContext('2d');
+            var dadosHistrico = {{ dados_histrico|safe }};
+
+            var chart = new Chart(ctx2, {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                        data: [dadosHistrico.numero1, dadosHistrico.numero2],
+                        backgroundColor: ['#0ABAB5', '#1E4F56'],
+                    }],
+                    labels: ['Completas', 'Incompletas']
+                },
+                options: {
+                    responsive: false
+                }
+            });
+        }
+        
+        
     </script>
 </body>
 </html>

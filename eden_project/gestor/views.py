@@ -4,6 +4,10 @@ from django.contrib.auth.models import User
 from gestor.models import PerfilColaborador, FormularioSuporte, FormularioReporte, Mensagens
 from gestor.DAOs.PerfilColaboradorDAO import intancePerfilColaborador, getPerfilColaborador, getFomulariosColaborador, getTodosPerfisColaborador
 from gestor.DAOs.UserDAO import getUser, getUserNoColaboretors, getUserById
+from gestor.DAOs.UserHistoricoDAO import getHistoricoComcluido, getHistoricoIncompletos
+from gestor.DAOs.UserFeedbackDAO import getFeedbacksUser
+from gestor.DAOs.FormularioReporteDAO import getFormularioReporteUser
+from gestor.DAOs.FormularioSuporteDAO import getFormularioSuporteUser
 from .forms import PerfilColacoradorForm, FormularioReporteForm, MensagensForm
 from django.contrib.auth import authenticate, logout, login as django_login
 from django.contrib.auth.forms import UserCreationForm
@@ -228,8 +232,25 @@ def novos_membros_buscar_user(request, user_id):
             return redirect("home")
     else:
         return redirect("login")
+    
+    feedback_user = getFeedbacksUser(user_)
+    reporte_user = getFormularioReporteUser(user_)
+    suporte_user = getFormularioSuporteUser(user_)
 
-    return render(request, 'add_gestores_buscar_user.html', {'perfil_colaborador': perfil_colaborador, 'user_': user_})
+    dados_interacoes = {
+        'numero1' : int(feedback_user.count()),
+        'numero2' : int (reporte_user.count() + suporte_user.count()),
+    }
+    
+    historico_concluido = getHistoricoComcluido(user_)
+    historico_incompleto = getHistoricoIncompletos(user_)
+
+    dados_histrico = {
+        'numero1' : int(historico_concluido.count()),
+        'numero2' : int(historico_incompleto.count()),
+    }
+
+    return render(request, 'add_gestores_buscar_user.html', {'perfil_colaborador': perfil_colaborador, 'user_': user_, 'dados_interacoes' : dados_interacoes,'dados_histrico' : dados_histrico})
 
 def gestao_equipe_buscar(request):
     if request.user.is_authenticated:
@@ -288,6 +309,7 @@ def novos_membros_formulario_user(request, user_id):
 
     # Obtém o perfil do colaborador associado ao usuário
     perfil = get_object_or_404(PerfilColaborador, user=user)
+
 
     return render(request, 'add_gestores_formulario_user.html', {'perfil_colaborador': perfil_colaborador, 'perfil' : perfil})
 

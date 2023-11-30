@@ -15,3 +15,13 @@ def getTodosUserHistorico():
         historico = None
 
     return historico
+
+def getHistoricoComcluido(user):
+    historico_filtrado = UserHistorico.objects.filter(user=user).filter(concluido=True)
+
+    return historico_filtrado
+
+def getHistoricoIncompletos(user):
+    historico_filtrado = UserHistorico.objects.filter(user=user).filter(concluido=False)
+
+    return historico_filtrado
