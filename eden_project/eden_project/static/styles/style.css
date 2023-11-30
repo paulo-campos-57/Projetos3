@@ -1065,3 +1065,23 @@ color: #FFFFFF;
   color: #F8F8F8;
 }
 
+.pagina-cadastro {
+  width: 35%;
+  text-align: left;
+  font-size: large;
+  margin: 60px auto 0;
+  margin-left: 50px;
+  min-height: 350px;
+  border: 4px solid #37ABC8;
+  border-radius: 5%;
+  background-color: #23353F;
+  padding: 20px;
+}
+
+.link-voltar-login {
+  color: RGB(5, 99, 193);
+}
+
+.link-voltar-login:hover {
+  color: white;
+}
