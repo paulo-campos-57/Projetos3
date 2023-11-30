@@ -341,8 +341,8 @@ def suporte_e_reporte(request):
         return redirect("login")
     
     # Recuperar todos os formulários de suporte e reporte criados
-    formularios_suporte = FormularioSuporte.objects.all()
-    formularios_reporte = FormularioReporte.objects.all()
+    formularios_suporte = FormularioSuporte.objects.filter(status=False)
+    formularios_reporte = FormularioReporte.objects.filter(status=False)
 
     return render(request, 'suporte_e_reporte.html', {
         'perfil_colaborador': perfil_colaborador,

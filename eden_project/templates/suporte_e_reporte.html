@@ -9,51 +9,64 @@
     <div>
         <img src="{% static 'assets/icones/SetaVolta.png' %}" alt="setaVoltar">
         <div class="colaborador_texto_navbar_vertical">Suporte e Reporte</div>
-      </div>  
+    </div>  
 
-    <div style="margin-left: 300px; padding: 200px;">
+    <div style="margin-left: 380px; padding: 100px;">
         <img class="botaoReporteESuporte" id="botaoSuporte" src="{% static 'assets/imagens/BotaoSuporteMudar.png' %}" alt="Botao de Suporte">
         <img class="botaoReporteESuporte" id="botaoReporte" src="{% static 'assets/imagens/BotaoReporteMudar.png' %}" alt="Botao de Reporte">
 
-        <!-- Formulário de Suporte -->
-        <div id="formularioSuporte" style="display: block;">
-            {% if formularios_suporte %}
+        <div style="color: white;">
+            <div id="formularioSuporte" style="display: block;">
+                {% if formularios_suporte %}
+                    <ul style="margin-left: -150px;">
+                        {% for formulario_suporte in formularios_suporte %}
+                        <div class="card-suporte-reporte">
+                            <li style="position: relative; margin-bottom: 20px;">
+                                <div class="suporte-reporte-text" style="position: absolute; padding: 10px;">
+                                    <b>- Suporte -</b>
+                                    <br>
+                                    <b>Nome do Usuário:</b> {{ formulario_suporte.user.username }}
+                                    <br>
+                                    <b>Problema:</b> {{ formulario_suporte.texto }}
+                                </div>
+                            </li>
+                        </div>            
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+
+
+        <div style="color: white;">
+            <div id="formularioReporte" style="display: none;">
+                {% if formularios_reporte %}
                 <ul style="margin-left: -150px;">
-                    {% for formulario_suporte in formularios_suporte %}            
+                    {% for formularios_reporte in formularios_reporte %}
+                    <div class="card-suporte-reporte">
                         <li style="position: relative; margin-bottom: 20px;">
                             <div class="suporte-reporte-text" style="position: absolute; padding: 10px;">
-                                <b>- Suporte -</b>
+                                <b>- Reporte -</b>
                                 <br>
-                                <b>Nome do Usuário:</b> {{ formulario_suporte.user.username }}
+                                <b>Nome do Usuário:</b> {{ formularios_reporte.user.username }}
                                 <br>
-                                <b>Problema:</b> {{ formulario_suporte.texto }}
+                                <b>Problema:</b> {{ formularios_reporte.texto }}
+                                {% if formularios_reporte.midia %}
+                                    <br>
+                                    <b>Mídia:</b> {{ formularios_reporte.midia.titulo }}
+                                {% else %}
+                                    <br>
+                                    <b>Nenhuma mídia disponível</b>
+                                {% endif %}
                             </div>
-                            <img class="card-suporte-reporte" src="{% static 'assets/imagens/BarraSuporteReporte.png' %}" alt="Solicitação Suporte">
                         </li>
+                    </div>         
                     {% endfor %}
                 </ul>
             {% endif %}
+            </div>
         </div>
-
         <!-- Formulário de Reporte -->
-        <div id="formularioReporte" style="display: none;">
-            {% if formularios_reporte %}
-            <ul style="margin-left: -150px;">
-                {% for formularios_reporte in formularios_reporte %}            
-                    <li style="position: relative; margin-bottom: 20px;">
-                        <div class="suporte-reporte-text" style="position: absolute; padding: 10px;">
-                            <b>- Reporte -</b>
-                            <br>
-                            <b>Nome do Usuário:</b> {{ formularios_reporte.user.username }}
-                            <br>
-                            <b>Problema:</b> {{ formularios_reporte.texto }}
-                        </div>
-                        <img class="card-suporte-reporte" src="{% static 'assets/imagens/BarraSuporteReporte.png' %}" alt="Solicitação Suporte">
-                    </li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-        </div>
     </div>
 
     <script>
