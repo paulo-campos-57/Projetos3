@@ -868,4 +868,45 @@ color: #FFFFFF;
   color: #FFFFFF;
 }
 
+.quadrado-legenda-grafico {
+  position: absolute;
+  width: 20.54px;
+  height: 14.8px;
+  left: 20px;
+  top: 90px;
+
+  background: #F8F8F8;
+}
+
+.caixa-texto-legenda-grafico {
+  position: absolute;
+  width: 231.12px;
+  height: 105.8px;
+  left: 844px;
+  top: 764px;
+  background: transparent;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 20px;
+  color: #FFFFFF;
+}
+
+.legenda-texto-legenda-grafico {
+  position: absolute;
+  width: 193.12px;
+  height: 13.32px;
+  left: 50px;
+  top: 90px;
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 20px;
+  color: #FFFFFF;
+}
+
 
