@@ -89,9 +89,7 @@ def formulario_suporte(username,texto,status):
         print(f"Usuário com username '{username}' não encontrado.")
         return
     
-    if FormularioSuporte.objects.filter(user=user).filter(status=True).exists():
-        print(f"O usuario '{username}' já abriu suporte")
-        return
+    
 
     formulario = FormularioSuporte(
         user=user,
@@ -108,9 +106,6 @@ def formulario_reporte(username, categoriaReporte, midia, texto, status):
         print(f"Usuário com username '{username}' não encontrado.")
         return
     
-    if FormularioReporte.objects.filter(username=username).exists():
-        print(f"Uma instância de formulário reporte do usuário '{username}' já existe. Não foi criada uma nova instância.")
-        return
 
     formulario = FormularioReporte(
         user = user,
@@ -400,14 +395,8 @@ def criar_bd_filmes():
     dataFilme = datetime(2015, 1, 1, 12, 0, 0)
     criar_midia('A Bicicleta de Kant', 'Gilmor', 'L. H. Girarde', 'LA Bicicleta de Kant é a representação imagética do pressuposto de que a vida é a projeção dos eventos que vivenciamos. Natureza, luz, céu, humanidade, guerra, destruição, vida e morte, tudo é projetado para descobrir o que há além do campo dos fenômenos, ou pelo menos, nos deixar com essa pergunta na mente.' , 'aprovado', dataFilme, CARTAZ, MIDIA)
 
-def criar_atividade_user(username):
-    try:
-        user = User.objects.get(username=username)
-    except User.DoesNotExist:
-        print(f"Usuário com username '{username}' não encontrado.")
-        return
-    
-    numFilmes = random.randint(41, 57)
+def criar_atividade_user(user):
+    numFilmes = random.randint(11, 18)
     numFilmesMes = random.randint(3, 5)
 
     midias = Midia.objects.order_by('?').all()
@@ -421,7 +410,7 @@ def criar_atividade_user(username):
 
             concluido = bool(random.randint(0, 1))
 
-            criar_historico(username, midia.titulo, dataHistorico, concluido)
+            criar_historico(user.username, midia.titulo, dataHistorico, concluido)
 
             count += 1
         elif (count < numFilmes + numFilmesMes):
@@ -430,11 +419,41 @@ def criar_atividade_user(username):
 
             concluido = bool(random.randint(0, 1))
 
-            criar_historico(username, midia.titulo, dataHistorico, concluido)
+            criar_historico(user.username, midia.titulo, dataHistorico, concluido)
 
             count += 1
         else:
             break
+
+    historicos = UserHistorico.objects.order_by('?').filter(user=user)
+
+    nunHistotico = historicos.count()
+    numHiscoricoRand = random.randint(10, nunHistotico)
+
+    count = 0
+    nunSuporteReporte = random.randint(1, 9)
+
+    for histrico in historicos:
+        user_feedback(user.username, histrico.midia, True, "gostei")
+
+        if count == numHiscoricoRand:
+            break
+
+        elif count <= nunSuporteReporte:
+            formulario_reporte(user.username, 'Problema_de_Legenda', histrico.midia, 'Problema nas legendas', True)
+            formulario_suporte(user.username, 'Não consigo clicar em tal lugar', True)
+
+    numSuporteRand = random.randint(0, 1)
+    numReporteRand = random.randint(0, 1)
+
+    if numSuporteRand == 1:
+        formulario_suporte(user.username, 'Não consigo clicar em tal lugar', False)
+
+    if numReporteRand == 1:
+        formulario_reporte(user.username, 'We Are Legion', histrico.midia, 'Problema nas legendas', False)
+
+
+    
 
 def configurar_bd():
     criar_superuser('Gilmor', 'admin@example.com', '12345678', 'Gilmor', 'Gilmor')    
@@ -447,22 +466,14 @@ def configurar_bd():
     criar_user("olivia_p", "olivia.p@example.com", "12345678", "Olivia", "Patel")
     criar_user("liam_r", "liam.r@example.com", "12345678", "Liam", "Rodriguez")
     criar_user("sophia_w", "sophia.w@example.com", "12345678", "Sophia", "Wang")
-    criar_user("noah_s", "noah.s@example.com", "12345678", "Noah", "Smith")
-    criar_user("ava_b", "ava.b@example.com", "12345678", "Ava", "Brown")
-    criar_user("jackson_k", "jackson.k@example.com", "12345678", "Jackson", "Kim")
-    criar_user("isabella_p", "isabella.p@example.com", "12345678", "Isabella", "Patel")
-    criar_user("lucas_m", "lucas.m@example.com", "12345678", "Lucas", "Martin")
+    
 
     criar_perfil_colaborador("emma_t", "reportuser", "aprovado", True)
     criar_perfil_colaborador("alex_r", "reportuser", "aprovado", True)
     criar_perfil_colaborador("olivia_p", "reportuser", "aprovado", True)
     criar_perfil_colaborador("liam_r", "reportuser", "aprovado", True)
     criar_perfil_colaborador("sophia_w", "reportuser", "aprovado", True)
-    criar_perfil_colaborador("noah_s", "reportuser", "aprovado", True)
-    criar_perfil_colaborador("ava_b", "reportuser", "aprovado", True)
-    criar_perfil_colaborador("jackson_k", "reportuser", "aprovado", True)
-    criar_perfil_colaborador("isabella_p", "reportuser", "aprovado", True)
-    criar_perfil_colaborador("lucas_m", "reportuser", "aprovado", True)
+    
 
     # Lista 2
     criar_user("mia_j", "mia.j@example.com", "12345678", "Mia", "Johnson")
@@ -470,22 +481,14 @@ def configurar_bd():
     criar_user("amelia_d", "amelia.d@example.com", "12345678", "Amelia", "Davis")
     criar_user("ethan_w", "ethan.w@example.com", "12345678", "Ethan", "Wilson")
     criar_user("harper_m", "harper.m@example.com", "12345678", "Harper", "Martinez")
-    criar_user("benjamin_j", "benjamin.j@example.com", "12345678", "Benjamin", "Jones")
-    criar_user("abigail_n", "abigail.n@example.com", "12345678", "Abigail", "Nguyen")
-    criar_user("daniel_g", "daniel.g@example.com", "12345678", "Daniel", "Garcia")
-    criar_user("scarlett_k", "scarlett.k@example.com", "12345678", "Scarlett", "Kim")
-    criar_user("james_s", "james.s@example.com", "12345678", "James", "Smith")
+    
 
     criar_perfil_colaborador("mia_j", "midiauser", "aprovado", True)
     criar_perfil_colaborador("aiden_l", "midiauser", "aprovado", True)
     criar_perfil_colaborador("amelia_d", "midiauser", "aprovado", True)
     criar_perfil_colaborador("ethan_w", "midiauser", "aprovado", True)
     criar_perfil_colaborador("harper_m", "midiauser", "aprovado", True)
-    criar_perfil_colaborador("benjamin_j", "midiauser", "aprovado", True)
-    criar_perfil_colaborador("abigail_n", "midiauser", "aprovado", True)
-    criar_perfil_colaborador("daniel_g", "midiauser", "aprovado", True)
-    criar_perfil_colaborador("scarlett_k", "midiauser", "aprovado", True)
-    criar_perfil_colaborador("james_s", "midiauser", "aprovado", True)
+    
 
     # Lista 3
     criar_user("evelyn_t", "evelyn.t@example.com", "12345678", "Evelyn", "Taylor")
@@ -493,22 +496,14 @@ def configurar_bd():
     criar_user("ava_r", "ava.r@example.com", "12345678", "Ava", "Robinson")
     criar_user("samuel_w", "samuel.w@example.com", "12345678", "Samuel", "Wilson")
     criar_user("charlotte_l", "charlotte.l@example.com", "12345678", "Charlotte", "Lee")
-    criar_user("elijah_g", "elijah.g@example.com", "12345678", "Elijah", "Garcia")
-    criar_user("grace_m", "grace.m@example.com", "12345678", "Grace", "Martin")
-    criar_user("carter_p", "carter.p@example.com", "12345678", "Carter", "Patel")
-    criar_user("aria_h", "aria.h@example.com", "12345678", "Aria", "Hernandez")
-    criar_user("logan_n", "logan.n@example.com", "12345678", "Logan", "Nguyen")
+    
 
     criar_perfil_colaborador("evelyn_t", "midiauser", "analise", False)
     criar_perfil_colaborador("oliver_b", "midiauser", "analise", False)
     criar_perfil_colaborador("ava_r", "midiauser", "analise", False)
     criar_perfil_colaborador("samuel_w", "midiauser", "analise", False)
     criar_perfil_colaborador("charlotte_l", "midiauser", "analise", False)
-    criar_perfil_colaborador("elijah_g", "midiauser", "analise", False)
-    criar_perfil_colaborador("grace_m", "midiauser", "analise", False)
-    criar_perfil_colaborador("carter_p", "midiauser", "analise", False)
-    criar_perfil_colaborador("aria_h", "midiauser", "analise", False)
-    criar_perfil_colaborador("logan_n", "midiauser", "analise", False)
+    
 
     # Lista 4
     criar_user("zoey_t", "zoey.t@example.com", "12345678", "Zoey", "Thomas")
@@ -516,22 +511,14 @@ def configurar_bd():
     criar_user("riley_s", "riley.s@example.com", "12345678", "Riley", "Smith")
     criar_user("levi_d", "levi.d@example.com", "12345678", "Levi", "Davis")
     criar_user("lily_j", "lily.j@example.com", "12345678", "Lily", "Jackson")
-    criar_user("wyatt_w", "wyatt.w@example.com", "12345678", "Wyatt", "Wilson")
-    criar_user("nora_p", "nora.p@example.com", "12345678", "Nora", "Patel")
-    criar_user("mason_k", "mason.k@example.com", "12345678", "Mason", "Kim")
-    criar_user("hazel_b", "hazel.b@example.com", "12345678", "Hazel", "Brown")
-    criar_user("sebastian_t", "sebastian.t@example.com", "12345678", "Sebastian", "Taylor")
+    
 
     criar_perfil_colaborador("zoey_t", "reportuser", "analise", False)
     criar_perfil_colaborador("leo_m", "reportuser", "analise", False)
     criar_perfil_colaborador("riley_s", "reportuser", "analise", False)
     criar_perfil_colaborador("levi_d", "reportuser", "analise", False)
     criar_perfil_colaborador("lily_j", "reportuser", "analise", False)
-    criar_perfil_colaborador("wyatt_w", "reportuser", "analise", False)
-    criar_perfil_colaborador("nora_p", "reportuser", "analise", False)
-    criar_perfil_colaborador("mason_k", "reportuser", "analise", False)
-    criar_perfil_colaborador("hazel_b", "reportuser", "analise", False)
-    criar_perfil_colaborador("sebastian_t", "reportuser", "analise", False)
+    
 
     # Lista 5
     criar_user("stella_w", "stella.w@example.com", "12345678", "Stella", "Wilson")
@@ -547,7 +534,10 @@ def configurar_bd():
 
     criar_bd_filmes()
 
-    criar_atividade_user('MarcosSerra')
+    users = User.objects.all()
+
+    for user in users:
+        criar_atividade_user(user)
 
     #criar_perfil_colaborador('MarcosSerra', 'reportuser', 'analise', 'False')
 
