@@ -2,10 +2,34 @@
 {% load static %}
 
 {% block content %}
-<body>
     <!-- Conteúdo detalhado do usuário aqui -->
-    {% include 'partial/_navbar.html'%}
-    
-    
-</body>
-{% endblock %} 
+    {% include 'partial/_navbar.html' %}
+
+    <div>
+        <img src="{% static 'assets/icones/SetaVolta.png' %}" alt="setaVoltar">
+        <div class="colaborador_texto_navbar_vertical">Gestão de Títulos</div>
+      </div>  
+
+    <div class="container" style="margin-left: 300px; padding: 200px">
+        <div class="midias-section">
+            <div class="card-gestao-equipe-text" style="font-size: x-large;">
+                <ul class="midias-list">
+                    {% if midias %}
+                        {% for midia in midias %}
+                            <li class="midia-item">
+                                <div class="midia-info">
+                                    <b>Título:</b> {{ midia.titulo }}<br>
+                                    <b>Autor:</b> {{ midia.autor }}<br>
+                                    <b>Descrição:</b> {{ midia.descricao }}
+                                </div>
+                                <img src="{{ midia.arqMidia.url }}" alt="Mídia">
+                            </li>
+                        {% endfor %}
+                    {% else %}
+                        <li>Não há mídias</li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

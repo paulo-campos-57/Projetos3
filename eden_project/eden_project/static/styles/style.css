@@ -410,6 +410,8 @@ color: #FFFFFF;
 .card-suporte-reporte {
   max-width: 1406px;
   height: 136px;
+  border-radius: 8px solid #01BFD0;
+  margin-right: 5px;
   overflow: hidden;
 }
 
