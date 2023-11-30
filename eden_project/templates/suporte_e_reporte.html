@@ -30,7 +30,20 @@
 
         <!-- Formulário de Reporte -->
         <div id="formularioReporte" style="display: none;">
-            <!-- Coloque aqui o código HTML para exibir os formulários de Reporte -->
+            {% if formularios_reporte %}
+            <ul style="margin-left: -150px;">
+                {% for formularios_reporte in formularios_reporte %}            
+                    <li style="position: relative; margin-bottom: 20px;">
+                        <div class="suporte-reporte-text" style="position: absolute; padding: 10px;">
+                            <b>Nome do Usuário:</b> {{ formularios_reporte.user.username }}
+                            <br>
+                            <b>Problema:</b> {{ formularios_reporte.texto }}
+                        </div>
+                        <img class="card-suporte-reporte" src="{% static 'assets/imagens/BarraSuporteReporte.png' %}" alt="Solicitação Suporte">
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
         </div>
     </div>
 
