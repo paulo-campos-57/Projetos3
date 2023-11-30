@@ -8,7 +8,7 @@
     {% if perfil_colaborador %}
         <div class="colaborador_texto_navbar_vertical">Detalhes do Usuário</div>
 
-        <div class="card-add-colaborador" style="margin-left: 300px; padding: 200px; position: fixed">
+        <div class="card-add-colaborador" style="margin-left: 10%; padding: 5%; position: fixed">
             <div class="card-gestao-equipe-imagem-contener">
                 <img class="card-add-colaborador-imagem" src="{% static 'assets/fotos/foto1.jpeg' %}" alt="{{ user.username }} Foto">
             </div>
@@ -16,10 +16,10 @@
             <div class="card-gestao-equipe-text" style="font-size: medium; display: flex; align-items: center;">
             </div>
 
-            <div class="card-gestao-equipe" style="padding: 200px; position: fixed; left: 0px;">
+            <div class="card-gestao-equipe" style="padding: 5%; position: fixed; left: 0;">
                 <div class="card-gestao-equipe-informacao-contener">
                     <div class="card-gestao-equipe-text" style="font-size: medium; color: black">
-                        <div style="margin-top: 15px;">
+                        <div style="margin-top: 1.5%;">
                             <strong>Username:</strong> {{ perfil.user.username }}
                             &nbsp;
                             <strong>Email:</strong> {{ perfil.user.email }}
@@ -46,7 +46,7 @@
                             <br>
                             <form method="post" action="{% url 'remover_usuario' perfil.id %}">{% csrf_token %}
                                 <textarea name="motivo_remocao" id="motivo_remocao" rows="7" cols="40" style="resize: none; border-radius: 5px;">{{ perfil.motivo_remocao }}</textarea>
-                                <button type="submit" style="border: none; margin-left: 10px; margin-top: 20px; outline: none; background: none;">
+                                <button type="submit" style="border: none; margin-left: 1%; margin-top: 7%; outline: none; background: none;">
                                     <img style="border: none;" src="{% static 'assets/imagens/BotaoRemover.png' %}" alt="Botão de Remover">
                                 </button>
                                 <input type="hidden" name="perfil_id" value="{{ perfil.id }}">
@@ -54,7 +54,6 @@
                         </div>
                     </div>                        
                 </div>
-
             </div>
         </div>
     </div>
