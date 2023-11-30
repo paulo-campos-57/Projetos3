@@ -214,7 +214,138 @@ body {
   width: 436px;
   height: 160px;
   margin-left: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.retangle-button {
+  /* Rectangle 297 */
+
+  position: absolute;
+  text-align: center;
+  width: 10px;
+  height: 100px;
+  left: calc(50% - 297px/2 + 58.5px);
+  top: 300px;
+
+  background: #14B7C0;
+  mix-blend-mode: normal;
+  border-radius: 15px;
+
+
+  /* Vemillion Tennon */
+
+  position: absolute;
+  width: 316px;
+  height: 51px;
+  left: 860px;
+  top: 313px;
+
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #FFFFFF;
+
+}
+
+.retangle-button-addmit {
+  /* Group 556 */
+
+position: absolute;
+width: 132.31px;
+height: 33.65px;
+left: 1287.96px;
+top: 862.35px;
+
+
+/* Rectangle 99 */
+
+position: absolute;
+width: 120.83px;
+height: 33.65px;
+left: 1294.08px;
+top: 862.35px;
+
+background: #0ABAB5;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 20px;
+
+
+/* Admitir */
+
+position: absolute;
+width: 132.31px;
+height: 23.71px;
+left: 1287.96px;
+top: 867.7px;
+
+font-family: 'Josefin Sans';
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 24px;
+/* identical to box height */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #F8F8F8;
+
+}
+
+.retangle-text-box-button {
+  /* Rectangle 297 */
+
+ /* Group 555 */
+
+position: absolute;
+width: 841.25px;
+height: 412.21px;
+left: 869.63px;
+top: 427.96px;
+
+
+
+/* Rectangle 286 */
+
+position: absolute;
+width: 841.25px;
+height: 412.21px;
+left: calc(50% - 841.25px/2 + 330.25px);
+top: 427.96px;
+
+background: #14B7C0;
+mix-blend-mode: color-dodge;
+box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 15px;
+
+
+/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat in lacus nec sagittis. Sed in ex at dolor interdum pharetra. Vestibulum eget ligula magna. Aenean accumsan aliquet consectetur. Ut lobortis bibendum lorem vel dictum. Pellentesque vitae pharetra diam. Duis sed nisi ante. Praesent at aliquam velit. Fusce pharetra ultrices tortor, id porttisectetur blandit. Cras vel arcu eget purus hendrerit fermentum. Donec iaculis, quam eu euismod aliquet, enim orci sagittis dui, a rhoncus eros ex sed felis. Nullam porttitor aliquam diam, vel sagittis orci rutrum nec. Sed dignissim accumsan neque, at blandit diam varius ut. Nullam egestas dictum risus, a consectetur justo tristique posuere. Fusce dapibus auctor ex. Phasellus condimentum volutpat libero, sed iaculis felis vestibulum eu. Nunc et nisl risus. In sed tristique ligula, quis fermentum dui. Morbi porta egestas erat, id blandit lacus. Quisque ornare accumsan sapien, at imperdiet ipsum congue non. Nullam vestibulum id diam at ullamcorper. */
+
+position: absolute;
+width: 753.31px;
+height: 345.68px;
+left: 913.98px;
+top: 461.61px;
+
+font-family: 'Josefin Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 23px;
+/* or 115% */
+display: flex;
+align-items: center;
+letter-spacing: 0.02em;
+
+color: #FFFFFF;
+
+
 }
 
 .card-add-colaborador-imagem-contener {
