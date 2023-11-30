@@ -12,14 +12,20 @@
         <img class="formulario-user-imagem" src="{% static 'assets/fotos/foto1.jpeg' %}" alt="{{ perfil.user.username }} Foto">
     </div>
 
+    <div class="card-container-nome-add-gestor">
+        <div class="card-background-nome-add-gestor"></div>
+    
+        <div class="card-text-nome-add-gestor" id="NomeUser">
+            {{perfil.user.first_name}} {{perfil.user.last_name}}
+        </div>
+    
+    </div>
+
+    <div class="email-box-add-gestor" id="EmailUser">{{perfil.user.email}}</div>
+
     <div>
-        <img src="{% static user.foto %}" alt="{{ user.username }} Foto">
-        <div class="retangle-button">
-            LUBALUBAÇS
-        </div>
-        <div class="retangle-text-box-button">
-            LUBALUBAÇS
-        </div>
+        
+        
         <div class="retangle-button-addmit">
             Admitir
         </div>
@@ -38,6 +44,22 @@
             </div>
         </div>
     </div>
+
+    <script>
+        var nomeUser = document.getElementById('NomeUser');
+
+        var numeroCaracteres = nomeUser.innerText.length;
+        var tamanhoContaniner = (numeroCaracteres * 15) + 50;
+
+        document.querySelector('.card-container-nome-add-gestor').style.width = tamanhoContaniner + 'px'; 
+
+        var emailUser = document.getElementById('EmailUser');
+
+        var numeroCaracteresEmail = nomeUser.innerText.length;
+        var tamanhoContaninerEmail = (numeroCaracteres * 15) + 20;
+
+        document.querySelector('.email-box-add-gestor').style.width = tamanhoContaninerEmail + 'px'; 
+    </script>
 </body>
 </html>
 {% endblock %} 
