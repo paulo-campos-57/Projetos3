@@ -5,10 +5,48 @@
 <body>
     <!-- Conteúdo detalhado do usuário aqui -->
     {% include 'partial/_navbar.html'%}
-    
-    <div style="margin-left: 300px; padding: 200px; position: fixed">
-        <img class="card-suporte-reporte" src="{% static 'assets/imagens/BarraSuporteReporte.png' %}" alt="Solicitação Suporte">
+
+    <div style="margin-left: 300px; padding: 200px;">
+        <img class="botaoReporteESuporte" id="botaoSuporte" src="{% static 'assets/imagens/BotaoSuporteMudar.png' %}" alt="Botao de Suporte">
+        <img class="botaoReporteESuporte" id="botaoReporte" src="{% static 'assets/imagens/BotaoReporteMudar.png' %}" alt="Botao de Reporte">
+
+        <!-- Formulário de Suporte -->
+        <div id="formularioSuporte" style="display: none;">
+            {% if formularios_suporte %}
+                <ul style="margin-left: -150px;">
+                    {% for formulario_suporte in formularios_suporte %}            
+                        <li style="position: relative; margin-bottom: 20px;">
+                            <div class="suporte-reporte-text" style="position: absolute; padding: 10px;">
+                                <b>Nome do Usuário:</b> {{ formulario_suporte.user.username }}
+                                <br>
+                                <b>Problema:</b> {{ formulario_suporte.texto }}
+                            </div>
+                            <img class="card-suporte-reporte" src="{% static 'assets/imagens/BarraSuporteReporte.png' %}" alt="Solicitação Suporte">
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+
+        <!-- Formulário de Reporte -->
+        <div id="formularioReporte" style="display: none;">
+            <!-- Coloque aqui o código HTML para exibir os formulários de Reporte -->
+        </div>
     </div>
-    
+
+    <script>
+        // Adicione um evento de clique para cada botão
+        document.getElementById("botaoSuporte").addEventListener("click", function() {
+            // Mostra o formulário de Suporte e esconde o formulário de Reporte
+            document.getElementById("formularioSuporte").style.display = "block";
+            document.getElementById("formularioReporte").style.display = "none";
+        });
+
+        document.getElementById("botaoReporte").addEventListener("click", function() {
+            // Mostra o formulário de Reporte e esconde o formulário de Suporte
+            document.getElementById("formularioReporte").style.display = "block";
+            document.getElementById("formularioSuporte").style.display = "none";
+        });
+    </script>
 </body>
-{% endblock %} 
+{% endblock %}

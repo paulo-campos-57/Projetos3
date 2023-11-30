@@ -431,7 +431,7 @@ def criar_atividade_user(user):
     numHiscoricoRand = random.randint(10, nunHistotico)
 
     count = 0
-    nunSuporteReporte = random.randint(1, 9)
+    nunSuporteReporte = random.randint(1, 3)
 
     for histrico in historicos:
         user_feedback(user.username, histrico.midia, True, "gostei")

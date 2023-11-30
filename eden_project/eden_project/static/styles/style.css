@@ -450,6 +450,23 @@ color: #FFFFFF;
 
 }
 
+.botaoReporteESuporte {
+  width: 200px;
+  margin-bottom: 10px;
+  outline: none;
+
+}
+
+.suporte-reporte-text {
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  margin-left: 20px;
+  color: #000000;
+  max-width: 1391px; 
+}
+
 .card-add-colaborador-imagem {
   width: 160px;
   height: 160px;

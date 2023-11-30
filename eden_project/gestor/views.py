@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.models import User
-from gestor.models import PerfilColaborador, FormularioReporte, Mensagens
+from gestor.models import PerfilColaborador, FormularioSuporte, FormularioReporte, Mensagens
 from gestor.DAOs.PerfilColaboradorDAO import intancePerfilColaborador, getPerfilColaborador, getFomulariosColaborador, getTodosPerfisColaborador
 from gestor.DAOs.UserDAO import getUser, getUserNoColaboretors, getUserById
 from .forms import PerfilColacoradorForm, FormularioReporteForm, MensagensForm
@@ -318,7 +318,15 @@ def suporte_e_reporte(request):
     else:
         return redirect("login")
     
-    return render(request, 'suporte_e_reporte.html', {'perfil_colaborador': perfil_colaborador})
+    # Recuperar todos os formulários de suporte e reporte criados
+    formularios_suporte = FormularioSuporte.objects.all()
+    formularios_reporte = FormularioReporte.objects.all()
+
+    return render(request, 'suporte_e_reporte.html', {
+        'perfil_colaborador': perfil_colaborador,
+        'formularios_suporte': formularios_suporte,
+        'formularios_reporte': formularios_reporte
+    })
 
 def configuracoes(request):
     if request.user.is_authenticated:
