@@ -51,9 +51,12 @@ Para usar LUMI, siga estas etapas:<br>
  ### Criando um Ambiente Virtual
 6. Agora, precisamos criar um ambiente virtual para executarmos o LUMI. Utilize o comando indicado abaixo no terminal que abrimos no ponto 5. Quando o processo tiver terminado, uma nova pasta nomeada "venv" será criada no diretório atual.
 <dt> 
-  
-    python -m venv venv
 
+    //Windows
+    python -m venv venv
+    //Linux e MacOS
+    python3 -m venv venv
+    
 </dt>
 7. Ative o ambiente virtual utilizando o comando abaixo. Será possível visualizar do lado direito de seu diretório atual o nome de seu ambiente virtual entre parênteses e verde.
 <dt> 
@@ -72,12 +75,18 @@ Para usar LUMI, siga estas etapas:<br>
 9. Para criação e inicialização correta das tabelas do SQLite, utilizaremos os seguintes comandos separadamente:
 <dt> 
   
+    //Windows
     python manage.py makemigrations
-
+    //Linux e MacOS
+    python3 manage.py makemigrations
+    
 </dt>
 <dt> 
-  
+
+    //Windows
     python manage.py migrate
+    //Linux e MacOS
+    python3 manage.py migrate
 
 </dt>
 <br>
@@ -85,8 +94,11 @@ Para usar LUMI, siga estas etapas:<br>
 ### LUMI na WEB e interface Admin!
 10. Usando o seguinte comando, podemos finalmente desfrutar do LUMI!
 <dt> 
-  
+
+    //Windows
     python manage.py runserver
+    //Linux e MacOS
+    python3 manage.py runserver
 
 </dt>
 <sub>***OBS2.: É importante lembrar que o LUMI atualmente funciona em hosts locais!***</sub>
@@ -101,8 +113,11 @@ Para usar LUMI, siga estas etapas:<br>
 12. Utilize o comando a seguir para criar um usuário admin Django (este perfil é apenas local, utilizado comumente no Django para testes):
 <dt> 
   
+    //Windows
     python manage.py createsuperuser
-
+    //Linux e MacOS
+    python3 manage.py createsuperuser
+    
 </dt>
 13. Será pedido que você insira um username, um email e a sua senha duas vezes. Quando todos esses passos tiverem sido atendidos, basta rodar o servidor novamente e no fim da url da página, colocar "/admin/" e pressionar enter. Você terá algo como "http://127.0.0.1:8000/admin/". Lá, utilize os dados cadastrados por você para criação do seu super usuário.
 
@@ -110,10 +125,25 @@ Para usar LUMI, siga estas etapas:<br>
 14. Para uso das funcionalidades, criamos o arquivo "setup_bd.py" que simula o acervo do Libreflix. Para que o SQLite seja alimentado com os dados, basta utilizar o comando:
 
 <dt> 
-  
-    python setup_bd.py
 
+    //Windows
+    python setup_bd.py
+    //Linux e MacOS
+    python3 setup_bd.py
+    
 </dt>
+
+15. Caso deseje limpar o banco de dados, basta rodar o comando:
+
+<dt> 
+
+    //Windows
+    python manage.py flush
+    //Linux e MacOS
+    python3 manage.py flush
+    
+</dt>
+
 
 
 # 🤝 Equipe EDEN
