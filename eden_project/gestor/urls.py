@@ -1,6 +1,6 @@
 from django.urls import path
 from gestor.views import home, login, logout_logic, cadastro, user_menu, gestao_equipe, colaboradores, usuario_cadastrado, homeMasterUser, enviar_mensagem, formulario_colaborador, novos_membros, novos_membros_formulario, novos_membros_buscar, novos_membros_buscar_user, gestao_equipe_buscar_user, novos_membros_formulario_user, suporte_e_reporte, configuracoes, gestao_titulos
-from .views import remocao
+from .views import remocao, alterar_cargo
 
 urlpatterns = [
     path('', home, name='home'),
@@ -24,4 +24,5 @@ urlpatterns = [
     path('suporte_e_reporte', suporte_e_reporte, name='suporte_e_reporte'),
     path('configuracoes', configuracoes, name='configuracoes'),
     path('gestao_titulos', gestao_titulos, name='gestao_titulos'),
-]
+    path('alterar_cargo/<int:perfil_id>/', alterar_cargo, name='alterar_cargo'),
+    ]    

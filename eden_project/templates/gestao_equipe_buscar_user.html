@@ -29,8 +29,7 @@
                         <br>
                     </div>
                     <br>
-                </div>
-
+                </div>             
                 <div class="card-gestao-equipe-motivacao-contener">
                     <div class="card-gestao-equipe-motivacao-box">
                         <div class="card-gestao-equipe-motivacao-text" style="font-size: medium; text-align: center;">
@@ -47,12 +46,27 @@
                             <form method="post" action="{% url 'remover_usuario' perfil.id %}">{% csrf_token %}
                                 <textarea name="motivo_remocao" id="motivo_remocao" rows="7" cols="40" style="resize: none; border-radius: 5px;">{{ perfil.motivo_remocao }}</textarea>
                                 <button type="submit" style="border: none; margin-left: 1%; margin-top: 7%; outline: none; background: none;">
-                                    <img style="border: none;" src="{% static 'assets/imagens/BotaoRemover.png' %}" alt="Botão de Remover">
+                                    <img style="border: none;height: 50px;margin-top: -8px;" src="{% static 'assets/imagens/BotaoRemover.png' %}" alt="Botão de Remover">
                                 </button>
                                 <input type="hidden" name="perfil_id" value="{{ perfil.id }}">
                             </form>
                         </div>
-                    </div>                        
+                    </div> 
+                    <div class="card-gestao-equipe-motivacao-alteracao">
+                        <form method="post" action="{% url 'alterar_cargo' perfil.id %}">
+                            {% csrf_token %}
+                            <div class="custom-select" style="width: 42%;"> <!-- Ajuste o valor conforme necessário -->
+                                <select id="id_opcao" name="cargo">
+                                    <option value="" selected disabled>ESCOLHA UM CARGO</option>
+                                    <option value="report_user">SUPORTE E REPORTE</option>
+                                    <option value="report_user">GERENTE DE ACERVO</option>
+                                </select>
+                            </div>
+                            <button type="submit" style="border: none; margin-left: 1%; margin-top: 70%; outline: none; background: none;">
+                                <img style="border: none;height: 50px;margin-top: -8px;" src="{% static 'assets/imagens/botaoalterar.png' %}" alt="Botão de Atualizar">
+                            </button>
+                        </form>
+                    </div>                                              
                 </div>
             </div>
         </div>
