@@ -27,8 +27,11 @@
 
     <canvas id="graficoPizzaInteracoes" style="position: absolute; left: 618px; top: 451px; width: 152.19px; height: 152.19px;"></canvas>
 
+    <div class="numero-meio-grafico-menor">{{ dados_interacoes.numero1|add:dados_interacoes.numero2 }}</div>
    
     <canvas id="graficoPizzaHistorico" style="position: absolute; left: 618px; top: 674px; width: 152.19px; height: 152.19px;"></canvas>
+
+    <div class="numero-meio-grafico-menor" style="top: 682px;">{{ dados_histrico.numero1|add:dados_histrico.numero2 }}</div>
 
     <div class = "buttons-forms-container-group">
         <div class="retangle-button-addmit">

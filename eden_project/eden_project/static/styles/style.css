@@ -54,24 +54,6 @@ body {
   margin-bottom: 20px;
 }
 
-
-.botao {
-    width: 300px;
-    height: 70px;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-
-    font-family: "Helvetica Neue", Lato, Arial, sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 40px;
-    line-height: 23px; 
-    text-align: center;
-    text-transform: uppercase;
-    color: #000000;
-}
-
 .colaborador_texto_navbar_vertical {
   position: absolute;
   width: 395px;
@@ -149,7 +131,7 @@ body {
   display: flex;
   align-items: center;
   padding: 0 10px;
-  z-index: 99;
+  z-index: 100;
 }
 
 /* Estilo do Círculo Interno */
@@ -261,56 +243,56 @@ body {
 .retangle-button-negar {
 /* Group 569 */
 
-position: absolute;
-width: 132.31px;
-height: 33.65px;
-left: 1420.27px;
-top: 862.35px;
+  position: absolute;
+  width: 132.31px;
+  height: 33.65px;
+  left: 1420.27px;
+  top: 862.35px;
 
 
 
-/* Group 406 */
+  /* Group 406 */
 
-position: absolute;
-width: 132.31px;
-height: 33.65px;
-left: 1420.27px;
-top: 862.35px;
-
-
-
-/* Rectangle 99 */
-
-position: absolute;
-width: 120.83px;
-height: 33.65px;
-left: 1426.38px;
-top: 862.35px;
-
-background: #A00128;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-border-radius: 20px;
+  position: absolute;
+  width: 132.31px;
+  height: 33.65px;
+  left: 1420.27px;
+  top: 862.35px;
 
 
-/* Negar */
 
-position: absolute;
-width: 132.31px;
-height: 45.71px;
-left: 1270.27px;
-top: 867.7px;
+  /* Rectangle 99 */
 
-font-family: 'Josefin Sans', 'Helvetica';
-font-style: normal;
-font-weight: 600;
-font-size: 24px;
-line-height: 45px;
-/* identical to box height */
-display: center;
-align-items: center;
-text-align: center;
+  position: absolute;
+  width: 120.83px;
+  height: 33.65px;
+  left: 1426.38px;
+  top: 862.35px;
 
-color: #F8F8F8;
+  background: #A00128;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+
+
+  /* Negar */
+
+  position: absolute;
+  width: 132.31px;
+  height: 45.71px;
+  left: 1270.27px;
+  top: 867.7px;
+
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 45px;
+  /* identical to box height */
+  display: center;
+  align-items: center;
+  text-align: center;
+
+  color: #F8F8F8;
 
 
 }
@@ -318,46 +300,46 @@ color: #F8F8F8;
 .retangle-button-mais-estatisticas {
   /* Group 556 */
 
-position: absolute;
-width: 132.31px;
-height: 33.65px;
-left: 1287.96px;
-top: 862.35px;
+  position: absolute;
+  width: 132.31px;
+  height: 33.65px;
+  left: 1287.96px;
+  top: 862.35px;
 
 
-/* Rectangle 99 */
+  /* Rectangle 99 */
 
-position: absolute;
-width: 120.83px;
-height: 33.65px;
-left: 1294.08px;
-top: 862.35px;
+  position: absolute;
+  width: 120.83px;
+  height: 33.65px;
+  left: 1294.08px;
+  top: 862.35px;
 
-background: #0ABAB5;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-border-radius: 20px;
+  background: #0ABAB5;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
 
 
-/* Mais estatísticas */
+  /* Mais estatísticas */
 
-position: absolute;
-text-align: center;
-width: 170.31px;
-height: 45.71px;
-left: 1440.96px;
-top: 867.7px;
+  position: absolute;
+  text-align: center;
+  width: 170.31px;
+  height: 45.71px;
+  left: 1440.96px;
+  top: 867.7px;
 
-font-family: 'Josefin Sans', 'Helvetica';
-font-style: normal;
-font-weight: 600;
-font-size: 20px;
-line-height: 45px;
-/* identical to box height */
-display: center;
-align-items: center;
-text-align: center;
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 45px;
+  /* identical to box height */
+  display: center;
+  align-items: center;
+  text-align: center;
 
-color: #F8F8F8;
+  color: #F8F8F8;
  
 }
 
@@ -410,51 +392,51 @@ color: #F8F8F8;
 }
 
 .retangle-text-box-button {
-  /* Rectangle 297 */
+    /* Rectangle 297 */
 
- /* Group 555 */
+  /* Group 555 */
 
-position: absolute;
-width: 841.25px;
-height: 412.21px;
-left: 869.63px;
-top: 427.96px;
-
-
-
-/* Rectangle 286 */
-
-position: absolute;
-width: 841.25px;
-height: 412.21px;
-left: calc(50% - 841.25px/2 + 330.25px);
-top: 427.96px;
-
-background: #14B7C0;
-mix-blend-mode: color-dodge;
-box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-border-radius: 15px;
+  position: absolute;
+  width: 841.25px;
+  height: 412.21px;
+  left: 869.63px;
+  top: 427.96px;
 
 
-/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat in lacus nec sagittis. Sed in ex at dolor interdum pharetra. Vestibulum eget ligula magna. Aenean accumsan aliquet consectetur. Ut lobortis bibendum lorem vel dictum. Pellentesque vitae pharetra diam. Duis sed nisi ante. Praesent at aliquam velit. Fusce pharetra ultrices tortor, id porttisectetur blandit. Cras vel arcu eget purus hendrerit fermentum. Donec iaculis, quam eu euismod aliquet, enim orci sagittis dui, a rhoncus eros ex sed felis. Nullam porttitor aliquam diam, vel sagittis orci rutrum nec. Sed dignissim accumsan neque, at blandit diam varius ut. Nullam egestas dictum risus, a consectetur justo tristique posuere. Fusce dapibus auctor ex. Phasellus condimentum volutpat libero, sed iaculis felis vestibulum eu. Nunc et nisl risus. In sed tristique ligula, quis fermentum dui. Morbi porta egestas erat, id blandit lacus. Quisque ornare accumsan sapien, at imperdiet ipsum congue non. Nullam vestibulum id diam at ullamcorper. */
 
-position: absolute;
-width: 753.31px;
-height: 345.68px;
-left: 913.98px;
-top: 461.61px;
+  /* Rectangle 286 */
 
-font-family: 'Josefin Sans';
-font-style: normal;
-font-weight: 700;
-font-size: 20px;
-line-height: 23px;
-/* or 115% */
-display: flex;
-align-items: center;
-letter-spacing: 0.02em;
+  position: absolute;
+  width: 841.25px;
+  height: 412.21px;
+  left: calc(50% - 841.25px/2 + 330.25px);
+  top: 427.96px;
 
-color: #FFFFFF;
+  background: #14B7C0;
+  mix-blend-mode: color-dodge;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+
+
+  /* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat in lacus nec sagittis. Sed in ex at dolor interdum pharetra. Vestibulum eget ligula magna. Aenean accumsan aliquet consectetur. Ut lobortis bibendum lorem vel dictum. Pellentesque vitae pharetra diam. Duis sed nisi ante. Praesent at aliquam velit. Fusce pharetra ultrices tortor, id porttisectetur blandit. Cras vel arcu eget purus hendrerit fermentum. Donec iaculis, quam eu euismod aliquet, enim orci sagittis dui, a rhoncus eros ex sed felis. Nullam porttitor aliquam diam, vel sagittis orci rutrum nec. Sed dignissim accumsan neque, at blandit diam varius ut. Nullam egestas dictum risus, a consectetur justo tristique posuere. Fusce dapibus auctor ex. Phasellus condimentum volutpat libero, sed iaculis felis vestibulum eu. Nunc et nisl risus. In sed tristique ligula, quis fermentum dui. Morbi porta egestas erat, id blandit lacus. Quisque ornare accumsan sapien, at imperdiet ipsum congue non. Nullam vestibulum id diam at ullamcorper. */
+
+  position: absolute;
+  width: 753.31px;
+  height: 345.68px;
+  left: 913.98px;
+  top: 461.61px;
+
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  /* or 115% */
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.02em;
+
+  color: #FFFFFF;
 
 
 }
@@ -472,47 +454,49 @@ color: #FFFFFF;
 .card-text-formulario {
   /* Group 555 */
 
-position: absolute;
-width: 841.25px;
-height: 412.21px;
-left: 869.63px;
-top: 427.96px;
+  position: absolute;
+  width: 841.25px;
+  height: 412.21px;
+  left: 869.63px;
+  top: 427.96px;
 
 
 
 /* Rectangle 286 */
 
-position: absolute;
-width: 841.25px;
-height: 412.21px;
-left: calc(50% - 841.25px/2 + 330.25px);
-top: 427.96px;
+  position: absolute;
+  width: 841.25px;
+  height: 412.21px;
+  left: calc(50% - 841.25px/2 + 330.25px);
+  top: 427.96px;
 
-background: #14B7C0;
-mix-blend-mode: color-dodge;
-box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-border-radius: 15px;
+  background: #14B7C0;
+  mix-blend-mode: color-dodge;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
 
 
-/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat in lacus nec sagittis. Sed in ex at dolor interdum pharetra. Vestibulum eget ligula magna. Aenean accumsan aliquet consectetur. Ut lobortis bibendum lorem vel dictum. Pellentesque vitae pharetra diam. Duis sed nisi ante. Praesent at aliquam velit. Fusce pharetra ultrices tortor, id porttisectetur blandit. Cras vel arcu eget purus hendrerit fermentum. Donec iaculis, quam eu euismod aliquet, enim orci sagittis dui, a rhoncus eros ex sed felis. Nullam porttitor aliquam diam, vel sagittis orci rutrum nec. Sed dignissim accumsan neque, at blandit diam varius ut. Nullam egestas dictum risus, a consectetur justo tristique posuere. Fusce dapibus auctor ex. Phasellus condimentum volutpat libero, sed iaculis felis vestibulum eu. Nunc et nisl risus. In sed tristique ligula, quis fermentum dui. Morbi porta egestas erat, id blandit lacus. Quisque ornare accumsan sapien, at imperdiet ipsum congue non. Nullam vestibulum id diam at ullamcorper. */
+  /* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat in lacus nec sagittis. Sed in ex at dolor interdum pharetra. Vestibulum eget ligula magna. Aenean accumsan aliquet consectetur. Ut lobortis bibendum lorem vel dictum. Pellentesque vitae pharetra diam. Duis sed nisi ante. Praesent at aliquam velit. Fusce pharetra ultrices tortor, id porttisectetur blandit. Cras vel arcu eget purus hendrerit fermentum. Donec iaculis, quam eu euismod aliquet, enim orci sagittis dui, a rhoncus eros ex sed felis. Nullam porttitor aliquam diam, vel sagittis orci rutrum nec. Sed dignissim accumsan neque, at blandit diam varius ut. Nullam egestas dictum risus, a consectetur justo tristique posuere. Fusce dapibus auctor ex. Phasellus condimentum volutpat libero, sed iaculis felis vestibulum eu. Nunc et nisl risus. In sed tristique ligula, quis fermentum dui. Morbi porta egestas erat, id blandit lacus. Quisque ornare accumsan sapien, at imperdiet ipsum congue non. Nullam vestibulum id diam at ullamcorper. */
 
-position: absolute;
-width: 753.31px;
-height: 345.68px;
-left: 855.98px;
-top: 461.61px;
+  position: absolute;
+  width: 753.31px;
+  height: 345.68px;
+  left: 855.98px;
+  top: 461.61px;
 
-font-family: 'Josefin Sans', 'Helvetica';
-font-style: normal;
-font-weight: 700;
-font-size: 20px;
-line-height: 23px;
-/* or 115% */
-display: flex;
-align-items: center;
-letter-spacing: 0.02em;
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  /* or 115% */
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  letter-spacing: 0.02em;
 
-color: #FFFFFF;
+  color: #FFFFFF;
 
 
 }
@@ -1029,10 +1013,10 @@ color: #FFFFFF;
 
 .numero-meio-grafico {
   position: absolute;
-  width: 220.78px;
-  height: 128.13px;
-  left: 907px;
-  top: 560px;
+  width: 300px;
+  height: 300px;
+  left: 793px;
+  top: 470px;
 
   font-family: 'Josefin Sans', 'Helvetica';
   font-style: normal;
@@ -1040,6 +1024,27 @@ color: #FFFFFF;
   font-size: 70px;
   line-height: 70px;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  color: #FFFFFF;
+}
+
+.numero-meio-grafico-menor {
+  position: absolute;
+  width: 152.19px;
+  height: 152.19px;
+  left: 618px;
+  top: 458px;
+
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 40px;
+  display: flex;
+  justify-content: center;
   align-items: center;
   text-align: center;
 
