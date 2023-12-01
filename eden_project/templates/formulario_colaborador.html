@@ -67,27 +67,55 @@
         para tornar-se um colaborador
     </div>
     
-    <form method="post" action="{% url 'formulario_colaborador' %}" style="width: 367px; height: 67px;" onsubmit="return validarFormulario();">
+    <form method="post" action="{% url 'formulario_colaborador' %}" style="width: 367px; height: 67px;">
         {% csrf_token %}
-        
+        <div id="myModal" class="confirmation-modal">
+            <div class="modal-content-formulario">
+                <div class="modal-texto-formulario">
+                    Você tem certeza de que deseja ENVIAR?<br>
+                    (Essa aba será desabilitada logo depois)</div>
+                <div class="notificacao-botao-contener-fomulario">
+                    <button type="submit" class="botao-modal-formulario" name="submit_type" value="enviar">Enviar</button>
+                    <button type="submit" class="botao-modal-formulario" style="background-color: #A00128;" name="submit_type" value="voltar">Editar</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="myModal2" class="confirmation-modal">
+            <div class="modal-content-formulario">
+                <div class="modal-texto-formulario"></div>
+                <div class="notificacao-botao-contener-fomulario">
+                    <button type="submit" class="botao-modal-formulario" name="submit_type" value="voltar">Corrigir</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="myModal3" class="confirmation-modal">
+            <div class="modal-content-formulario">
+                <div class="modal-texto-formulario">
+                    Você tem certeza de que deseja DESCARTAR ?<br>
+                    (Você perderar todo seu progresso)</div>
+                <div class="notificacao-botao-contener-fomulario">
+                    <button type="submit" class="botao-modal-formulario" name="submit_type" value="descartar">Sim</button>
+                    <button type="submit" class="botao-modal-formulario" style="background-color: #A00128;" name="submit_type" value="voltar">Não</button>
+                </div>
+            </div>
+        </div>
+
         <div class="custom-select">
             <select id="id_opcao" name="cargo">
                 <option value="" selected disabled>ESCOLHA UM CARGO</option>
-                <option value="reportuser">SUPORTE E REPORTE</option>
-                <option value="midiauser">GERENTE DE ACERVO</option>
+                <option value="reportuser" {% if form.initial.cargo == 'reportuser' %}selected{% endif %}>SUPORTE E REPORTE</option>
+                <option value="midiauser" {% if form.initial.cargo == 'midiauser' %}selected{% endif %}>GERENTE DE ACERVO</option>
             </select>
         </div>
 
         <div class="input-box">
-            <textarea id="user-input" name="motivacao" placeholder="Digite seu texto aqui..."></textarea>
+            <textarea id="user-input" name="motivacao" placeholder="Digite seu texto aqui...">{{ form.initial.motivacao }}</textarea>
             <div class="card-add-colaborador-text" id="char-count" style="position: absolute; right: 0%; top: 100%; font-size: 18px; line-height: 18px;">Limite de caracteres: 1500</div>
         </div>
 
-        <div class="button-container">
-            <button type="submit" class="custom-button" name="submit_type" value="enviar">
-                <span class="button-text">Enviar</span>
-            </button>
-        </div>
+        
 
         <div class="button-container" style="left: 1700px; top: 998px;">
             <button type="submit" class="custom-button" style="background: #A00128;" name="submit_type" value="descartar">
@@ -97,26 +125,58 @@
 
     </form>
 
+    <div class="button-container">
+        <button class="custom-button" onclick="abrirModal()">
+            <span class="button-text">Enviar</span>
+        </button>
+    </div>
+
+    <div class="button-container" style="left: 1700px; top: 998px;">
+        <button class="custom-button" style="background: #A00128;" onclick="abrirModal3()">
+            <span class="button-text">Descartar</span>
+        </button>
+    </div>
+
     <script>
-        function validarFormulario() {
+        
+
+        function abrirModal() {
             var cargo = document.getElementById('id_opcao').value;
             var motivacao = document.getElementById('user-input').value;
-            var botaoClicado = event.submitter.value;
-
-            if (botaoClicado === 'descartar') {
-                alert("Os dados de seu formulario serão descartados");
-                return true;
-            }
+            var mensagem = "";
 
             if (cargo === "" || motivacao === "") {
-                alert("Por favor, preencha todos os campos antes de enviar.");
-                return false;
+                mensagem += "ERRO NO ENVIO!<br>";
+
+                if (cargo === "") {
+                    mensagem += "(Você não selecionou um cargo.)<br>";
+                }
+
+                if (motivacao === "") {
+                    mensagem += "(Você não escreveu seu texto.)<br>";
+                }
             }
 
-            alert("Você enviou o formulario para se tornar um gestor! Espere pela resposta de equipe");
-            return true;
+
+            var modal2 = document.getElementById('myModal2');
+            var modal2Content = modal2.querySelector('.modal-texto-formulario');
+            
+            if (mensagem !== "") {
+                modal2Content.innerHTML = mensagem;
+                modal2.style.display = 'block';
+            } else {
+                var modal = document.getElementById('myModal');
+                modal.style.display = 'block';
+            }
         }
 
+        function abrirModal3() {
+            var modal = document.getElementById('myModal3');
+            modal.style.display = 'block';
+        }
+        
+
+         
         var textarea = document.getElementById('user-input');
         var charCount = document.getElementById('char-count');
 

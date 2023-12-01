@@ -19,12 +19,14 @@ def home(request):
     if request.user.is_authenticated:
         try:
             perfil_colaborador = getPerfilColaborador(request)
-
-            if perfil_colaborador.atividade and perfil_colaborador.status == 'aprovado':
-                if perfil_colaborador.cargo == 'reportuser':
-                    return redirect("suporte_e_reporte")
+            if perfil_colaborador != None:
+                if perfil_colaborador.atividade and perfil_colaborador.status == 'aprovado':
+                    if perfil_colaborador.cargo == 'reportuser':
+                        return redirect("suporte_e_reporte")
+                    else:
+                        return redirect("gestao_titulos")
                 else:
-                    return redirect("gestao_titulos")
+                    return redirect("formulario_colaborador")
             else:
                 return redirect("formulario_colaborador")
         except PerfilColaborador.DoesNotExist:
@@ -177,12 +179,22 @@ def formulario_colaborador(request):
 
                 return redirect("home")
         
+        if submit_type == 'voltar':
+            form = PerfilColacoradorForm(request.POST, instance=perfil_colaborador)
+
+            if form.is_valid():
+                form.save()
+
+                cargo = request.POST.get('cargo')
+                motivacao = request.POST.get('motivacao')
+                intancePerfilColaborador(user, cargo, motivacao, 'preenchendo', False)
+
         elif submit_type == 'descartar':
             perfil_colaborador.delete()
             return redirect("home")
         
-    else:
-        form = PerfilColacoradorForm(instance=perfil_colaborador)
+    
+    form = PerfilColacoradorForm(instance=perfil_colaborador)
 
     
     return render(request, 'formulario_colaborador.html', {'perfil_colaborador' : perfil_colaborador, 'form': form})
