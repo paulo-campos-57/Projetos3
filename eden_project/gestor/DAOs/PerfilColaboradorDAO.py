@@ -29,7 +29,13 @@ def setPerfilColaboradorAtividade(user, atividade):
     perfil.atividade = atividade
     perfil.save()
 
-    return perfil
+
+def setPerfilColaboradorStatus(user, status):
+    perfil, _ = PerfilColaborador.objects.get_or_create(user=user)
+
+    perfil.status = status
+    perfil.save()
+
 
 def getPerfilColaboradorByUser(user):
     try:
@@ -41,7 +47,7 @@ def getPerfilColaboradorByUser(user):
 
 def getFomulariosColaborador():   
     try:
-        perfils = PerfilColaborador.objects.filter(status= 'analise')
+        perfils = PerfilColaborador.objects.filter(status= 'analise').filter(atividade=False)
     except PerfilColaborador.DoesNotExist:
         perfils = None
         

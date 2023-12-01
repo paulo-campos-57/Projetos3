@@ -6,7 +6,7 @@
     {% include 'partial/_navbar.html'%}
 
     {% if perfil_colaborador %}
-        {% if perfil_colaborador.atividade == False and perfil_colaborador.status == 'aprovado' %}
+        {% if perfil_colaborador.atividade == True and perfil_colaborador.status == 'analise' %}
             
                 <div class="notificacao-fundo">
                     <div class="notificacao-titulo">Equipe Libriflix</div>

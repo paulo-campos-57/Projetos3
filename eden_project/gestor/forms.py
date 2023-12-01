@@ -46,3 +46,6 @@ class FormularioReporteForm(ModelForm):
 # midia
 # texto
 # status
+
+class FormularioVazio(forms.Form):
+    pass

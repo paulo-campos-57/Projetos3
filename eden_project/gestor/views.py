@@ -2,13 +2,13 @@ from django.shortcuts import redirect, render
 from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.models import User
 from gestor.models import PerfilColaborador, FormularioSuporte, FormularioReporte, Mensagens
-from gestor.DAOs.PerfilColaboradorDAO import intancePerfilColaborador, setPerfilColaboradorAtividade, getPerfilColaborador, getFomulariosColaborador, getTodosPerfisColaborador, getPerfilColaboradorByUser
+from gestor.DAOs.PerfilColaboradorDAO import intancePerfilColaborador, setPerfilColaboradorAtividade, setPerfilColaboradorStatus, getPerfilColaborador, getFomulariosColaborador, getTodosPerfisColaborador, getPerfilColaboradorByUser
 from gestor.DAOs.UserDAO import getUser, getUserNoColaboretors, getUserById
 from gestor.DAOs.UserHistoricoDAO import getHistoricoComcluido, getHistoricoIncompletos
 from gestor.DAOs.UserFeedbackDAO import getFeedbacksUser
 from gestor.DAOs.FormularioReporteDAO import getFormularioReporteUser
 from gestor.DAOs.FormularioSuporteDAO import getFormularioSuporteUser
-from .forms import PerfilColacoradorForm, FormularioReporteForm, MensagensForm, PerfilColacoradorFormChamar
+from .forms import PerfilColacoradorForm, FormularioReporteForm, MensagensForm, PerfilColacoradorFormChamar, FormularioVazio
 from django.contrib.auth import authenticate, logout, login as django_login
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import get_object_or_404
@@ -30,7 +30,7 @@ def home(request):
 def aceitar_chamar(request):
     user = getUser(request)
 
-    setPerfilColaboradorAtividade(user, True)
+    setPerfilColaboradorStatus(user, 'aprovado')
     return redirect("home")
 
 
@@ -277,7 +277,7 @@ def novos_membros_buscar_user(request, user_id):
             
             cargo = request.POST.get('cargo')
                 
-            intancePerfilColaborador(user_, cargo, 'Chamado por colaborador', 'aprovado', False)
+            intancePerfilColaborador(user_, cargo, 'Chamado por colaborador', 'analise', True)
 
             return redirect("home")
     else:
@@ -360,8 +360,21 @@ def novos_membros_formulario_user(request, user_id):
         'numero2' : int(historico_incompleto.count()),
     }
 
+    if request.method == 'POST':
+        submit_type = request.POST.get('submit_type')
+        print("olhe" + submit_type)
 
-    return render(request, 'add_gestores_formulario_user.html', {'perfil_colaborador': perfil_colaborador, 'perfil' : perfil, 'dados_interacoes' : dados_interacoes,'dados_histrico' : dados_histrico})
+        if submit_type == 'admitir':
+            print(submit_type)
+            setPerfilColaboradorAtividade(user_, True)
+            return redirect("novos_membros_formulario")
+        elif submit_type == 'negar':
+            perfil.delete()
+            return redirect("novos_membros_formulario")
+        
+    forms = FormularioVazio()
+
+    return render(request, 'add_gestores_formulario_user.html', {'perfil_colaborador': perfil_colaborador, 'perfil' : perfil, 'dados_interacoes' : dados_interacoes,'dados_histrico' : dados_histrico, 'forms' : forms})
 
 # def CriarFormularioMensagem(request):
     

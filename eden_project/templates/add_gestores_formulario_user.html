@@ -6,6 +6,32 @@
 <body>
 
     {% include 'partial/_navbar.html'%}
+
+    <!-- Modal -->
+    <form method="post" action="{% url 'novos_membros_formulario_user' user_id=perfil.user.id %}">
+        {% csrf_token %}
+        {{ forms.as_p }}
+        <div id="myModal" class="confirmation-modal">
+            <div class="modal-content">
+                <div class="notificacao-titulo">Usuário Chamado</div>
+                <div class="notificacao-mensagem">Operação realizada com sucesso!</div>
+                <div class="notificacao-botao-contener">
+                    <button type="submit" class="notificacao-botao" name="submit_type" value="admitir">Retornar</button>
+                </div>
+            </div>
+        </div>
+    
+        <div id="myModal2" class="confirmation-modal">
+            <div class="modal-content">
+                <div class="notificacao-titulo">Usuário Negado</div>
+                <div class="notificacao-mensagem">Operação realizada com sucesso!</div>
+                <div class="notificacao-botao-contener">
+                    <button type="submit" class="notificacao-botao" name="submit_type" value="negar">Retornar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    
     <div class="colaborador_texto_navbar_vertical">{{ perfil.user.username }}</div>
 
     <div class="formulario-user-imagem-contener">
@@ -51,10 +77,10 @@
     </div>
 
     <div class = "buttons-forms-container-group">
-        <div class="retangle-button-addmit">
+        <div class="retangle-button-addmit" onclick="abrirModal()">
             Admitir
         </div>
-        <div class="retangle-button-negar">
+        <div class="retangle-button-negar" onclick="abrirModal2()">
             Negar
         </div>
         <div class="retangle-button-mais-estatisticas">
@@ -77,6 +103,17 @@
         var tamanhoContaninerEmail = (numeroCaracteres * 15) + 20;
 
         document.querySelector('.email-box-add-gestor').style.width = tamanhoContaninerEmail + 'px'; 
+
+        function abrirModal() {
+            var modal = document.getElementById('myModal');
+            modal.style.display = 'block';
+        }
+
+        function abrirModal2() {
+            var modal = document.getElementById('myModal2');
+            modal.style.display = 'block';
+        }
+
 
         window.onload = function() {
             var ctx1 = document.getElementById('graficoPizzaInteracoes').getContext('2d');
