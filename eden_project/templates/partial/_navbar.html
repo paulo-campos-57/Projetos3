@@ -19,24 +19,29 @@
 
         {% if perfil_colaborador %}
           {% if perfil_colaborador.atividade %}
-            <li>
-                <a class="gestaoTitulos" href="{% url 'gestao_titulos' %}" style="display: block;">
-                    <img class="icone_navbar" id="IconeGestaoTitulos" src="{% static 'assets/imagens/BotaoGestaoTitulos.png' %}" alt="gestaoTitulos">
-                </a>
-            </li>
 
-            <li>
-                <a class="novosMembros" href="{% url 'novos_membros' %}" style="display: block;">
-                    <img class="icone_navbar" id="IconeNovosMembros" src="{% static 'assets/imagens/BotaoNovosMembros.png' %}" alt="novosMembros">
-                </a>
-            </li>
+            {% if perfil_colaborador.cargo == 'masteruser' or perfil_colaborador.cargo == 'midiauser' %}
+                <li>
+                    <a class="gestaoTitulos" href="{% url 'gestao_titulos' %}" style="display: block;">
+                        <img class="icone_navbar" id="IconeGestaoTitulos" src="{% static 'assets/imagens/BotaoGestaoTitulos.png' %}" alt="gestaoTitulos">
+                    </a>
+                </li>
+            {% else %}
+            {% endif %}
+            {% if perfil_colaborador.cargo == 'masteruser' %}
+                <li>
+                    <a class="novosMembros" href="{% url 'novos_membros' %}" style="display: block;">
+                        <img class="icone_navbar" id="IconeNovosMembros" src="{% static 'assets/imagens/BotaoNovosMembros.png' %}" alt="novosMembros">
+                    </a>
+                </li>
 
-            <li>
-                <a class="gestaoEquipe" href="{% url 'gestao_equipe' %}" style="display: block;">
-                    <img class="icone_navbar" id="IconeGestaoEquipe" src="{% static 'assets/imagens/BotaoGestaoEquipe.png' %}" alt="gestaoEquipe">
-                </a>
-            </li>
-
+                <li>
+                    <a class="gestaoEquipe" href="{% url 'gestao_equipe' %}" style="display: block;">
+                        <img class="icone_navbar" id="IconeGestaoEquipe" src="{% static 'assets/imagens/BotaoGestaoEquipe.png' %}" alt="gestaoEquipe">
+                    </a>
+                </li>
+            {% else %}
+            {% endif %}
           {% else %}
             {% if perfil_colaborador.status != 'analise' %}
                 <li>

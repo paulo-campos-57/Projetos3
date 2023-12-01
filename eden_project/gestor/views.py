@@ -279,7 +279,7 @@ def novos_membros_buscar_user(request, user_id):
                 
             intancePerfilColaborador(user_, cargo, 'Chamado por colaborador', 'analise', True)
 
-            return redirect("home")
+            return redirect("novos_membros_buscar")
     else:
         form = PerfilColacoradorFormChamar()
 

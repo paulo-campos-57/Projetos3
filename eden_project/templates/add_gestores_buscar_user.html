@@ -48,9 +48,29 @@
         <div class="legenda-texto-legenda-grafico">Incompletas - {{dados_histrico.numero2}}</div>
     </div>
 
-    <form method="post" action="{% url 'novos_membros_buscar_user' user_id=user_.id %}" onsubmit="return validarFormulario();">
+    <form method="post" action="{% url 'novos_membros_buscar_user' user_id=user_.id %}">
         {% csrf_token %}
-        
+
+        <div id="myModal" class="confirmation-modal">
+            <div class="modal-content">
+                <div class="notificacao-titulo">ERRO</div>
+                <div class="notificacao-mensagem">Por favor, preencha todos os campos antes de enviar!!!</div>
+                <div class="notificacao-botao-contener">
+                    <button class="notificacao-botao" onclick="fecharModal()">Retornar</button>
+                </div>
+            </div>
+        </div>
+    
+        <div id="myModal2" class="confirmation-modal">
+            <div class="modal-content">
+                <div class="notificacao-titulo">Usuário Chamado</div>
+                <div class="notificacao-mensagem">Operação realizada com sucesso!</div>
+                <div class="notificacao-botao-contener">
+                    <button type="submit" class="notificacao-botao">Retornar</button>
+                </div>
+            </div>
+        </div>
+
         <div class="custom-select" style="left: 1200px; top: 295px;">
             <select id="id_opcao" name="cargo">
                 <option value="" selected disabled>ESCOLHA UM CARGO</option>
@@ -58,12 +78,12 @@
                 <option value="midiauser">GERENTE DE ACERVO</option>
             </select>
         </div>
-       
-        <button type="submit" class="retangle-button-addmit" style="left: 1457px; top: 954.35px">
-           Chamar
-        </button>
 
     </form>
+
+    <button class="retangle-button-addmit" style="left: 1457px; top: 954.35px" onclick="abrirModal()">
+        Admitir
+    </button>
 
     <div class = "buttons-forms-container-group">
         <div class="retangle-button-mais-estatisticas" style="left: 1618.46px; top: 954.35px">
@@ -86,6 +106,23 @@
 
         document.querySelector('.email-box-add-gestor').style.width = tamanhoContaninerEmail + 'px'; 
 
+        function abrirModal() {
+            var cargo = document.getElementById('id_opcao').value;
+
+            if (cargo === "") {
+                var modal = document.getElementById('myModal');
+                modal.style.display = 'block';
+            } else {
+                var modal = document.getElementById('myModal2');
+                modal.style.display = 'block';
+            }
+        }
+
+        function fecharModal() {
+            var modal = document.getElementById('myModal');
+            modal.style.display = 'none';
+        }
+        
         window.onload = function() {
             var ctx1 = document.getElementById('graficoPizzaInteracoes').getContext('2d');
             var dadoInteracoes = {{ dados_interacoes|safe }};
@@ -122,18 +159,6 @@
                     cutoutPercentage: 90,
                 }
             });
-        }
-
-        function validarFormulario() {
-            var cargo = document.getElementById('id_opcao').value;
-
-            if (cargo === "") {
-                alert("Por favor, preencha todos os campos antes de enviar.");
-                return false;
-            }
-
-            alert("O usuário foi chamado para se tornar colaborador!!!");
-            return true;
         }
 
         var csrftoken = getCookie('csrftoken');
