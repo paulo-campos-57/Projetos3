@@ -63,15 +63,17 @@
             var dadoInteracoes = {{ dados_interacoes|safe }};
 
             var chart = new Chart(ctx1, {
-                type: 'pie',
+                type: 'doughnut',
                 data: {
                     datasets: [{
                         data: [dadoInteracoes.numero1, dadoInteracoes.numero2],
                         backgroundColor: ['#058DA0', '#F8F8F8'],
+                        borderWidth: 0,
                     }],
                 },
                 options: {
-                    responsive: false
+                    responsive: false,
+                    cutoutPercentage: 90,
                 }
             });
 
@@ -79,15 +81,17 @@
             var dadosHistrico = {{ dados_histrico|safe }};
 
             var chart = new Chart(ctx2, {
-                type: 'pie',
+                type: 'doughnut',
                 data: {
                     datasets: [{
                         data: [dadosHistrico.numero1, dadosHistrico.numero2],
                         backgroundColor: ['#0ABAB5', '#1E4F56'],
+                        borderWidth: 0,
                     }],
                 },
                 options: {
-                    responsive: false
+                    responsive: false,
+                    cutoutPercentage: 90,
                 }
             });
         }

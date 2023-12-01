@@ -139,10 +139,10 @@ body {
 
 .card-navbar-lateral {
   margin-left: 250px; /* Ajuste para a largura da barra lateral */
-  position: absolute;
+  position: fixed;
   width: 195px;
   height: 54px;
-  left: 63%;
+  right: 2%;
   top: 20px;
   background: #109D9C;
   border-radius: 60px;

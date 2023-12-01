@@ -82,27 +82,14 @@
 </div>
 
 <!-- Navbar horizontal abaixo da Sidebar -->
-<nav class="navbar-horizontal" style="background-color: #004853; width: 1920px; height: 100px; position: fixed; top: 0; left: 280px; z-index: 98;">
+<nav class="navbar-horizontal" style="background-color: #004853; width: 100%; height: 100px; position: fixed; top: 0; left: 280px; z-index: 98;">
 
     <!-- Links da Navbar -->
     <a class="botaoSair" href="javascript:void(0);" onclick="voltarPagina()" style="display: block;">
         <img class="navbar-seta-voltar" id="SetaBackID" src="{% static 'assets/imagens/SetaBack.png' %}" style="display: block;" alt="botaoSair">
     </a>
 
-    <div class="card-navbar-lateral">
-        <!-- Círculo Interno -->
-        <div class="circle-navbar-lateral">
-            <!-- Imagem do Círculo Interno -->
-            <img src="{% static 'assets/fotos/foto1.jpeg' %}" alt="Imagem do Círculo Interno">
-        </div>
-        <!-- Texto -->
-        <div class="text-navbar-lateral">
-            <!-- Nome -->
-            <div class="name-navbar-lateral">{{user.username}}</div>
-            <!-- E-mail -->
-            <div class="email-navbar-lateral">{{user.email}}</div>
-        </div>
-    </div>
+    
 
     <ul style="list-style-type: none; padding: 0; display: flex; gap: 20px;">
 
@@ -110,6 +97,21 @@
 
     </ul>
 </nav>
+
+<div class="card-navbar-lateral">
+    <!-- Círculo Interno -->
+    <div class="circle-navbar-lateral">
+        <!-- Imagem do Círculo Interno -->
+        <img src="{% static 'assets/fotos/foto1.jpeg' %}" alt="Imagem do Círculo Interno">
+    </div>
+    <!-- Texto -->
+    <div class="text-navbar-lateral">
+        <!-- Nome -->
+        <div class="name-navbar-lateral">{{user.username}}</div>
+        <!-- E-mail -->
+        <div class="email-navbar-lateral">{{user.email}}</div>
+    </div>
+</div>
 
 <script>
     function voltarPagina() {
