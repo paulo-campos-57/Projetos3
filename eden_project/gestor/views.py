@@ -409,5 +409,28 @@ def gestao_titulos(request):
     
     return render(request, 'gestao_titulos.html', {'perfil_colaborador': perfil_colaborador})
 
+def alterar_cargo(request, perfil_id):
+    perfil = get_object_or_404(PerfilColaborador, id=perfil_id)
+
+    if request.method == 'POST':
+        form = PerfilColacoradorForm(request.POST, instance=perfil)
+
+        if form.is_valid():
+            novo_cargo = form.cleaned_data['cargo']
+            
+            # Certifique-se de que o novo cargo é válido (você pode personalizar isso com base em seus valores permitidos)
+            if novo_cargo in ['usuario_normal', 'outro_cargo1', 'outro_cargo2']:
+                perfil.cargo = novo_cargo
+                perfil.save()
+                return redirect('gestao_equipe_buscar_user', user_id=perfil.user.id)
+            else:
+                form.add_error('cargo', 'Cargo inválido. Escolha uma opção válida.')
+
+    else:
+        form = PerfilColacoradorForm(instance=perfil)
+
+    return render(request, 'gestao_equipe.html', {'form': form, 'perfil': perfil})
+
+
 
 
