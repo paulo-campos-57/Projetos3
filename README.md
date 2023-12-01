@@ -145,6 +145,17 @@ Para usar LUMI, siga estas etapas:<br>
 </dt>
 
 
+# Teste o LUMI! 
+
+Utilize os perfis exemplo de master user e usuário comum!
+
+*MasterUser: Gilmor
+Senha: 12345678
+
+UserComum: MarcosSerrar
+Senha:12345678
+
+*Obs.: Estes perfis de usuário servem apenas para teste com os dados que estão em nosso banco. Portanto, de nada alteram o Libreflix no mundo real.
 
 # 🤝 Equipe EDEN
 
