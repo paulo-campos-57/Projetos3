@@ -5,11 +5,47 @@
     
     {% include 'partial/_navbar.html'%}
 
-    <div class="sem-funcao">
-        ESSA FUNÇÃO NÃO IMPACTA 
-        EM NOSSA FUNCIONALIDADE, 
-        POR ISSO NÃO TEMOS SUA TELA
-    </div>
+    {% if perfil_colaborador %}
+        {% if perfil_colaborador.atividade == False and perfil_colaborador.status == 'aprovado' %}
+            
+                <div class="notificacao-fundo">
+                    <div class="notificacao-titulo">Equipe Libriflix</div>
+                    {% if perfil_colaborador.cargo == 'reportuser' %}
+                        <div class="notificacao-mensagem">
+                            Você foi chamado para a equipe de Suporte e Reporte
+                        </div>
+                    {% elif perfil_colaborador.cargo == 'midiauser' %}
+                        <div class="notificacao-mensagem">
+                            Você foi chamado para o cargo de Gestor de Titulos
+                        </div>
+                    {% else %}
+                    {% endif %}
+
+                    <div class="notificacao-botao-contener">
+                        <a href="{% url 'aceitar_chamar' %}" style="text-decoration: none;">
+                            <button class="notificacao-botao">
+                                Aceitar
+                            </button>
+                        </a>
+
+                        <a href="{% url 'negar_chamar' %}" style="text-decoration: none;">
+                            <button class="notificacao-botao" style="background-color: #A00128;" >
+                                Negar
+                            </button>
+                        </a>
+                        
+                    </div>
+                </div>
+            
+        {% else %}
+        {% endif %}
+    {% else %}
+        <div class="sem-funcao">
+            ESSA FUNÇÃO NÃO IMPACTA 
+            EM NOSSA FUNCIONALIDADE, 
+            POR ISSO NÃO TEMOS SUA TELA
+        </div>
+    {% endif %}
 
 </body>
 </html>

@@ -23,6 +23,14 @@ def getPerfilColaborador(request):
 
     return perfil
 
+def setPerfilColaboradorAtividade(user, atividade):
+    perfil, _ = PerfilColaborador.objects.get_or_create(user=user)
+
+    perfil.atividade = atividade
+    perfil.save()
+
+    return perfil
+
 def getPerfilColaboradorByUser(user):
     try:
         perfil = PerfilColaborador.objects.get(user=user)

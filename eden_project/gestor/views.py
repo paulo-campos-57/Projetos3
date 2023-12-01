@@ -2,7 +2,7 @@ from django.shortcuts import redirect, render
 from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.models import User
 from gestor.models import PerfilColaborador, FormularioSuporte, FormularioReporte, Mensagens
-from gestor.DAOs.PerfilColaboradorDAO import intancePerfilColaborador, getPerfilColaborador, getFomulariosColaborador, getTodosPerfisColaborador, getPerfilColaboradorByUser
+from gestor.DAOs.PerfilColaboradorDAO import intancePerfilColaborador, setPerfilColaboradorAtividade, getPerfilColaborador, getFomulariosColaborador, getTodosPerfisColaborador, getPerfilColaboradorByUser
 from gestor.DAOs.UserDAO import getUser, getUserNoColaboretors, getUserById
 from gestor.DAOs.UserHistoricoDAO import getHistoricoComcluido, getHistoricoIncompletos
 from gestor.DAOs.UserFeedbackDAO import getFeedbacksUser
@@ -26,6 +26,19 @@ def home(request):
         return redirect("login")
     
     return render(request, 'index.html', {'perfil_colaborador' : perfil_colaborador})
+
+def aceitar_chamar(request):
+    user = getUser(request)
+
+    setPerfilColaboradorAtividade(user, True)
+    return redirect("home")
+
+
+def negar_chamar(request):
+    perfil_colaborador = getPerfilColaborador(request)
+
+    perfil_colaborador.delete()
+    return redirect("home")
 
 def login(request):
     if request.method == 'POST':
