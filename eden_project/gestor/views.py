@@ -374,7 +374,6 @@ def remocao(request, perfil_id):
         perfil.motivo_remocao = motivo_remocao
         perfil.save()
 
-        perfil.user.delete()
         perfil.delete()
 
         return redirect('gestao_equipe')

@@ -1,0 +1,1169 @@
+/* Navbar Styles */
+body {
+  background-color: #14181B; 
+  margin: 0;
+  min-width: 1500px;
+  min-height: 750px;
+}
+.navbar {
+  position: relative;
+  background: #004853;
+  width: 100%;
+  height: 84px;
+  min-width: 1920px;
+}
+
+.icone_navbar {
+  display: inline-block; 
+  margin-bottom: 2px; 
+  width: 304.5px; 
+  height: 54.75px;
+  align-self: flex-end;
+}
+
+.icone_logout {
+  position: relative;
+  width: 93px;
+  height: 39px;
+  left: 43px;
+  top: max(90%, 700px);
+}
+
+.sidebar_colaborador {
+  background-color: #101214; 
+  height: 100%; 
+  width: 350px; 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: flex-end;
+  z-index: 100;
+}
+  
+.logo1 {
+  height: 71px;
+  width: 265px;
+  background-image: url('/static/assets/logos/logo1.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 83px;
+  left: 37px;
+  margin-bottom: 20px;
+}
+
+.colaborador_texto_navbar_vertical {
+  position: absolute;
+  width: 395px;
+  height: 51px;
+  left: 520px;
+  top: 29px;
+  z-index: 99;
+
+  font-family: 'Josefin Sans', 'Trebuchet MS';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 43px;
+  line-height: 43px;
+  display: flex;
+  align-items: center;
+
+  color: #F8F8F8;
+  white-space: nowrap;
+  position: fixed;
+}
+
+.formulario_logo_navbar_vertical {
+  position: absolute;
+  width: 151px;
+  height: 50px;
+  left: 734px;
+  top: 15px;
+  z-index: 99;
+}
+
+/* Adicionar Colaborador */
+.search-bar-add-colaborador {
+  position: absolute; 
+  width: 523px;
+  height: 32px;
+  left: 450px; 
+  top: 176px;  
+  background: transparent;
+  opacity: 50%;
+  border-radius: 20px;
+  border: none; 
+  outline: none;
+  color: #ffffff;
+  text-align: left; 
+  line-height: 32px; 
+  padding-left: 40px;
+}
+
+.search-bar-add-colaborador-backgroud {
+  position: absolute; 
+  width: 563px;
+  height: 58px;
+  left: 450px; 
+  top: 150px;  /* ou a posição desejada */
+}
+
+.navbar-seta-voltar {
+  position: absolute;
+  width: 24px;
+  height: 23.04px;
+  left: 173px;
+  top: 41px;
+  z-index: 99;
+}
+
+.card-navbar-lateral {
+  margin-left: 250px; /* Ajuste para a largura da barra lateral */
+  position: fixed;
+  width: 195px;
+  height: 54px;
+  right: 2%;
+  top: 20px;
+  background: #109D9C;
+  border-radius: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  z-index: 100;
+}
+
+/* Estilo do Círculo Interno */
+.circle-navbar-lateral {
+  width: 43.2px;
+  height: 43.2px;
+  background: #ffffff;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* Estilo da Imagem do Círculo Interno */
+.circle-navbar-lateral img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+/* Estilo do Texto */
+.text-navbar-lateral {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilo do Nome */
+.name-navbar-lateral {
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-weight: 700;
+  font-size: 15px;
+  color: #F8F8F8;
+  width: 108px; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Estilo do E-mail */
+.email-navbar-lateral {
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-style: italic;
+  font-weight: 300;
+  font-size: 9px;
+  width: 108px; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #F8F8F8;
+  opacity: 0.7;
+}
+
+.card-add-colaborador-grid {
+  position: absolute; 
+  width: 70%; 
+  left: 450px; 
+  top: 150px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.card-add-colaborador {
+  display: flex;
+  justify-content: flex-end;
+  width: 436px;
+  height: 160px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.retangle-button {
+  /* Rectangle 297 */
+
+  position: absolute;
+  text-align: center;
+  width: 10px;
+  height: 100px;
+  left: calc(50% - 297px/2 + 58.5px);
+  top: 300px;
+
+  background: #14B7C0;
+  mix-blend-mode: normal;
+  border-radius: 15px;
+
+
+  /* Vemillion Tennon */
+
+  position: absolute;
+  width: 316px;
+  height: 51px;
+  left: 860px;
+  top: 313px;
+
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #FFFFFF;
+
+}
+
+.buttons-forms-container-group {
+  left: 3rem;
+
+}
+
+.retangle-button-negar {
+/* Group 569 */
+
+  position: absolute;
+  width: 132.31px;
+  height: 33.65px;
+  left: 1420.27px;
+  top: 862.35px;
+
+
+
+  /* Group 406 */
+
+  position: absolute;
+  width: 132.31px;
+  height: 33.65px;
+  left: 1420.27px;
+  top: 862.35px;
+
+
+
+  /* Rectangle 99 */
+
+  position: absolute;
+  width: 120.83px;
+  height: 33.65px;
+  left: 1426.38px;
+  top: 862.35px;
+
+  background: #A00128;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+
+
+  /* Negar */
+
+  position: absolute;
+  width: 132.31px;
+  height: 45.71px;
+  left: 1270.27px;
+  top: 867.7px;
+
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 45px;
+  /* identical to box height */
+  display: center;
+  align-items: center;
+  text-align: center;
+
+  color: #F8F8F8;
+
+
+}
+
+.retangle-button-mais-estatisticas {
+  /* Group 556 */
+
+  position: absolute;
+  width: 132.31px;
+  height: 33.65px;
+  left: 1287.96px;
+  top: 862.35px;
+
+
+  /* Rectangle 99 */
+
+  position: absolute;
+  width: 120.83px;
+  height: 33.65px;
+  left: 1294.08px;
+  top: 862.35px;
+
+  background: #0ABAB5;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+
+
+  /* Mais estatísticas */
+
+  position: absolute;
+  text-align: center;
+  width: 170.31px;
+  height: 45.71px;
+  left: 1440.96px;
+  top: 867.7px;
+
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 45px;
+  /* identical to box height */
+  display: center;
+  align-items: center;
+  text-align: center;
+
+  color: #F8F8F8;
+ 
+}
+
+.retangle-button-addmit {
+    /* Group 556 */
+
+  position: absolute;
+  width: 132.31px;
+  height: 33.65px;
+  left: 1287.96px;
+  top: 862.35px;
+
+
+  /* Rectangle 99 */
+
+  position: absolute;
+  width: 120.83px;
+  height: 33.65px;
+  left: 1294.08px;
+  top: 862.35px;
+  border: none; 
+  outline: none;
+
+  background: #0ABAB5;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+
+
+  /* Admitir */
+
+  position: absolute;
+  text-align: center;
+  width: 132.31px;
+  height: 45.71px;
+  left: 1100.96px;
+  top: 867.7px;
+
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 45px;
+  /* identical to box height */
+  display: center;
+  align-items: center;
+  text-align: center;
+
+  color: #F8F8F8;
+
+}
+
+.retangle-text-box-button {
+    /* Rectangle 297 */
+
+  /* Group 555 */
+
+  position: absolute;
+  width: 841.25px;
+  height: 412.21px;
+  left: 869.63px;
+  top: 427.96px;
+
+
+
+  /* Rectangle 286 */
+
+  position: absolute;
+  width: 841.25px;
+  height: 412.21px;
+  left: calc(50% - 841.25px/2 + 330.25px);
+  top: 427.96px;
+
+  background: #14B7C0;
+  mix-blend-mode: color-dodge;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+
+
+  /* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat in lacus nec sagittis. Sed in ex at dolor interdum pharetra. Vestibulum eget ligula magna. Aenean accumsan aliquet consectetur. Ut lobortis bibendum lorem vel dictum. Pellentesque vitae pharetra diam. Duis sed nisi ante. Praesent at aliquam velit. Fusce pharetra ultrices tortor, id porttisectetur blandit. Cras vel arcu eget purus hendrerit fermentum. Donec iaculis, quam eu euismod aliquet, enim orci sagittis dui, a rhoncus eros ex sed felis. Nullam porttitor aliquam diam, vel sagittis orci rutrum nec. Sed dignissim accumsan neque, at blandit diam varius ut. Nullam egestas dictum risus, a consectetur justo tristique posuere. Fusce dapibus auctor ex. Phasellus condimentum volutpat libero, sed iaculis felis vestibulum eu. Nunc et nisl risus. In sed tristique ligula, quis fermentum dui. Morbi porta egestas erat, id blandit lacus. Quisque ornare accumsan sapien, at imperdiet ipsum congue non. Nullam vestibulum id diam at ullamcorper. */
+
+  position: absolute;
+  width: 753.31px;
+  height: 345.68px;
+  left: 913.98px;
+  top: 461.61px;
+
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  /* or 115% */
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.02em;
+
+  color: #FFFFFF;
+
+
+}
+
+.card-add-colaborador-imagem-contener {
+  width: 160px;
+  height: 160px;
+  background: #ffffff;
+  border-radius: 8px solid #01BFD0;
+  margin-right: 5px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.card-text-formulario {
+  /* Group 555 */
+
+  position: absolute;
+  width: 841.25px;
+  height: 412.21px;
+  left: 869.63px;
+  top: 427.96px;
+
+
+
+/* Rectangle 286 */
+
+  position: absolute;
+  width: 841.25px;
+  height: 412.21px;
+  left: calc(50% - 841.25px/2 + 330.25px);
+  top: 427.96px;
+
+  background: #14B7C0;
+  mix-blend-mode: color-dodge;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+
+
+  /* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat in lacus nec sagittis. Sed in ex at dolor interdum pharetra. Vestibulum eget ligula magna. Aenean accumsan aliquet consectetur. Ut lobortis bibendum lorem vel dictum. Pellentesque vitae pharetra diam. Duis sed nisi ante. Praesent at aliquam velit. Fusce pharetra ultrices tortor, id porttisectetur blandit. Cras vel arcu eget purus hendrerit fermentum. Donec iaculis, quam eu euismod aliquet, enim orci sagittis dui, a rhoncus eros ex sed felis. Nullam porttitor aliquam diam, vel sagittis orci rutrum nec. Sed dignissim accumsan neque, at blandit diam varius ut. Nullam egestas dictum risus, a consectetur justo tristique posuere. Fusce dapibus auctor ex. Phasellus condimentum volutpat libero, sed iaculis felis vestibulum eu. Nunc et nisl risus. In sed tristique ligula, quis fermentum dui. Morbi porta egestas erat, id blandit lacus. Quisque ornare accumsan sapien, at imperdiet ipsum congue non. Nullam vestibulum id diam at ullamcorper. */
+
+  position: absolute;
+  width: 753.31px;
+  height: 345.68px;
+  left: 855.98px;
+  top: 461.61px;
+
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  /* or 115% */
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  letter-spacing: 0.02em;
+
+  color: #FFFFFF;
+}
+
+.card-suporte-reporte {
+  max-width: 1406px;
+  height: 136px;
+  background-color: #90FFFE;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  margin-left: 15px;
+  overflow: hidden;
+}
+
+.card-gestao-equipe {
+  display: block;
+  justify-content: flex-end;
+  width: 500px;
+  height: 160px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  margin-left: 300px;
+}
+
+.card-gestao-equipe-imagem-contener {
+  width: 320px;
+  height: 160px;
+  border-radius: 10px; /* Ajuste o valor conforme necessário */
+  overflow: hidden;
+}
+
+.card-gestao-equipe-imagem {
+  width: 160px;
+  height: 160px;
+  border-radius: 10px;
+}
+
+.card-gestao-equipe-informacao-contener {
+  width: 700px;
+  height: 60px;
+  background-color: #14B7C0; 
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.card-gestao-equipe-motivacao-box {
+  width: 340px;
+  height: 160px;
+  background-color: #12969d; 
+  border-radius: 15px;
+  margin-right: 20px; /* Adicione margem entre as caixas */
+  margin-top: 10px;
+}
+
+.card-gestao-equipe-motivo-remocao-box {
+  width: 340px;
+  height: 160px;
+  border-right: 2px solid #109D9C;
+  border-left: 2px solid #109D9C;
+  border-top: 2px solid #109D9C;
+  border-bottom: 2px solid #109D9C;
+  border-radius: 20px;
+  margin-right: 20px; /* Adicione margem entre as caixas */
+  margin-top: 10px;
+}
+
+.card-gestao-equipe-motivacao-contener {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-gestao-equipe-motivacao-text {
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  color: #F8F8F8;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  width: 320px; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-gestao-equipe-text {
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  color: #F8F8F8;
+  margin-left: 15px;
+  margin-top: 10px;
+  width: 560px; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.botaoRemover {
+  width: 200px;
+  height: 50px;
+  border: none;
+  outline: none;
+
+}
+
+.botaoReporteESuporte {
+  width: 200px;
+  margin-bottom: 10px;
+  outline: none;
+
+}
+
+.suporte-reporte-text {
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  margin-left: 20px;
+  color: #000000;
+  max-width: 1391px; 
+}
+
+.card-add-colaborador-imagem {
+  width: 160px;
+  height: 160px;
+}
+
+.card-add-colaborador-blue-box {
+  width: 258px;
+  height: 98px;
+  background: #01BFD0;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column; /* Alinha o texto na vertical */
+  justify-content: flex-start; /* Alinha o texto à esquerda */
+  margin-top: 31px;
+}
+
+.card-add-colaborador-text {
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 13px;
+  color: #F8F8F8;
+  margin-left: 20px;
+  margin-top: 10px;
+  max-width: 220px; 
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Formulario Colaborador */
+
+/* Avatar / Image-80 */
+.formulario-user-imagem-contener {
+  position: absolute;
+  width: 225px;
+  height: 225px;
+  left: 520px;
+  top: 214px;
+  border-radius: 200px;
+  overflow: hidden;
+}
+
+.formulario-user-imagem {
+  width: 225px;
+  height: 225px;
+}
+
+.formulario-user-texto-nome {
+  position: absolute;
+  width: 567px;
+  height: 48px;
+  left: 786px;
+  top: 270px;
+
+  font-family: 'Josefin Sans', 'Trebuchet MS';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 48px;
+
+  color: #FFFFFF;
+}
+
+.formulario-texto-intrucao {
+  position: absolute;
+  width: 446px;
+  height: 64px;
+  left: 1342px;
+  top: 325px;
+
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 32px;
+
+  color: #FFFFFF;
+}
+
+
+/* styles.css */
+
+.button-container {
+  position: absolute;
+  width: 132.31px;
+  height: 33.65px;
+  left: 1572px;
+  top: 998px;
+}
+
+.custom-button {
+  width: 120.83px;
+  height: 33.65px;
+  background: #37ABC8;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none; 
+  outline: none;
+}
+
+.button-text {
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  color: #F8F8F8;
+}
+
+/* Estilos CSS para os perfis de colaboradores */
+.perfis-Colaboradores {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Espaço entre os perfis */
+}
+
+.perfil {
+  position: relative;
+  flex-basis: calc(50% - 10px); /* Divide em duas colunas */
+  display: flex;
+  align-items: flex-start; /* Alinha os itens ao topo do perfil */
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.perfil-Imagem {
+  width: auto;
+  height: auto;
+  padding: 20px;
+  margin-right: 20px;
+  position: relative;
+}
+
+.perfil-Info {
+  position: absolute;
+  top: 35%;
+  left: 45%;
+  padding: 10px;
+  color: #F8F8F8;
+  font-weight: bold;
+  font-family: 'Josefin Sans', 'Helvetica';
+  line-height: 1;
+}
+
+.username-overlay {
+  margin: 0;
+}
+
+.cargo-Cor {
+  color: #000000;
+}
+
+.custom-select {
+  position: absolute;
+  left: 786px;
+  top: 325px;
+  width: 367px;
+  height: 67px;
+  background: #37ABC8;
+  border-radius: 29px;
+  overflow: hidden;
+}
+
+/* Estilizando o seletor dentro do contêiner */
+.custom-select select {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #000000;
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 24px;
+  padding: 0 10px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Ícone personalizado (opcional) */
+.custom-select::after {
+  content: '\25BC'; /* Ícone da seta para baixo */
+  font-size: 23px;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+/* Estilizando a caixa de texto */
+.input-box {
+  position: absolute;
+  width: 67%;
+  max-width: 1267px;
+  height: 450px;
+  left: 520px;
+  top: 474px;
+  background: #37ABC8;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  padding: 20px;
+}
+
+/* Estilizando o textarea dentro da caixa */
+#user-input {
+  width: 100%;
+  height: 100%;
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-size: 16px;
+  border: none; /* Remova a borda padrão se desejar */
+  outline: none; /* Remova a borda de foco se desejar */
+  background: transparent; /* Torna o fundo transparente */
+  color: #000000;
+}
+
+/* Estilo para o modal */
+.confirmation-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Conteúdo do modal */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  text-align: center;
+}
+
+/* Estilo para o botão de fechar */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.containerLogin {
+  width: 35%;
+  text-align: left;
+  font-size: large;
+  margin: 60px auto 0;
+  margin-left: 50px;
+  min-height: 350px;
+  border: 4px solid #37ABC8;
+  border-radius: 5%;
+  background-color: #23353F;
+  padding: 20px;
+}
+
+
+.password-field label {
+  margin-left: 2px;
+}
+
+.container {
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.input-container {
+  margin-bottom: 10px;
+}
+
+.input-container label {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.input-container input[type="text"],
+.input-container input[type="password"] {
+  width: 300px;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 10px;
+  background-color: #3A525F;
+}
+
+.btn-container {
+  text-align: right;
+}
+
+.card-container-nome-add-gestor {
+  position: absolute;
+  height: 51px;
+  left: 860px;
+  top: 300px;
+}
+
+.card-background-nome-add-gestor  {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #14B7C0;
+  mix-blend-mode: normal;
+  border-radius: 15px;
+}
+
+.card-text-nome-add-gestor  {
+  position: absolute;
+  width: 100%;
+  height: 51px;
+  font-family: 'Josefin Sans', 'Trebuchet MS';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 51px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  white-space: nowrap;
+}
+
+.email-box-add-gestor {
+  position: absolute;
+  height: 18px;
+  left: 870px;
+  top: 369px;
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  color: #FFFFFF;
+}
+
+.quadrado-legenda-grafico {
+  position: absolute;
+  width: 20.54px;
+  height: 14.8px;
+  left: 20px;
+  top: 90px;
+
+  background: #F8F8F8;
+}
+
+.caixa-texto-legenda-grafico {
+  position: absolute;
+  width: 231.12px;
+  height: 105.8px;
+  left: 844px;
+  top: 764px;
+  background: transparent;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 20px;
+  color: #FFFFFF;
+}
+
+.legenda-texto-legenda-grafico {
+  position: absolute;
+  width: 193.12px;
+  height: 13.32px;
+  left: 50px;
+  top: 90px;
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 20px;
+  color: #FFFFFF;
+}
+
+.numero-meio-grafico {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  left: 793px;
+  top: 470px;
+
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 70px;
+  line-height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  color: #FFFFFF;
+}
+
+.numero-meio-grafico-menor {
+  position: absolute;
+  width: 152.19px;
+  height: 152.19px;
+  left: 618px;
+  top: 458px;
+
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  color: #FFFFFF;
+}
+
+/* ESSA FUNÇÃO NÃO IMPACTA EM NOSSA FUNCIONALIDADE, POR ISSO NÃO TEMOS SUA TELA */
+.sem-funcao{
+  position: absolute;
+  width: 1170px;
+  height: 263px;
+  left: 568px;
+  top: 410px;
+
+  font-family: 'Josefin Sans', 'Trebuchet MS';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 70px;
+  line-height: 70px;
+  display: flex;
+  align-items: center;
+
+  color: #F8F8F8;
+}
+
+.pagina-cadastro {
+  width: 35%;
+  text-align: left;
+  font-size: large;
+  margin: 60px auto 0;
+  margin-left: 50px;
+  min-height: 350px;
+  border: 4px solid #37ABC8;
+  border-radius: 5%;
+  background-color: #23353F;
+  padding: 20px;
+}
+
+.link-voltar-login {
+  color: RGB(5, 99, 193);
+}
+
+.link-voltar-login:hover {
+  color: white;
+}
+
+.notificacao-fundo {
+  box-sizing: border-box;
+  position: absolute;
+  width: 827px;
+  height: 371px;
+  top: 50%;
+  left: 58%;
+  transform: translate(-50%, -50%);
+  background: #23353F;
+  mix-blend-mode: normal;
+  border: 4px solid #37ABC8;
+  border-radius: 35px;
+}
+
+.notificacao-titulo {
+  position: absolute;
+  width: 820px;
+  height: 52px;
+  top: 70px;
+
+  font-family: 'Josefin Sans', 'Trebuchet MS';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 64px;
+  text-align: center;
+  justify-content: center;
+  
+
+  color: #FFFFFF;
+}
+
+.notificacao-mensagem {
+  position: absolute;
+  width: 820px;
+  height: 49px;
+  top: 160px;
+
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 35px;
+  text-align: center;
+  justify-content: center;
+
+  color: #FFFFFF;
+}
+.notificacao-botao-contener {
+  position: absolute;
+  width: 820px;
+  height: 49px;
+  top: 270px;
+  text-align: center;
+  justify-content: center;
+}
+
+.notificacao-botao {
+  width: 225px;
+  height: 57px;
+
+  box-sizing: border-box;
+  background: #0ABAB5;
+  border: none;
+  border-radius: 7px;
+  margin: 2px;
+
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 45px;
+  line-height: 45px;
+  text-align: center;
+  justify-content: center;
+
+  color: #FFFFFF;
+}
+
