@@ -25,13 +25,30 @@
 
     <div class="card-text-formulario">{{perfil.motivacao}}</div>
 
-    <canvas id="graficoPizzaInteracoes" style="position: absolute; left: 618px; top: 451px; width: 152.19px; height: 152.19px;"></canvas>
+    <canvas id="graficoPizzaInteracoes" style="position: absolute; left: 560px; top: 451px; width: 152.19px; height: 152.19px;"></canvas>
 
     <div class="numero-meio-grafico-menor">{{ dados_interacoes.numero1|add:dados_interacoes.numero2 }}</div>
+
+    <div class="caixa-texto-legenda-grafico-menor">
+        Interações
+        <div class="quadrado-legenda-grafico-menor" style="background: #058DA0;"></div>
+        <div class="legenda-texto-legenda-grafico-menor">Feedbacks - {{dados_interacoes.numero1}}</div>
+        <div class="quadrado-legenda-grafico-menor" style="left: 140px;"></div>
+        <div class="legenda-texto-legenda-grafico-menor" style="left: 160px;">Suporte e Report - {{dados_interacoes.numero2}}</div>
+    </div>
    
-    <canvas id="graficoPizzaHistorico" style="position: absolute; left: 618px; top: 674px; width: 152.19px; height: 152.19px;"></canvas>
+    <canvas id="graficoPizzaHistorico" style="position: absolute; left: 560px; top: 674px; width: 152.19px; height: 152.19px;"></canvas>
 
     <div class="numero-meio-grafico-menor" style="top: 682px;">{{ dados_histrico.numero1|add:dados_histrico.numero2 }}</div>
+
+    
+    <div class="caixa-texto-legenda-grafico-menor" style="top: 831px;">
+        Mídias assistidas
+        <div class="quadrado-legenda-grafico-menor" style="background: #0ABAB5;"></div>
+        <div class="legenda-texto-legenda-grafico-menor">Completas - {{dados_histrico.numero1}}</div>
+        <div class="quadrado-legenda-grafico-menor" style="background: #1E4F56; left: 140px;"></div>
+        <div class="legenda-texto-legenda-grafico-menor" style="left: 160px;">Incompletas - {{dados_histrico.numero2}}</div>
+    </div>
 
     <div class = "buttons-forms-container-group">
         <div class="retangle-button-addmit">

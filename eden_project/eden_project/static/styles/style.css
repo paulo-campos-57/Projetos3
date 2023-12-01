@@ -987,7 +987,7 @@ body {
   background: transparent;
   padding: 20px;
   box-sizing: border-box;
-  font-family: 'Josefin Sans';
+  font-family: 'Josefin Sans', 'Helvetica';
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
@@ -1006,6 +1006,47 @@ body {
   font-weight: 300;
   font-size: 20px;
   line-height: 20px;
+  color: #FFFFFF;
+}
+
+.quadrado-legenda-grafico-menor {
+  position: absolute;
+  width: 11.68px;
+  height: 7.65px;
+  left: 20px;
+  top: 40px;
+
+  background: #F8F8F8;
+}
+
+.caixa-texto-legenda-grafico-menor {
+  position: absolute;
+  width: 230.52px;
+  height: 22.94px;
+  left: 540.48px;
+  top: 600px;
+  background: transparent;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 12px;
+  color: #FFFFFF;
+}
+
+.legenda-texto-legenda-grafico-menor {
+  position: absolute;
+  width: 120.83px;
+  height: 6.88px;
+  left: 40px;
+  top: 40px;
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 10px;
+  line-height: 10px;
   color: #FFFFFF;
 }
 
@@ -1033,7 +1074,7 @@ body {
   position: absolute;
   width: 152.19px;
   height: 152.19px;
-  left: 618px;
+  left: 560px;
   top: 458px;
 
   font-family: 'Josefin Sans', 'Helvetica';
