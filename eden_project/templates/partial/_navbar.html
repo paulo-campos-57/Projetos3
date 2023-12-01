@@ -11,14 +11,8 @@
             </a>
         </li>
 
-        <li>
-            <a class="home" href="{% url 'home' %}" style="display: block;">
-                <img class="icone_navbar" id="IconeHome" src="{% static 'assets/imagens/Botao_Home.png' %}" alt="home">
-            </a>
-        </li>
-
         {% if perfil_colaborador %}
-          {% if perfil_colaborador.atividade %}
+          {% if perfil_colaborador.atividade and perfil_colaborador.status == 'aprovado' %}
 
             {% if perfil_colaborador.cargo == 'masteruser' or perfil_colaborador.cargo == 'midiauser' %}
                 <li>
@@ -43,31 +37,30 @@
             {% else %}
             {% endif %}
           {% else %}
-            {% if perfil_colaborador.status != 'analise' %}
+            {% if perfil_colaborador.atividade and perfil_colaborador.status == 'analise' %}
+                <li>
+                    <a class="formularioColaborador" href="{% url 'formulario_colaborador' %}" style="display: block;">
+                        <img class="icone_navbar" src="{% static 'assets/imagens/IconeFormularioChamado.png' %}" style="width: 297.78; height: 63px;" alt="formularioColaborador">
+                    </a>
+                </li>
+            {% else %}
                 <li>
                     <a class="formularioColaborador" href="{% url 'formulario_colaborador' %}" style="display: block;">
                         <img class="icone_navbar" id="IconeFormularioColaborador" src="{% static 'assets/imagens/FormularioColaborador.png' %}" alt="formularioColaborador">
                     </a>
                 </li>
-            {% else %}
             {% endif %}
+            
           {% endif %}
         {% else %}
-            {% if perfil_colaborador.status != 'analise' %}
-                <li>
-                    <a class="formularioColaborador" href="{% url 'formulario_colaborador' %}" style="display: block;">
-                        <img class="icone_navbar" id="IconeFormularioColaborador" src="{% static 'assets/imagens/FormularioColaborador.png' %}" alt="formularioColaborador">
-                    </a>
-                </li>
-            {% else %}
-            {% endif %}
+            <li>
+                <a class="formularioColaborador" href="{% url 'formulario_colaborador' %}" style="display: block;">
+                    <img class="icone_navbar" id="IconeFormularioColaborador" src="{% static 'assets/imagens/FormularioColaborador.png' %}" alt="formularioColaborador">
+                </a>
+            </li>
+            
         {% endif %}
 
-        <li>
-            <a class="configuracao" href="{% url 'configuracoes' %}" style="display: block;">
-                <img class="icone_navbar" id="IconeConfiguracao" src="{% static 'assets/imagens/BotaoConfiguracao.png' %}" alt="configuracao">
-            </a>
-        </li>
 
         <li>
             <a class="suporte" href="{% url 'suporte_e_reporte' %}" style="display: block;">
@@ -136,12 +129,6 @@
             iconeGestaoEquipe.src = "{% static 'assets/imagens/BotaoGestaoEquipe2.png' %}";
         }
 
-        if (urlAtual.endsWith('/')) {
-            var iconeHome = document.getElementById('IconeHome');
-            var setaBack = document.getElementById('SetaBackID');
-            iconeHome.src = "{% static 'assets/imagens/Botao_Home2.png' %}";
-            setaBack.style.display = 'none';
-        }
 
         if (urlAtual.includes('formulario_colaborador')) {
             var iconeFormularioColaborador = document.getElementById('IconeFormularioColaborador');
@@ -153,10 +140,6 @@
             iconeGestaoTitulos.src = "{% static 'assets/imagens/BotaoGestaoTitulos2.png' %}";
         }
 
-        if (urlAtual.includes('configuracoes')) {
-            var iconeConfiguracao = document.getElementById('IconeConfiguracao');
-            iconeConfiguracao.src = "{% static 'assets/imagens/BotaoConfiguracao2.png' %}";
-        }
 
         if (urlAtual.includes('suporte_e_reporte')) {
             var iconeSuporteReporte = document.getElementById('IconeSuporteReporte');

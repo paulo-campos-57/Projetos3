@@ -19,13 +19,21 @@ def home(request):
     if request.user.is_authenticated:
         try:
             perfil_colaborador = getPerfilColaborador(request)
+
+            if perfil_colaborador.atividade and perfil_colaborador.status == 'aprovado':
+                if perfil_colaborador.cargo == 'reportuser':
+                    return redirect("suporte_e_reporte")
+                else:
+                    return redirect("gestao_titulos")
+            else:
+                return redirect("formulario_colaborador")
         except PerfilColaborador.DoesNotExist:
             perfil_colaborador = None
 
     else:
         return redirect("login")
     
-    return render(request, 'index.html', {'perfil_colaborador' : perfil_colaborador})
+    return redirect("formulario_colaborador")
 
 def aceitar_chamar(request):
     user = getUser(request)
@@ -151,7 +159,7 @@ def formulario_colaborador(request):
 
     if perfil_colaborador == None:
         perfil_colaborador = intancePerfilColaborador(user, 'null', " ", 'preenchendo', False)
-    elif perfil_colaborador == 'aprovado' or perfil_colaborador == 'analise':
+    elif perfil_colaborador == 'aprovado':
         return redirect("home")
 
     if request.method == 'POST':
@@ -177,7 +185,7 @@ def formulario_colaborador(request):
         form = PerfilColacoradorForm(instance=perfil_colaborador)
 
     
-    return render(request, 'formulario_colaborador.html', {'form': form})
+    return render(request, 'formulario_colaborador.html', {'perfil_colaborador' : perfil_colaborador, 'form': form})
 
 def novos_membros(request):
     if request.user.is_authenticated:

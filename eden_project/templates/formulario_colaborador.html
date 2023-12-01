@@ -5,7 +5,50 @@
 <body>
     <!-- seu_template_cargo.html -->
     {% include 'partial/_navbar.html'%}
-    
+
+    {% if perfil_colaborador %}
+
+        {% if perfil_colaborador.status == 'analise' and perfil_colaborador.atividade == False %}
+            <div class="fundo-cinza-formulario-desabilitado"></div>
+
+            <div class="texto-formulario-desabilitado">
+                ABA DESABILITADA!<br>
+                (Você já enviou um formulário!)
+            </div>
+        {% elif perfil_colaborador.status == 'analise' and perfil_colaborador.atividade == True %}
+            <div class="fundo-cinza-formulario-desabilitado"></div>
+            <div class="notificacao-fundo">
+                <div class="notificacao-titulo">Equipe Libriflix</div>
+                {% if perfil_colaborador.cargo == 'reportuser' %}
+                    <div class="notificacao-mensagem">
+                        Você foi chamado para a equipe de Suporte e Reporte
+                    </div>
+                {% elif perfil_colaborador.cargo == 'midiauser' %}
+                    <div class="notificacao-mensagem">
+                        Você foi chamado para o cargo de Gestor de Titulos
+                    </div>
+                {% else %}
+                {% endif %}
+
+                <div class="notificacao-botao-contener">
+                    <a href="{% url 'aceitar_chamar' %}" style="text-decoration: none;">
+                        <button class="notificacao-botao">
+                            Aceitar
+                        </button>
+                    </a>
+
+                    <a href="{% url 'negar_chamar' %}" style="text-decoration: none;">
+                        <button class="notificacao-botao" style="background-color: #A00128;" >
+                            Negar
+                        </button>
+                    </a>
+                    
+                </div>
+            </div>
+        {% else %}
+        {% endif %}
+    {% else %}
+    {% endif %}
     <div>
         <div class="colaborador_texto_navbar_vertical">Fomulario</div>
         <img class="formulario_logo_navbar_vertical" src="{% static 'assets/logos/Logo2.png' %}" alt="Lumi">
