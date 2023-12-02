@@ -9,6 +9,7 @@ from gestor.DAOs.UserFeedbackDAO import getFeedbacksUser
 from gestor.DAOs.FormularioReporteDAO import getFormularioReporteUser
 from gestor.DAOs.FormularioSuporteDAO import getFormularioSuporteUser
 from gestor.DAOs.MidiasDAO import instanceMidia, getMidiaByAutor, getMidiaByTitulo, getTodasMidias
+from gestor.DAOs.MensagensDAO import intanceMensagemNotificacao, getNotificacaoUser
 from .forms import PerfilColacoradorForm, FormularioReporteForm, MensagensForm, PerfilColacoradorFormChamar, FormularioVazio
 from django.contrib.auth import authenticate, logout, login as django_login
 from django.contrib.auth.forms import UserCreationForm
@@ -160,6 +161,7 @@ def enviar_mensagem(request):
 def formulario_colaborador(request):
     perfil_colaborador = getPerfilColaborador(request)
     user = getUser(request)
+    notificacao = getNotificacaoUser(user)
 
     if perfil_colaborador == None:
         perfil_colaborador = intancePerfilColaborador(user, 'null', " ", 'preenchendo', False)
@@ -199,7 +201,7 @@ def formulario_colaborador(request):
     form = PerfilColacoradorForm(instance=perfil_colaborador)
 
     
-    return render(request, 'formulario_colaborador.html', {'perfil_colaborador' : perfil_colaborador, 'form': form})
+    return render(request, 'formulario_colaborador.html', {'perfil_colaborador' : perfil_colaborador, 'form': form, 'notificacao' : notificacao})
 
 def novos_membros(request):
     if request.user.is_authenticated:
@@ -402,12 +404,12 @@ def novos_membros_formulario_user(request, user_id):
     
 #def remocao
 def remocao(request, perfil_id):
+    user = getUser(request)
     perfil = get_object_or_404(PerfilColaborador, id=perfil_id)
 
     if request.method == 'POST':
         motivo_remocao = request.POST.get('motivo_remocao')
-        perfil.motivo_remocao = motivo_remocao
-        perfil.save()
+        intanceMensagemNotificacao(user, perfil.user, motivo_remocao)
 
         perfil.delete()
 
@@ -546,4 +548,15 @@ def enviar_formulario_suporte(request):
         return HttpResponse('Formulário de suporte enviado com sucesso!')
 
     return redirect("home")
-    
+
+
+def execluir_notificacao(request):
+    user = getUser(request)
+
+    if user == None:
+        return redirect("login")
+    else:
+       notificaiao = getNotificacaoUser(user)
+       notificaiao.delete()
+
+    return redirect("home")
