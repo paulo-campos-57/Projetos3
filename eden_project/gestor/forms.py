@@ -29,7 +29,7 @@ class PerfilColacoradorFormChamar(forms.ModelForm):
 class MensagensForm(ModelForm):
     class Meta:
         model = Mensagens
-        fields = ('userDestino', 'mensagem', 'contexto')
+        fields = ('mensagem', 'contexto')
 # user
 # userDestino
 # mensagem

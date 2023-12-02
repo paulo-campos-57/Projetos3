@@ -9,6 +9,7 @@ from gestor.DAOs.UserFeedbackDAO import getFeedbacksUser
 from gestor.DAOs.FormularioReporteDAO import getFormularioReporteUser
 from gestor.DAOs.FormularioSuporteDAO import getFormularioSuporteUser
 from gestor.DAOs.MidiasDAO import instanceMidia, getMidiaByAutor, getMidiaByTitulo, getTodasMidias
+from gestor.DAOs.MensagensDAO import intanceMensagemNotificacao, getNotificacaoUser
 from .forms import PerfilColacoradorForm, FormularioReporteForm, MensagensForm, PerfilColacoradorFormChamar, FormularioVazio
 from django.contrib.auth import authenticate, logout, login as django_login
 from django.contrib.auth.forms import UserCreationForm
@@ -402,12 +403,12 @@ def novos_membros_formulario_user(request, user_id):
     
 #def remocao
 def remocao(request, perfil_id):
+    user = getUser(request)
     perfil = get_object_or_404(PerfilColaborador, id=perfil_id)
 
     if request.method == 'POST':
         motivo_remocao = request.POST.get('motivo_remocao')
-        perfil.motivo_remocao = motivo_remocao
-        perfil.save()
+        intanceMensagemNotificacao(user, perfil.user, motivo_remocao)
 
         perfil.delete()
 
