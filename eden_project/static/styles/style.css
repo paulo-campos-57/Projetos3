@@ -1196,3 +1196,6 @@ body {
   color: #FFFFFF;
 }
 
+.botao-enviar-solicitacao:hover {
+  cursor: pointer;
+}

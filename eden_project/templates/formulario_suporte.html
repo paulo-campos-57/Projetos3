@@ -7,6 +7,9 @@
 
     {% if perfil_colaborador %}
         <div class="colaborador_texto_navbar_vertical">Solicitação de Suporte</div>
+        <a class="botaoSair" href="{% url 'home' %}" style="display: block;">
+            <img class="navbar-seta-voltar" id="SetaBackID" src="{% static 'assets/imagens/SetaBack.png' %}" style="display: block;" alt="botaoSair">
+        </a>
 
         <div class="card-add-colaborador" style="margin-left: 45%; padding: 8%; position: fixed;">
 
@@ -21,15 +24,14 @@
                             <br>
                         </div>
 
-                        <form method="post" action="#">{% csrf_token %}
-                            
-                            <textarea class="card-formulario-suporte-box" style="resize: none;" name="motivo_remocao" id="motivo_remocao" rows="16" cols="65">{{ perfil.motivo_remocao }} </textarea>
-
-                            <button type="submit" style="border: none; margin-left: 1%; margin-top: 7%; outline: none; background: none;">
-                                <img style="border: none; height: 50px; margin-top: -8px;" src="{% static 'assets/imagens/BotaoDeEnviar.png' %}" alt="Botão de Enviar">
-                            </button>
+                        <form method="post" action="{% url 'enviar_formulario_suporte' %}">{% csrf_token %}
+                            <textarea class="card-formulario-suporte-box" style="resize: none;" name="texto_suporte" id="texto_suporte" rows="16" cols="65"></textarea>
 
                             <input type="hidden" name="perfil_id" value="{{ perfil.id }}">
+
+                            <button type="submit" style="border: none; margin-left: 1%; margin-top: 7%; outline: none; background: none;">
+                                <img style="border: none; height: 50px; margin-top: -8px;" src="{% static 'assets/imagens/BotaoDeEnviar.png' %}" alt="Botão de Enviar" class="botao-enviar-solicitacao">
+                            </button>
                         </form>
                     </div>                                             
                 </div>

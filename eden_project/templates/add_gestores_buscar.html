@@ -3,12 +3,15 @@
 {% block content %}
 <body>
 
-    {% include 'partial/_navbar.html'%}
+  {% include 'partial/_navbar.html'%}
 
-    <!---->
   <div>
     <div class="colaborador_texto_navbar_vertical">Novos Membros</div>
   </div>  
+
+  <a class="botaoSair" href="{% url 'novos_membros' %}" style="display: block;">
+    <img class="navbar-seta-voltar" id="SetaBackID" src="{% static 'assets/imagens/SetaBack.png' %}" style="display: block;" alt="botaoSair">
+  </a>
 
   <div class="search-bar">
     <form id="search-form">

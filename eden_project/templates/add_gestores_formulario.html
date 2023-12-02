@@ -5,8 +5,12 @@
 
     {% include 'partial/_navbar.html'%}
 
-    <img src="{% static 'assets/icones/SetaVolta.png' %}" alt="setaVoltar">
+    <a class="botaoSair" href="{% url 'novos_membros' %}" style="display: block;">
+      <img class="navbar-seta-voltar" id="SetaBackID" src="{% static 'assets/imagens/SetaBack.png' %}" style="display: block;" alt="botaoSair">
+    </a>
+
     <div class="colaborador_texto_navbar_vertical">Novos Membros</div>
+    
     {% if formularios %}
       <div class="card-add-colaborador-grid">
           {% for perfil in formularios %}
