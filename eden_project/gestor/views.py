@@ -483,3 +483,18 @@ def formulario_suporte(request):
 
         
     return render(request, "formulario_suporte.html", {'perfil_colaborador' : perfil_colaborador})
+
+def enviar_formulario_suporte(request):
+    if request.method == 'POST':
+        texto_suporte = request.POST.get('texto_suporte')
+        username = request.user.username
+
+        # Salve os dados no banco de dados
+        formulario_suporte = FormularioSuporte(user=request.user, texto=texto_suporte)
+        formulario_suporte.save()
+
+        # Redirecione para a página de sucesso ou exiba uma mensagem
+        return HttpResponse('Formulário de suporte enviado com sucesso!')
+
+    return redirect("home")
+    

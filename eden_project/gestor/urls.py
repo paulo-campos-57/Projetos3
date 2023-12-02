@@ -1,5 +1,5 @@
 from django.urls import path
-from gestor.views import home, login, logout_logic, cadastro, user_menu, gestao_equipe, colaboradores, usuario_cadastrado, homeMasterUser, enviar_mensagem, formulario_colaborador, novos_membros, novos_membros_formulario, novos_membros_buscar, novos_membros_buscar_user, gestao_equipe_buscar_user, novos_membros_formulario_user, suporte_e_reporte, configuracoes, gestao_titulos, aceitar_chamar, negar_chamar, formulario_suporte
+from gestor.views import home, login, logout_logic, cadastro, user_menu, gestao_equipe, colaboradores, usuario_cadastrado, homeMasterUser, enviar_mensagem, formulario_colaborador, novos_membros, novos_membros_formulario, novos_membros_buscar, novos_membros_buscar_user, gestao_equipe_buscar_user, novos_membros_formulario_user, suporte_e_reporte, configuracoes, gestao_titulos, aceitar_chamar, negar_chamar, formulario_suporte,enviar_formulario_suporte
 from .views import remocao, alterar_cargo
 
 urlpatterns = [
@@ -28,4 +28,5 @@ urlpatterns = [
     path('noficicacao/chamar_equipe/aceitar', aceitar_chamar, name='aceitar_chamar'),
     path('noficicacao/chamar_equipe/negar', negar_chamar, name='negar_chamar'),
     path('formulario_suporte', formulario_suporte, name='formulario_suporte'),
+    path('enviar-formulario-suporte/', enviar_formulario_suporte, name='enviar_formulario_suporte'),
 ]    
