@@ -20,29 +20,152 @@
             <input class="search-bar-add-colaborador" type="text" id="search-input">
         </form>
     </div>
-    
+
+    <style>
+        
+        .midia-retangulo-externo{
+            position: fixed;
+            width: 800px;
+            height: 190px;
+            left: 600px;
+            top: 296px;
+            
+            background: #5BC9C2;
+            border-radius: 15px;
+        }
+
+        .midia-retangulo-descricao{
+            position: fixed;
+            width:500px;
+            height: 139px;
+            left: 791px;
+            top: 321px;
+
+            background: #48B3AC;
+            border-radius: 15px;
+        }
+
+        .icone-autor{
+            position: fixed;
+            width: 150px;
+            height: 30.07px;
+            left: 520px;
+            top: 372px;
+            
+            box-sizing: border-box;
+
+            position: fixed;
+            width: 150px;
+            height: 30.07px;
+            left: 620px;
+            top: 372px;
+
+            background: #3BB2AB;
+            border: 1px solid #8CE8E3;
+            border-radius: 14px;
+
+        }
+
+        .icone-autor-texto{
+            position: fixed;
+            width: 170px;
+            height: 18.23px;
+            left: 655px;
+            top: 378.38px;
+
+            font-family: 'Josefin Sans';
+            font-style: italic;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 14px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+
+            color: #FFFFFF;
+        }
+
+        .midia-retangulo-descricao-texto{
+            position: fixed;
+            width: 470px;
+            height: 129px;
+            left: 805px;
+            top: 332px;
+            
+            font-family: 'Josefin Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 18px;
+            display: flex;
+            align-items: left;
+
+            color: #FFFFFF;
+        }
+
+        .midia-titulo-texto{
+            position: fixed;
+            width: 180px;
+            height: 56px;
+            left: 610px;
+            top: 310px;
+
+            font-family: 'Josefin Sans';
+            font-style: normal;
+            font-weight: 450;
+            font-size: 18px;
+            line-height: 18px;
+            display: flex;
+            align-items: center;
+
+            color: #FFFFFF;
+        }
+
+        .midia-datapostagem-texto{
+            position: fixed;
+            width: 170px;
+            height: 28px;
+            left: 661px;
+            top: 395px;
+
+            font-family: 'Josefin Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 14px;
+            display: flex;
+            align-items: flex-end;
+
+            color: #D5F3F1;
+        }
+
+    </style>
+
     <div class="card-add-colaborador-grid" style="top: 250px;">
-        {% for midia in midias_disponiveis %}
+
             <div class="card-add-colaborador" data-midia-titulo="{{ midia.titulo }}">
                 <div class="card-add-colaborador-imagem-contener">
                     <img class="card-add-colaborador-imagem" src="{% static 'assets/imagens/CartazFilme.jpg' %}" alt="{{ midia.arqMidia }} Foto">
                 </div>
-                <div class="card-add-colaborador-blue-box">
-                    <div class="card-add-colaborador-text">
-                        Título: {{midia.titulo}}
+                <div class="midia-retangulo-externo">
+                    <div class="midia-titulo-texto">
+                        a bicicleta de kant{{midia.titulo}}
                     </div>
-                    <div class="card-add-colaborador-text">
-                        Autor: {{midia.autor}}
+                    <div class="icone-autor">
+                        <div class="icone-autor-texto">
+                           Lorem ipsum{{midia.autor}}
+                        </div>
                     </div>
-                    <div class="card-add-colaborador-text">
-                        Descrição: {{midia.descricao}}
+                    <div class="midia-retangulo-descricao">
+                        <div class="midia-retangulo-descricao-texto">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris semper luctus lorem, non cursus orci consectetur et. Nullam varius tristique elit ut dapibus. Ut vel sapien sem. Cras pharetra in tortor et imperdiet. Morbi ornare sem diam, eu rhoncus Nullam varius tristique elit ut dapibus. Ut vel sapien sem. Cras pharetra in tortor et imperdiet. Morbi ornare sem diam, eu rhoncus non cursus orci consectetur et.non cursus orci consectetur et. non cursus orci consectetur et.non cursus orci consectetur et.{{midia.descricao}}
+                        </div>
                     </div>
-                    <div class="card-add-colaborador-text">
-                        Data de Postagem: {{midia.dataPostagem|date:"d/m/Y"}}
+                    <div class="midia-datapostagem-texto">
+                        02/11/2023{{midia.dataPostagem|date:"d/m/Y"}}
                     </div>
                 </div>
             </div>
-        {% endfor %}
     </div>
       
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
