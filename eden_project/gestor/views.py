@@ -476,6 +476,15 @@ def alterar_cargo(request, perfil_id):
 
     return render(request, 'gestao_equipe.html', {'form': form, 'perfil': perfil})
 
+def formulario_suporte(request):
+    if request.user.is_authenticated:
+        try:
+            perfil_colaborador = getPerfilColaborador(request)
+        except PerfilColaborador.DoesNotExist:
+            return redirect("home")
+        
+    else:
+        return redirect("login")
 
-
-
+        
+    return render(request, "formulario_suporte.html", {'perfil_colaborador' : perfil_colaborador})

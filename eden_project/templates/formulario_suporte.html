@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<body style="display: flex; align-items:flex-start;">
+    {% include 'partial/_navbar.html'%}
+
+    {% if perfil_colaborador %}
+        <div class="colaborador_texto_navbar_vertical">Solicitação de Suporte</div>
+
+        <div class="card-add-colaborador" style="margin-left: 45%; padding: 8%; position: fixed;">
+
+            <div class="card-gestao-equipe" style="padding: 5%; position: fixed; display: block;">
+            
+                <div class="card-formulario-suporte-contener">
+
+                    <div class="card-formulario-suporte-box">
+                        
+                        <div class="card-formulario-suporte-text" style="text-align: center; align-items: center;">
+                            <strong style="font-size:xx-large; color: #F8F8F8;">Solicitação de Suporte</strong>
+                            <br>
+                        </div>
+
+                        <form method="post" action="#">{% csrf_token %}
+                            
+                            <textarea class="card-formulario-suporte-box" style="resize: none;" name="motivo_remocao" id="motivo_remocao" rows="16" cols="65">{{ perfil.motivo_remocao }} </textarea>
+
+                            <button type="submit" style="border: none; margin-left: 1%; margin-top: 7%; outline: none; background: none;">
+                                <img style="border: none; height: 50px; margin-top: -8px;" src="{% static 'assets/imagens/BotaoEnviar.png' %}" alt="Botão de Enviar">
+                            </button>
+
+                            <input type="hidden" name="perfil_id" value="{{ perfil.id }}">
+                        </form>
+                    </div>                                             
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{% else %}
+    <p>Não foi possível encontrar o perfil do colaborador.</p>
+{% endif %}
+{% endblock %}

@@ -34,6 +34,12 @@
                         <img class="icone_navbar" id="IconeGestaoEquipe" src="{% static 'assets/imagens/BotaoGestaoEquipe.png' %}" alt="gestaoEquipe">
                     </a>
                 </li>
+
+                <li>
+                    <a class="suporte" href="{% url 'suporte_e_reporte' %}" style="display: block;">
+                        <img class="icone_navbar" id="IconeSuporteReporte" src="{% static 'assets/imagens/BotaoSuporte.png' %}" alt="suporte">
+                    </a>
+                </li>
             {% else %}
             {% endif %}
           {% else %}
@@ -43,10 +49,22 @@
                         <img class="icone_navbar" src="{% static 'assets/imagens/IconeFormularioChamado.png' %}" style="width: 297.78; height: 63px;" alt="formularioColaborador">
                     </a>
                 </li>
+
+                <li>
+                    <a class="suporte" href="{% url 'formulario_suporte' %}" style="display: block;">
+                        <img class="icone_navbar" id="IconeSuporteReporte" src="{% static 'assets/imagens/BotaoSuporte.png' %}" alt="suporte">
+                    </a>
+                </li>
             {% else %}
                 <li>
                     <a class="formularioColaborador" href="{% url 'formulario_colaborador' %}" style="display: block;">
                         <img class="icone_navbar" id="IconeFormularioColaborador" src="{% static 'assets/imagens/FormularioColaborador.png' %}" alt="formularioColaborador">
+                    </a>
+                </li>
+
+                <li>
+                    <a class="suporte" href="{% url 'formulario_suporte' %}" style="display: block;">
+                        <img class="icone_navbar" id="IconeSuporteReporte" src="{% static 'assets/imagens/BotaoSuporte.png' %}" alt="suporte">
                     </a>
                 </li>
             {% endif %}
@@ -60,13 +78,6 @@
             </li>
             
         {% endif %}
-
-
-        <li>
-            <a class="suporte" href="{% url 'suporte_e_reporte' %}" style="display: block;">
-                <img class="icone_navbar" id="IconeSuporteReporte" src="{% static 'assets/imagens/BotaoSuporte.png' %}" alt="suporte">
-            </a>
-        </li>
 
         &nbsp;
 
@@ -142,6 +153,11 @@
 
 
         if (urlAtual.includes('suporte_e_reporte')) {
+            var iconeSuporteReporte = document.getElementById('IconeSuporteReporte');
+            iconeSuporteReporte.src = "{% static 'assets/imagens/BotaoSuporte2.png' %}";
+        }
+
+        if (urlAtual.includes('formulario_suporte')) {
             var iconeSuporteReporte = document.getElementById('IconeSuporteReporte');
             iconeSuporteReporte.src = "{% static 'assets/imagens/BotaoSuporte2.png' %}";
         }

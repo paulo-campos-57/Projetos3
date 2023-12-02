@@ -580,6 +580,35 @@ body {
   text-overflow: ellipsis;
 }
 
+.card-formulario-suporte-text {
+  font-family: 'Josefin Sans', 'Helvetica';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  color: #F8F8F8;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  width: 320px; 
+}
+
+.card-formulario-suporte-contener {
+  display:flex;
+  justify-content: space-between;
+}
+
+.card-formulario-suporte-box {
+  width: 340px;
+  height: 160px;
+  border-right: 2px solid #109D9C;
+  border-left: 2px solid #109D9C;
+  border-top: 2px solid #109D9C;
+  border-bottom: 2px solid #109D9C;
+  border-radius: 20px;
+  margin-right: 20px; /* Adicione margem entre as caixas */
+  margin-top: 10px;
+}
+
 .card-gestao-equipe-text {
   font-family: 'Josefin Sans', 'Helvetica';
   font-style: normal;
