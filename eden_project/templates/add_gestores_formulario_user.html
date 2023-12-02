@@ -34,6 +34,10 @@
     
     <div class="colaborador_texto_navbar_vertical">{{ perfil.user.username }}</div>
 
+    <a class="botaoSair" href="{% url 'novos_membros_formulario' %}" style="display: block;">
+        <img class="navbar-seta-voltar" id="SetaBackID" src="{% static 'assets/imagens/SetaBack.png' %}" style="display: block;" alt="botaoSair">
+    </a>
+
     <div class="formulario-user-imagem-contener">
         <img class="formulario-user-imagem" src="{% static 'assets/fotos/foto1.jpeg' %}" alt="{{ perfil.user.username }} Foto">
     </div>

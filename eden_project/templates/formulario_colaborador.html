@@ -53,6 +53,10 @@
         <div class="colaborador_texto_navbar_vertical">Fomulario</div>
         <img class="formulario_logo_navbar_vertical" style="position: fixed;" src="{% static 'assets/logos/Logo2.png' %}" alt="Lumi">
     </div>  
+    
+    <a class="botaoSair" href="{% url 'home' %}" style="display: block;">
+        <img class="navbar-seta-voltar" id="SetaBackID" src="{% static 'assets/imagens/SetaBack.png' %}" style="display: block;" alt="botaoSair">
+    </a>
 
     <div class="formulario-user-imagem-contener">
         <img class="formulario-user-imagem" src="{% static 'assets/fotos/foto1.jpeg' %}" alt="{{ user.username }} Foto">

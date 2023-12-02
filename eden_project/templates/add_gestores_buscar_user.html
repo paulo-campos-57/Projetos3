@@ -7,7 +7,7 @@
 <body>
     <!-- Conteúdo detalhado do usuário aqui -->
     {% include 'partial/_navbar.html'%}
-    <a class="botaoSair" href="#" style="display: block;">
+    <a class="botaoSair" href="{% url 'novos_membros_buscar' %}" style="display: block;">
         <img class="navbar-seta-voltar" id="SetaBackID" src="{% static 'assets/imagens/SetaBack.png' %}" style="display: block;" alt="botaoSair">
     </a>
     

@@ -14,8 +14,10 @@
     {% include 'partial/_navbar.html'%}
 
     <div>
-        <img src="{% static 'assets/icones/SetaVolta.png' %}" alt="setaVoltar">
         <div class="colaborador_texto_navbar_vertical">Suporte e Reporte</div>
+        <a class="botaoSair" href="{% url 'home' %}" style="display: block;">
+            <img class="navbar-seta-voltar" id="SetaBackID" src="{% static 'assets/imagens/SetaBack.png' %}" style="display: block;" alt="botaoSair">
+        </a>
     </div>  
 
     <div style="margin-left: 380px; padding: 100px;">

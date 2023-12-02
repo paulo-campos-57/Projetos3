@@ -7,6 +7,9 @@
 
     {% if perfil_colaborador %}
         <div class="colaborador_texto_navbar_vertical">Detalhes do Usuário</div>
+        <a class="botaoSair" href="{% url 'gestao_equipe' %}" style="display: block;">
+            <img class="navbar-seta-voltar" id="SetaBackID" src="{% static 'assets/imagens/SetaBack.png' %}" style="display: block;" alt="botaoSair">
+        </a>
 
         <div class="card-add-colaborador" style="margin-left: 40%; padding: 5%; position: fixed;">
 

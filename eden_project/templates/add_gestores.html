@@ -6,6 +6,10 @@
     {% include 'partial/_navbar.html'%}
     <div class="colaborador_texto_navbar_vertical">Novos Membros</div>
 
+    <a class="botaoSair" href="{% url 'home' %}" style="display: block;">
+        <img class="navbar-seta-voltar" id="SetaBackID" src="{% static 'assets/imagens/SetaBack.png' %}" style="display: block;" alt="botaoSair">
+    </a>
+
     <a href="{% url 'novos_membros_formulario' %}">
         <img src="{% static 'assets/icones/IconeAcicionarFormulario.png' %}" alt="AdicionarFormulario" style="position: absolute; width: auto; height: 32.31%; left: 31.354%; top: 35.37%;"> 
     </a>

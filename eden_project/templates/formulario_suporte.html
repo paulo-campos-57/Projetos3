@@ -7,6 +7,9 @@
 
     {% if perfil_colaborador %}
         <div class="colaborador_texto_navbar_vertical">Solicitação de Suporte</div>
+        <a class="botaoSair" href="{% url 'home' %}" style="display: block;">
+            <img class="navbar-seta-voltar" id="SetaBackID" src="{% static 'assets/imagens/SetaBack.png' %}" style="display: block;" alt="botaoSair">
+        </a>
 
         <div class="card-add-colaborador" style="margin-left: 45%; padding: 8%; position: fixed;">
 
