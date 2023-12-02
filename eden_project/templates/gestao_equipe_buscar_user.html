@@ -55,14 +55,15 @@
                     <div class="card-gestao-equipe-motivacao-alteracao">
                         <form method="post" action="{% url 'alterar_cargo' perfil.id %}">
                             {% csrf_token %}
-                            <div class="custom-select" style="width: 42%;"> <!-- Ajuste o valor conforme necessário -->
+                            <div class="custom-select" style="left: 280px; top: 127px; width: 336px; height: 42px;"> <!-- Ajuste o valor conforme necessário -->
                                 <select id="id_opcao" name="cargo">
                                     <option value="" selected disabled>ESCOLHA UM CARGO</option>
-                                    <option value="report_user">SUPORTE E REPORTE</option>
-                                    <option value="report_user">GERENTE DE ACERVO</option>
+                                    <option value="reportuser">SUPORTE E REPORTE</option>
+                                    <option value="midiauser">GERENTE DE ACERVO</option>
+                                    <option value="masteruser">GESTOR DE EQUIPE</option>
                                 </select>
                             </div>
-                            <button type="submit" style="border: none; margin-left: 1%; margin-top: 70%; outline: none; background: none;">
+                            <button type="submit" style="border: none; margin-left: 1%; margin-top: 70%; outline: none; background: none; position: absolute; left: 270px; top:-290px">
                                 <img style="border: none;height: 50px;margin-top: -8px;" src="{% static 'assets/imagens/botaoalterar.png' %}" alt="Botão de Atualizar">
                             </button>
                         </form>
