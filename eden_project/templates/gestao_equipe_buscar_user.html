@@ -55,7 +55,7 @@
                     <div class="card-gestao-equipe-motivacao-alteracao">
                         <form method="post" action="{% url 'alterar_cargo' perfil.id %}">
                             {% csrf_token %}
-                            <div class="custom-select" style="left: 280px; top: 127px; width: 336px; height: 42px;"> <!-- Ajuste o valor conforme necessário -->
+                            <div class="custom-select" style="left: 280px; top: 127px; width: 336px; height: 42px;"> 
                                 <select id="id_opcao" name="cargo">
                                     <option value="" selected disabled>ESCOLHA UM CARGO</option>
                                     <option value="reportuser">SUPORTE E REPORTE</option>

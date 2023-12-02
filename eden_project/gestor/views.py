@@ -13,6 +13,7 @@ from django.contrib.auth import authenticate, logout, login as django_login
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import get_object_or_404
 import logging
+from django.urls import reverse
 # Create your views here.
 
 def home(request):
@@ -458,23 +459,17 @@ def alterar_cargo(request, perfil_id):
     perfil = get_object_or_404(PerfilColaborador, id=perfil_id)
 
     if request.method == 'POST':
-        form = PerfilColacoradorForm(request.POST, instance=perfil)
+        form = PerfilColacoradorFormChamar(request.POST, instance=perfil)
 
         if form.is_valid():
             novo_cargo = form.cleaned_data['cargo']
-            
-            # Certifique-se de que o novo cargo é válido (você pode personalizar isso com base em seus valores permitidos)
-            if novo_cargo in ['usuario_normal', 'outro_cargo1', 'outro_cargo2']:
-                perfil.cargo = novo_cargo
-                perfil.save()
-                return redirect('gestao_equipe_buscar_user', user_id=perfil.user.id)
-            else:
-                form.add_error('cargo', 'Cargo inválido. Escolha uma opção válida.')
+        
+            perfil.cargo = novo_cargo
+            perfil.save()
+            # Use reverse para obter a URL nomeada correta
+            return redirect(reverse('gestao_equipe_buscar_user', kwargs={'user_id': perfil.user.id}))
 
-    else:
-        form = PerfilColacoradorForm(instance=perfil)
-
-    return render(request, 'gestao_equipe.html', {'form': form, 'perfil': perfil})
+    return redirect('gestao_equipe')
 
 def formulario_suporte(request):
     if request.user.is_authenticated:
