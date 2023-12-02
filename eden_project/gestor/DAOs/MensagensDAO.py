@@ -11,6 +11,6 @@ def intanceMensagemNotificacao(user, userDestino, mensagem):
     notificacao.save()
 
 def getNotificacaoUser(userDestino):
-    notificacao = Mensagens.objects.filter(userDestino=userDestino)
+    notificacao = Mensagens.objects.filter(userDestino=userDestino).first()
 
     return notificacao
