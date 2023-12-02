@@ -7,7 +7,12 @@
 <body>
     <!-- Conteúdo detalhado do usuário aqui -->
     {% include 'partial/_navbar.html'%}
+    <a class="botaoSair" href="#" style="display: block;">
+        <img class="navbar-seta-voltar" id="SetaBackID" src="{% static 'assets/imagens/SetaBack.png' %}" style="display: block;" alt="botaoSair">
+    </a>
+    
     <div class="colaborador_texto_navbar_vertical">{{ user_.username }}</div>
+    
 
     <div class="formulario-user-imagem-contener">
         <img class="formulario-user-imagem" src="{% static 'assets/fotos/foto1.jpeg' %}" alt="{{ user.username }} Foto">
