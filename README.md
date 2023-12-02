@@ -64,7 +64,7 @@ Para usar LUMI, siga estas etapas:<br>
     //Windows  
     venv/scripts/activate
     //Linux e MacOS
-    source myenv/bin/activate
+    source venv/bin/activate
 </dt>
 8. Depois de ativar o ambiente, precisaremos instalar as dependências e bibliotecas necessárias para o funcionamento do LUMI. Utilize o comando abaixo:
 <dt> 
