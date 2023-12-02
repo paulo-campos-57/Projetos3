@@ -108,6 +108,9 @@
 
         document.querySelector('.email-box-add-gestor').style.width = tamanhoContaninerEmail + 'px'; 
 
+        var iconeNovosMembros = document.getElementById('IconeNovosMembros');
+        iconeNovosMembros.src = "{% static 'assets/imagens/BotaoNovosMembros2.png' %}";
+
         function abrirModal() {
             var modal = document.getElementById('myModal');
             modal.style.display = 'block';

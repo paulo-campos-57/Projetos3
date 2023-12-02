@@ -111,6 +111,9 @@
 
         document.querySelector('.email-box-add-gestor').style.width = tamanhoContaninerEmail + 'px'; 
 
+        var iconeNovosMembros = document.getElementById('IconeNovosMembros');
+        iconeNovosMembros.src = "{% static 'assets/imagens/BotaoNovosMembros2.png' %}";
+
         function abrirModal() {
             var cargo = document.getElementById('id_opcao').value;
 
