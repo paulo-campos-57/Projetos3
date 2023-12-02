@@ -161,6 +161,7 @@ def enviar_mensagem(request):
 def formulario_colaborador(request):
     perfil_colaborador = getPerfilColaborador(request)
     user = getUser(request)
+    notificacao = getNotificacaoUser(user)
 
     if perfil_colaborador == None:
         perfil_colaborador = intancePerfilColaborador(user, 'null', " ", 'preenchendo', False)
@@ -200,7 +201,7 @@ def formulario_colaborador(request):
     form = PerfilColacoradorForm(instance=perfil_colaborador)
 
     
-    return render(request, 'formulario_colaborador.html', {'perfil_colaborador' : perfil_colaborador, 'form': form})
+    return render(request, 'formulario_colaborador.html', {'perfil_colaborador' : perfil_colaborador, 'form': form, 'notificacao' : notificacao})
 
 def novos_membros(request):
     if request.user.is_authenticated:
@@ -547,4 +548,15 @@ def enviar_formulario_suporte(request):
         return HttpResponse('Formulário de suporte enviado com sucesso!')
 
     return redirect("home")
-    
+
+
+def execluir_notificacao(request):
+    user = getUser(request)
+
+    if user == None:
+        return redirect("login")
+    else:
+       notificaiao = getNotificacaoUser(user)
+       notificaiao.delete()
+
+    return redirect("home")
