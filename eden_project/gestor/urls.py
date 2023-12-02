@@ -24,6 +24,8 @@ urlpatterns = [
     path('suporte_e_reporte', suporte_e_reporte, name='suporte_e_reporte'),
     path('configuracoes', configuracoes, name='configuracoes'),
     path('gestao_titulos', gestao_titulos, name='gestao_titulos'),
+    # pode ser q aqui tenha alguma coisinha calmae
+    
     path('alterar_cargo/<int:perfil_id>/', alterar_cargo, name='alterar_cargo'),
     path('noficicacao/chamar_equipe/aceitar', aceitar_chamar, name='aceitar_chamar'),
     path('noficicacao/chamar_equipe/negar', negar_chamar, name='negar_chamar'),

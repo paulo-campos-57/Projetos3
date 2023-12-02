@@ -2,7 +2,9 @@
 {% load static %}
 
 {% block content %}
-    <!-- Conteúdo detalhado do usuário aqui -->
+<body>
+
+<!-- Conteúdo detalhado do usuário aqui -->
     {% include 'partial/_navbar.html' %}
 
     <div>
@@ -10,26 +12,87 @@
         <div class="colaborador_texto_navbar_vertical">Gestão de Títulos</div>
       </div>  
 
-    <div class="container" style="margin-left: 300px; padding: 200px">
-        <div class="midias-section">
-            <div class="card-gestao-equipe-text" style="font-size: x-large;">
-                <ul class="midias-list">
-                    {% if midias %}
-                        {% for midia in midias %}
-                            <li class="midia-item">
-                                <div class="midia-info">
-                                    <b>Título:</b> {{ midia.titulo }}<br>
-                                    <b>Autor:</b> {{ midia.autor }}<br>
-                                    <b>Descrição:</b> {{ midia.descricao }}
-                                </div>
-                                <img src="{{ midia.arqMidia.url }}" alt="Mídia">
-                            </li>
-                        {% endfor %}
-                    {% else %}
-                        <li>Não há mídias</li>
-                    {% endif %}
-                </ul>
+      <div class="search-bar">
+        <form id="search-form">
+            <img class="search-bar-add-colaborador-backgroud" src="{% static 'assets/imagens/BarraPesquisa.png' %}" alt="baraDePesquisa">
+            <input class="search-bar-add-colaborador" type="text" id="search-input">
+        </form>
+      </div>
+    
+      <div class="card-add-colaborador-grid" style="top: 250px;">
+        {% for midia in midias_disponiveis %}
+          <div class="card-add-colaborador" data-midia-titulo="{{ midia.titulo }}">
+            <div class="card-add-colaborador-imagem-contener">
+              <img class="card-add-colaborador-imagem" src="{% static 'assets/imagens/CartazFilme.jpg' %}" alt="{{ midia.arqMidia }} Foto">
             </div>
-        </div>
-    </div>
-{% endblock %}
+            <div class="card-add-colaborador-blue-box">
+              <div class="card-add-colaborador-text">
+                Título: {{midia.titulo}}
+              </div>
+              <div class="card-add-colaborador-text">
+                Autor: {{midia.autor}}
+              </div>
+              <div class="card-add-colaborador-text">
+                Descrição: {{midia.descricao}}
+              </div>
+              <div class="card-add-colaborador-text">
+                Data de Postagem: {{midia.dataPostagem|date:"d/m/Y"}}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      
+      <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+      <script>
+        $(document).ready(function() {
+          $('#search-input').on('input', function() {
+            var query = $(this).val();
+      
+            $.ajax({
+              url: '/gestao_titulos',
+              data: {'search_query': query},
+              dataType: 'json',
+              success: function(data) {
+                var resultsList = $('.card-add-colaborador-grid');
+                resultsList.empty();
+      
+                $.each(data.midias, function(index, midia) {
+                  resultsList.append(`
+                    <div class="card-add-colaborador" data-user-id="${midia.titulo}">
+                        <div class="card-add-colaborador-imagem-contener">
+                          <img class="card-add-colaborador-imagem" src="{% static 'assets/imagens/CartazFilme.jpg' %}" alt="{{ midia.arqMidia }} Foto">
+                        </div>
+                        <div class="card-add-colaborador-blue-box">
+                        <div class="card-add-colaborador-text">
+                          Título: ${midia.titulo}
+                        </div>
+                        <div class="card-add-colaborador-text">
+                          Autor: ${midia.autor}
+                        </div>
+                        <div class="card-add-colaborador-text">
+                            Descrição: ${midia.descricao}
+                        </div>
+                        <div class="card-add-colaborador-text">
+                          Data de Postagem: ${midia.dataPostagem}
+                        </div>
+                      </div>
+                    </div>
+                  `);
+                });
+              }
+            });
+          });
+      
+        //   $(document).on('click', '.card-add-colaborador', function() {
+        //     var midiaTitulo = $(this).data('midia-titulo');
+        //     var userDetailUrl = '/gestao_titulos/buscar/titulo/' + midiaTitulo;
+        //     window.location.href = userDetailUrl;
+        //   });
+        });
+      </script>
+        
+    
+    </body>
+    </html>
+    {% endblock %} 

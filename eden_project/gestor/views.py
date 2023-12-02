@@ -1,13 +1,14 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.models import User
-from gestor.models import PerfilColaborador, FormularioSuporte, FormularioReporte, Mensagens
+from gestor.models import PerfilColaborador, FormularioSuporte, FormularioReporte, Mensagens, Midia
 from gestor.DAOs.PerfilColaboradorDAO import intancePerfilColaborador, setPerfilColaboradorAtividade, setPerfilColaboradorStatus, getPerfilColaborador, getFomulariosColaborador, getTodosPerfisColaborador, getPerfilColaboradorByUser
 from gestor.DAOs.UserDAO import getUser, getUserNoColaboretors, getUserById
 from gestor.DAOs.UserHistoricoDAO import getHistoricoComcluido, getHistoricoIncompletos
 from gestor.DAOs.UserFeedbackDAO import getFeedbacksUser
 from gestor.DAOs.FormularioReporteDAO import getFormularioReporteUser
 from gestor.DAOs.FormularioSuporteDAO import getFormularioSuporteUser
+from gestor.DAOs.MidiasDAO import instanceMidia, getMidiaByAutor, getMidiaByTitulo, getTodasMidias
 from .forms import PerfilColacoradorForm, FormularioReporteForm, MensagensForm, PerfilColacoradorFormChamar, FormularioVazio
 from django.contrib.auth import authenticate, logout, login as django_login
 from django.contrib.auth.forms import UserCreationForm
@@ -444,6 +445,8 @@ def configuracoes(request):
     
     return render(request, 'configuracoes.html', {'perfil_colaborador': perfil_colaborador})
 
+
+
 def gestao_titulos(request):
     if request.user.is_authenticated:
         try:
@@ -453,7 +456,53 @@ def gestao_titulos(request):
     else:
         return redirect("login")
     
-    return render(request, 'gestao_titulos.html', {'perfil_colaborador': perfil_colaborador})
+    midias_disponiveis = getTodasMidias()
+    midias = []
+
+    if 'search_query' in request.GET:
+        search_query = request.GET['search_query'].lower()
+        for midia in midias_disponiveis:
+            if search_query in midia.titulo.lower() or search_query in midia.autor.lower():
+                midias.append({
+                    'titulo': midia.titulo,
+                    'autor': midia.autor,
+                    'descricao': midia.descricao,
+                    'dataPostagem': midia.dataPostagem
+                })
+
+        return JsonResponse({'midias': midias})
+    
+
+    return render(request, 'gestao_titulos.html', {'perfil_colaborador': perfil_colaborador, 'midias_disponiveis': midias_disponiveis})
+
+def gestao_titulos_buscar(request):
+    if request.user.is_authenticated:
+        try:
+            perfil_colaborador = getPerfilColaborador(request)
+        except PerfilColaborador.DoesNotExist:
+            return redirect("home")
+    else:
+        return redirect("login")
+
+    midias = Midia.objects.all()  
+    midias_disponiveis = getTodosPerfisColaborador()
+
+    if 'search_query' in request.GET:
+        search_query = request.GET['search_query']
+        midias = midias.filter(
+            titulo__icontains=search_query.lower()
+        )| Midia.objects.filter(
+            autor__icontains=search_query.lower()
+        )
+
+        midia_list = [
+            {'titulo': midia.titulo, 'autor': midia.autor, 'descricao': midia.descricao, 'dataPostagem': midia.dataPostagem} for midia in midias
+        ]
+        return JsonResponse({'midias': midia_list})
+
+    return render(request, "gestao_titulos.html", {'perfil_colaborador': perfil_colaborador, 'midias_disponiveis': midias_disponiveis})
+
+
 
 def alterar_cargo(request, perfil_id):
     perfil = get_object_or_404(PerfilColaborador, id=perfil_id)
