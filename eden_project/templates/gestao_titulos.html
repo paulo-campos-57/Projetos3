@@ -22,150 +22,170 @@
     </div>
 
     <style>
-        
-        .midia-retangulo-externo{
-            position: fixed;
-            width: 800px;
-            height: 190px;
-            left: 600px;
-            top: 296px;
-            
+
+        .card-midia-grid {
+            position: absolute;
+            width: 70%;
+            left: 450px; 
+            top: 320px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        .card-midia {
+            display: flex;
+            justify-content: flex-start;
+            width: 950px;
+            height: 160px;
+            margin-left: 10px;
+            margin-bottom: 60px;
+        }
+
+        .card-midia-imagem-container {
+            width: 160px;
+            height: 160px;
+            background: #ffffff;
+            border-radius: 50%;
+            margin-right: 15px;
+            margin-top: 18px;
+            overflow: hidden;
+        }
+        .card-midia-imagem {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .card-midia-box {
+            display: flex; /* Usa Flexbox */
+            justify-content: flex-start; /* Alinha itens ao início */
+            align-items: center;
+            gap: 10px; /* Espaço entre os itens */
+            width: 750px;
+            height: 180px;
             background: #5BC9C2;
             border-radius: 15px;
+            padding: 10px; /* Espaçamento interno */
         }
 
-        .midia-retangulo-descricao{
-            position: fixed;
-            width:500px;
-            height: 139px;
-            left: 791px;
-            top: 321px;
+        .midia-titulo-texto {
+            width: 200px;
+            height: 56px;
+            font-family: 'Josefin Sans';
+            font-style: normal;
+            font-size: 20px;
+            font-weight: 400px;
+            line-height: 18px;
+            align-items: center;
+            display: center;
+            margin-bottom: 80px;
+            color: #FFFFFF;
+            text-align: center;
+        }
 
+        .midia-autor-box{
+            position: absolute;
+            width: 190px; /* Ajuste conforme necessário */
+            height: 31px; /* Altura automática baseada no conteúdo */
             background: #48B3AC;
             border-radius: 15px;
-        }
-
-        .icone-autor{
-            position: fixed;
-            width: 150px;
-            height: 30.07px;
-            left: 520px;
-            top: 372px;
-            
+            justify-content: flex-start;
             box-sizing: border-box;
 
-            position: fixed;
-            width: 150px;
-            height: 30.07px;
-            left: 620px;
-            top: 372px;
-
+            position: absolute;
+            width: 190px; /* Ajuste conforme necessário */
+            height: 31px; /* Altura automática baseada no conteúdo */
             background: #3BB2AB;
             border: 1px solid #8CE8E3;
             border-radius: 14px;
-
         }
 
-        .icone-autor-texto{
-            position: fixed;
-            width: 170px;
-            height: 18.23px;
-            left: 655px;
-            top: 378.38px;
+        .midia-autor-box-texto{
+            font-family: 'Josefin Sans', 'Helvetica';
+            font-style: italic;
+            font-weight: 400;
+            font-size: 13px;
+            line-height: 12px;
+            color: #F8F8F8;
+            margin-left: 15px;
+            margin-top: 10px;
+            max-width: 160px; 
+            white-space: nowrap; 
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-align: center;
+        }
+        
+        .midia-descricao-box {
+            width: 490px; /* Ajuste conforme necessário */
+            height: 160px; /* Altura automática baseada no conteúdo */
+            background: #48B3AC;
+            border-radius: 15px;
+            justify-content: flex-start;
+        }
 
+        .midia-descricao-box-texto {
+            font-family: 'Josefin Sans', 'Helvetica';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 17px;
+            line-height: 15px;
+            color: #F8F8F8;
+            margin-left: 15px;
+            margin-top: 15px;
+            max-width: 430px;
+            max-height: 130px;
+            overflow: auto;
+            text-overflow: ellipsis;
+            
+        }
+        
+        .midia-datapostagem-texto{
+            width: 200px;
+            height: 56px;
             font-family: 'Josefin Sans';
             font-style: italic;
-            font-weight: 500;
             font-size: 14px;
-            line-height: 14px;
-            display: flex;
-            align-items: center;
-            text-align: center;
-
-            color: #FFFFFF;
-        }
-
-        .midia-retangulo-descricao-texto{
-            position: fixed;
-            width: 470px;
-            height: 129px;
-            left: 805px;
-            top: 332px;
-            
-            font-family: 'Josefin Sans';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 15px;
+            font-weight: 400px;
             line-height: 18px;
-            display: flex;
-            align-items: left;
-
-            color: #FFFFFF;
-        }
-
-        .midia-titulo-texto{
-            position: fixed;
-            width: 180px;
-            height: 56px;
-            left: 610px;
-            top: 310px;
-
-            font-family: 'Josefin Sans';
-            font-style: normal;
-            font-weight: 450;
-            font-size: 18px;
-            line-height: 18px;
-            display: flex;
-            align-items: center;
-
-            color: #FFFFFF;
-        }
-
-        .midia-datapostagem-texto{
-            position: fixed;
-            width: 170px;
-            height: 28px;
-            left: 661px;
-            top: 395px;
-
-            font-family: 'Josefin Sans';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 14px;
-            display: flex;
-            align-items: flex-end;
-
+            margin-left: -3px;
             color: #D5F3F1;
+            text-align: center;
+            display: center;
+            align-items: left;
+            margin-top: 15px;
         }
 
     </style>
-
-    <div class="card-add-colaborador-grid" style="top: 250px;">
-
-            <div class="card-add-colaborador" data-midia-titulo="{{ midia.titulo }}">
-                <div class="card-add-colaborador-imagem-contener">
-                    <img class="card-add-colaborador-imagem" src="{% static 'assets/imagens/CartazFilme.jpg' %}" alt="{{ midia.arqMidia }} Foto">
+    
+    <div class="card-midia-grid">
+        {% for midia in midias_disponiveis %}
+            <div class="card-midia" >
+                <div class="card-midia-imagem-container">
+                    <img class="card-midia-imagem" src="{% static 'assets/imagens/CartazFilme.jpg' %}" alt="{{ midia.arqMidia }} Foto">
                 </div>
-                <div class="midia-retangulo-externo">
+                <div class="card-midia-box">
                     <div class="midia-titulo-texto">
-                        a bicicleta de kant{{midia.titulo}}
+                        {{midia.titulo}}
                     </div>
-                    <div class="icone-autor">
-                        <div class="icone-autor-texto">
-                           Lorem ipsum{{midia.autor}}
+                    <div class="midia-autor-box">
+                        <div class="midia-autor-box-texto">
+                            {{midia.autor}}
+                        </div>
+                        <div class="midia-datapostagem-texto">
+                            {{midia.dataPostagem|date:"d/m/Y"}}
                         </div>
                     </div>
-                    <div class="midia-retangulo-descricao">
-                        <div class="midia-retangulo-descricao-texto">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris semper luctus lorem, non cursus orci consectetur et. Nullam varius tristique elit ut dapibus. Ut vel sapien sem. Cras pharetra in tortor et imperdiet. Morbi ornare sem diam, eu rhoncus Nullam varius tristique elit ut dapibus. Ut vel sapien sem. Cras pharetra in tortor et imperdiet. Morbi ornare sem diam, eu rhoncus non cursus orci consectetur et.non cursus orci consectetur et. non cursus orci consectetur et.non cursus orci consectetur et.{{midia.descricao}}
+
+                    <div class="midia-descricao-box">
+                        <div class="midia-descricao-box-texto">
+                            {{midia.descricao}}
                         </div>
-                    </div>
-                    <div class="midia-datapostagem-texto">
-                        02/11/2023{{midia.dataPostagem|date:"d/m/Y"}}
                     </div>
                 </div>
             </div>
+        {% endfor %}
     </div>
       
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -179,30 +199,34 @@
                 data: {'search_query': query},
                 dataType: 'json',
                 success: function(data) {
-                var resultsList = $('.card-add-colaborador-grid');
+                var resultsList = $('.card-midia-grid');
                 resultsList.empty();
     
                 $.each(data.midias, function(index, midia) {
                     resultsList.append(`
-                        <div class="card-add-colaborador" data-user-id="${midia.titulo}">
-                            <div class="card-add-colaborador-imagem-contener">
-                                <img class="card-add-colaborador-imagem" src="{% static 'assets/imagens/CartazFilme.jpg' %}" alt="{{ midia.arqMidia }} Foto">
+                    <div class="card-midia" >
+                        <div class="card-midia-imagem-container">
+                            <img class="card-midia-imagem" src="{% static 'assets/imagens/CartazFilme.jpg' %}" alt="{{ midia.arqMidia }} Foto">
+                        </div>
+                        <div class="card-midia-box">
+                            <div class="midia-titulo-texto">
+                                ${midia.titulo}
                             </div>
-                            <div class="card-add-colaborador-blue-box">
-                            <div class="card-add-colaborador-text">
-                                Título: ${midia.titulo}
+                        <div class="midia-autor-box">
+                            <div class="midia-autor-box-texto">
+                                ${midia.autor}
                             </div>
-                            <div class="card-add-colaborador-text">
-                                Autor: ${midia.autor}
+                            <div class="midia-datapostagem-texto">
+                                ${new Date(midia.dataPostagem).toLocaleDateString()}
+                             </div>
                             </div>
-                            <div class="card-add-colaborador-text">
-                                Descrição: ${midia.descricao}
-                            </div>
-                            <div class="card-add-colaborador-text">
-                                Data de Postagem: ${midia.dataPostagem}
-                            </div>
+                            <div class="midia-descricao-box">
+                                <div class="midia-descricao-box-texto">
+                                    ${midia.descricao}
+                                </div>
                             </div>
                         </div>
+                    </div>
                     `);
                 });
             }
