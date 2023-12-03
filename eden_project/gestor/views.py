@@ -560,3 +560,17 @@ def execluir_notificacao(request):
        notificaiao.delete()
 
     return redirect("home")
+
+def remocao_midia(request, midia_id):
+    user = getUser(request)
+    midia = get_object_or_404(Midia, id=midia_id)
+
+    if request.method == 'POST':
+        motivo_remocao = request.POST.get('motivo_remocao')
+        intanceMensagemNotificacao(user, midia.autor, motivo_remocao)
+
+        midia.delete()
+
+        return redirect('gestao_titulos')  # Redirecione para a página correta após a remoção
+
+    return render(request, 'remocao_midia.html', {'midia': midia})

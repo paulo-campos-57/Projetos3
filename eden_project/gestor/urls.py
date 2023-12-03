@@ -1,5 +1,5 @@
 from django.urls import path
-from gestor.views import home, login, logout_logic, cadastro, user_menu, gestao_equipe, colaboradores, usuario_cadastrado, homeMasterUser, enviar_mensagem, formulario_colaborador, novos_membros, novos_membros_formulario, novos_membros_buscar, novos_membros_buscar_user, gestao_equipe_buscar_user, novos_membros_formulario_user, suporte_e_reporte, configuracoes, gestao_titulos, aceitar_chamar, negar_chamar, formulario_suporte,enviar_formulario_suporte, execluir_notificacao
+from gestor.views import home, login, logout_logic, cadastro, user_menu, gestao_equipe, colaboradores, usuario_cadastrado, homeMasterUser, enviar_mensagem, formulario_colaborador, novos_membros, novos_membros_formulario, novos_membros_buscar, novos_membros_buscar_user, gestao_equipe_buscar_user, novos_membros_formulario_user, suporte_e_reporte, configuracoes, gestao_titulos, aceitar_chamar, negar_chamar, formulario_suporte,enviar_formulario_suporte, execluir_notificacao,remocao_midia
 from .views import remocao, alterar_cargo
 
 urlpatterns = [
@@ -32,4 +32,5 @@ urlpatterns = [
     path('formulario_suporte', formulario_suporte, name='formulario_suporte'),
     path('enviar-formulario-suporte/', enviar_formulario_suporte, name='enviar_formulario_suporte'),
     path('notificacao/excluir', execluir_notificacao, name='execluir_notificacao'),
+    path('remover_midia/<int:midia_id>/', remocao_midia, name='remover_midia'),
 ]    

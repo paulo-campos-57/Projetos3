@@ -156,92 +156,132 @@
             align-items: left;
             margin-top: 15px;
         }
-
+        .btn-alterar-descricao{
+        border: none;
+        outline: none;
+        background: none; /* Remova o background branco */
+        padding: 0; /* Remova o preenchimento padrão */
+        }
+        .btn-remover-midia {
+        border: none;
+        outline: none;
+        background: none; /* Remova o background branco */
+        padding: 0; /* Remova o preenchimento padrão */
+        }
     </style>
     
     <div class="card-midia-grid">
         {% for midia in midias_disponiveis %}
-            <div class="card-midia" >
-                <div class="card-midia-imagem-container">
-                    <img class="card-midia-imagem" src="{% static 'assets/imagens/CartazFilme.jpg' %}" alt="{{ midia.arqMidia }} Foto">
-                </div>
-                <div class="card-midia-box">
-                    <div class="midia-titulo-texto">
-                        {{midia.titulo}}
-                    </div>
-                    <div class="midia-autor-box">
-                        <div class="midia-autor-box-texto">
-                            {{midia.autor}}
-                        </div>
-                        <div class="midia-datapostagem-texto">
-                            {{midia.dataPostagem|date:"d/m/Y"}}
-                        </div>
-                    </div>
-
-                    <div class="midia-descricao-box">
-                        <div class="midia-descricao-box-texto">
-                            {{midia.descricao}}
-                        </div>
-                    </div>
-                </div>
+        <div class="card-midia">
+            <div class="card-midia-imagem-container">
+                <img class="card-midia-imagem" src="{% static 'assets/imagens/CartazFilme.jpg' %}" alt="{{ midia.arqMidia }} Foto">
             </div>
+            <div class="card-midia-box">
+                <div class="midia-titulo-texto">
+                    {{midia.titulo}}
+                </div>
+                <div class="midia-autor-box">
+                    <div class="midia-autor-box-texto">
+                        {{midia.autor}}
+                    </div>
+                    <div class="midia-datapostagem-texto">
+                        {{midia.dataPostagem|date:"d/m/Y"}}
+                    </div>
+                </div> 
+                <div class="midia-descricao-box">
+                    <div class="midia-descricao-box-texto">
+                        {{midia.descricao}}
+                                                
+                    </div>
+                    <div class="botoes-container">
+                            <!-- Botão de alterar descrição -->
+                            <button class="btn-alterar-descricao" data-midia-id="{{ midia.id }}">
+                                <img src="{% static 'assets/imagens/botaoalterar.png' %}" style="width: 50%; border: none; outline: none; background-color: none; padding: 0%;" alt="alterar descricao">
+                            </button>
+                        
+                            <!-- Botão de remoção -->
+                            <div class=".removertitulo">
+                            <button class="btn-remover-midia" data-midia-id="{{ midia.id }}" data-url-remocao="{% url 'remover_midia' midia.id %}" style="border: none !important; outline: none !important;">
+                                <img src="{% static 'assets/imagens/RemoverFilme.png' %}" style="width: 30%; border: none; outline: none; background-color: none;" alt="Remover Filme">
+                            </button>
+                        </div>
+                        </div>
+                </div>                                             
+            </div>
+        </div>
         {% endfor %}
     </div>
-      
+    
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
-    $(document).ready(function() {
-        $('#search-input').on('input', function() {
-            var query = $(this).val();
+        $(document).ready(function() {
+            $('#search-input').on('input', function() {
+                var query = $(this).val();
     
-            $.ajax({
-                url: '/gestao_titulos',
-                data: {'search_query': query},
-                dataType: 'json',
-                success: function(data) {
-                var resultsList = $('.card-midia-grid');
-                resultsList.empty();
+                $.ajax({
+                    url: '/gestao_titulos',
+                    data: {'search_query': query},
+                    dataType: 'json',
+                    success: function(data) {
+                        var resultsList = $('.card-midia-grid');
+                        resultsList.empty();
     
-                $.each(data.midias, function(index, midia) {
-                    resultsList.append(`
-                    <div class="card-midia" >
-                        <div class="card-midia-imagem-container">
-                            <img class="card-midia-imagem" src="{% static 'assets/imagens/CartazFilme.jpg' %}" alt="{{ midia.arqMidia }} Foto">
-                        </div>
-                        <div class="card-midia-box">
-                            <div class="midia-titulo-texto">
-                                ${midia.titulo}
-                            </div>
-                        <div class="midia-autor-box">
-                            <div class="midia-autor-box-texto">
-                                ${midia.autor}
-                            </div>
-                            <div class="midia-datapostagem-texto">
-                                ${new Date(midia.dataPostagem).toLocaleDateString()}
-                             </div>
-                            </div>
-                            <div class="midia-descricao-box">
-                                <div class="midia-descricao-box-texto">
-                                    ${midia.descricao}
+                        $.each(data.midias, function(index, midia) {
+                            resultsList.append(`
+                                <div class="card-midia">
+                                    <div class="card-midia-imagem-container">
+                                        <img class="card-midia-imagem" src="{% static 'assets/imagens/CartazFilme.jpg' %}" alt="{{ midia.arqMidia }} Foto">
+                                    </div>
+                                    <div class="card-midia-box">
+                                        <div class="midia-titulo-texto">
+                                            ${midia.titulo}
+                                        </div>
+                                        <div class="midia-autor-box">
+                                            <div class="midia-autor-box-texto">
+                                                ${midia.autor}
+                                            </div>
+                                            <div class="midia-datapostagem-texto">
+                                                ${new Date(midia.dataPostagem).toLocaleDateString()}
+                                            </div>
+                                        </div>
+                                        <div class="midia-descricao-box">
+                                            <div class="midia-descricao-box-texto">
+                                                ${midia.descricao}
+                                            </div>
+                                        </div>
+                                        <!-- Botão de remoção -->
+                                        <button class="btn-remover-midia" data-midia-id="${midia.id}">Remover</button>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    `);
+                            `);
+                        });
+                    }
                 });
-            }
+            });
+    
+            // Adicione um evento de clique para os botões de remoção
+            $(document).on('click', '.btn-remover-midia', function() {
+                var midiaId = $(this).data('midia-id');
+    
+                // Faça uma chamada AJAX para a view que lidará com a remoção
+                $.ajax({
+                    url: '/remover_midia',  // Substitua pela URL correta em sua aplicação
+                    data: {'midia_id': midiaId},
+                    dataType: 'json',
+                    type: 'POST',
+                    success: function(data) {
+                        // Atualize a interface do usuário conforme necessário
+                        // Por exemplo, remova o card da mídia da interface
+                        // Você pode usar $(this).closest('.card-midia').remove(); para remover o card específico clicado
+                    },
+                    error: function(error) {
+                        console.log('Erro ao remover a mídia:', error);
+                    }
+                });
+            });
         });
-    });
-    
-    //  $(document).on('click', '.card-add-colaborador', function() {
-    //     var midiaTitulo = $(this).data('midia-titulo');
-    //     var userDetailUrl = '/gestao_titulos/buscar/titulo/' + midiaTitulo;
-    //     window.location.href = userDetailUrl;
-    //   });
-    });
     </script>
-        
-    
     </body>
     </html>
-    {% endblock %} 
+    
+    {% endblock %}
