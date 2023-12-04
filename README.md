@@ -149,10 +149,10 @@ Para usar LUMI, siga estas etapas:<br>
 
 Utilize os perfis exemplo de master user e usuário comum!
 
-*MasterUser: Gilmor
+*MasterUser: Gilmor<br>
 Senha: 12345678
 
-UserComum: MarcosSerrar
+UserComum: MarcosSerrar<br>
 Senha:12345678
 
 *Obs.: Estes perfis de usuário servem apenas para teste com os dados que estão em nosso banco. Portanto, de nada alteram o Libreflix no mundo real.
