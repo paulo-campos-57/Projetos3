@@ -32,5 +32,4 @@ urlpatterns = [
     path('formulario_suporte', formulario_suporte, name='formulario_suporte'),
     path('enviar-formulario-suporte/', enviar_formulario_suporte, name='enviar_formulario_suporte'),
     path('notificacao/excluir', execluir_notificacao, name='execluir_notificacao'),
-    path('remover_midia/<int:midia_id>/', remocao_midia, name='remover_midia'),
-]    
+    path('remocao_midia/<int:midia_id>', remocao_midia, name='remocao_midia'),]    

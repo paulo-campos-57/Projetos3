@@ -167,6 +167,8 @@
         outline: none;
         background: none; /* Remova o background branco */
         padding: 0; /* Remova o preenchimento padrão */
+        margin-top:10%;
+
         }
     </style>
     
@@ -186,26 +188,22 @@
                     </div>
                     <div class="midia-datapostagem-texto">
                         {{midia.dataPostagem|date:"d/m/Y"}}
+                        <div class="botoes-container">
+                            <!-- Botão de remoção -->
+                            <a href="{% url 'remocao_midia' midia_id=midia.id %}" style="text-decoration: none;">
+                                <button type="submit" class="btn-remover-midia">
+                                    <img src="{% static 'assets/imagens/BotaoRemover.png' %}" style="width: 45%; border: none; outline: none; background-color: none;" alt="Remover Filme">
+                                </button>
+                            </a>                            
+                        </div>
                     </div>
                 </div> 
                 <div class="midia-descricao-box">
                     <div class="midia-descricao-box-texto">
                         {{midia.descricao}}
-                                                
-                    </div>
-                    <div class="botoes-container">
-                            <!-- Botão de alterar descrição -->
-                            <button class="btn-alterar-descricao" data-midia-id="{{ midia.id }}">
-                                <img src="{% static 'assets/imagens/botaoalterar.png' %}" style="width: 50%; border: none; outline: none; background-color: none; padding: 0%;" alt="alterar descricao">
-                            </button>
                         
-                            <!-- Botão de remoção -->
-                            <div class=".removertitulo">
-                            <button class="btn-remover-midia" data-midia-id="{{ midia.id }}" data-url-remocao="{% url 'remover_midia' midia.id %}" style="border: none !important; outline: none !important;">
-                                <img src="{% static 'assets/imagens/RemoverFilme.png' %}" style="width: 30%; border: none; outline: none; background-color: none;" alt="Remover Filme">
-                            </button>
-                        </div>
-                        </div>
+                    </div>
+                    
                 </div>                                             
             </div>
         </div>

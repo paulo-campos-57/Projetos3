@@ -16,6 +16,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import get_object_or_404
 import logging
 from django.urls import reverse
+from gestor.DAOs.MidiasDAO import Midia
 # Create your views here.
 
 def home(request):
@@ -561,16 +562,17 @@ def execluir_notificacao(request):
 
     return redirect("home")
 
+'''def remover_midia(request):
+    Midia=getMidiaByTitulo
+    if request.method == 'POST':
+        instanceMidia(titulo, user, autor, descricao, status, dataPostagem, arqMidia, arqCartaz)
+        Midia.delete()
+
+        return redirect('gestao_equipe')
+
+    return render(request, 'gestao_equipe.html')'''
 def remocao_midia(request, midia_id):
     user = getUser(request)
-    midia = get_object_or_404(Midia, id=midia_id)
-
-    if request.method == 'POST':
-        motivo_remocao = request.POST.get('motivo_remocao')
-        intanceMensagemNotificacao(user, midia.autor, motivo_remocao)
-
-        midia.delete()
-
-        return redirect('gestao_titulos')  # Redirecione para a página correta após a remoção
-
-    return render(request, 'remocao_midia.html', {'midia': midia})
+    midia = get_object_or_404(Midia, pk=midia_id)
+    midia.delete()
+    return redirect('gestao_titulos')  # Redirecione para a página correta após a remoção
